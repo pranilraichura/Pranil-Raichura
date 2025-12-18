@@ -57,7 +57,7 @@ export default function ComingSoon() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                    hidden to the public for now
+                    visible to a select few for now
                 </motion.h1>
 
                 {/* Animated loading dots */}
