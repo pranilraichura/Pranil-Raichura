@@ -62,7 +62,7 @@ export default function RecommendationRequest() {
           </h2>
           <div className="w-32 h-1 bg-white mx-auto mb-4"></div>
           <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-            I would be honored if you could write a letter of recommendation for my application to the Research Science Institute (RSI) at MIT.
+            I would be honored if you could write a letter of recommendation for my application to this program.
           </p>
         </motion.div>
 
@@ -82,7 +82,7 @@ export default function RecommendationRequest() {
               <h3 className="text-2xl md:text-3xl font-bold">My Request</h3>
             </div>
             <p className="leading-relaxed mb-4 text-lg text-white/95">
-              Thank you for taking the time to learn about me through this interactive website. I am applying to the Research Science Institute (RSI) at MIT, and I would be honored if you could write a letter of recommendation for me.
+              Thank you for taking the time to learn about me through this interactive website. I am applying to this program, and I would be honored if you could write a letter of recommendation for me.
             </p>
             <p className="leading-relaxed mb-4 text-lg text-white/95">
               This website showcases my academic achievements, research projects, extracurricular activities, and personal growth throughout high school. I hope it provides you with a comprehensive understanding of who I am as a student and person.

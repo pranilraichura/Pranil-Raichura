@@ -26,7 +26,7 @@
 
 ### 4. Research Projects
 **File:** `components/ResearchProjects.tsx` (lines ~40-47)
-- **RSI Program Image**: `/images/rsi-program.jpg`
+- **Research Program Image**: `/images/research-program.jpg`
 - **AI Game Development Image**: `/images/ai-game-dev.jpg`
 - **ML Structural Engineering Image**: `/images/ml-engineering.jpg`
 
@@ -52,7 +52,7 @@ public/
 ├── images/
 │   ├── service.jpg
 │   ├── technology.jpg
-│   ├── rsi-program.jpg
+│   ├── research-program.jpg
 │   ├── ai-game-dev.jpg
 │   ├── ml-engineering.jpg
 │   ├── ap-calculus.jpg

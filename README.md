@@ -1,6 +1,6 @@
-# RSI Recommendation Website
+# Student Recommendation Website
 
-An interactive, modern Next.js website showcasing academic achievements, research projects, extracurriculars, and personal media for teachers writing recommendation letters for the Research Science Institute (RSI) @ MIT.
+An interactive, modern Next.js website showcasing academic achievements, research projects, extracurriculars, and personal media for teachers writing recommendation letters for a competitive program.
 
 ## Features
 
@@ -123,4 +123,4 @@ The site uses Tailwind CSS. Customize colors and styles in:
 
 ## License
 
-Personal project for RSI application.
+Personal project for student application.

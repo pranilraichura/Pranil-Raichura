@@ -14,64 +14,68 @@ const timelineEvents: TimelineEvent[] = [
         id: "early-pressure",
         title: "Early Pressure",
         content: [
-            "The glass wall behind me held a crowd of spectators, but I only saw one face: Samyak's. Fifth grade, first squash tournament. Each round I lost, that pressure grew louder—the belief that when it really mattered, I would fall short. After the final point, I locked myself in the bathroom and cried for twenty minutes, too ashamed to walk out.",
-            "I assumed volleyball would fix things—a team sport would spread pressure across six players. That theory lasted until my first season at one of the Bay Area's most competitive clubs. A serve came straight at me and I whiffed it completely. I started hoping to stay on the bench, where mistakes were impossible.",
+            "The glass wall behind me held a crowd of parents and kids, but I only saw one face: Samyak’s. Fifth grade. First squash tournament. I’d trained for months at an expensive Bay Area club my parents could barely justify, and I walked onto the court convinced I had to win.",
+            "Point by point, game by game, I watched the score tilt his way. Every mistake felt louder than the last. By the final point, it didn’t feel like I was just losing a match; it felt like I was proving something ugly about myself—that when it really mattered, I would fall apart.",
+            "When it was over, I ran straight to the bathroom, locked the door, and cried for twenty minutes. I stayed there partly because I didn’t want anyone to see my eyes, and partly because I didn’t know how to walk back out and pretend it was “just a game.” That memory became my first picture of pressure: bright lights, a glass wall, and a deep belief that I wasn’t built for big moments.",
         ],
     },
     {
         id: "pattern-continues",
         title: "The Pattern Follows",
         content: [
-            "At the UCI GSET summer research program, after flying directly from Volleyball Nationals, I froze during our final presentation. My teammates continued without missing a beat while I stood in silence under the stage lights.",
-            "It became what psychologists call a flashbulb memory: vivid, persistent, humiliating. For a long time, it felt like proof of a fixed truth—I couldn't perform when it mattered.",
+            "I convinced myself volleyball would fix it. In my head, a team sport meant six people sharing pressure instead of one person standing alone on a court. That idea worked…right up until it didn’t.",
+            "When I joined one of the Bay Area’s most competitive clubs, everything changed. Tournaments meant flying to big convention centers packed with hundreds of courts, whistles, and constant shouting. During one match, a serve came straight at me and I completely whiffed it. My teammates tried to shake it off, and my coach masked his frustration with encouragement, but I felt the same hot shame I’d felt in that squash bathroom.",
+            "Soon I wasn’t hoping to be put in; I was secretly hoping to stay on the bench, where you can’t mess up and no one expects you to be the difference-maker.",
+            "The same pattern showed up in academics. At the UCI GSET summer research program, I flew straight from Volleyball Nationals in Orlando to present a game-science project with my team. When we stepped on stage for the final presentation, my mind went blank. My teammates picked up my part smoothly while I stood there in silence under the lights.",
+            "That moment turned into what psychologists call a flashbulb memory—vivid, persistent, and tied to a strong emotion. For a long time, I treated it as proof of a fixed truth: when the stakes are high, I choke."
         ],
     },
     {
         id: "finding-purpose",
         title: "Finding Purpose",
         content: [
-            "What changed was not the existence of pressure, but my relationship to it. I began developing a game to help autistic children regulate emotions, inspired by a childhood friend who treated me with kindness when I was the awkward kid who didn't fit in.",
-            "I implemented OpenCV-based computer vision to detect diaphragmatic breathing from a webcam, distinguishing shallow chest breaths from deeper belly breaths. Nights disappeared into debugging—but the pressure felt different. It wasn't about proving I was enough; it was about building something that mattered to someone else.",
+            "What started to change wasn’t the amount of pressure in my life; it was the reason I was stepping into it.",
+            "Around that time, I began building a game to help autistic teens regulate emotions and focus, inspired by a childhood friend who had quietly been there for me when I was the awkward kid who didn’t fit in. He was often misunderstood, but in our little Minecraft world together I always felt accepted.",
+            "I didn’t want to make just another “calming app.” I dove into research on breath regulation and emotional control, then used OpenCV-based computer vision to detect diaphragmatic breathing from a webcam—trying to distinguish shallow chest breaths from deeper belly breathing in real time. Most nights, I’d look up from debugging and realize hours had disappeared.",
+            "The pressure was still there: models failed, code broke, and I worried about whether the game would actually help anyone. But the feeling changed. It wasn’t about proving I was good enough under the spotlight. It was about building something that might matter to someone else.",
         ],
     },
     {
         id: "testing-hypothesis",
         title: "Testing the Hypothesis",
         content: [
-            "Maybe pressure itself wasn't the enemy—maybe the problem was why I was showing up. To test that, I walked into my first Tech4Silvers workshop, facing a room of older adults learning digital skills.",
-            "Then a seventy-year-old woman successfully placed her first video call to her grandson. Watching her face light up, the pressure didn't disappear—it just became irrelevant next to the purpose in front of me.",
+            "That led me to a new hypothesis: maybe pressure itself wasn’t the enemy. Maybe the problem was why I was showing up.",
+            "I tested that idea at my first Tech4Silvers workshop, where my club teaches seniors how to use technology—phones, scams, alerts, telehealth. I walked into a room full of older adults with notebooks and their phones in hand, waiting for us to teach them. The familiar tightness in my chest came back.",
+            "Then a seventy-year-old woman placed her first video call to her grandson. The moment he picked up and she saw his face on screen, her whole expression changed: surprise, joy, and a little disbelief that she had done it herself.",
+            "The pressure didn’t vanish, but it shrank compared to what was in front of me. Her moment mattered more than my nerves.",
         ],
     },
     {
         id: "seeking-stakes",
         title: "Seeking High Stakes",
         content: [
-            "Once I stopped treating pressure as a verdict and started treating it as a signal of meaning, I began seeking high-stakes moments. I ran for NHS leadership—my hands trembled at the podium, but speaking about what genuinely mattered connected. I was elected Sergeant at Arms.",
-            "During NASA Space Apps, when my team hit a wall with minutes left, I found myself managing the chaos instead of freezing inside it. We submitted just in time—and won.",
-        ],
-    },
-    {
-        id: "volleyball-transformed",
-        title: "Volleyball Transformed",
-        content: [
-            "The same sport that once made me hope for the bench now has me competing nationally. Last season, my team placed second at USAV Nationals in Salt Lake City.",
-            "I still feel a spike of nerves before every match, but I no longer interpret it as a prediction of failure. It's evidence that I care about the outcome.",
+            "Once I stopped treating pressure as a verdict on my worth and started treating it as a signal that something mattered, I stopped running from it.",
+            "I ran for National Honor Society leadership and gave a short speech with my hands shaking. Instead of trying to sound impressive, I talked honestly about the kind of service culture I wanted to help build. I was elected Sergeant at Arms.",
+            "At NASA Space Apps, my team hit a wall with minutes left before the submission deadline. Old me would’ve frozen or quietly hoped someone else would fix it. Instead, I found myself assigning last-minute tasks, keeping people focused, and pushing our project over the line. We submitted just in time—and ended up as a Global Nominee.",
+            "Volleyball shifted too. The same sport that used to make me hope for bench time now has me competing on a team that placed second at USAV Nationals in Salt Lake City. I still feel a spike of nerves before every match, but I no longer read it as a prediction of failure. I read it as a reminder that I care about what happens next.",
         ],
     },
     {
         id: "research-readiness",
         title: "Research and Readiness",
         content: [
-            "This fall, I co-authored a preprint challenging Euler's 250-year-old formula for predicting structural buckling, developing a physics-informed XGBoost model that reached R² of 0.97 and using SHAP analysis to understand why it outperformed classical theory.",
-            "The pressure feels remarkably similar to that fifth-grade tournament—same elevated heart rate, same narrowed focus. The difference is what that feeling means to me now.",
+            "This fall, I co-authored a preprint that challenges how we think about Euler’s 250-year-old buckling formula for non-ideal materials. We built a physics-informed XGBoost model that reached an R² of 0.97 and used SHAP analysis to understand why it outperformed the classical theory—not just that it did.",
+            "Submitting that work, revising it, and preparing to defend it carries a pressure that feels strangely familiar: elevated heart rate, narrowed focus, the sense that what I’m doing might be judged by people who know more than I do.",
+            "The difference now is how I interpret that feeling. In fifth grade, it meant, “You’re about to fail.” Now it means, “You’re doing something that might actually matter—stay with it.”",
         ],
     },
     {
         id: "looking-forward",
-        title: "The Person I'm Becoming",
+        title: "The Person I’m Becoming",
         content: [
-            "Today, when pressure shows up, it's a reminder that I am working on something that matters—to a teammate, a workshop participant, a research question, or a community I care about.",
-            "The fifth-grader crying in the bathroom is still part of my story, but he no longer decides where it ends.",
+            "Pressure still shows up in my life: before a serve, before a presentation, before leading a workshop, before sending a paper out into the world. The difference is that it no longer feels like a spotlight designed to expose my weaknesses.",
+            "Instead, it feels like a companion that appears whenever I’m stretching toward something important—to a teammate, a student, a research question, or a community I care about.",
+            "The fifth-grader crying in the bathroom is still part of my story. He’s the reason I pay attention to how pressure feels in other people, not just in myself. But he doesn’t get the final say anymore.",
         ],
     },
 ];

@@ -7,7 +7,7 @@ import { LightboxProvider } from "@/components/LightboxContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Pranil Raichura - RSI Recommendation",
+  title: "Pranil Raichura - Recommendation",
   description: "Interactive portfolio showcasing academic achievements, research projects, and extracurriculars",
   icons: {
     icon: '/favicon.png',
