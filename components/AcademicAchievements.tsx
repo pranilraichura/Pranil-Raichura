@@ -90,7 +90,7 @@ export default function AcademicAchievements() {
           <div className="bg-white rounded-xl p-6 shadow-lg">
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Standardized Testing</h3>
             <p className="text-gray-700">
-              PSAT/NMSQT 1460 (760 Math, 700 ERW)
+              PSAT/NMSQT 1460 (760 Math, 700 ERW) • SAT: 1510 (790 Math, 720 English)
             </p>
           </div>
         </motion.div>
