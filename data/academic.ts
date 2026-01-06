@@ -1,5 +1,5 @@
 export const academicStats = {
-  weightedGPA: 4.53,
+  weightedGPA: 4.61,
   totalWeightedGPA: 4.47,
   gpa10to12: 4.86,
   unweightedGPA: 4.0,
