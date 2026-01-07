@@ -195,7 +195,7 @@ export default function Extracurriculars() {
                 )}
               </div>
 
-              <p className="text-gray-700 text-sm mb-4 line-clamp-3">
+              <p className={`text-gray-700 text-sm mb-4 ${expandedId === ec.id ? "" : "line-clamp-3"}`}>
                 {ec.description}
               </p>
 
