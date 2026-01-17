@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   title: "Pranil Raichura's Website",
   description: "Interactive portfolio showcasing academic achievements, research projects, and extracurriculars",
   icons: {
-    icon: '/p-icon.png',
-    shortcut: '/p-icon.png',
-    apple: '/p-icon.png',
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
   },
 };
 
