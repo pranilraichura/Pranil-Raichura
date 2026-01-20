@@ -16,6 +16,12 @@ export const personalInfo = {
     "Shopping",
   ],
   instagramFollowers: "1k+",
+  socials: {
+    linkedin: "https://www.linkedin.com/in/your-linkedin",
+    github: "https://github.com/sparkyluvscode",
+    instagram: "https://www.instagram.com/your-instagram",
+    email: "mailto:your-email@example.com",
+  },
 };
 
 export const leadershipPositions = [

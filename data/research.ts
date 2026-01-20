@@ -36,6 +36,7 @@ export const researchProjects = [
     mentor: {
       name: "Abdiel Rivera, PhD",
       affiliation: "UConn, Associate Professor at Polytechnic University, Orlando",
+      image: "/abdiel_pfp.jpeg",
     },
     paperTitle: "Beyond Euler: An Explainable ML Framework for Predicting Buckling Instabilities in Non-Ideal Materials",
     preprintLink: "https://www.researchgate.net/publication/395824075_Beyond_Euler_An_Explainable_Machine_Learning_Framework_for_Predicting_and_Interpreting_Buckling_Instabilities_in_Non-Ideal_Materials",

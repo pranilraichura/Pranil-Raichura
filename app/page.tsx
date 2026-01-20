@@ -9,6 +9,7 @@ import Portfolio from "@/components/Portfolio";
 import ResearchProjects from "@/components/ResearchProjects";
 import AcademicAchievements from "@/components/AcademicAchievements";
 import Extracurriculars from "@/components/Extracurriculars";
+import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
             <ResearchProjects />
             <AcademicAchievements />
             <Extracurriculars />
+            <Footer />
             <BackToTop />
         </main>
     );
