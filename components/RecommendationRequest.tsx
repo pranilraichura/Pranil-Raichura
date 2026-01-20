@@ -143,7 +143,7 @@ export default function RecommendationRequest() {
                 <span className="text-3xl mr-4">🏆</span>
                 <div>
                   <div className="font-bold text-lg">Multiple Awards</div>
-                  <div className="text-sm opacity-90">USACO Silver, NASA SpaceApps Nominee, and more</div>
+                  <div className="text-sm opacity-90">USACO Gold, NASA SpaceApps Nominee, and more</div>
                 </div>
               </motion.li>
               <motion.li

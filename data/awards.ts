@@ -16,8 +16,8 @@ export const awards: Award[] = [
     year: "2025",
   },
   {
-    id: "usaco-silver",
-    title: "Silver, USA Computing Olympiad",
+    id: "usaco-gold",
+    title: "Gold, USA Computing Olympiad",
     category: "Competition",
     year: "9th, 10th, 11th Grade",
   },
