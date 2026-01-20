@@ -27,6 +27,11 @@ export const portfolioProjects: PortfolioProject[] = [
         category: "AI/ML",
         featured: true,
         recognition: "Global Nominee, International NASA SpaceApps Competition 2025",
+        backgroundMedia: {
+            type: "image",
+            src: "/exoscope_ai.png",
+            opacity: 0.15,
+        },
     },
     {
         id: "clearpolicy",
@@ -79,5 +84,10 @@ export const portfolioProjects: PortfolioProject[] = [
         category: "Research",
         featured: true,
         recognition: "Preprint published; under review for journal submission",
+        backgroundMedia: {
+            type: "image",
+            src: "/figure1_bucklingtest.png",
+            opacity: 0.15,
+        },
     },
 ];
