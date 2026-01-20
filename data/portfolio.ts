@@ -9,6 +9,11 @@ export interface PortfolioProject {
     category: "AI/ML" | "Web Development" | "Research" | "Game Development";
     featured: boolean;
     recognition?: string;
+    backgroundMedia?: {
+        type: "image" | "video";
+        src: string;
+        opacity?: number;
+    };
 }
 
 export const portfolioProjects: PortfolioProject[] = [
@@ -32,6 +37,11 @@ export const portfolioProjects: PortfolioProject[] = [
         link: "https://clearpolicy.org",
         category: "Web Development",
         featured: true,
+        backgroundMedia: {
+            type: "video",
+            src: "/ClearPolicy_Animation.mp4",
+            opacity: 0.15,
+        },
     },
     {
         id: "fake-news-detection",
@@ -43,6 +53,11 @@ export const portfolioProjects: PortfolioProject[] = [
         category: "AI/ML",
         featured: true,
         recognition: "Best Presentation Award – Inspirit AI Scholars",
+        backgroundMedia: {
+            type: "image",
+            src: "/fake_news.png",
+            opacity: 0.15,
+        },
     },
     {
         id: "ai-game-asd",

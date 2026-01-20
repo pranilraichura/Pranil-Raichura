@@ -50,8 +50,31 @@ export default function Portfolio() {
                         >
                             {/* Category badge with gradient */}
                             <div
-                                className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${categoryColors[project.category]} opacity-10 rounded-bl-full`}
+                                className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${categoryColors[project.category]} opacity-10 rounded-bl-full z-10`}
                             />
+
+                            {project.backgroundMedia && (
+                                <div className="absolute inset-0 z-0">
+                                    {project.backgroundMedia.type === "video" ? (
+                                        <video
+                                            src={project.backgroundMedia.src}
+                                            autoPlay
+                                            loop
+                                            muted
+                                            playsInline
+                                            className="w-full h-full object-cover"
+                                            style={{ opacity: project.backgroundMedia.opacity ?? 0.1 }}
+                                        />
+                                    ) : (
+                                        <img
+                                            src={project.backgroundMedia.src}
+                                            alt=""
+                                            className="w-full h-full object-cover"
+                                            style={{ opacity: project.backgroundMedia.opacity ?? 0.1 }}
+                                        />
+                                    )}
+                                </div>
+                            )}
 
                             <div className="relative">
                                 {/* Category icon and label */}
