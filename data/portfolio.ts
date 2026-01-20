@@ -31,7 +31,7 @@ export const portfolioProjects: PortfolioProject[] = [
         backgroundMedia: {
             type: "image",
             src: "/exoscope_ai.png",
-            opacity: 0.15,
+            opacity: 0.10,
         },
     },
     {
@@ -46,7 +46,7 @@ export const portfolioProjects: PortfolioProject[] = [
         backgroundMedia: {
             type: "video",
             src: "/ClearPolicy_Animation.mp4",
-            opacity: 0.15,
+            opacity: 0.10,
         },
     },
     {
@@ -62,7 +62,7 @@ export const portfolioProjects: PortfolioProject[] = [
         backgroundMedia: {
             type: "image",
             src: "/fake_news.png",
-            opacity: 0.15,
+            opacity: 0.10,
         },
     },
     {
@@ -77,7 +77,7 @@ export const portfolioProjects: PortfolioProject[] = [
         backgroundMedia: {
             type: "image",
             src: "/breath_background.png",
-            opacity: 0.15,
+            opacity: 0.10,
             className: "object-bottom",
         },
     },
