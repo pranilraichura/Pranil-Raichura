@@ -1,32 +1,5 @@
 export const researchProjects = [
   {
-    id: "prism-ai-writing",
-    title: "PRISM: Profiles of AI Use, Creativity, and Authorship",
-    role: "Lead Author",
-    tech: "Python, K-means clustering, Statistical Analysis",
-    years: "11th Grade",
-    mentors: [
-      {
-        name: "Dr. Nouchine Hadjikhani",
-        affiliation: "Harvard Medical School",
-        image: "/nouchine_pfp.jpeg",
-      },
-      {
-        name: "Natalie Elkin",
-        affiliation: "Granite Bay High School",
-      },
-    ],
-    paperTitle: "PRISM: Profiles of AI Use, Creativity, and Authorship in High School Writing",
-    preprintLink: "https://osf.io/preprints/psyarxiv/dx4bf_v1",
-    status: "Submitted Jan 2026",
-    description: "Conducted a correlational survey of 246 high school students to examine the relationship between AI tool usage, self-reported creativity, and perceived authorship. Identified three distinct student profiles (PRISM) using K-means clustering, revealing that frequent AI use correlates with lower creativity but higher perceived authorship.",
-    highlights: [
-      "Surveyed 246 students on AI habits and writing perceptions",
-      "Used K-means clustering to identify 3 distinct user profiles",
-      "Found inverse correlation between AI frequency and creativity",
-    ],
-  },
-  {
     id: "ai-game-development",
     title: "Computer Vision Powered Serious Game for ASD",
     role: "Lead Developer & Researcher",
@@ -72,6 +45,34 @@ export const researchProjects = [
     highlights: [
       "Developed an interpretable ML model (XGBoost) with SHAP analysis to predict structural buckling behavior",
       "Extended experimental framework from JHU EEI program, combining engineering and computer science",
+    ],
+  },
+  {
+    id: "prism-ai-writing",
+    title: "PRISM: Profiles of AI Use, Creativity, and Authorship",
+    role: "Lead Author",
+    tech: "Python, K-means clustering, Statistical Analysis",
+    years: "11th Grade",
+    mentors: [
+      {
+        name: "Dr. Nouchine Hadjikhani",
+        affiliation: "Harvard Medical School",
+        image: "/nouchine_pfp.jpeg",
+      },
+      {
+        name: "Natalie Elkin",
+        affiliation: "Granite Bay High School",
+        image: "/elkin_pfp.jpeg",
+      },
+    ],
+    paperTitle: "PRISM: Profiles of AI Use, Creativity, and Authorship in High School Writing",
+    preprintLink: "https://osf.io/preprints/psyarxiv/dx4bf_v1",
+    status: "Submitted Jan 2026",
+    description: "Conducted a correlational survey of 246 high school students to examine the relationship between AI tool usage, self-reported creativity, and perceived authorship. Identified three distinct student profiles (PRISM) using K-means clustering, revealing that frequent AI use correlates with lower creativity but higher perceived authorship.",
+    highlights: [
+      "Surveyed 246 students on AI habits and writing perceptions",
+      "Used K-means clustering to identify 3 distinct user profiles",
+      "Found inverse correlation between AI frequency and creativity",
     ],
   },
   {
