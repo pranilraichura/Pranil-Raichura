@@ -10,10 +10,12 @@ export const researchProjects = [
       {
         name: "Dr. Nouchine Hadjikhani",
         affiliation: "Harvard Medical School",
+        image: "/nouchine_pfp.jpeg",
       },
       {
         name: "Nolan Miranda, M.S.",
         affiliation: "Stanford University",
+        image: "/nolan_pfp.jpeg",
       },
     ],
     organization: "Polygence",
