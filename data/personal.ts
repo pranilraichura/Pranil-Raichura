@@ -17,10 +17,10 @@ export const personalInfo = {
   ],
   instagramFollowers: "1k+",
   socials: {
-    linkedin: "https://www.linkedin.com/in/your-linkedin",
+    linkedin: "https://www.linkedin.com/in/pranilraichura",
     github: "https://github.com/sparkyluvscode",
-    instagram: "https://www.instagram.com/your-instagram",
-    email: "mailto:your-email@example.com",
+    instagram: "https://www.instagram.com/pranil.raii",
+    email: "mailto:pranil.raichura@gmail.com",
   },
 };
 
