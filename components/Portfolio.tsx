@@ -62,14 +62,14 @@ export default function Portfolio() {
                                             loop
                                             muted
                                             playsInline
-                                            className="w-full h-full object-cover"
+                                            className={`w-full h-full object-cover ${project.backgroundMedia.className || ""}`}
                                             style={{ opacity: project.backgroundMedia.opacity ?? 0.1 }}
                                         />
                                     ) : (
                                         <img
                                             src={project.backgroundMedia.src}
                                             alt=""
-                                            className="w-full h-full object-cover"
+                                            className={`w-full h-full object-cover ${project.backgroundMedia.className || ""}`}
                                             style={{ opacity: project.backgroundMedia.opacity ?? 0.1 }}
                                         />
                                     )}

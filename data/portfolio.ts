@@ -13,6 +13,7 @@ export interface PortfolioProject {
         type: "image" | "video";
         src: string;
         opacity?: number;
+        className?: string;
     };
 }
 
@@ -73,6 +74,12 @@ export const portfolioProjects: PortfolioProject[] = [
         category: "Game Development",
         featured: true,
         recognition: "Preprint in progress; aiming for journal submission in 2026",
+        backgroundMedia: {
+            type: "image",
+            src: "/breath_background.png",
+            opacity: 0.15,
+            className: "object-bottom",
+        },
     },
     {
         id: "ml-structural-engineering",
