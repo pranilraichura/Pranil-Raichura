@@ -94,7 +94,7 @@ export const portfolioProjects: PortfolioProject[] = [
         backgroundMedia: {
             type: "image",
             src: "/figure1_bucklingtest.png",
-            opacity: 0.15,
+            opacity: 0.20,
         },
     },
 ];
