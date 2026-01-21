@@ -71,6 +71,7 @@ export const portfolioProjects: PortfolioProject[] = [
         tagline: "Improving emotional regulation for adolescents with autism",
         description: "Garden-themed AI game with guided breathing sessions for adolescents (12–16) with ASD. Uses OpenCV to detect diaphragmatic breathing from webcam. Conducting IRB-aligned study with HRV and STAI-State evaluations under Harvard and Stanford mentors.",
         tech: ["Python", "C#", "Unity", "OpenCV", "Machine Learning"],
+        link: "https://pranil.itch.io/flora-frontier",
         category: "Game Development",
         featured: true,
         recognition: "Preprint in progress; aiming for journal submission in 2026",
