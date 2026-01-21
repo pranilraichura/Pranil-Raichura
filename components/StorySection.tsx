@@ -108,9 +108,7 @@ export default function StorySection() {
                         My Story
                     </h2>
                     <div className="w-24 h-1 bg-slate-700 mx-auto mb-6"></div>
-                    <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                        The context behind how I handle pressure in research, competitions, and leadership.
-                    </p>
+
                 </motion.div>
 
                 {/* Timeline with Cards */}
