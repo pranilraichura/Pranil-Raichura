@@ -77,7 +77,7 @@ export const portfolioProjects: PortfolioProject[] = [
         backgroundMedia: {
             type: "image",
             src: "/breath_background.png",
-            opacity: 0.10,
+            opacity: 0.20,
             className: "object-bottom",
         },
     },
