@@ -11,71 +11,50 @@ interface TimelineEvent {
 
 const timelineEvents: TimelineEvent[] = [
     {
-        id: "early-pressure",
-        title: "Early Pressure",
+        id: "glass-box",
+        title: "The Glass Box (The Setup)",
         content: [
-            "The glass wall behind me held a crowd of parents and kids, but I only saw one face: Samyak’s. Fifth grade. First squash tournament. I’d trained for months at an expensive Bay Area club my parents could barely justify, and I walked onto the court convinced I had to win.",
-            "Point by point, game by game, I watched the score tilt his way. Every mistake felt louder than the last. By the final point, it didn’t feel like I was just losing a match; it felt like I was proving something ugly about myself—that when it really mattered, I would fall apart.",
-            "When it was over, I ran straight to the bathroom, locked the door, and cried for twenty minutes. I stayed there partly because I didn’t want anyone to see my eyes, and partly because I didn’t know how to walk back out and pretend it was “just a game.” That memory became my first picture of pressure: bright lights, a glass wall, and a deep belief that I wasn’t built for big moments.",
+            "Fifth grade. Squash court. The air smells like rubber soles and expensive cologne. My coach has his arms crossed. My parents are watching from the gallery.",
+            "I’m freezing. Not because it’s cold, but because I’m doing the math: “If I miss this shot, I’m a fraud.”",
+            "I lost that match. I locked myself in a stall for twenty minutes to hide. I wasn't weak—I was terrified of being imperfect. I treated pressure like a verdict on my worth, and that fear paralyzed me.",
         ],
     },
     {
-        id: "pattern-continues",
-        title: "The Pattern Follows",
+        id: "the-whiff",
+        title: "The Whiff (The Rock Bottom)",
         content: [
-            "I convinced myself volleyball would fix it. In my head, a team sport meant six people sharing pressure instead of one person standing alone on a court. That idea worked…right up until it didn’t.",
-            "When I joined one of the Bay Area’s most competitive clubs, everything changed. Tournaments meant flying to big convention centers packed with hundreds of courts, whistles, and constant shouting. During one match, a serve came straight at me and I completely whiffed it. My teammates tried to shake it off, and my coach masked his frustration with encouragement, but I felt the same hot shame I’d felt in that squash bathroom.",
-            "Soon I wasn’t hoping to be put in; I was secretly hoping to stay on the bench, where you can’t mess up and no one expects you to be the difference-maker.",
-            "The same pattern showed up in academics. At the UCI GSET summer research program, I flew straight from Volleyball Nationals in Orlando to present a game-science project with my team. When we stepped on stage for the final presentation, my mind went blank. My teammates picked up my part smoothly while I stood there in silence under the lights.",
-            "That moment turned into what psychologists call a flashbulb memory—vivid, persistent, and tied to a strong emotion. For a long time, I treated it as proof of a fixed truth: when the stakes are high, I choke."
+            "High school volleyball nationals. The convention center is a deafening roar of 500 whistles. I’m on the court, knees bent, praying: “Please don't hit it to me.”",
+            "The ball floats to my platform. I swing—and completely whiff. It hits the floor behind me.",
+            "In that dead silence, something snapped. I realized I had spent my entire life playing 'not to lose' instead of playing to win. I was done being the kid who shrank in the spotlight. I needed a new way to fight.",
         ],
     },
     {
-        id: "finding-purpose",
-        title: "Finding Purpose",
+        id: "3am-hum",
+        title: "The 3 AM Hum (The Shift)",
         content: [
-            "What started to change wasn’t the amount of pressure in my life; it was the reason I was stepping into it.",
-            "Around that time, I began building a game to help autistic teens regulate emotions and focus, inspired by a childhood friend who had quietly been there for me when I was the awkward kid who didn’t fit in. He was often misunderstood, but in our little Minecraft world together I always felt accepted.",
-            "I didn’t want to make just another “calming app.” I dove into research on breath regulation and emotional control, then used OpenCV-based computer vision to detect diaphragmatic breathing from a webcam—trying to distinguish shallow chest breaths from deeper belly breathing in real time. Most nights, I’d look up from debugging and realize hours had disappeared.",
-            "The pressure was still there: models failed, code broke, and I worried about whether the game would actually help anyone. But the feeling changed. It wasn’t about proving I was good enough under the spotlight. It was about building something that might matter to someone else.",
+            "Junior year. 3 AM. My room is dark, lit only by the VS Code terminal. No audience. No scoreboard. Just me and a breathing detection algorithm I was building for a friend with ASD.",
+            "I wasn't freezing up. I was locked in. I rewrote the detection logic three times until the latency dropped to zero.",
+            "I hit 'Run'. The green box tracked my chest movement with surgical precision. I leaned back—not with relief, but with power. I realized: When I solve real problems, the fear disappears. I wasn't an imposter here. I was an engineer.",
         ],
     },
     {
-        id: "testing-hypothesis",
-        title: "Testing the Hypothesis",
+        id: "margaret-moment",
+        title: "The Margaret Moment (The Leader)",
         content: [
-            "That led me to a new hypothesis: maybe pressure itself wasn’t the enemy. Maybe the problem was why I was showing up.",
-            "I tested that idea at my first Tech4Silvers workshop, where my club teaches seniors how to use technology—phones, scams, alerts, telehealth. I walked into a room full of older adults with notebooks and their phones in hand, waiting for us to teach them. The familiar tightness in my chest came back.",
-            "Then a seventy-year-old woman placed her first video call to her grandson. The moment he picked up and she saw his face on screen, her whole expression changed: surprise, joy, and a little disbelief that she had done it herself.",
-            "The pressure didn’t vanish, but it shrank compared to what was in front of me. Her moment mattered more than my nerves.",
+            "Tech4Silvers workshop. A room full of seniors staring at blank screens. The old me would have panicked.",
+            "The new me saw a problem I knew how to solve.",
+            "I walked up to Margaret, a 70-year-old grandmother. I didn't stutter. I guided her hand to the mouse. We connected the video call, and her grandson’s face appeared. She grabbed my hand, weeping with joy.",
+            "In that moment, I stood taller. I wasn't the kid hiding in the stall anymore. I was the one opening the door for someone else.",
         ],
     },
     {
-        id: "seeking-stakes",
-        title: "Seeking High Stakes",
+        id: "the-arena",
+        title: "The Arena (The Transformation)",
         content: [
-            "Once I stopped treating pressure as a verdict on my worth and started treating it as a signal that something mattered, I stopped running from it.",
-            "I ran for National Honor Society leadership and gave a short speech with my hands shaking. Instead of trying to sound impressive, I talked honestly about the kind of service culture I wanted to help build. I was elected Sergeant at Arms.",
-            "At NASA Space Apps, my team hit a wall with minutes left before the submission deadline. Old me would’ve frozen or quietly hoped someone else would fix it. Instead, I found myself assigning last-minute tasks, keeping people focused, and pushing our project over the line. We submitted just in time—and ended up as a Global Nominee.",
-            "Volleyball shifted too. The same sport that used to make me hope for bench time now has me competing on a team that placed second at USAV Nationals in Salt Lake City. I still feel a spike of nerves before every match, but I no longer read it as a prediction of failure. I read it as a reminder that I care about what happens next.",
-        ],
-    },
-    {
-        id: "research-readiness",
-        title: "Research and Readiness",
-        content: [
-            "This fall, I co-authored a preprint that challenges how we think about Euler’s 250-year-old buckling formula for non-ideal materials. We built a physics-informed XGBoost model that reached an R² of 0.97 and used SHAP analysis to understand why it outperformed the classical theory—not just that it did.",
-            "Submitting that work, revising it, and preparing to defend it carries a pressure that feels strangely familiar: elevated heart rate, narrowed focus, the sense that what I’m doing might be judged by people who know more than I do.",
-            "The difference now is how I interpret that feeling. In fifth grade, it meant, “You’re about to fail.” Now it means, “You’re doing something that might actually matter—stay with it.”",
-        ],
-    },
-    {
-        id: "looking-forward",
-        title: "The Person I’m Becoming",
-        content: [
-            "Pressure still shows up in my life: before a serve, before a presentation, before leading a workshop, before sending a paper out into the world. The difference is that it no longer feels like a spotlight designed to expose my weaknesses.",
-            "Instead, it feels like a companion that appears whenever I’m stretching toward something important—to a teammate, a student, a research question, or a community I care about.",
-            "The fifth-grader crying in the bathroom is still part of my story. He’s the reason I pay attention to how pressure feels in other people, not just in myself. But he doesn’t get the final say anymore.",
+            "Present day. I’m about to submit our 'Beyond Euler' research paper. The deadline is in 5 minutes. My heart is hammering—the same physical feeling as the squash court.",
+            "But this time, I’m not looking for an exit. I’m grinning.",
+            "I type the final sentence. Click.",
+            "I don't just tolerate the pressure now; I hunt for it. The 'shaky guy' is gone. I’ve learned that fear is just fuel, and I have a lot of work left to do.",
         ],
     },
 ];
