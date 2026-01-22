@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { useLightbox } from "./LightboxContext";
+import { useFlashlight } from "./FlashlightContext";
 
 const navItems = [
   { name: "Story", href: "#story" },
@@ -21,6 +22,7 @@ export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const { isLightboxOpen } = useLightbox();
+  const { isEnabled, toggleFlashlight } = useFlashlight();
 
   useEffect(() => {
     // Only track scroll on home page
@@ -86,6 +88,30 @@ export default function Navigation() {
             </motion.div>
           </Link>
           <div className="hidden md:flex space-x-1">
+            <motion.button
+              onClick={toggleFlashlight}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-2 mr-2 text-gray-700 hover:text-primary-600 transition-colors bg-white/50 backdrop-blur-sm rounded-full shadow-sm border border-white/40"
+              title={isEnabled ? "Turn off spotlight" : "Turn on spotlight"}
+            >
+              {isEnabled ? (
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 6c0-2.21-1.79-4-4-4H10C7.79 2 6 3.79 6 6v10.17l1.17 1.17C7.6 17.78 8 18.37 8 19v3h8v-3c0-.63.4-1.22.83-1.66L18 16.17V6Z" />
+                  <path d="M10 2h4" />
+                  <path d="M12 22v-3" />
+                  <line x1="12" y1="2" x2="12" y2="4" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 21l-6-6m-3-3l-6-6" />
+                  <path d="M18 6c0-2.21-1.79-4-4-4H10c-2.21 0-4 1.79-4 4v2" />
+                  <path d="M18 16.17V6" />
+                  <path d="M10 2h4" />
+                  <path d="M8 13v3.17c0 .63-.4 1.22-.83 1.66L6 19v3h8v-3c0-.63-.4-1.22-.83-1.66L13.5 17.66" />
+                </svg>
+              )}
+            </motion.button>
             {navItems.map((item) => {
               const isActive = item.href.startsWith("#")
                 ? activeSection === item.href.substring(1)
@@ -163,6 +189,29 @@ export default function Navigation() {
             className="md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100"
           >
             <div className="px-4 py-4 space-y-2">
+              <motion.button
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                onClick={toggleFlashlight}
+                className="flex items-center w-full px-4 py-3 rounded-lg font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-all duration-200 cursor-pointer"
+              >
+                <div className="mr-3 p-1 bg-white/50 rounded-full border border-gray-100">
+                  {isEnabled ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M18 6c0-2.21-1.79-4-4-4H10C7.79 2 6 3.79 6 6v10.17l1.17 1.17C7.6 17.78 8 18.37 8 19v3h8v-3c0-.63.4-1.22.83-1.66L18 16.17V6Z" />
+                      <path d="M12 22v-3" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M2 2l20 20" />
+                      <path d="M10 2h4" />
+                      <path d="M18 6c0-2.21-1.79-4-4-4H10" />
+                      <path d="M10 10v6.17l-1.17 1.17C8.4 17.78 8 18.37 8 19v3h8v-3c0-.63-.4-1.22-.83-1.66L14 16" />
+                    </svg>
+                  )}
+                </div>
+                {isEnabled ? "Turn Off Flashlight" : "Turn On Flashlight"}
+              </motion.button>
               {navItems.map((item, index) => {
                 const isActive = item.href.startsWith("#")
                   ? activeSection === item.href.substring(1)

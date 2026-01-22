@@ -4,6 +4,9 @@ import "./globals.css";
 import MouseSpotlight from "@/components/MouseSpotlight";
 import { LightboxProvider } from "@/components/LightboxContext";
 
+
+import { FlashlightProvider } from "@/components/FlashlightContext";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -24,10 +27,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-gray-50 text-gray-900`}>
-        <LightboxProvider>
-          <MouseSpotlight />
-          {children}
-        </LightboxProvider>
+        <FlashlightProvider>
+          <LightboxProvider>
+            <MouseSpotlight />
+            {children}
+          </LightboxProvider>
+        </FlashlightProvider>
       </body>
     </html>
   );
