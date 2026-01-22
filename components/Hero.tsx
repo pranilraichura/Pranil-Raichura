@@ -360,31 +360,7 @@ export default function Hero() {
                     </motion.a>
                 </motion.div>
 
-                {/* Scroll indicator */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={!showIntro ? { opacity: 1 } : {}}
-                    transition={{ duration: 0.5, delay: waveDelays.right + 0.3 }}
-                    className="mt-8"
-                >
-                    <motion.div
-                        animate={{ y: [0, 10, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="text-gray-400"
-                    >
-                        <svg
-                            className="w-6 h-6 mx-auto"
-                            fill="none"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                        </svg>
-                    </motion.div>
-                </motion.div>
+
             </motion.div>
         </section>
     );

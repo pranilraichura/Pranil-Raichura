@@ -92,23 +92,25 @@ export default function Navigation() {
               onClick={toggleFlashlight}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="p-2 mr-2 text-gray-700 hover:text-primary-600 transition-colors bg-white/50 backdrop-blur-sm rounded-full shadow-sm border border-white/40"
+              className="p-2 mr-2 text-gray-700 hover:text-primary-600 transition-colors bg-white/50 backdrop-blur-sm rounded-full shadow-sm border border-white/40 focus:outline-none"
               title={isEnabled ? "Turn off spotlight" : "Turn on spotlight"}
             >
               {isEnabled ? (
+                /* Flashlight ON - Clearer Shape with Beams */
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M18 6c0-2.21-1.79-4-4-4H10C7.79 2 6 3.79 6 6v10.17l1.17 1.17C7.6 17.78 8 18.37 8 19v3h8v-3c0-.63.4-1.22.83-1.66L18 16.17V6Z" />
-                  <path d="M10 2h4" />
-                  <path d="M12 22v-3" />
-                  <line x1="12" y1="2" x2="12" y2="4" />
+                  <path d="M15 6l-7 7" />
+                  <path d="M14 6l-4 4" />
+                  <path d="M10.5 15.5L8 18a2 2 0 01-2.83 0 2 2 0 010-2.83l.26-.26" />
+                  <path d="M12.44 13.56L18 8a2 2 0 000-2.83 2 2 0 00-2.83 0l-1.3 1.3" />
+                  <path d="M22 2l-1.5 1.5" />
+                  <path d="M19 5l-1.5 1.5" />
                 </svg>
               ) : (
+                /* Flashlight OFF - Crossed Out */
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 21l-6-6m-3-3l-6-6" />
-                  <path d="M18 6c0-2.21-1.79-4-4-4H10c-2.21 0-4 1.79-4 4v2" />
-                  <path d="M18 16.17V6" />
-                  <path d="M10 2h4" />
-                  <path d="M8 13v3.17c0 .63-.4 1.22-.83 1.66L6 19v3h8v-3c0-.63-.4-1.22-.83-1.66L13.5 17.66" />
+                  <line x1="2" y1="2" x2="22" y2="22" />
+                  <path d="M10.5 15.5L8 18a2 2 0 01-2.83 0 2 2 0 010-2.83l.26-.26" />
+                  <path d="M14.5 11.5L18 8a2 2 0 000-2.83 2 2 0 00-2.83 0l-1.3 1.3" />
                 </svg>
               )}
             </motion.button>
@@ -198,15 +200,18 @@ export default function Navigation() {
                 <div className="mr-3 p-1 bg-white/50 rounded-full border border-gray-100">
                   {isEnabled ? (
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M18 6c0-2.21-1.79-4-4-4H10C7.79 2 6 3.79 6 6v10.17l1.17 1.17C7.6 17.78 8 18.37 8 19v3h8v-3c0-.63.4-1.22.83-1.66L18 16.17V6Z" />
-                      <path d="M12 22v-3" />
+                      <path d="M15 6l-7 7" />
+                      <path d="M14 6l-4 4" />
+                      <path d="M10.5 15.5L8 18a2 2 0 01-2.83 0 2 2 0 010-2.83l.26-.26" />
+                      <path d="M12.44 13.56L18 8a2 2 0 000-2.83 2 2 0 00-2.83 0l-1.3 1.3" />
+                      <path d="M22 2l-1.5 1.5" />
+                      <path d="M19 5l-1.5 1.5" />
                     </svg>
                   ) : (
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M2 2l20 20" />
-                      <path d="M10 2h4" />
-                      <path d="M18 6c0-2.21-1.79-4-4-4H10" />
-                      <path d="M10 10v6.17l-1.17 1.17C8.4 17.78 8 18.37 8 19v3h8v-3c0-.63-.4-1.22-.83-1.66L14 16" />
+                      <line x1="2" y1="2" x2="22" y2="22" />
+                      <path d="M10.5 15.5L8 18a2 2 0 01-2.83 0 2 2 0 010-2.83l.26-.26" />
+                      <path d="M14.5 11.5L18 8a2 2 0 000-2.83 2 2 0 00-2.83 0l-1.3 1.3" />
                     </svg>
                   )}
                 </div>
