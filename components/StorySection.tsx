@@ -12,7 +12,7 @@ interface TimelineEvent {
 const timelineEvents: TimelineEvent[] = [
     {
         id: "glass-box",
-        title: "The Glass Box (The Setup)",
+        title: "The Glass Box",
         content: [
             "Fifth grade. Squash court. The air smells like rubber soles and expensive cologne. My coach has his arms crossed. My parents are watching from the gallery.",
             "I’m freezing. Not because it’s cold, but because I’m doing the math: “If I miss this shot, I’m a fraud.”",
@@ -21,7 +21,7 @@ const timelineEvents: TimelineEvent[] = [
     },
     {
         id: "the-whiff",
-        title: "The Whiff (The Rock Bottom)",
+        title: "The Whiff",
         content: [
             "High school volleyball nationals. The convention center is a deafening roar of 500 whistles. I’m on the court, knees bent, praying: “Please don't hit it to me.”",
             "The ball floats to my platform. I swing—and completely whiff. It hits the floor behind me.",
@@ -30,7 +30,7 @@ const timelineEvents: TimelineEvent[] = [
     },
     {
         id: "3am-hum",
-        title: "The 3 AM Hum (The Shift)",
+        title: "The 3 AM Hum",
         content: [
             "Junior year. 3 AM. My room is dark, lit only by the VS Code terminal. No audience. No scoreboard. Just me and a breathing detection algorithm I was building for a friend with ASD.",
             "I wasn't freezing up. I was locked in. I rewrote the detection logic three times until the latency dropped to zero.",
@@ -39,7 +39,7 @@ const timelineEvents: TimelineEvent[] = [
     },
     {
         id: "margaret-moment",
-        title: "The Margaret Moment (The Leader)",
+        title: "The Margaret Moment",
         content: [
             "Tech4Silvers workshop. A room full of seniors staring at blank screens. The old me would have panicked.",
             "The new me saw a problem I knew how to solve.",
@@ -49,7 +49,7 @@ const timelineEvents: TimelineEvent[] = [
     },
     {
         id: "the-arena",
-        title: "The Arena (The Transformation)",
+        title: "The Arena",
         content: [
             "Present day. I’m about to submit our 'Beyond Euler' research paper. The deadline is in 5 minutes. My heart is hammering—the same physical feeling as the squash court.",
             "But this time, I’m not looking for an exit. I’m grinning.",
