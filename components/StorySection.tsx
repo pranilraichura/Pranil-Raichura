@@ -15,7 +15,7 @@ const timelineEvents: TimelineEvent[] = [
         title: "The Glass Box",
         content: [
             "Fifth grade. Squash court. The air smells like rubber soles and expensive cologne. My coach has his arms crossed. My parents are watching from the gallery.",
-            "I’m freezing. Not because it’s cold, but because I’m doing the math: “If I miss this shot, I’m a fraud.”",
+            "I’m freezing. Not because it’s cold, but because I’m doing the math: “If I miss this shot, I’m a failure.”",
             "I lost that match. I locked myself in a stall for twenty minutes to hide. I wasn't weak—I was terrified of being imperfect. I treated pressure like a verdict on my worth, and that fear paralyzed me.",
         ],
     },
