@@ -147,6 +147,9 @@ export const extracurriculars: Extracurricular[] = [
     description: "I’ve played violin for five years, starting in school orchestra and later joining the Sacramento Youth Symphony. Between rehearsals, sectionals, and concerts, I’ve performed in over fifty events across California. Playing in an ensemble taught me how to listen as carefully as I play: adjusting intonation, matching phrasing, and staying locked to the conductor even when my mind is elsewhere. Music has been the long, slow counterbalance to my tech life—a place where progress happens measure by measure, not in sudden “aha” moments.",
     media: [
       { type: 'image', path: '/extracurriculars/violin/violin_new.jpg', caption: 'Violin Performance' },
+      { type: 'image', path: '/pranil_violin.jpeg', caption: 'Violin Performance 2' },
+      { type: 'image', path: '/pranil_violin2.jpeg', caption: 'Violin Performance 3' },
+      { type: 'image', path: '/pranil_violin3.jpeg', caption: 'Violin Performance 4' },
     ],
   },
 ];
