@@ -8,24 +8,21 @@ export default function NolanPage() {
     return (
         <main className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-gray-50 py-20 px-4">
             <div className="max-w-2xl w-full">
-                {/* 'Now' Button (Top) */}
+                {/* Back link */}
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="mb-8 flex justify-between items-center"
+                    className="mb-8"
                 >
-                    <Link href="/#portfolio">
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-medium rounded-full shadow-lg hover:bg-primary-700 transition-all group"
-                        >
-                            Now, explore my work
-                            <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </motion.button>
+                    <Link
+                        href="/"
+                        className="inline-flex items-center text-gray-500 hover:text-primary-600 transition-colors"
+                    >
+                        <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                        Back to Home
                     </Link>
                 </motion.div>
 
@@ -119,7 +116,18 @@ export default function NolanPage() {
                             Best,<br />
                             Pranil
                         </p>
-                        <span className="text-4xl">🚀</span>
+                        <Link href="/#portfolio">
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-medium rounded-full shadow-lg hover:bg-primary-700 transition-all group"
+                            >
+                                Now, explore my work
+                                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </motion.button>
+                        </Link>
                     </div>
                 </motion.div>
             </div>
