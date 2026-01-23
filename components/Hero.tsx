@@ -260,7 +260,7 @@ export default function Hero() {
                             animate={!showIntro ? { opacity: 1, scale: 1 } : {}}
                             transition={{ type: "spring", stiffness: 80, damping: 15, delay: waveDelays.center + 0.2 }}
                             whileHover={{ scale: 1.1, rotate: 5 }}
-                            className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl border-4 border-white ring-4 ring-primary-100"
+                            className="relative w-36 h-36 md:w-48 md:h-48 rounded-full overflow-hidden shadow-2xl border-4 border-white ring-4 ring-primary-100"
                         >
                             <Image
                                 src="/remove_bg_pranil.png"
