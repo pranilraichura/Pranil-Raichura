@@ -47,7 +47,17 @@ export default function ResearchProjects() {
                       <span className="font-medium">Tech:</span> {project.tech}
                     </p>
                   )}
+
                 </div>
+                {/* @ts-ignore */}
+                {project.dates && (
+                  <div className="mt-2 md:mt-1 md:ml-4 flex-shrink-0">
+                    <span className="inline-block px-3 py-1 bg-primary-50 text-primary-700 text-sm font-medium rounded-full border border-primary-100 shadow-sm">
+                      {/* @ts-ignore */}
+                      {project.dates}
+                    </span>
+                  </div>
+                )}
               </div>
 
               <p className="text-gray-700 leading-relaxed mb-4">

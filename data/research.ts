@@ -5,6 +5,7 @@ export const researchProjects = [
     role: "Lead Developer & Researcher",
     tech: "Python, C#",
     years: "9th, 10th, 11th Grade",
+    dates: "August 2024 - Present",
     hoursPerWeek: "4-5 hours/week",
     mentors: [
       {
@@ -31,6 +32,7 @@ export const researchProjects = [
     role: "Research Author",
     tech: "Python (XGBoost), Scikit-Learn",
     years: "10th Summer, 11th Grade",
+    dates: "July 2025 - October 2025",
     hoursPerWeek: "6 hours/week",
     organization: "Johns Hopkins Explore Engineering Innovation",
     mentor: {
@@ -53,6 +55,7 @@ export const researchProjects = [
     role: "Lead Author",
     tech: "Python, K-means clustering, Statistical Analysis",
     years: "11th Grade",
+    dates: "November 2025 - January 2026",
     mentors: [
       {
         name: "Dr. Nouchine Hadjikhani",
@@ -81,6 +84,7 @@ export const researchProjects = [
     role: "Founder",
     tech: "TypeScript, React, Prisma, Tailwind, OpenStates & Congress.gov APIs",
     years: "11th Grade",
+    dates: "October 2025 - Present",
     description: "Built & shipped a full-stack web app that transforms confusing ballot measures into clear summaries with non-biased sources you can check. Gathering users on the waitlist prior to public release.",
     highlights: [
       "Full-stack development from conception to deployment",
