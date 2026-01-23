@@ -47,7 +47,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-accent-purple/10">
+        <section className="min-h-screen pt-32 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-accent-purple/10">
             {/* Intro Screen - "Who am I?" typing animation */}
             <AnimatePresence>
                 {showIntro && (
