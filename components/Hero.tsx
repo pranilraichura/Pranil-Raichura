@@ -263,7 +263,7 @@ export default function Hero() {
                             className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-2xl border-4 border-white ring-4 ring-primary-100"
                         >
                             <Image
-                                src="/profile-picture.png"
+                                src="/remove_bg_pranil.png"
                                 alt="Pranil Raichura"
                                 fill
                                 className="object-cover"
