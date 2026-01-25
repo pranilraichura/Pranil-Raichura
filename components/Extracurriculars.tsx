@@ -110,16 +110,37 @@ export default function Extracurriculars() {
                           </div>
                         </>
                       ) : (
-                        <div className="relative w-full h-full bg-gray-900 flex items-center justify-center">
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <svg className="w-16 h-16 text-white opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                              <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
-                            </svg>
+                        // Video Preview
+                        ec.media[0].thumbnail ? (
+                          <div className="relative w-full h-full">
+                            <Image
+                              src={ec.media[0].thumbnail}
+                              alt={ec.media[0].caption || ec.title}
+                              fill
+                              className="object-cover transition-transform duration-300 group-hover:scale-110"
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            />
+                            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+                              <svg className="w-16 h-16 text-white opacity-90 shadow-lg" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
+                              </svg>
+                            </div>
+                            <span className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded backdrop-blur-sm">
+                              Video
+                            </span>
                           </div>
-                          <span className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
-                            Video
-                          </span>
-                        </div>
+                        ) : (
+                          <div className="relative w-full h-full bg-gray-900 flex items-center justify-center">
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <svg className="w-16 h-16 text-white opacity-80" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
+                              </svg>
+                            </div>
+                            <span className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
+                              Video
+                            </span>
+                          </div>
+                        )
                       )}
                     </div>
                   ) : (
@@ -140,11 +161,28 @@ export default function Extracurriculars() {
                               sizes="150px"
                             />
                           ) : (
-                            <div className="w-full h-full bg-gray-900 flex items-center justify-center">
-                              <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
-                              </svg>
-                            </div>
+                            item.thumbnail ? (
+                              <div className="relative w-full h-full group-hover:scale-105 transition-transform duration-300">
+                                <Image
+                                  src={item.thumbnail}
+                                  alt={item.caption || `${ec.title} video thumbnail`}
+                                  fill
+                                  className="object-cover"
+                                  sizes="150px"
+                                />
+                                <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                                  <svg className="w-8 h-8 text-white opacity-90" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
+                                  </svg>
+                                </div>
+                              </div>
+                            ) : (
+                              <div className="w-full h-full bg-gray-900 flex items-center justify-center group-hover:bg-gray-800 transition-colors">
+                                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                  <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
+                                </svg>
+                              </div>
+                            )
                           )}
                           {idx === 2 && ec.media && ec.media.length > 3 && (
                             <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-white font-semibold">

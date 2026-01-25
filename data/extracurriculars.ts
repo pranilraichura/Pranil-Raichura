@@ -12,6 +12,7 @@ export interface Extracurricular {
     type: 'image' | 'video';
     path: string;
     caption?: string;
+    thumbnail?: string;
   }[];
 }
 
@@ -25,6 +26,7 @@ export const extracurriculars: Extracurricular[] = [
     description: "When I joined “Coding Club” as a freshman, it met once a week to casually solve a few problems before HPE CodeWars. As VP, I helped rebuild it into the Competitive Programming Olympiad Club. I design weekly practices on algorithms and data structures, teach Python/Java solutions live, and organize our teams for all four USACO contests, NASA Space Apps, HPE CodeWars, and other hackathons. Under this new structure, our members earned a NASA Space Apps Global Nominee, multiple CodeWars trophies, and a big jump in USACO participation. At a school where most STEM kids lean pre-med, this club has become the main hub for students who want to push themselves in CS and competitive coding.",
     media: [
       { type: 'image', path: '/extracurriculars/coding/coding_club_new.jpg', caption: 'Programming Club' },
+      { type: 'image', path: '/coding_club_pic.JPG', caption: 'Coding Club Session' },
     ],
   },
   {
@@ -76,8 +78,9 @@ export const extracurriculars: Extracurricular[] = [
     description: "I started Tech4Silvers after realizing many seniors in our community were missing digital wildfire and emergency alerts. What began as one small workshop is now a student-run organization and GBHS club that partners with senior centers across Sacramento and Northern California. I recruit and train volunteers, design slides and handouts, and lead sessions on smartphones, scams and phishing, online safety, telehealth, and local alert systems. We’ve helped dozens of seniors set up alerts, avoid fraud, and reconnect with family over video calls. Coordinating venues, outreach, and Q&A has turned my interest in tech into a long-term commitment to digital inclusion.",
     media: [
       { type: 'image', path: '/extracurriculars/tech4silvers/presentation_pic_new.jpg', caption: 'Tech4Silvers Presentation' },
-      { type: 'video', path: '/t4s_video.MP4', caption: 'Tech4Silvers Session' },
-      { type: 'image', path: '/t4s_pic.HEIC', caption: 'Volunteering' },
+      { type: 'video', path: '/t4s_video.MP4', caption: 'Tech4Silvers Session', thumbnail: '/extracurriculars/tech4silvers/presentation_pic_new.jpg' },
+      { type: 'image', path: '/t4s_1.JPG', caption: 'Tech4Silvers 1' },
+      { type: 'image', path: '/t4s_2.JPG', caption: 'Tech4Silvers 2' },
     ],
   },
   {
@@ -96,6 +99,7 @@ export const extracurriculars: Extracurricular[] = [
       { type: 'image', path: '/volleyball-young.jpg', caption: 'Young Pranil' },
       { type: 'image', path: '/volleyball-team-huddle.jpg', caption: 'Team Huddle' },
       { type: 'image', path: '/volleyball-team-recent.jpg', caption: 'National Team' },
+      { type: 'image', path: '/national_volleyball_pic.JPG', caption: 'National Volleyball 1' },
       { type: 'image', path: '/vb_1.JPG', caption: 'Volleyball Action 1' },
       { type: 'image', path: '/vb_2.JPG', caption: 'Volleyball Action 2' },
       { type: 'image', path: '/vb_3.JPG', caption: 'Volleyball Action 3' },
@@ -145,6 +149,7 @@ export const extracurriculars: Extracurricular[] = [
     description: "I picked up chess in middle school and started playing USCF-rated tournaments soon after. Over seven tournaments, I’ve climbed to a 730 rating, around the 64th percentile for juniors, and spent countless hours analyzing my own blunders and learning classic tactics. Chess gives me a different kind of focus than coding or sports: slow, quiet calculation, accepting that one careless move can undo twenty good ones. The pattern recognition and patience I’ve built here spill over directly into algorithm design and debugging.",
     media: [
       { type: 'image', path: '/extracurriculars/chess/chess_new.png', caption: 'USCF Chess' },
+      { type: 'image', path: '/chess_pic1.JPG', caption: 'Chess Tournament' },
     ],
   },
   {
