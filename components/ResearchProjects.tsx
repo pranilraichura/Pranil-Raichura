@@ -52,7 +52,7 @@ export default function ResearchProjects() {
                 {/* @ts-ignore */}
                 {project.dates && (
                   <div className="mt-2 md:mt-1 md:ml-4 flex-shrink-0">
-                    <span className="inline-block px-3 py-1 bg-primary-50 text-primary-700 text-sm font-medium rounded-full border border-primary-100 shadow-sm">
+                    <span className="text-gray-500 text-sm font-medium">
                       {/* @ts-ignore */}
                       {project.dates}
                     </span>
