@@ -44,9 +44,24 @@ export default function Footer() {
     ];
 
     return (
-        <footer className="py-12 bg-gray-50 border-t border-gray-200">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col items-center justify-center space-y-6">
+        <footer
+            className="py-20 relative"
+            style={{
+                backgroundImage: 'url(/starry_night.jpg)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundAttachment: 'fixed',
+            }}
+        >
+            {/* Dark Overlay for contrast */}
+            <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm"></div>
+
+            {/* Top Gradient for Smooth Transition from White/Light section */}
+            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white to-transparent pointer-events-none z-10"></div>
+
+            <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex flex-col items-center justify-center space-y-8">
+                    {/* Social Links */}
                     <div className="flex space-x-6">
                         {links.map((link) => (
                             <motion.a
@@ -56,16 +71,23 @@ export default function Footer() {
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.1, y: -2 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="text-gray-500 hover:text-primary-600 transition-colors duration-200 p-2 bg-white rounded-full shadow-sm hover:shadow-md border border-gray-100"
+                                className="text-white hover:text-white transition-all duration-200 p-3 bg-white/10 hover:bg-white/20 rounded-full shadow-lg border border-white/10 backdrop-blur-md"
                                 aria-label={link.name}
                             >
                                 {link.icon}
                             </motion.a>
                         ))}
                     </div>
-                    <p className="text-sm text-gray-500">
-                        © {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
-                    </p>
+
+                    {/* Copyright & Info */}
+                    <div className="text-center">
+                        <p className="text-slate-300 font-light tracking-wide mb-2">
+                            Designed & Built by {personalInfo.name}
+                        </p>
+                        <p className="text-xs text-slate-500 uppercase tracking-widest">
+                            © {new Date().getFullYear()} All rights reserved.
+                        </p>
+                    </div>
                 </div>
             </div>
         </footer>

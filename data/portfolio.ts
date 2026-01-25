@@ -19,6 +19,21 @@ export interface PortfolioProject {
 
 export const portfolioProjects: PortfolioProject[] = [
     {
+        id: "clearpolicy",
+        title: "ClearPolicy",
+        tagline: "Policy clarity, with sources you can check",
+        description: "Full-stack web app transforming ballot measures into clear summaries with verifiable, non-biased sources. Integrates with OpenStates and Congress.gov APIs for real-time legislative data. Used by local community members; currently growing waitlist prior to public launch.",
+        tech: ["TypeScript", "React", "Prisma", "Tailwind CSS", "OpenStates API", "Congress.gov API"],
+        link: "https://clearpolicy.org",
+        category: "Web Development",
+        featured: true,
+        backgroundMedia: {
+            type: "video",
+            src: "/ClearPolicy_Animation.mp4",
+            opacity: 0.10,
+        },
+    },
+    {
         id: "exoscope-ai",
         title: "Exoscope AI",
         tagline: "NASA-Nominated Exoplanet Detection Tool",
@@ -31,21 +46,6 @@ export const portfolioProjects: PortfolioProject[] = [
         backgroundMedia: {
             type: "image",
             src: "/exoscope_ai.png",
-            opacity: 0.10,
-        },
-    },
-    {
-        id: "clearpolicy",
-        title: "ClearPolicy",
-        tagline: "Policy clarity, with sources you can check",
-        description: "Full-stack web app transforming ballot measures into clear summaries with verifiable, non-biased sources. Integrates with OpenStates and Congress.gov APIs for real-time legislative data. Used by local community members; currently growing waitlist prior to public launch.",
-        tech: ["TypeScript", "React", "Prisma", "Tailwind CSS", "OpenStates API", "Congress.gov API"],
-        link: "https://clearpolicy.org",
-        category: "Web Development",
-        featured: true,
-        backgroundMedia: {
-            type: "video",
-            src: "/ClearPolicy_Animation.mp4",
             opacity: 0.10,
         },
     },
