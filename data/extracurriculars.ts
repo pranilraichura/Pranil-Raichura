@@ -30,19 +30,18 @@ export const extracurriculars: Extracurricular[] = [
     ],
   },
   {
-    id: "inspirit-ai",
-    title: "Inspirit AI Scholars",
-    years: "Summer 23 (8th → 9th)",
-    category: "Tech",
-    description: "The summer before high school, I joined Inspirit AI’s Scholars program, working in a small team mentored by a Stanford alumnus. We learned the foundations of machine learning—neural networks, embeddings, evaluation metrics—and then applied them to build a fake-news detection web app. I focused on model training and evaluation, using NLP techniques and confusion matrices to compare our models, and then helped deploy the project on Streamlit so anyone could test URLs in real time. Our project earned the “Best Presentation” award in our cohort and gave me my first experience shipping an end-to-end AI tool with real users in mind.",
-    links: [
-      {
-        text: "Fake News Detection App",
-        url: "https://inspirit-ai-weekday2-allhands3-fake-news-detection.streamlit.app/",
-      },
-    ],
+    id: "nhs",
+    title: "National Honor Society",
+    years: "10th, 11th Grade (Leadership)",
+    category: "Leadership",
+    hoursPerWeek: "30 mins per week",
+    leadership: "Sergeant at Arms",
+    description: "NHS is the main service hub at my school, and as Sergeant at Arms I help plan and run projects instead of just showing up to volunteer hours. I’ve helped coordinate drives under our PraNam nonprofit umbrella, including a warm-clothes collection that delivered 300+ items to students at Kinney High School and a shoe drive that shipped over 150 pairs to families in Africa. I also help manage meeting logistics and keep events running smoothly. NHS has been where I practice turning big, vague goals—“help the community”—into specific, organized events that actually deliver.",
     media: [
-      { type: 'image', path: '/extracurriculars/inspirit_ai/inspirit_ai_new.png', caption: 'Inspirit AI Scholars' },
+      { type: 'image', path: '/extracurriculars/nhs/me_holding_book_new.jpg', caption: 'NHS Leadership' },
+      { type: 'image', path: '/extracurriculars/nhs/book_picture_new.jpg', caption: 'NHS Book Collection' },
+      { type: 'image', path: '/extracurriculars/nhs/full_with_people_new.jpg', caption: 'NHS Team' },
+      { type: 'image', path: '/nhs_pic4.HEIC', caption: 'NHS Event' },
     ],
   },
   {
@@ -127,18 +126,19 @@ export const extracurriculars: Extracurricular[] = [
     ],
   },
   {
-    id: "nhs",
-    title: "National Honor Society",
-    years: "10th, 11th Grade (Leadership)",
-    category: "Leadership",
-    hoursPerWeek: "30 mins per week",
-    leadership: "Sergeant at Arms",
-    description: "NHS is the main service hub at my school, and as Sergeant at Arms I help plan and run projects instead of just showing up to volunteer hours. I’ve helped coordinate drives under our PraNam nonprofit umbrella, including a warm-clothes collection that delivered 300+ items to students at Kinney High School and a shoe drive that shipped over 150 pairs to families in Africa. I also help manage meeting logistics and keep events running smoothly. NHS has been where I practice turning big, vague goals—“help the community”—into specific, organized events that actually deliver.",
+    id: "inspirit-ai",
+    title: "Inspirit AI Scholars",
+    years: "Summer 23 (8th → 9th)",
+    category: "Tech",
+    description: "The summer before high school, I joined Inspirit AI’s Scholars program, working in a small team mentored by a Stanford alumnus. We learned the foundations of machine learning—neural networks, embeddings, evaluation metrics—and then applied them to build a fake-news detection web app. I focused on model training and evaluation, using NLP techniques and confusion matrices to compare our models, and then helped deploy the project on Streamlit so anyone could test URLs in real time. Our project earned the “Best Presentation” award in our cohort and gave me my first experience shipping an end-to-end AI tool with real users in mind.",
+    links: [
+      {
+        text: "Fake News Detection App",
+        url: "https://inspirit-ai-weekday2-allhands3-fake-news-detection.streamlit.app/",
+      },
+    ],
     media: [
-      { type: 'image', path: '/extracurriculars/nhs/me_holding_book_new.jpg', caption: 'NHS Leadership' },
-      { type: 'image', path: '/extracurriculars/nhs/book_picture_new.jpg', caption: 'NHS Book Collection' },
-      { type: 'image', path: '/extracurriculars/nhs/full_with_people_new.jpg', caption: 'NHS Team' },
-      { type: 'image', path: '/nhs_pic4.HEIC', caption: 'NHS Event' },
+      { type: 'image', path: '/extracurriculars/inspirit_ai/inspirit_ai_new.png', caption: 'Inspirit AI Scholars' },
     ],
   },
   {

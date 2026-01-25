@@ -104,6 +104,9 @@ export default function StorySection() {
             {/* Overlay for readability - Adjusted to favor the right side */}
             <div className="absolute inset-0 bg-white/60 backdrop-blur-sm lg:bg-gradient-to-r lg:from-transparent lg:via-white/50 lg:to-white/80"></div>
 
+            {/* Top Gradient for Smooth Transition from Hero */}
+            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white to-transparent pointer-events-none z-10"></div>
+
             {/* Header - Centered on Viewport */}
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -206,6 +209,9 @@ export default function StorySection() {
                     </Link>.
                 </p>
             </motion.div>
+
+            {/* Bottom Gradient for Smooth Transition */}
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-gray-50 pointer-events-none"></div>
         </section>
     );
 }

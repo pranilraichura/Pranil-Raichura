@@ -18,6 +18,12 @@ export default function AcademicAchievements() {
       {/* Overlay for readability */}
       <div className="absolute inset-0 bg-white/80 backdrop-blur-sm"></div>
 
+      {/* Top Gradient Transition (from White) */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white to-transparent pointer-events-none z-10"></div>
+
+      {/* Bottom Gradient Transition (to Gray-50) */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 to-transparent pointer-events-none z-10"></div>
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
