@@ -52,6 +52,7 @@ export const extracurriculars: Extracurricular[] = [
     description: "I’ve been programming for six years and competing for three. I qualified for the USACO Gold division and train year-round by solving past contests in Python and Java, focusing on graph algorithms, DP, and implementation speed. Outside USACO, I’ve led or joined teams for events like NASA Space Apps, HPE CodeWars, and the YoungWonks National Coding Challenge, where we’ve earned a Global Nominee in Space Apps and a 2nd-place regional finish at CodeWars. These contests force me to write clean, efficient code under time pressure and to communicate clearly with teammates when the clock is ticking.",
     media: [
       { type: 'image', path: '/extracurriculars/coding/hackathon_team_new.jpg', caption: 'Hackathon Team' },
+      { type: 'image', path: '/codewars-hpe.jpg', caption: 'HPE CodeWars' },
     ],
   },
   {
@@ -75,6 +76,8 @@ export const extracurriculars: Extracurricular[] = [
     description: "I started Tech4Silvers after realizing many seniors in our community were missing digital wildfire and emergency alerts. What began as one small workshop is now a student-run organization and GBHS club that partners with senior centers across Sacramento and Northern California. I recruit and train volunteers, design slides and handouts, and lead sessions on smartphones, scams and phishing, online safety, telehealth, and local alert systems. We’ve helped dozens of seniors set up alerts, avoid fraud, and reconnect with family over video calls. Coordinating venues, outreach, and Q&A has turned my interest in tech into a long-term commitment to digital inclusion.",
     media: [
       { type: 'image', path: '/extracurriculars/tech4silvers/presentation_pic_new.jpg', caption: 'Tech4Silvers Presentation' },
+      { type: 'video', path: '/t4s_video.MP4', caption: 'Tech4Silvers Session' },
+      { type: 'image', path: '/t4s_pic.HEIC', caption: 'Volunteering' },
     ],
   },
   {
@@ -131,6 +134,7 @@ export const extracurriculars: Extracurricular[] = [
       { type: 'image', path: '/extracurriculars/nhs/me_holding_book_new.jpg', caption: 'NHS Leadership' },
       { type: 'image', path: '/extracurriculars/nhs/book_picture_new.jpg', caption: 'NHS Book Collection' },
       { type: 'image', path: '/extracurriculars/nhs/full_with_people_new.jpg', caption: 'NHS Team' },
+      { type: 'image', path: '/nhs_pic4.HEIC', caption: 'NHS Event' },
     ],
   },
   {
