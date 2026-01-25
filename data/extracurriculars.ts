@@ -90,8 +90,12 @@ export const extracurriculars: Extracurricular[] = [
       },
     ],
     media: [
-      { type: 'image', path: '/extracurriculars/volleyball/national_pic_new.jpg', caption: 'National Volleyball Team' },
-      { type: 'image', path: '/extracurriculars/volleyball/national_win_new.jpg', caption: 'Championship Win' },
+      { type: 'image', path: '/volleyball-young.jpg', caption: 'Young Pranil' },
+      { type: 'image', path: '/volleyball-team-huddle.jpg', caption: 'Team Huddle' },
+      { type: 'image', path: '/volleyball-team-recent.jpg', caption: 'National Team' },
+      { type: 'image', path: '/vb_1.JPG', caption: 'Volleyball Action 1' },
+      { type: 'image', path: '/vb_2.JPG', caption: 'Volleyball Action 2' },
+      { type: 'image', path: '/vb_3.JPG', caption: 'Volleyball Action 3' },
     ],
   },
   {
