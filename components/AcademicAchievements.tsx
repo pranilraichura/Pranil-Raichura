@@ -5,8 +5,20 @@ import { academicStats } from "@/data/academic";
 
 export default function AcademicAchievements() {
   return (
-    <section id="academic" className="py-20 bg-gradient-to-br from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="academic"
+      className="py-20 relative"
+      style={{
+        backgroundImage: 'url(/starry_night.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+      }}
+    >
+      {/* Overlay for readability */}
+      <div className="absolute inset-0 bg-white/80 backdrop-blur-sm"></div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
