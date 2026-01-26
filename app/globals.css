@@ -28,9 +28,33 @@ body {
 }
 
 /* Base theme */
-body {
-  background: #f9fafb;
+/* Base theme with fixed gradient for seamless overscroll */
+/* Base theme with fixed gradient for seamless overscroll */
+/* Base theme with fixed gradient for seamless overscroll */
+/* Base theme with fixed gradient for seamless overscroll */
+/* Universe Container: Dark background with stars ensures overscroll is never white */
+/* Base theme with fixed gradient for seamless overscroll */
+/* Universe Container: Dark background with stars + overlay ensures overscroll is dark and textured */
+html {
+  background-color: #0f172a;
+  /* Universe Container: Pure Starry Night image anchored to top to show the sky */
+  background-image: url('/starry_night.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
   color: #111827;
+  overflow-x: hidden;
+  max-width: 100vw;
+  min-height: 100vh;
+}
+
+body {
+  background: transparent;
+  color: #111827;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
 }
 
 @layer utilities {

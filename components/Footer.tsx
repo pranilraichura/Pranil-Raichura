@@ -33,11 +33,11 @@ export default function Footer() {
             ),
         },
         {
-            name: "Email",
-            url: personalInfo.socials.email,
+            name: "Google Scholar",
+            url: "https://scholar.google.com/citations?user=1Tgz85oAAAAJ&hl=en",
             icon: (
                 <svg fill="currentColor" viewBox="0 0 24 24" className="w-6 h-6">
-                    <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-11.174l4.623 5.462zm5.377 2.738l-5.364-6.338-1.12.949 6.484 7.646 6.484-7.646-1.12-.949-5.364 6.338zm5.377-2.738l4.623-5.462v11.174l-4.623-5.712z" />
+                    <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z" />
                 </svg>
             ),
         },
