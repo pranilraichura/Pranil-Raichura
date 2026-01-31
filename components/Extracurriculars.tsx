@@ -44,8 +44,25 @@ export default function Extracurriculars() {
   };
 
   return (
-    <section id="extracurriculars" className="py-20 bg-gradient-to-br from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="extracurriculars"
+      className="py-24 relative"
+      style={{
+        backgroundImage: 'url(/starry_night.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+      }}
+    >
+      {/* Overlay for readability */}
+      <div className="absolute inset-0 bg-white/90 backdrop-blur-sm"></div>
+
+      {/* Subtle Top Divider Gradient */}
+      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/60 to-transparent pointer-events-none z-10"></div>
+
+      {/* Bottom Gradient Transition to next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 to-transparent pointer-events-none z-10"></div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

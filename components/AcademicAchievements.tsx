@@ -7,7 +7,7 @@ export default function AcademicAchievements() {
   return (
     <section
       id="academic"
-      className="py-20 relative"
+      className="py-24 relative"
       style={{
         backgroundImage: 'url(/starry_night.jpg)',
         backgroundSize: 'cover',
@@ -15,118 +15,93 @@ export default function AcademicAchievements() {
         backgroundAttachment: 'fixed',
       }}
     >
-      {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-white/80 backdrop-blur-sm"></div>
+      {/* Overlay for readability - Slightly stronger for text contrast */}
+      <div className="absolute inset-0 bg-white/90 backdrop-blur-sm"></div>
 
-      {/* Top Gradient Transition (from White) */}
+      {/* Top Gradient Transition */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white to-transparent pointer-events-none z-10"></div>
 
-      {/* Bottom Gradient Transition (to Gray-50) */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 to-transparent pointer-events-none z-10"></div>
+      {/* Subtle Bottom Divider Gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white/60 to-transparent pointer-events-none z-10"></div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.8 }}
+          className="mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-serif">
             Education
           </h2>
-          <div className="w-24 h-1 bg-primary-600 mx-auto"></div>
-          <p className="text-xl text-gray-600 mt-4">
-            Granite Bay High School — Graduating May 2027
+          <div className="w-16 h-1 bg-slate-800 mx-auto mb-8"></div>
+
+          <p className="text-xl md:text-2xl text-slate-700 font-light leading-relaxed">
+            Graduating from <span className="font-semibold text-slate-900">Granite Bay High School</span> in 2027.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="mb-16"
+        >
+          <p className="text-3xl md:text-4xl font-light text-slate-900 leading-tight">
+            Ranked <span className="font-bold border-b-2 border-slate-300">1st of 502</span> with a <span className="font-bold border-b-2 border-slate-300">{academicStats.weightedGPA} GPA</span>.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            whileHover={{ scale: 1.05, y: -5 }}
-            className="bg-white rounded-xl p-6 shadow-lg border-2 border-primary-200"
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="text-sm font-semibold text-gray-600 mb-2">Class Rank</div>
-            <div className="text-4xl font-bold text-primary-600 mb-1">1/502</div>
+            <h3 className="text-lg font-bold text-slate-900 uppercase tracking-widest mb-4 border-b border-slate-200 pb-2">
+              Relevant Coursework
+            </h3>
+            <ul className="space-y-3 text-lg text-slate-700">
+              <li>AP CS Principles & A (Java)</li>
+              <li>AP Calculus BC & AB</li>
+              <li>AP Physics 1 & Statistics</li>
+              <li>Multivariable Calculus <span className="text-slate-500 text-sm">(Sierra College)</span></li>
+              <li>Machine Learning Specialization <span className="text-slate-500 text-sm">(Stanford)</span></li>
+            </ul>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            whileHover={{ scale: 1.05, y: -5 }}
-            className="bg-white rounded-xl p-6 shadow-lg border-2 border-accent-purple/30"
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <div className="text-sm font-semibold text-gray-600 mb-2">Unweighted GPA</div>
-            <div className="text-4xl font-bold text-accent-purple mb-1">
-              {academicStats.unweightedGPA}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            whileHover={{ scale: 1.05, y: -5 }}
-            className="bg-white rounded-xl p-6 shadow-lg border-2 border-accent-orange/30"
-          >
-            <div className="text-sm font-semibold text-gray-600 mb-2">Weighted GPA</div>
-            <div className="text-4xl font-bold text-accent-orange mb-1">
-              {academicStats.weightedGPA}
+            <h3 className="text-lg font-bold text-slate-900 uppercase tracking-widest mb-4 border-b border-slate-200 pb-2">
+              Standardized Testing
+            </h3>
+            <div className="space-y-6">
+              <div>
+                <div className="flex justify-between items-baseline mb-1">
+                  <span className="text-2xl font-bold text-slate-900">1510</span>
+                  <span className="text-slate-500 font-medium">SAT</span>
+                </div>
+                <p className="text-slate-600">790 Math • 720 English</p>
+              </div>
+              <div>
+                <div className="flex justify-between items-baseline mb-1">
+                  <span className="text-2xl font-bold text-slate-900">1460</span>
+                  <span className="text-slate-500 font-medium">PSAT / NMSQT</span>
+                </div>
+                <p className="text-slate-600">760 Math • 700 ERW</p>
+              </div>
             </div>
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-12 max-w-4xl mx-auto"
-        >
-          <div className="bg-white rounded-xl p-6 shadow-lg">
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">Relevant Coursework</h3>
-            <p className="text-gray-700">
-              AP CS Principles & A (Java), AP Calculus BC & AB, AP Physics 1, AP Statistics
-            </p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-6 max-w-4xl mx-auto"
-        >
-          <div className="bg-white rounded-xl p-6 shadow-lg">
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">Standardized Testing</h3>
-            <p className="text-gray-700">
-              PSAT/NMSQT 1460 (760 Math, 700 ERW) • SAT: 1510 (790 Math, 720 English)
-            </p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-6 max-w-4xl mx-auto"
-        >
-          <div className="bg-white rounded-xl p-6 shadow-lg">
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">Outside Courses</h3>
-            <p className="text-gray-700">
-              Multivariable Calculus (Sierra College), Machine Learning Specialization (Stanford), et al.
-            </p>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
