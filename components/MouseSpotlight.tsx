@@ -41,13 +41,29 @@ export default function MouseSpotlight() {
     };
   }, []);
 
+  const [inHeroSection, setInHeroSection] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Fade out when scrolled past 80% of viewport
+      if (window.scrollY > window.innerHeight * 0.8) {
+        setInHeroSection(false);
+      } else {
+        setInHeroSection(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       {/* Subtle dark overlay that creates gentle focus effect */}
       <div
         className="pointer-events-none fixed inset-0 z-[9999] transition-opacity duration-500"
         style={{
-          opacity: isVisible && isEnabled ? 1 : 0,
+          opacity: isVisible && isEnabled && inHeroSection ? 1 : 0,
           background: `radial-gradient(500px circle at ${mousePosition.x}px ${mousePosition.y}px, transparent 0%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.25) 80%)`,
         }}
       />
@@ -55,7 +71,7 @@ export default function MouseSpotlight() {
       <div
         className="pointer-events-none fixed inset-0 z-[9998] transition-opacity duration-300"
         style={{
-          opacity: isVisible && isEnabled ? 0.3 : 0,
+          opacity: isVisible && isEnabled && inHeroSection ? 0.3 : 0,
           background: `radial-gradient(250px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 255, 255, 0.08), transparent 70%)`,
         }}
       />

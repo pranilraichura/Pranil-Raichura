@@ -19,9 +19,9 @@ const timelineEvents: TimelineEvent[] = [
         id: "glass-box",
         title: "The Glass Box",
         content: [
-            "Fifth grade. Squash court. The air smells like rubber soles and expensive cologne. My coach has his arms crossed. My parents are watching from the gallery.",
-            "I’m freezing. Not because it’s cold, but because I’m doing the math: “If I miss this shot, I’m a failure.”",
-            "I lost that match. I locked myself in a stall for twenty minutes to hide. I wasn't weak—I was terrified of being imperfect. I treated pressure like a verdict on my worth, and that fear paralyzed me.",
+            "Fifth grade. I’m standing inside a glass-walled squash court. The air smells like rubber soles and expensive cologne. My parents are watching from the gallery. My coach is watching with his arms crossed. And I am freezing.",
+            "I’m not thinking about the game. I’m thinking: “If I miss this shot, they’ll all know I’m a fraud.”",
+            "I lost. I ran to the locker room, locked the stall, and sat on the cold tile for twenty minutes. I didn't want to win; I just wanted to survive the gaze. That was my relationship with pressure: a spotlight I wanted to smash.",
         ],
         media: {
             type: 'image',
@@ -33,9 +33,9 @@ const timelineEvents: TimelineEvent[] = [
         id: "the-whiff",
         title: "The Whiff",
         content: [
-            "High school volleyball nationals. The convention center is a deafening roar of 500 whistles. I’m on the court, knees bent, praying: “Please don't hit it to me.”",
-            "The ball floats to my platform. I swing—and completely whiff. It hits the floor behind me.",
-            "In that dead silence, something snapped. I realized I had spent my entire life playing 'not to lose' instead of playing to win. I was done being the kid who shrank in the spotlight. I needed a new way to fight.",
+            "High school volleyball nationals. Orlando Convention Center. The noise is a deafening roar of 500 whistles blowing at once. I’m standing on the court, knees bent, waiting for the serve.",
+            "I’m not thinking 'I got this.' I’m thinking: “Please don't hit it to me. Please, God, don't let the ball come to me.”",
+            "The serve comes. It floats right to my platform. I swing—and completely whiff. The ball hits the floor behind me. My teammate taps my shoulder, but the silence in my head is louder than the crowd. I wanted to dissolve into the hardwood. I wasn't playing to compete; I was playing not to lose.",
         ],
         media: {
             type: 'image',
@@ -47,9 +47,9 @@ const timelineEvents: TimelineEvent[] = [
         id: "3am-hum",
         title: "The 3 AM Hum",
         content: [
-            "Junior year. 3 AM. My room is dark, lit only by the VS Code terminal. No audience. No scoreboard. Just me and a breathing detection algorithm I was building for a friend with ASD.",
-            "I wasn't freezing up. I was locked in. I rewrote the detection logic three times until the latency dropped to zero.",
-            "I hit 'Run'. The green box tracked my chest movement with surgical precision. I leaned back—not with relief, but with power. I realized: When I solve real problems, the fear disappears. I wasn't an imposter here. I was an engineer.",
+            "Junior year. 3 AM on a Tuesday. My room is dark except for the harsh blue glow of VS Code. No audience. No scoreboard. No parents. Just the hum of my laptop fan.",
+            "I'm debugging a breathing detection algorithm for a friend with ASD. I hit 'Run'. The green box tracks my chest movement with surgical precision.",
+            "I leaned back—not with relief, but with power. I realized: When I solve real problems, the fear disappears. I wasn't an imposter here. I wasn't performing for anyone. I was an engineer.",
         ],
         media: {
             type: 'image',
