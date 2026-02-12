@@ -2,22 +2,51 @@
 
 import React, { useState, useEffect } from "react";
 
+// IPs that should trigger restricted (password-protected) mode
+const RESTRICTED_IPS = ["66.60.183.126"];
+
 export default function PasswordProtection({
     children,
 }: {
     children: React.ReactNode;
 }) {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isRestricted, setIsRestricted] = useState(false);
     const [password, setPassword] = useState("");
     const [error, setError] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const auth = localStorage.getItem("site_auth");
-        if (auth === "true") {
-            setIsAuthenticated(true);
-        }
-        setIsLoading(false);
+        const checkAccess = async () => {
+            // Check localStorage first
+            const auth = localStorage.getItem("site_auth");
+            if (auth === "true") {
+                setIsAuthenticated(true);
+                setIsLoading(false);
+                return;
+            }
+
+            // Fetch the visitor's public IP
+            try {
+                const res = await fetch("https://api.ipify.org?format=json");
+                const data = await res.json();
+                const visitorIp = data.ip;
+
+                if (RESTRICTED_IPS.includes(visitorIp)) {
+                    setIsRestricted(true);
+                } else {
+                    // Not on a restricted network — let them through
+                    setIsAuthenticated(true);
+                }
+            } catch {
+                // If IP lookup fails, let them through (fail-open)
+                setIsAuthenticated(true);
+            }
+
+            setIsLoading(false);
+        };
+
+        checkAccess();
     }, []);
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -33,10 +62,14 @@ export default function PasswordProtection({
     };
 
     if (isLoading) {
-        return null; // or a loading spinner
+        return null;
     }
 
     if (isAuthenticated) {
+        return <>{children}</>;
+    }
+
+    if (!isRestricted) {
         return <>{children}</>;
     }
 
