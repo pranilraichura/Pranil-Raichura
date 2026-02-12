@@ -6,6 +6,7 @@ import { LightboxProvider } from "@/components/LightboxContext";
 
 
 import { FlashlightProvider } from "@/components/FlashlightContext";
+import PasswordProtection from "@/components/PasswordProtection";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,8 +30,10 @@ export default function RootLayout({
       <body className={`${inter.className} text-gray-900`}>
         <FlashlightProvider>
           <LightboxProvider>
-            <MouseSpotlight />
-            {children}
+            <PasswordProtection>
+              <MouseSpotlight />
+              {children}
+            </PasswordProtection>
           </LightboxProvider>
         </FlashlightProvider>
       </body>
