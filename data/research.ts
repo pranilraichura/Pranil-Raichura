@@ -5,7 +5,7 @@ export const researchProjects = [
     role: "Lead Developer & Researcher",
     tech: "Python, C#",
     years: "9th, 10th, 11th Grade",
-    dates: "August 2024 - Present",
+    dates: "August 2024 - February 2026",
     hoursPerWeek: "4-5 hours/week",
     mentors: [
       {

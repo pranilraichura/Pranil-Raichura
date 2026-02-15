@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 import MouseSpotlight from "@/components/MouseSpotlight";
 import { LightboxProvider } from "@/components/LightboxContext";
@@ -8,7 +8,13 @@ import { LightboxProvider } from "@/components/LightboxContext";
 import { FlashlightProvider } from "@/components/FlashlightContext";
 import PasswordProtection from "@/components/PasswordProtection";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], display: "swap" });
+const libreBaskerville = Libre_Baskerville({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-libre-baskerville",
+});
 
 export const metadata: Metadata = {
   title: "Pranil Raichura's Website",
@@ -27,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} text-gray-900`}>
+      <body className={`${inter.className} ${libreBaskerville.variable} text-gray-900`}>
         <FlashlightProvider>
           <LightboxProvider>
             <PasswordProtection>

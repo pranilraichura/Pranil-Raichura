@@ -9,10 +9,9 @@ import { useLightbox } from "./LightboxContext";
 
 const navItems = [
   { name: "Story", href: "#story" },
-  { name: "Projects", href: "#portfolio" },
-  { name: "Research", href: "#research" },
   { name: "Academics", href: "#academic" },
   { name: "Extracurriculars", href: "#extracurriculars" },
+  { name: "Projects & Research", href: "#portfolio-research" },
 ];
 
 export default function Navigation() {
@@ -77,7 +76,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link href="/">
             <motion.div
-              className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary-600 to-accent-purple bg-clip-text text-transparent"
+              className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary-600 to-accent-purple bg-clip-text text-transparent font-libre"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               style={{ cursor: "pointer" }}

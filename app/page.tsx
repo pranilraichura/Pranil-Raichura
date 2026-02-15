@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
 import Hero from "@/components/Hero";
 import Navigation from "@/components/Navigation";
 import StorySection from "@/components/StorySection";
-import Portfolio from "@/components/Portfolio";
-import ResearchProjects from "@/components/ResearchProjects";
+import PortfolioAndResearch from "@/components/PortfolioAndResearch";
 import AcademicAchievements from "@/components/AcademicAchievements";
 import Extracurriculars from "@/components/Extracurriculars";
 import Footer from "@/components/Footer";
@@ -18,12 +17,12 @@ export default function Home() {
             <Navigation />
             <Hero />
             <StorySection />
-            <Portfolio />
-            <ResearchProjects />
             <AcademicAchievements />
             <Extracurriculars />
+            <PortfolioAndResearch />
             <Footer />
             <BackToTop />
         </main>
     );
 }
+

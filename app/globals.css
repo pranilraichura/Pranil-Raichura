@@ -149,3 +149,29 @@ body {
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
 }
+
+/* GPU-accelerated animations — opt-in only to avoid breaking background-attachment: fixed */
+.gpu-accelerated {
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Smoother image rendering */
+img,
+video {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Premium transitions for interactive elements */
+a,
+button {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Libre Baskerville utility for the name */
+.font-libre {
+  font-family: var(--font-libre-baskerville), 'Georgia', serif;
+}

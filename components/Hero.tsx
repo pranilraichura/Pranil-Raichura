@@ -228,13 +228,13 @@ export default function Hero() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: waveDelays.center + 0.3 }}
                         whileHover={{ scale: 1.05, y: -5 }}
-                        className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 inline-block px-8 py-4 rounded-3xl bg-white/20 backdrop-blur-xl border border-white/30 shadow-2xl"
+                        className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 inline-block px-8 py-4 rounded-3xl bg-white/20 backdrop-blur-xl border border-white/30 shadow-2xl"
                         style={{
                             background: 'linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.15) 100%)',
                             boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15), inset 0 0 20px rgba(255,255,255,0.1)'
                         }}
                     >
-                        <span className="bg-gradient-to-r from-gray-900 via-primary-600 to-accent-purple bg-clip-text text-transparent">
+                        <span className="bg-gradient-to-r from-gray-900 via-primary-600 to-accent-purple bg-clip-text text-transparent font-libre">
                             Pranil Raichura
                         </span>
                     </motion.h1>
@@ -293,7 +293,7 @@ export default function Hero() {
 
                     {/* CTA Button */}
                     <motion.a
-                        href="#portfolio"
+                        href="#portfolio-research"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: waveDelays.center + 0.65 }}
