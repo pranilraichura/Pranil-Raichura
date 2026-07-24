@@ -116,6 +116,7 @@ export default function StoryTimeline() {
                     <div className="w-24 h-1 bg-primary-600 mx-auto mb-6"></div>
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                         A journey of learning to stand in pressure, not run from it.
+                        <br/><span className="text-sm font-medium text-slate-500 mt-2 block">(This is the extended version of the story featured on the homepage.)</span>
                     </p>
                 </motion.div>
 

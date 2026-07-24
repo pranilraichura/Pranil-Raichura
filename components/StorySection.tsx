@@ -33,6 +33,7 @@ const timelineEvents: TimelineEvent[] = [
         id: "the-whiff",
         title: "The Whiff",
         content: [
+            "The same freeze followed me from the squash court onto the volleyball court, just with more people watching.",
             "High school volleyball nationals. Orlando Convention Center. The noise is a deafening roar of 500 whistles blowing at once. I’m standing on the court, knees bent, waiting for the serve.",
             "I’m not thinking 'I got this.' I’m thinking: “Please don't hit it to me. Please, God, don't let the ball come to me.”",
             "The serve comes. It floats right to my platform. I swing—and completely whiff. The ball hits the floor behind me. My teammate taps my shoulder, but the silence in my head is louder than the crowd. I wanted to dissolve into the hardwood. I wasn't playing to compete; I was playing not to lose.",
@@ -47,6 +48,7 @@ const timelineEvents: TimelineEvent[] = [
         id: "3am-hum",
         title: "The 3 AM Hum",
         content: [
+            "It took years before I found a place where that fear didn't show up at all.",
             "Junior year. 3 AM on a Tuesday. My room is dark except for the harsh blue glow of VS Code. No audience. No scoreboard. No parents. Just the hum of my laptop fan.",
             "I'm debugging a breathing detection algorithm for a friend with ASD. I hit 'Run'. The green box tracks my chest movement with surgical precision.",
             "I leaned back—not with relief, but with power. I realized: When I solve real problems, the fear disappears. I wasn't an imposter here. I wasn't performing for anyone. I was an engineer.",
@@ -61,6 +63,7 @@ const timelineEvents: TimelineEvent[] = [
         id: "orange-skies",
         title: "Orange Skies Day",
         content: [
+            "That newfound confidence in solving problems alone soon collided with a very public emergency.",
             "The smoke from the wildfires spread orange light across the horizon — we called it ‘Orange Skies Day.’ I was younger then, but I remember my neighbor clearly: a widower in his seventies, always out in his yard, reclusive but present.",
             "As the smoke rose, it became clear he had no idea an evacuation order existed. The alerts were all digital, and he — like a lot of seniors in our community — had never set them up.",
             "We walked over and knocked on his door like we were delivering news he needed to hear immediately. That was the moment I realized technology wasn’t just something I liked tinkering with — it was something that could leave people behind if no one showed them how to use it.",
@@ -76,6 +79,7 @@ const timelineEvents: TimelineEvent[] = [
         id: "the-arena",
         title: "The Arena",
         content: [
+            "The sense of purpose I found in helping others eventually changed how I faced my own failures.",
             "Present day. I'm about to resubmit our 'Beyond Euler' research paper. The first version got rejected everywhere — inflated results from a cross-validation mistake I didn't catch. I rebuilt the entire analysis from scratch.",
             "The deadline is in 5 minutes. My heart is hammering — the same physical feeling as the squash court.",
             "But this time, I'm not looking for an exit. I'm grinning. The results are honest now. The paper is better because it failed first.",
@@ -190,6 +194,26 @@ export default function StorySection() {
                     ))}
                 </div>
             </div>
+
+            {/* Closing Reflection */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="relative z-10 text-center mt-16 max-w-4xl mx-auto px-6"
+            >
+                <div className="bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-sm border border-slate-200/60">
+                    <p className="text-xl text-slate-800 font-medium leading-relaxed font-libre">
+                        Looking back, the progression is clear. I spent years fearing the spotlight and trying to avoid failure. I had to learn how to find calm in solitary problem-solving before I could realize that those same instincts could serve my community. Today, I don't just tolerate pressure—I actively choose to step into the arena.
+                    </p>
+                    <div className="mt-6">
+                        <Link href="/story" className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors">
+                            Read the extended story <span aria-hidden="true">&rarr;</span>
+                        </Link>
+                    </div>
+                </div>
+            </motion.div>
 
             {/* Bridge to Evidence - Centered on Viewport */}
             <motion.div

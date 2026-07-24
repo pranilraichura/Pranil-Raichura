@@ -67,7 +67,7 @@ export default function Navigation() {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-[10000] transition-all duration-300 ${isLightboxOpen
         ? "bg-transparent pointer-events-none opacity-0"
-        : isScrolled
+        : (isScrolled || pathname !== "/")
           ? "bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-100"
           : "bg-transparent"
         }`}

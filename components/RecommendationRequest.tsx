@@ -223,7 +223,7 @@ export default function RecommendationRequest() {
             <div className="space-y-4 text-left">
               <div className="flex items-center">
                 <span className="font-semibold text-lg min-w-[100px]">Email:</span>
-                <span className="text-lg opacity-90">[Your Email]</span>
+                <span className="text-lg opacity-90"><a href="mailto:pranil.raichura@gmail.com" className="hover:underline">pranil.raichura@gmail.com</a></span>
               </div>
               <div className="flex items-center">
                 <span className="font-semibold text-lg min-w-[100px]">School:</span>
