@@ -27,7 +27,7 @@ const timelineEvents: TimelineEvent[] = [
         phase: "Fifth Grade",
         year: "First Challenge",
         content: [
-            "In fifth grade, my parents enrolled me in squash at the Bay Club in Cupertino. Squash wasn't a passion I had discovered on my own; my parents noticed that a family friend's son was excelling in the sport and winning national awards, and they hoped I could follow a similar path.",
+            "In fifth grade, my parents enrolled me in squash at the Bay Club in Santa Clara. Squash wasn't a passion I had discovered on my own; my parents noticed that a family friend's son was excelling in the sport and winning national awards, and they hoped I could follow a similar path.",
             "On the morning of my first tournament, my mom told me, 'Don't worry about the outcome, just do your best.' I walked onto the court expecting to win. I knew my opponent, Samyak, from practice and believed I was better than him.",
             "But as the match began, I started losing—point by point, game by game—while a crowd watched from behind the glass wall. When it was over, I ran to the bathroom and cried for twenty minutes, too embarrassed to come out.",
             "That loss convinced me that maybe I was not someone who could perform under pressure.",

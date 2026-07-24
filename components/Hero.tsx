@@ -169,7 +169,7 @@ export default function Hero() {
                         className="absolute bottom-8 right-8 text-right z-20"
                     >
                         <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800/80">
-                            2025
+                            2026
                         </span>
                         <p className="text-sm text-gray-500 mt-1">Present Day</p>
                     </motion.div>
@@ -251,7 +251,7 @@ export default function Hero() {
                         }}
                     >
                         <p className="text-lg md:text-xl lg:text-2xl text-gray-800 font-semibold">
-                            Junior · Research & CS · Granite Bay High School
+                            Senior · Research & CS · Granite Bay High School
                         </p>
                     </motion.div>
 
@@ -278,15 +278,19 @@ export default function Hero() {
                         <ul className="space-y-2 text-sm md:text-base text-slate-700">
                             <li className="flex items-start gap-2">
                                 <span className="text-slate-500 mt-0.5">•</span>
-                                <span className="leading-relaxed"><strong>Academics:</strong> 4.0 UW / 4.53 W GPA, rank 1/502; AP CS A & Principles, AP Calculus AB/BC, AP Physics 1, AP Statistics</span>
+                                <span className="leading-relaxed"><strong>Academics:</strong> 4.0 UW / 4.69 W GPA, rank 1/504; AP CS A & Principles, AP Calculus AB/BC, AP Physics 1, AP Statistics</span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <span className="text-slate-500 mt-0.5">•</span>
-                                <span className="leading-relaxed"><strong>Research & CS:</strong> NASA Space Apps Global Nominee 2025, &quot;Beyond Euler&quot; physics-informed ML preprint (XGBoost, SHAP), ASD serious game with OpenCV breathing detection</span>
+                                <span className="leading-relaxed"><strong>Research & CS:</strong> MIT CSAIL (Kellis Lab) research assistant, NASA Space Apps Global Nominee 2025, &quot;Beyond Euler&quot; ML paper under review at IEEE Access, MERIDIAN ESL-fair AI-text detector, ASD serious game with OpenCV breathing detection</span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <span className="text-slate-500 mt-0.5">•</span>
-                                <span className="leading-relaxed"><strong>Service & Leadership:</strong> Founder of Tech4Silvers, NHS Sergeant at Arms, UN GYEL participant, USAV national-level volleyball</span>
+                                <span className="leading-relaxed"><strong>Service & Leadership:</strong> Founder of Tech4Silvers, President of Competitive Programming Club, NHS Sergeant at Arms, UN GYEL participant, USAV national-level volleyball</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <span className="text-slate-500 mt-0.5">•</span>
+                                <span className="leading-relaxed"><strong>Online Presence:</strong> LinkedIn: 8.5k followers, 1.66M+ impressions; Instagram: 1.5k+ followers</span>
                             </li>
                         </ul>
                     </motion.div>

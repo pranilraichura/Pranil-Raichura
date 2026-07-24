@@ -93,7 +93,7 @@ export default function RecommendationPage() {
             </h1>
             <div className="w-32 h-1 bg-white mx-auto mb-4"></div>
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              I would be honored if you could write a letter of recommendation for my application to this program.
+              I would be honored if you could write a letter of recommendation for my college applications.
             </p>
           </motion.div>
 
@@ -112,7 +112,7 @@ export default function RecommendationPage() {
                 <h2 className="text-2xl md:text-3xl font-bold">My Request</h2>
               </div>
               <p className="leading-relaxed mb-4 text-lg text-white/95">
-                Thank you for taking the time to learn about me through this interactive website. I am applying to this program, and I would be honored if you could write a letter of recommendation for me.
+                Thank you for taking the time to learn about me through this interactive website. I am applying to college, and I would be honored if you could write a letter of recommendation for me.
               </p>
               <p className="leading-relaxed mb-4 text-lg text-white/95">
                 This website showcases my academic achievements, research projects, extracurricular activities, and personal growth throughout high school. I hope it provides you with a comprehensive understanding of who I am as a student and person.
@@ -145,7 +145,7 @@ export default function RecommendationPage() {
                   <span className="text-3xl mr-4">🎓</span>
                   <div>
                     <div className="font-bold text-lg">Class Rank #1</div>
-                    <div className="text-sm opacity-90">Out of 506 students</div>
+                    <div className="text-sm opacity-90">Out of 504 students</div>
                   </div>
                 </motion.li>
                 <motion.li
@@ -157,7 +157,7 @@ export default function RecommendationPage() {
                   <span className="text-3xl mr-4">🔬</span>
                   <div>
                     <div className="font-bold text-lg">Research Projects</div>
-                    <div className="text-sm opacity-90">AI Game Development & ML Engineering</div>
+                    <div className="text-sm opacity-90">AI Game Development, ML Engineering, MIT CSAIL, & more</div>
                   </div>
                 </motion.li>
                 <motion.li
@@ -181,7 +181,7 @@ export default function RecommendationPage() {
                   <span className="text-3xl mr-4">🤝</span>
                   <div>
                     <div className="font-bold text-lg">Leadership & Service</div>
-                    <div className="text-sm opacity-90">Founded Tech4Silvers, VP of Coding Club, NHS Leadership</div>
+                    <div className="text-sm opacity-90">Founded Tech4Silvers, President of Coding Club, NHS Leadership</div>
                   </div>
                 </motion.li>
               </ul>
@@ -252,7 +252,7 @@ export default function RecommendationPage() {
                 </div>
                 <div className="flex items-center">
                   <span className="font-semibold text-lg min-w-[100px]">Grade:</span>
-                  <span className="text-lg opacity-90">Junior (11th Grade)</span>
+                  <span className="text-lg opacity-90">Senior (12th Grade)</span>
                 </div>
               </div>
             </motion.div>
@@ -264,6 +264,67 @@ export default function RecommendationPage() {
             >
               Thank you for your time and consideration! 🙏
             </motion.p>
+          </motion.div>
+
+          {/* For My Recommenders — Plain-English Project Summaries */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mt-16 bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-white/20 shadow-2xl"
+          >
+            <div className="flex items-center mb-8">
+              <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                <span className="text-2xl">📋</span>
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold">For My Recommenders</h2>
+            </div>
+            <p className="text-white/80 mb-8 text-lg leading-relaxed">
+              Here are the three things I&apos;d most want a recommender to understand about me — in plain language, no jargon.
+            </p>
+
+            <div className="space-y-6">
+              <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+                <h3 className="font-bold text-xl mb-2">🔬 Beyond Euler — Persistence Through Failure</h3>
+                <p className="text-white/90 leading-relaxed">
+                  I physically tested 147 pasta strands to see where a 250-year-old engineering formula breaks down.
+                  My first paper had a hidden statistical error and got rejected everywhere.
+                  Instead of giving up, I found the mistake myself, rebuilt the entire analysis honestly, and resubmitted.
+                  That paper is now under review at IEEE Access.
+                </p>
+              </div>
+
+              <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+                <h3 className="font-bold text-xl mb-2">🤝 Tech4Silvers — Starting Something From a Real Need</h3>
+                <p className="text-white/90 leading-relaxed">
+                  During wildfire season, I realized my elderly neighbor had no idea a digital evacuation alert had been issued.
+                  That moment turned into Tech4Silvers — a student-run organization that teaches seniors about technology, scam prevention, and emergency alerts.
+                  We now partner with senior centers across Sacramento and Northern California.
+                </p>
+              </div>
+
+              <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+                <h3 className="font-bold text-xl mb-2">⚖️ MERIDIAN — Fairness-Driven AI</h3>
+                <p className="text-white/90 leading-relaxed">
+                  I learned that popular AI writing detectors often wrongly flag essays by students who speak English as a second language.
+                  I built MERIDIAN, a detector designed to be fair to ESL writers.
+                  On test data from real English learners, it achieves a 0% false-positive rate for low-proficiency writers — meaning it won&apos;t punish someone for still learning the language.
+                </p>
+              </div>
+            </div>
+
+            {/* TODO: Add downloadable one-page PDF summary once all content is finalized */}
+            {/*
+            <div className="mt-8 text-center">
+              <a
+                href="/pranil-raichura-summary.pdf"
+                download
+                className="inline-flex items-center px-6 py-3 bg-white/20 hover:bg-white/30 rounded-full text-white font-medium transition-all border border-white/30"
+              >
+                📄 Download One-Page Summary (PDF)
+              </a>
+            </div>
+            */}
           </motion.div>
 
           {/* Back Button at Bottom */}

@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: "Pranil Raichura",
-  grade: "Junior",
+  grade: "Senior",
   school: "Granite Bay High School",
   about: {
     service: "Service is about getting out in your community to take risks, even if you are nervous at first. I've learned this through volunteering projects and experience over time, as I often had to step out of my comfort zone to make a difference; whether it was standing on the stage in front of many seniors, helping them navigate the world of technology, or holding a certificate and speaking about the effects of our clothes drive on local families at a high school in front of a crowd at Rancho Cordova's City Hall.",
@@ -12,10 +12,10 @@ export const personalInfo = {
     "Playing violin",
     "Watching anime and TV shows",
     "Playing console games with friends",
-    "Photography and fashion content on Instagram (1k+ followers)",
+    "Photography and fashion content on Instagram (1.5k+ followers)",
     "Shopping",
   ],
-  instagramFollowers: "1k+",
+  instagramFollowers: "1.5k+",
   socials: {
     linkedin: "https://www.linkedin.com/in/pranilraichura",
     github: "https://github.com/sparkyluvscode",
@@ -31,7 +31,7 @@ export const leadershipPositions = [
     type: "501(c)(3) non-profit organization",
   },
   {
-    title: "Vice President",
+    title: "President",
     organization: "Competitive Programming Club at GBHS",
   },
   {
@@ -63,7 +63,7 @@ export const serviceActivities = [
     title: "Project Lead at Rotary E-Club of Silicon Valley",
     activities: [
       "Hosted a shoe drive - donated 150 pairs of shoes and shipped them to homeless families in Africa",
-      "Hosted a warm clothes drive for the students at Kinney High School in Rancho Cordova; we collected over 300 clothes and donated them",
+      "Hosted a warm clothes drive for the students at Kinney High School in Rancho Cordova; we donated 500+ items of clothing",
       "Received recognition from the Mayor of the city of Rancho Cordova",
     ],
   },
