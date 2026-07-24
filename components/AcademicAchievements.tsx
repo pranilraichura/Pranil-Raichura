@@ -87,17 +87,17 @@ export default function AcademicAchievements() {
             <div className="space-y-6">
               <div>
                 <div className="flex justify-between items-baseline mb-1">
-                  <span className="text-2xl font-bold text-slate-900">1510</span>
-                  <span className="text-slate-500 font-medium">SAT</span>
+                  <span className="text-2xl font-bold text-slate-900">1530</span>
+                  <span className="text-slate-500 font-medium">SAT (Superscore)</span>
                 </div>
-                <p className="text-slate-600">790 Math • 720 English</p>
+                <p className="text-slate-600">790 Math • 740 Reading & Writing</p>
               </div>
               <div>
                 <div className="flex justify-between items-baseline mb-1">
-                  <span className="text-2xl font-bold text-slate-900">1460</span>
-                  <span className="text-slate-500 font-medium">PSAT / NMSQT</span>
+                  <span className="text-2xl font-bold text-slate-900">{academicStats.weightedGPA}</span>
+                  <span className="text-slate-500 font-medium">Weighted GPA</span>
                 </div>
-                <p className="text-slate-600">760 Math • 700 ERW</p>
+                <p className="text-slate-600">Rank {academicStats.classRank} of {academicStats.classSize} • 4.0 Unweighted</p>
               </div>
             </div>
           </motion.div>

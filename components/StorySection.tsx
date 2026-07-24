@@ -68,7 +68,7 @@ const timelineEvents: TimelineEvent[] = [
         ],
         media: {
             type: 'image',
-            path: '/margaret_t4s.JPG',
+            path: '/t4s_workshop.JPG',
             caption: 'Tech4Silvers workshop'
         }
     },

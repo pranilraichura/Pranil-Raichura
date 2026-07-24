@@ -20,7 +20,8 @@ export const researchProjects = [
       },
     ],
     organization: "Polygence",
-    description: "Designed and published a garden-themed, AI-assisted resource-management game with integrated guided breathing sessions for adolescents (12–16) with Autism Spectrum Disorder (ASD), aimed at improving emotional regulation and reducing state anxiety.",
+    description: "Designed and published a garden-themed, AI-assisted resource-management game with integrated guided breathing sessions for adolescents (12–16) with Autism Spectrum Disorder (ASD), aimed at improving emotional regulation and reducing state anxiety. Coauthored with Dr. Nouchine Hadjikhani (Harvard) and Nolan Miranda, M.S. (Stanford).",
+    status: "Submitted to JMIR Serious Games",
     highlights: [
       "Conducting an IRB-aligned study with HRV and STAI-State evaluations across weekly gameplay",
       "Authoring research paper with Dr. Nouchine Hadjikhani and Nolan Miranda, M.S.",
@@ -120,7 +121,7 @@ export const researchProjects = [
     status: "Targeting NLP4PI and PANDORA workshops",
     highlights: [
       "93–95% accuracy with an 8.3% false-positive rate under 5-fold cross-validation",
-      "On held-out TOEFL11 data with zero retraining: 3.9% overall false-positive rate, 0% for low-proficiency writers",
+      "Cut the ESL false-positive rate from 29% to 3.9% on held-out TOEFL11 data in a zero-shot setting — outperforming single-stream baselines (0% for low-proficiency writers)",
       "Live demo on Hugging Face Spaces",
     ],
   },
@@ -130,5 +131,32 @@ export const researchProjects = [
     role: "Participant",
     organization: "UCLA COSMOS, mentored by Prof. Hugh Tad Blair (computational neuroscience)",
     description: "Coursework and independent research under Prof. Blair's mentorship, including PyTorch fundamentals (from-scratch SLP/MLP implementations) and computer vision work with GoogLeNet on the Stanford Dogs dataset.",
+  },
+  {
+    id: "torch-measure",
+    title: "Torch_Measure — AI Evaluation Toolkit",
+    role: "Contributor and Researcher",
+    tech: "Python",
+    organization: "Stanford AI Measurement Science Lab (remote)",
+    mentor: {
+      name: "Sang Truong",
+      affiliation: "Stanford Ph.D. researcher",
+    },
+    status: "Coauthor",
+    dates: "March 2026 - Present",
+    description: "Coauthored Torch_Measure with Stanford Ph.D. researcher Sang Truong, a paper and psychometric toolkit that helps researchers identify flawed items in AI evaluation datasets.",
+  },
+  {
+    id: "usc-isi-agentic-ai",
+    title: "Agentic AI Applications",
+    role: "Researcher, AICS Lab",
+    tech: "Python, PyTorch",
+    organization: "USC Information Sciences Institute, Artificial Intelligence and Complex Systems Group",
+    mentor: {
+      name: "Prof. Mayank Kejriwal",
+      affiliation: "USC Information Sciences Institute",
+    },
+    dates: "February 2026 - May 2026",
+    description: "Conducted research under Prof. Mayank Kejriwal in the Artificial Intelligence and Complex Systems Group, investigating emergent LLM behavior and responsible-AI applications in healthcare, crisis informatics, and social systems.",
   },
 ];
