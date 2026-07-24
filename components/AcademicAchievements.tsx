@@ -52,7 +52,7 @@ export default function AcademicAchievements() {
           className="mb-16"
         >
           <p className="text-3xl md:text-4xl font-light text-slate-900 leading-tight">
-            Ranked <span className="font-bold border-b-2 border-slate-300">1st of 502</span> with a <span className="font-bold border-b-2 border-slate-300">{academicStats.weightedGPA} GPA</span>.
+            Ranked <span className="font-bold border-b-2 border-slate-300">1st of 504</span> with a <span className="font-bold border-b-2 border-slate-300">{academicStats.weightedGPA} GPA</span>.
           </p>
         </motion.div>
 

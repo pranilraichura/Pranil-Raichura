@@ -85,13 +85,13 @@ export const portfolioProjects: PortfolioProject[] = [
     {
         id: "ml-structural-engineering",
         title: "Beyond Euler ML Framework",
-        tagline: "Physics-informed ML for structural buckling prediction",
-        description: "Interpretable XGBoost model with SHAP analysis predicting structural buckling in non-ideal materials, achieving R² of 0.97. Challenges Euler's 250-year-old formula. Extended experimental framework from Johns Hopkins EEI program.",
-        tech: ["Python", "XGBoost", "Scikit-Learn", "SHAP", "Data Analysis"],
+        tagline: "Rebuilding a rejected paper into an honest, leakage-safe result",
+        description: "Ran 147 physical buckling tests on dried pasta strands (7 lengths × 4 diameters) to test where Euler's 250-year-old buckling formula breaks down for non-ideal materials. The first version of this project used cross-validation that leaked information between train and test sets, producing an inflated R² of 0.97 — and was rejected by every venue it was submitted to for superficial novelty. Rebuilt the entire analysis from scratch with proper GroupKFold validation: honest results show a direct ML model collapses to RMSE 0.350N, while a stratified correction layer on top of the classical Euler formula improves RMSE from 0.180N to 0.108N, holding up even under out-of-distribution diameter extrapolation. Currently under review at IEEE Access.",
+        tech: ["Python", "XGBoost", "Scikit-Learn", "SHAP", "GroupKFold Cross-Validation", "Data Analysis"],
         github: "https://www.researchgate.net/publication/395824075",
         category: "Research",
         featured: true,
-        recognition: "Preprint published; under review for journal submission",
+        recognition: "Manuscript under review, IEEE Access",
         backgroundMedia: {
             type: "image",
             src: "/figure1_bucklingtest.png",

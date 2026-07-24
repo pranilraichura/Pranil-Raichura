@@ -1,10 +1,10 @@
 export const academicStats = {
-  weightedGPA: 4.61,
-  totalWeightedGPA: 4.47,
-  gpa10to12: 4.86,
+  weightedGPA: 4.69,       // transcript-verified (was 4.61)
+  totalWeightedGPA: 4.63,  // transcript-verified (was 4.47)
+  gpa10to12: 4.94,         // transcript-verified (was 4.86)
   unweightedGPA: 4.0,
   classRank: 1,
-  classSize: 506,
+  classSize: 504,          // transcript-verified (was 506)
 };
 
 export const currentClasses = {
