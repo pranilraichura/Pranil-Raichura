@@ -117,7 +117,7 @@ export default function Extracurriculars() {
                             src={ec.media[0].path}
                             alt={ec.media[0].caption || ec.title}
                             fill
-                            className="object-cover transition-transform duration-300 group-hover:scale-110"
+                            className={`transition-transform duration-300 group-hover:scale-110 ${ec.id === 'inspirit-ai' ? 'object-contain bg-slate-100 p-2' : 'object-cover'}`}
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           />
                           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">

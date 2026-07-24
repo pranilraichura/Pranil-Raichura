@@ -18,6 +18,14 @@ export interface Extracurricular {
 
 export const extracurriculars: Extracurricular[] = [
   {
+    id: "hair-fellowship",
+    title: "Hope AI Research Fellowship (HAIR)",
+    years: "11th Grade",
+    category: "Leadership",
+    leadership: "Co-Founder & Principal Investigator",
+    description: "A free fellowship co-founded to give underprivileged high schoolers (including QuestBridge scholars) who lack access to scientific research mentorship a path into AI research. Over a four-month program, delivered weekly skill-building lectures and paper-review sessions for 20+ students across 4 teams, guiding them from an initial idea to a submitted paper.",
+  },
+  {
     id: "competitive-programming-club",
     title: "Competitive Programming Club",
     years: "9th, 10th, 11th Grade (Leadership)",

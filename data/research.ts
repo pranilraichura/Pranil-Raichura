@@ -159,4 +159,11 @@ export const researchProjects = [
     dates: "February 2026 - May 2026",
     description: "Conducted research under Prof. Mayank Kejriwal in the Artificial Intelligence and Complex Systems Group, investigating emergent LLM behavior and responsible-AI applications in healthcare, crisis informatics, and social systems.",
   },
+  {
+    id: "glioblastoma-peptide",
+    title: "AI Pipeline for Glioblastoma Peptide Drug Screening",
+    role: "Second Author",
+    status: "Accepted, IEEE CIBCB 2026",
+    description: "Built an AI pipeline that screens candidate peptide drugs for glioblastoma by predicting 3D structure and scoring binding affinity to the tumor and blood-brain-barrier crossover potential. Co-designed a new ranking metric intended to reduce costly lab testing of low-potential candidates.",
+  },
 ];

@@ -35,4 +35,24 @@ export const awards: Award[] = [
     year: "10th Grade",
     description: "336 hours on-campus",
   },
+  {
+    id: "columbia-jr-science",
+    title: "Semifinalist, Columbia Junior Science Journal",
+    category: "Academic",
+    year: "11th Grade",
+  },
+  {
+    id: "sacramento-stem-fair",
+    title: "Honorable Mention, Sacramento STEM Fair",
+    category: "Research",
+    year: "11th Grade",
+    description: "For MERIDIAN, an independent research poster on equitable AI text detection presented at the regional science and engineering fair.",
+  },
+  {
+    id: "national-merit",
+    title: "Commended Scholar, National Merit Scholarship Program",
+    category: "Academic",
+    year: "11th Grade",
+    description: "National recognition from the National Merit Scholarship Corporation, awarded to the top 3–4% of PSAT/NMSQT scorers nationally.",
+  },
 ];
