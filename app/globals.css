@@ -140,6 +140,21 @@ body {
   transform: translateY(-2px);
 }
 
+@media (max-width: 480px) {
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    box-shadow: 0 3px 14px rgba(59, 130, 246, 0.3);
+  }
+
+  .back-to-top svg {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+}
+
 /* Global Card Hover Effects */
 .hover-lift {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
