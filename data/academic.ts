@@ -26,7 +26,7 @@ export const currentClasses = {
 export const favoriteCourses = [
   {
     name: "AP Calculus BC",
-    reason: "Though it was super challenging, I was fascinated with the advanced concepts we were learning. From finding the area under a curve—a task I initially couldn't fathom after graphing them all my life—or instantly finding the maximum value of a function without having to graph it, calculus was very fun. It really changed the way I thought about math my entire life.",
+    reason: "Though it was super challenging, I was fascinated with the advanced concepts we were learning. From finding the area under a curve (a task I initially couldn't fathom after graphing them all my life) to instantly finding the maximum value of a function without having to graph it, calculus was very fun. It really changed the way I thought about math my entire life.",
     // TODO: Add image - Place in /public/images/ap-calculus.jpg
     imagePath: "/images/ap-calculus.jpg", // Uncomment when image is added
   },

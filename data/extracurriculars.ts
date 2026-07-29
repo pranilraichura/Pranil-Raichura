@@ -47,7 +47,7 @@ export const extracurriculars: Extracurricular[] = [
     category: "Leadership",
     hoursPerWeek: "30 mins per week",
     leadership: "Sergeant at Arms",
-    description: "NHS is the main service hub at my school, and as Sergeant at Arms I help plan and run projects instead of just showing up to volunteer hours. I’ve helped coordinate drives under our PraNam initiative, including a warm-clothes collection that delivered 500+ items to students at Kinney High School and a shoe drive that shipped over 150 pairs to families in Africa. I also help manage meeting logistics and keep events running smoothly. NHS has been where I practice turning big, vague goals—“help the community”—into specific, organized events that actually deliver.",
+    description: "NHS is the main service hub at my school, and as Sergeant at Arms I help plan and run projects instead of just showing up to volunteer hours. I’ve helped coordinate drives under our PraNam initiative, including a warm-clothes collection that delivered 500+ items to students at Kinney High School and a shoe drive that shipped over 150 pairs to families in Africa. I also help manage meeting logistics and keep events running smoothly. NHS has been where I practice turning big, vague goals like \"help the community\" into specific, organized events that actually deliver.",
     media: [
       { type: 'image', path: '/extracurriculars/nhs/me_holding_book_new.jpg', caption: 'NHS Leadership' },
       { type: 'image', path: '/extracurriculars/nhs/book_picture_new.jpg', caption: 'NHS Book Collection' },
@@ -56,15 +56,15 @@ export const extracurriculars: Extracurricular[] = [
     ],
   },
   {
-    // TODO: confirm with Pranil — grade range and time commitment for this role are not in any source data.
+    // TODO: confirm with Pranil - grade range and time commitment for this role are not in any source data.
     id: "student-senate",
-    title: "GBHS Student Senate – School Policy & Public Relations",
+    title: "GBHS Student Senate: School Policy & Public Relations",
     category: "Leadership",
     leadership: "Elected Student Senator",
-    description: "This is an elected school-government position at Granite Bay High School, in the School Policy and Public Relations seat. The job is to sit on the student side of how school policy actually gets made and explained — bringing student perspective into those conversations, and then carrying what was decided back to the people it affects. It is the least flashy leadership role I hold and the one that taught me the most about how slowly real institutions move.",
+    description: "This is an elected school-government position at Granite Bay High School, in the School Policy and Public Relations seat. The job is to sit on the student side of how school policy actually gets made and explained, bringing student perspective into those conversations, and then carrying what was decided back to the people it affects. It is the least flashy leadership role I hold and the one that taught me the most about how slowly real institutions move.",
   },
   {
-    // TODO: confirm with Pranil — grade range, time commitment, and specific responsibilities are not in any source data.
+    // TODO: confirm with Pranil - grade range, time commitment, and specific responsibilities are not in any source data.
     id: "jkyog",
     title: "JKYog",
     category: "Leadership",
@@ -85,10 +85,10 @@ export const extracurriculars: Extracurricular[] = [
   },
   {
     id: "uci-gati",
-    title: "Game Development and Sciences Research – UCI x GATI (GSET)",
+    title: "Game Development and Sciences Research, UCI x GATI (GSET)",
     years: "9th Summer → 10th",
     category: "Research",
-    description: "At UCI x GATI’s GSET program, I spent a summer exploring the science of game design and its applications to education and behavior. Working in Unity with C#, my team built a prototype game that combined reward schedules, difficulty curves, and machine-learning-driven customization. We also learned how to pitch like founders: writing a lightweight business plan, crafting a problem–solution narrative, and presenting our demo to a panel of faculty and “investors.” The experience turned game design from a hobby into a research interest and directly paved the way for my later Flora Frontier autism project.",
+    description: "At UCI x GATI’s GSET program, I spent a summer exploring the science of game design and its applications to education and behavior. Working in Unity with C#, my team built a prototype game that combined reward schedules, difficulty curves, and machine-learning-driven customization. We also learned how to pitch like founders: writing a lightweight business plan, crafting a problem-solution narrative, and presenting our demo to a panel of faculty and “investors.” The experience turned game design from a hobby into a research interest and directly paved the way for my later Flora Frontier autism project.",
     media: [
       { type: 'image', path: '/extracurriculars/uci_gati/pic1_new.jpg', caption: 'UCI GATI Program' },
       { type: 'image', path: '/extracurriculars/uci_gati/pic2_new.jpg', caption: 'Final Presentation' },
@@ -115,7 +115,7 @@ export const extracurriculars: Extracurricular[] = [
     years: "Since summer 2022",
     category: "Service",
     leadership: "Co-Founder",
-    description: "My brother Naman and I started PraNam in the summer of 2022, and we have since donated over 1,000 items to underprivileged populations: 500+ warm clothing items, 600+ eyeframes, and 100+ educational books collected and shipped. Half of what we do is products — eco-friendly things meant to make everyday life a little more sustainable. The other half is initiatives for people who are vulnerable or in need: donating technological gadgets and necessary items to communities in different parts of the world, and sitting down with seniors to help them understand modern technology and what it can actually do for them. That second half is where Tech4Silvers came from. Same conviction, two forms — technology is only useful if the people who need it most can actually use it. PraNam is where my brother and I first tested that idea; Tech4Silvers is where I built an organization around it. We also collaborate with the E-Rotary Club of Silicon Valley on volunteering and fundraisers.",
+    description: "My brother Naman and I started PraNam in the summer of 2022, and we have since donated over 1,000 items to underprivileged populations: 500+ warm clothing items, 600+ eyeframes, and 100+ educational books collected and shipped. Half of what we do is products: eco-friendly things meant to make everyday life a little more sustainable. The other half is initiatives for people who are vulnerable or in need: donating technological gadgets and necessary items to communities in different parts of the world, and sitting down with seniors to help them understand modern technology and what it can actually do for them. That second half is where Tech4Silvers came from. Same conviction, two forms. Technology is only useful if the people who need it most can actually use it. PraNam is where my brother and I first tested that idea; Tech4Silvers is where I built an organization around it. We also collaborate with the E-Rotary Club of Silicon Valley on volunteering and fundraisers.",
     achievements: [
       "Donated over 1,000 items to underprivileged populations, and counting",
       "500+ warm clothing items donated",
@@ -131,12 +131,12 @@ export const extracurriculars: Extracurricular[] = [
     ],
   },
   {
-    // TODO: confirm with Pranil — grade range and time commitment for this role are not in any source data.
+    // TODO: confirm with Pranil - grade range and time commitment for this role are not in any source data.
     id: "rotary-eclub",
     title: "Rotary E-Club of Silicon Valley",
     category: "Service",
     leadership: "Project Lead",
-    description: "As Project Lead with the Rotary E-Club of Silicon Valley, I ran collection drives with the club, organized under our PraNam initiative. We hosted a shoe drive that donated 150 pairs of shoes and shipped them to homeless families in Africa, and a warm clothes drive for students at Kinney High School in Rancho Cordova that collected 500+ items of clothing. The clothes drive received recognition from the Mayor of the city of Rancho Cordova, and I ended up holding a certificate at Rancho Cordova's City Hall, speaking in front of a crowd about what the drive meant for local families — exactly the kind of spotlight the fifth-grader in the squash court would have done anything to avoid.",
+    description: "As Project Lead with the Rotary E-Club of Silicon Valley, I ran collection drives with the club, organized under our PraNam initiative. We hosted a shoe drive that donated 150 pairs of shoes and shipped them to homeless families in Africa, and a warm clothes drive for students at Kinney High School in Rancho Cordova that collected 500+ items of clothing. The clothes drive received recognition from the Mayor of the city of Rancho Cordova, and I ended up holding a certificate at Rancho Cordova's City Hall, speaking in front of a crowd about what the drive meant for local families, exactly the kind of spotlight the fifth-grader in the squash court would have done anything to avoid.",
     achievements: [
       "Shoe drive: 150 pairs donated and shipped to homeless families in Africa",
       "Warm clothes drive: 500+ items of clothing donated to students at Kinney High School, Rancho Cordova",
@@ -144,18 +144,18 @@ export const extracurriculars: Extracurricular[] = [
     ],
   },
   {
-    // TODO: confirm with Pranil — grade range and time commitment for this role are not in any source data.
+    // TODO: confirm with Pranil - grade range and time commitment for this role are not in any source data.
     id: "annapurna",
     title: "Annapurna USA Foundation",
     category: "Service",
-    description: "On most Sunday mornings, we prepare, cook, and serve food for residents of homeless shelters around Placer County, rotating between different shelters. There is no technology in it, no metric I can optimize, and nobody writes it down — which is probably why it has been the steadiest commitment on this whole page.",
+    description: "On most Sunday mornings, we prepare, cook, and serve food for residents of homeless shelters around Placer County, rotating between different shelters. There is no technology in it, no metric I can optimize, and nobody writes it down, which is probably why it has been the steadiest commitment on this whole page.",
   },
   {
     id: "national-volleyball",
     title: "National Volleyball (Club)",
     years: "9th, 10th",
     category: "Sports",
-    description: "I’ve played club volleyball for nine years, competing in some of the most competitive boys’ leagues on the West Coast. As an outside hitter, I’ve helped my teams earn silver at USAV Nationals (14 Open, Salt Lake City), gold at SCVA SoCal Cup in Anaheim, gold in NCVA Power League, and multiple qualification medals. Long tournament days—from 7 a.m. warm-ups to late-night bracket finals—taught me how to handle pressure, bounce back from mistakes, and contribute even when I’m not the star of the court. Club volleyball is where I first learned that discipline and chemistry matter as much as raw talent.",
+    description: "I’ve played club volleyball for nine years, competing in some of the most competitive boys’ leagues on the West Coast. As an outside hitter, I’ve helped my teams earn silver at USAV Nationals (14 Open, Salt Lake City), gold at SCVA SoCal Cup in Anaheim, gold in NCVA Power League, and multiple qualification medals. Long tournament days, from 7 a.m. warm-ups to late-night bracket finals, taught me how to handle pressure, bounce back from mistakes, and contribute even when I’m not the star of the court. Club volleyball is where I first learned that discipline and chemistry matter as much as raw talent.",
     links: [
       {
         text: "News Article",
@@ -188,7 +188,7 @@ export const extracurriculars: Extracurricular[] = [
     title: "United Nations GYEL Program",
     years: "Spring 25 (10th)",
     category: "Leadership",
-    description: "In 10th grade I was selected for the Global Youth Excellence & Leadership (GYEL) program, affiliated with the UN’s Economic and Social Council (ECOSOC). Over several months I joined students worldwide in workshops on the Sustainable Development Goals, particularly public health, education, and digital equity. We heard from entrepreneurs and leaders—including Kevin O’Leary, Jessica Nabongo, and NASA engineer Kenneth Harris II—then worked in teams to design projects addressing local needs. I used the program to refine my vision for Tech4Silvers and to frame digital literacy for seniors as part of SDG 4: Quality Education and SDG 10: Reduced Inequalities.",
+    description: "In 10th grade I was selected for the Global Youth Excellence & Leadership (GYEL) program, affiliated with the UN’s Economic and Social Council (ECOSOC). Over several months I joined students worldwide in workshops on the Sustainable Development Goals, particularly public health, education, and digital equity. We heard from entrepreneurs and leaders, including Kevin O’Leary, Jessica Nabongo, and NASA engineer Kenneth Harris II, then worked in teams to design projects addressing local needs. I used the program to refine my vision for Tech4Silvers and to frame digital literacy for seniors as part of SDG 4: Quality Education and SDG 10: Reduced Inequalities.",
     media: [
       { type: 'image', path: '/extracurriculars/gyel/gyel_pic_new.jpg', caption: 'UN GYEL Program' },
     ],
@@ -198,7 +198,7 @@ export const extracurriculars: Extracurricular[] = [
     title: "Inspirit AI Scholars",
     years: "Summer 23 (8th → 9th)",
     category: "Tech",
-    description: "The summer before high school, I joined Inspirit AI’s Scholars program, working in a small team mentored by a Stanford alumnus. We learned the foundations of machine learning—neural networks, embeddings, evaluation metrics—and then applied them to build a fake-news detection web app. I focused on model training and evaluation, using NLP techniques and confusion matrices to compare our models, and then helped deploy the project on Streamlit so anyone could test URLs in real time. Our project earned the “Best Presentation” award in our cohort and gave me my first experience shipping an end-to-end AI tool with real users in mind.",
+    description: "The summer before high school, I joined Inspirit AI’s Scholars program, working in a small team mentored by a Stanford alumnus. We learned the foundations of machine learning (neural networks, embeddings, evaluation metrics) and then applied them to build a fake-news detection web app. I focused on model training and evaluation, using NLP techniques and confusion matrices to compare our models, and then helped deploy the project on Streamlit so anyone could test URLs in real time. Our project earned the “Best Presentation” award in our cohort and gave me my first experience shipping an end-to-end AI tool with real users in mind.",
     links: [
       {
         text: "Fake News Detection App",
@@ -222,10 +222,10 @@ export const extracurriculars: Extracurricular[] = [
   },
   {
     id: "violin",
-    title: "Musical Instrument – Violin / Sacramento Youth Symphony",
+    title: "Musical Instrument: Violin / Sacramento Youth Symphony",
     years: "9th, 10th",
     category: "Music",
-    description: "I’ve played violin for five years, starting in school orchestra and later joining the Sacramento Youth Symphony. Between rehearsals, sectionals, and concerts, I’ve performed in over fifty events across California. Playing in an ensemble taught me how to listen as carefully as I play: adjusting intonation, matching phrasing, and staying locked to the conductor even when my mind is elsewhere. Music has been the long, slow counterbalance to my tech life—a place where progress happens measure by measure, not in sudden “aha” moments.",
+    description: "I’ve played violin for five years, starting in school orchestra and later joining the Sacramento Youth Symphony. Between rehearsals, sectionals, and concerts, I’ve performed in over fifty events across California. Playing in an ensemble taught me how to listen as carefully as I play: adjusting intonation, matching phrasing, and staying locked to the conductor even when my mind is elsewhere. Music has been the long, slow counterbalance to my tech life, a place where progress happens measure by measure, not in sudden “aha” moments.",
     media: [
       { type: 'image', path: '/extracurriculars/violin/violin_new.jpg', caption: 'Violin Performance' },
       { type: 'image', path: '/pranil_violin.jpeg', caption: 'Violin Performance 2' },

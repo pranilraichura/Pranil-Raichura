@@ -266,7 +266,7 @@ export default function RecommendationPage() {
             </motion.p>
           </motion.div>
 
-          {/* For My Recommenders — Plain-English Project Summaries */}
+          {/* For My Recommenders: Plain-English Project Summaries */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -280,12 +280,12 @@ export default function RecommendationPage() {
               <h2 className="text-2xl md:text-3xl font-bold">For My Recommenders</h2>
             </div>
             <p className="text-white/80 mb-8 text-lg leading-relaxed">
-              Here are the three things I&apos;d most want a recommender to understand about me — in plain language, no jargon.
+              Here are the three things I&apos;d most want a recommender to understand about me, in plain language, no jargon.
             </p>
 
             <div className="space-y-6">
               <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-                <h3 className="font-bold text-xl mb-2">🔬 Beyond Euler — Persistence Through Failure</h3>
+                <h3 className="font-bold text-xl mb-2">🔬 Beyond Euler: Persistence Through Failure</h3>
                 <p className="text-white/90 leading-relaxed">
                   I physically tested 147 pasta strands to see where a 250-year-old engineering formula breaks down.
                   My first paper had a hidden statistical error and got rejected everywhere.
@@ -295,20 +295,20 @@ export default function RecommendationPage() {
               </div>
 
               <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-                <h3 className="font-bold text-xl mb-2">🤝 Tech4Silvers — Starting Something From a Real Need</h3>
+                <h3 className="font-bold text-xl mb-2">🤝 Tech4Silvers: Starting Something From a Real Need</h3>
                 <p className="text-white/90 leading-relaxed">
                   During wildfire season, I realized my elderly neighbor had no idea a digital evacuation alert had been issued.
-                  That moment turned into Tech4Silvers — a student-run organization that teaches seniors about technology, scam prevention, and emergency alerts.
+                  That moment turned into Tech4Silvers, a student-run organization that teaches seniors about technology, scam prevention, and emergency alerts.
                   We now partner with senior centers across Sacramento and Northern California.
                 </p>
               </div>
 
               <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-                <h3 className="font-bold text-xl mb-2">⚖️ MERIDIAN — Fairness-Driven AI</h3>
+                <h3 className="font-bold text-xl mb-2">⚖️ MERIDIAN: Fairness-Driven AI</h3>
                 <p className="text-white/90 leading-relaxed">
                   I learned that popular AI writing detectors often wrongly flag essays by students who speak English as a second language.
                   I built MERIDIAN, a detector designed to be fair to ESL writers.
-                  On test data from real English learners, it achieves a 0% false-positive rate for low-proficiency writers — meaning it won&apos;t punish someone for still learning the language.
+                  On test data from real English learners, it achieves a 0% false-positive rate for low-proficiency writers, meaning it won&apos;t punish someone for still learning the language.
                 </p>
               </div>
             </div>

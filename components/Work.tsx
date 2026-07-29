@@ -224,7 +224,7 @@ function FeaturedWithFigure({ item }: { item: WorkItem }) {
     );
 }
 
-/** Featured tile for work with no photo available — typography carries it instead. */
+/** Featured tile for work with no photo available; typography carries it instead. */
 function FeaturedTypographic({ item }: { item: WorkItem }) {
     return (
         <motion.article
@@ -404,7 +404,7 @@ export default function Work() {
                     <div className="w-24 h-1 bg-primary-600 mx-auto mb-6"></div>
                     <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
                         This is the 3 AM version of me from the story above, six years later. Almost
-                        none of it started as a research plan — it started as a problem that bothered
+                        none of it started as a research plan. It started as a problem that bothered
                         me and wouldn&apos;t leave. So instead of splitting these into
                         &ldquo;projects&rdquo; and &ldquo;research,&rdquo; they&apos;re grouped by what
                         they&apos;re actually about.
