@@ -19,7 +19,7 @@ const domainStyles: Record<WorkDomain, string> = {
 };
 
 // Beyond Euler leads because the Story section closes on it; the rest follow by weight.
-const featuredOrder = ["ml-structural-engineering", "mantis", "meridian"];
+const featuredOrder = ["ml-structural-engineering", "ai-reasoning-visualization", "meridian"];
 
 function orderFeatured(a: WorkItem, b: WorkItem) {
     const ai = featuredOrder.indexOf(a.id);
@@ -70,12 +70,36 @@ function WorkDetails({ item }: { item: WorkItem }) {
                 </ul>
             )}
 
-            {item.mentorship && (
+            {item.mentors && item.mentors.length > 0 && (
                 <div className="mt-4">
                     <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide mb-1.5">
                         Mentorship
                     </p>
-                    <p className="text-xs text-slate-600 leading-relaxed">{item.mentorship}</p>
+                    <div className="flex flex-wrap gap-3">
+                        {item.mentors.map((mentor) => (
+                            <div
+                                key={`${mentor.name}-${mentor.affiliation}`}
+                                className="flex items-center gap-2.5 min-w-0"
+                            >
+                                {mentor.image && (
+                                    <img
+                                        src={mentor.image}
+                                        alt=""
+                                        loading="lazy"
+                                        className="h-9 w-9 rounded-full object-cover border border-slate-200"
+                                    />
+                                )}
+                                <div className="min-w-0">
+                                    <p className="text-xs font-semibold text-slate-700">
+                                        {mentor.name}
+                                    </p>
+                                    <p className="text-[11px] text-slate-500 leading-snug">
+                                        {mentor.affiliation}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             )}
 
