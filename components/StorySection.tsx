@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 
 interface TimelineEvent {
@@ -94,9 +95,60 @@ const timelineEvents: TimelineEvent[] = [
     },
 ];
 
+// The story runs cold to warm: a frozen kid in a glass box, then orange wildfire light,
+// then the arena. The section's lighting and the timeline rail follow that same arc as
+// the reader descends, so the page warms up at the pace they're actually reading.
+const beatColors = ["#475569", "#57534e", "#78716c", "#d97706", "#ea580c"];
+
 export default function StorySection() {
+    const sectionRef = useRef<HTMLElement>(null);
+    const timelineRef = useRef<HTMLDivElement>(null);
+    const railRef = useRef<HTMLDivElement>(null);
+    const prefersReducedMotion = useReducedMotion();
+
+    const { scrollYProgress: sectionProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start end", "end start"],
+    });
+    const coldOpacity = useTransform(sectionProgress, [0.05, 0.45], [1, 0]);
+    const warmOpacity = useTransform(sectionProgress, [0.4, 0.8], [0, 1]);
+
+    // The rail fills to however far down the timeline the reader has got, measured
+    // against a "reading line" two-thirds down the viewport. Written straight to the
+    // element so scrolling never triggers a React render.
+    useEffect(() => {
+        (window as any).__railEffect = { reduced: prefersReducedMotion, ran: true };
+        if (prefersReducedMotion) return;
+
+        let lastPct = -1;
+        const measure = () => {
+            const container = timelineRef.current;
+            const rail = railRef.current;
+            if (!container || !rail) return;
+            const rect = container.getBoundingClientRect();
+            if (rect.height === 0) return;
+            const readingLine = window.innerHeight * 0.65;
+            const progress = (readingLine - rect.top) / rect.height;
+            const pct = Math.round(Math.min(100, Math.max(0, progress * 100)) * 2) / 2;
+            if (pct === lastPct) return;
+            lastPct = pct;
+            const mask = `linear-gradient(to bottom, #000 ${pct}%, transparent ${pct}%)`;
+            rail.style.maskImage = mask;
+            rail.style.webkitMaskImage = mask;
+        };
+
+        measure();
+        window.addEventListener("scroll", measure, { passive: true });
+        window.addEventListener("resize", measure);
+        return () => {
+            window.removeEventListener("scroll", measure);
+            window.removeEventListener("resize", measure);
+        };
+    }, [prefersReducedMotion]);
+
     return (
         <section
+            ref={sectionRef}
             id="story"
             className="py-24 relative"
             style={{
@@ -108,6 +160,30 @@ export default function StorySection() {
         >
             {/* Overlay for readability - Adjusted to favor the right side */}
             <div className="absolute inset-0 bg-white/60 backdrop-blur-sm lg:bg-gradient-to-r lg:from-transparent lg:via-white/50 lg:to-white/80"></div>
+
+            {/* Cold light at the top of the arc, warm light at the bottom. */}
+            {!prefersReducedMotion && (
+                <>
+                    <motion.div
+                        aria-hidden="true"
+                        className="absolute inset-0 pointer-events-none mix-blend-multiply"
+                        style={{
+                            opacity: coldOpacity,
+                            background:
+                                "linear-gradient(180deg, rgba(148,163,184,0.55) 0%, rgba(186,199,214,0.32) 55%, rgba(255,255,255,0) 100%)",
+                        }}
+                    />
+                    <motion.div
+                        aria-hidden="true"
+                        className="absolute inset-0 pointer-events-none"
+                        style={{
+                            opacity: warmOpacity,
+                            background:
+                                "linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(251,191,36,0.16) 55%, rgba(234,88,12,0.24) 100%)",
+                        }}
+                    />
+                </>
+            )}
 
             {/* Top Gradient for Smooth Transition from Hero */}
             <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white to-transparent pointer-events-none z-10"></div>
@@ -128,9 +204,32 @@ export default function StorySection() {
 
             <div className="relative w-full lg:w-[82%] ml-auto px-4 sm:px-6 lg:px-12">
                 {/* Timeline with Cards */}
-                <div className="relative">
+                <div className="relative" ref={timelineRef}>
                     {/* Vertical line - Adjusted position */}
-                    <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-slate-300 via-slate-500 to-slate-300"></div>
+                    {prefersReducedMotion ? (
+                        <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-slate-300 via-slate-500 to-slate-300"></div>
+                    ) : (
+                        <>
+                            <div
+                                aria-hidden="true"
+                                className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-slate-300/70"
+                            ></div>
+                            {/* Fills to wherever the reader has got to, cold at the top, ember at the end. */}
+                            <div
+                                ref={railRef}
+                                aria-hidden="true"
+                                className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5"
+                                style={{
+                                    background:
+                                        "linear-gradient(180deg, #64748b 0%, #78716c 40%, #d97706 78%, #ea580c 100%)",
+                                    WebkitMaskImage:
+                                        "linear-gradient(to bottom, #000 0%, transparent 0%)",
+                                    maskImage:
+                                        "linear-gradient(to bottom, #000 0%, transparent 0%)",
+                                }}
+                            />
+                        </>
+                    )}
 
                     {timelineEvents.map((event, index) => (
                         <motion.div
@@ -141,8 +240,26 @@ export default function StorySection() {
                             transition={{ duration: 0.5, delay: index * 0.08 }}
                             className="relative mb-20 ml-12 md:ml-16 grid grid-cols-1 lg:grid-cols-5 gap-8 items-center"
                         >
-                            {/* Timeline dot */}
-                            <div className="absolute -left-[26px] md:-left-[34px] top-8 w-4 h-4 rounded-full bg-slate-700 border-4 border-white shadow z-10"></div>
+                            {/* Timeline dot - lights up as the reader reaches this beat */}
+                            {prefersReducedMotion ? (
+                                <div
+                                    aria-hidden="true"
+                                    className="absolute -left-[26px] md:-left-[34px] top-8 w-4 h-4 rounded-full border-4 border-white shadow z-10"
+                                    style={{ backgroundColor: beatColors[index] ?? "#334155" }}
+                                ></div>
+                            ) : (
+                                <motion.div
+                                    aria-hidden="true"
+                                    className="absolute -left-[26px] md:-left-[34px] top-8 w-4 h-4 rounded-full border-4 border-white shadow z-10"
+                                    initial={{ backgroundColor: "#cbd5e1", scale: 0.75 }}
+                                    whileInView={{
+                                        backgroundColor: beatColors[index] ?? "#334155",
+                                        scale: 1,
+                                    }}
+                                    viewport={{ once: true, margin: "-50% 0px -50% 0px" }}
+                                    transition={{ duration: 0.5, ease: "easeOut" }}
+                                ></motion.div>
+                            )}
 
                             {/* Content card - Left Side (Wider) */}
                             <motion.div

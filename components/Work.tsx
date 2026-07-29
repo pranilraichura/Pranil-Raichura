@@ -1,8 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { workItems, domainOrder, WorkDomain, WorkItem } from "@/data/work";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+    workItems,
+    domainOrder,
+    tech4SilversFeature,
+    WorkDomain,
+    WorkItem,
+} from "@/data/work";
 
 const domainStyles: Record<WorkDomain, string> = {
     "AI Safety & Evaluation": "bg-indigo-100 text-indigo-700 border-indigo-200",
@@ -12,231 +18,383 @@ const domainStyles: Record<WorkDomain, string> = {
     "Applied ML & Systems": "bg-emerald-100 text-emerald-700 border-emerald-200",
 };
 
-const COLLAPSED_LENGTH = 230;
+// Beyond Euler leads because the Story section closes on it; the rest follow by weight.
+const featuredOrder = ["ml-structural-engineering", "mantis-kellis-lab", "meridian"];
 
-function truncate(text: string) {
-    if (text.length <= COLLAPSED_LENGTH) return text;
-    const cut = text.slice(0, COLLAPSED_LENGTH);
-    const lastSpace = cut.lastIndexOf(" ");
-    return `${cut.slice(0, lastSpace > 0 ? lastSpace : COLLAPSED_LENGTH)}…`;
+function orderFeatured(a: WorkItem, b: WorkItem) {
+    const ai = featuredOrder.indexOf(a.id);
+    const bi = featuredOrder.indexOf(b.id);
+    return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
 }
 
-function WorkCard({ item, index }: { item: WorkItem; index: number }) {
-    const [expanded, setExpanded] = useState(false);
-    const isLong = item.description.length > COLLAPSED_LENGTH;
+// The pull-quote is a verbatim sentence from the description, so drop it from the
+// body copy rather than printing the same sentence twice.
+function bodyWithoutPullQuote(item: WorkItem) {
+    if (!item.pullQuote) return item.description;
+    return item.description.replace(item.pullQuote, "").replace(/\s+/g, " ").trim();
+}
+
+function DomainPills({ domains }: { domains: WorkDomain[] }) {
+    return (
+        <>
+            {domains.map((domain) => (
+                <span
+                    key={domain}
+                    className={`px-2.5 py-0.5 rounded-full text-[11px] font-medium border ${domainStyles[domain]}`}
+                >
+                    {domain}
+                </span>
+            ))}
+        </>
+    );
+}
+
+/** Everything below the headline: highlights, mentors, tech, paper, links. */
+function WorkDetails({ item }: { item: WorkItem }) {
+    return (
+        <>
+            {item.recognition && (
+                <div className="mt-4 p-2.5 bg-amber-50/90 border-l-2 border-amber-400 rounded">
+                    <p className="text-xs font-medium text-amber-900">{item.recognition}</p>
+                </div>
+            )}
+
+            {item.highlights && item.highlights.length > 0 && (
+                <ul className="mt-4 space-y-1.5">
+                    {item.highlights.map((highlight, idx) => (
+                        <li key={idx} className="flex items-start text-xs text-slate-600">
+                            <span className="w-1 h-1 bg-primary-600 rounded-full mr-2 mt-1.5 flex-shrink-0"></span>
+                            <span className="leading-relaxed">{highlight}</span>
+                        </li>
+                    ))}
+                </ul>
+            )}
+
+            {item.mentors && item.mentors.length > 0 && (
+                <div className="mt-4">
+                    <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide mb-1.5">
+                        {item.mentors.length > 1 ? "Mentors" : "Mentor"}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                        {item.mentors.map((mentor) => (
+                            <div
+                                key={mentor.name}
+                                className="flex items-center gap-2 bg-white/80 rounded-lg px-2 py-1.5 shadow-sm border border-slate-100"
+                            >
+                                {mentor.image && (
+                                    <img
+                                        src={mentor.image}
+                                        alt={mentor.name}
+                                        className="w-7 h-7 rounded-full object-cover border border-slate-100"
+                                    />
+                                )}
+                                <div>
+                                    <div className="font-medium text-slate-900 text-xs">
+                                        {mentor.name}
+                                    </div>
+                                    <div className="text-[10px] text-slate-500">
+                                        {mentor.affiliation}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            {item.tech && item.tech.length > 0 && (
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                    {item.tech.map((tech) => (
+                        <span
+                            key={tech}
+                            className="px-2 py-0.5 bg-slate-100 text-slate-600 rounded text-[11px]"
+                        >
+                            {tech}
+                        </span>
+                    ))}
+                </div>
+            )}
+
+            {item.paperTitle && (
+                <div className="mt-4 bg-blue-50/90 rounded-lg p-3 border-l-2 border-primary-600">
+                    <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide mb-1">
+                        Paper
+                    </p>
+                    <p className="text-xs text-slate-900 leading-relaxed">{item.paperTitle}</p>
+                    <div className="flex items-center gap-2 flex-wrap mt-2">
+                        {item.preprintLink && (
+                            <a
+                                href={item.preprintLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-primary-600 hover:text-primary-700 font-semibold text-xs underline"
+                            >
+                                View preprint →
+                            </a>
+                        )}
+                        {item.status && (
+                            <span className="px-2 py-0.5 bg-amber-100 text-amber-800 rounded text-[10px] font-medium">
+                                {item.status}
+                            </span>
+                        )}
+                    </div>
+                </div>
+            )}
+
+            {!item.paperTitle && item.status && (
+                <div className="mt-4">
+                    <span className="px-2 py-0.5 bg-amber-100 text-amber-800 rounded text-[10px] font-medium">
+                        {item.status}
+                    </span>
+                </div>
+            )}
+
+            {(item.link || item.github) && (
+                <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-slate-100">
+                    {item.link && (
+                        <a
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-3.5 py-1.5 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-xs transition-colors duration-200"
+                        >
+                            {item.linkLabel || "View project"} →
+                        </a>
+                    )}
+                    {item.github && (
+                        <a
+                            href={item.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-900 text-white rounded-lg font-medium text-xs transition-colors duration-200"
+                        >
+                            View code →
+                        </a>
+                    )}
+                </div>
+            )}
+        </>
+    );
+}
+
+function FeaturedHeading({ item }: { item: WorkItem }) {
+    return (
+        <>
+            <div className="flex flex-wrap gap-1.5 mb-3">
+                <DomainPills domains={item.domains} />
+                {(item.dates || item.years) && (
+                    <span className="px-2.5 py-0.5 rounded-full text-[11px] font-medium border border-slate-200 bg-slate-50 text-slate-500">
+                        {item.dates || item.years}
+                    </span>
+                )}
+            </div>
+            <h3 className="font-libre text-2xl md:text-3xl font-bold text-slate-900 leading-tight">
+                {item.title}
+            </h3>
+            <p className="font-libre text-base text-primary-600 font-medium mt-1.5">
+                {item.tagline}
+            </p>
+            {(item.role || item.organization) && (
+                <p className="text-xs text-slate-500 mt-2">
+                    {[item.role, item.organization].filter(Boolean).join(" · ")}
+                    {item.hoursPerWeek ? ` · ${item.hoursPerWeek}` : ""}
+                </p>
+            )}
+            {item.pullQuote && (
+                <p className="font-libre text-lg md:text-xl leading-relaxed text-slate-800 border-l-2 border-primary-500 pl-5 mt-5">
+                    {item.pullQuote}
+                </p>
+            )}
+        </>
+    );
+}
+
+/** Full-width featured tile: text on one side, a real photo on the other. */
+function FeaturedWithFigure({ item }: { item: WorkItem }) {
+    return (
+        <motion.article
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5 }}
+            className="rounded-3xl bg-white shadow-xl border border-slate-200/80 overflow-hidden"
+        >
+            <div className="grid grid-cols-1 lg:grid-cols-5">
+                <div className="lg:col-span-3 p-7 md:p-9">
+                    <FeaturedHeading item={item} />
+                    <p className="text-sm text-slate-700 leading-relaxed mt-5">
+                        {bodyWithoutPullQuote(item)}
+                    </p>
+                    <WorkDetails item={item} />
+                </div>
+                {item.figure && (
+                    <figure className="lg:col-span-2 bg-slate-50 border-t lg:border-t-0 lg:border-l border-slate-200/80 flex flex-col">
+                        <div className="relative flex-1 min-h-[280px]">
+                            <img
+                                src={item.figure.src}
+                                alt={item.figure.alt}
+                                loading="lazy"
+                                className="absolute inset-0 w-full h-full object-cover object-center"
+                            />
+                        </div>
+                        <figcaption className="text-xs text-slate-500 leading-relaxed p-5 border-t border-slate-200/80">
+                            {item.figure.caption}
+                        </figcaption>
+                    </figure>
+                )}
+            </div>
+        </motion.article>
+    );
+}
+
+/** Featured tile for work with no photo available — typography carries it instead. */
+function FeaturedTypographic({ item }: { item: WorkItem }) {
+    return (
+        <motion.article
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5 }}
+            className="rounded-3xl bg-white shadow-xl border border-slate-200/80 p-7 md:p-9"
+        >
+            <FeaturedHeading item={item} />
+            <p className="text-sm text-slate-700 leading-relaxed mt-5">
+                {bodyWithoutPullQuote(item)}
+            </p>
+            <WorkDetails item={item} />
+        </motion.article>
+    );
+}
+
+/**
+ * Tech4Silvers lives in the Extracurriculars section. This tile points at that card
+ * instead of restating its content as a second entry.
+ */
+function Tech4SilversTile() {
+    const t4s = tech4SilversFeature;
 
     return (
         <motion.article
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.5, delay: Math.min(index, 6) * 0.06 }}
-            className="mb-6 break-inside-avoid bg-white/90 backdrop-blur-md rounded-2xl p-6 shadow-md border border-slate-200/80 hover:shadow-lg transition-shadow duration-300 relative overflow-hidden"
+            transition={{ duration: 0.5 }}
+            className="rounded-3xl bg-white shadow-xl border border-slate-200/80 overflow-hidden"
         >
-            {/* Background media */}
-            {item.backgroundMedia && (
-                <div className="absolute inset-0 z-0 pointer-events-none">
-                    {item.backgroundMedia.type === "video" ? (
-                        <video
-                            src={item.backgroundMedia.src}
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            className={`w-full h-full object-cover ${item.backgroundMedia.className || ""}`}
-                            style={{ opacity: item.backgroundMedia.opacity ?? 0.08 }}
-                        />
-                    ) : (
+            <div className="grid grid-cols-1 lg:grid-cols-5">
+                <figure className="lg:col-span-2 bg-slate-50 border-b lg:border-b-0 lg:border-r border-slate-200/80 flex flex-col">
+                    <div className="relative flex-1 min-h-[240px]">
                         <img
-                            src={item.backgroundMedia.src}
-                            alt=""
-                            className={`w-full h-full object-cover ${item.backgroundMedia.className || ""}`}
-                            style={{ opacity: item.backgroundMedia.opacity ?? 0.08 }}
+                            src={t4s.image.src}
+                            alt={t4s.image.alt}
+                            loading="lazy"
+                            className="absolute inset-0 w-full h-full object-cover object-center"
                         />
-                    )}
-                </div>
-            )}
-
-            <div className="relative z-10">
-                {/* Domain pills + dates */}
-                <div className="flex items-start justify-between gap-3 mb-3">
-                    <div className="flex flex-wrap gap-1.5">
-                        {item.domains.map((domain) => (
-                            <span
-                                key={domain}
-                                className={`px-2.5 py-0.5 rounded-full text-[11px] font-medium border ${domainStyles[domain]}`}
-                            >
-                                {domain}
-                            </span>
-                        ))}
                     </div>
-                    {(item.dates || item.years) && (
-                        <span className="text-xs text-slate-400 font-medium flex-shrink-0 mt-0.5 text-right">
-                            {item.dates || item.years}
+                    <figcaption className="text-xs text-slate-500 p-5 border-t border-slate-200/80">
+                        {t4s.image.caption}
+                    </figcaption>
+                </figure>
+                <div className="lg:col-span-3 p-7 md:p-9 flex flex-col justify-center">
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-medium border bg-blue-100 text-blue-700 border-blue-200">
+                            Civic &amp; Social Good
                         </span>
-                    )}
-                </div>
-
-                {/* Title + tagline */}
-                <h3 className="text-xl font-bold text-slate-900 leading-tight font-libre">
-                    {item.title}
-                </h3>
-                <p className="text-sm text-primary-600 font-medium mt-1 font-libre">
-                    {item.tagline}
-                </p>
-
-                {/* Role / organization */}
-                {(item.role || item.organization) && (
-                    <p className="text-xs text-slate-500 mt-2">
-                        {[item.role, item.organization].filter(Boolean).join(" · ")}
-                        {item.hoursPerWeek ? ` · ${item.hoursPerWeek}` : ""}
-                    </p>
-                )}
-
-                {/* Description */}
-                <div className="mt-3">
-                    <p className="text-sm text-slate-700 leading-relaxed">
-                        {expanded ? item.description : truncate(item.description)}
-                    </p>
-                    {isLong && (
-                        <button
-                            onClick={() => setExpanded(!expanded)}
-                            className="text-xs text-primary-600 hover:text-primary-700 font-semibold mt-1.5"
-                        >
-                            {expanded ? "Show less" : "Read more"}
-                        </button>
-                    )}
-                </div>
-
-                {/* Recognition */}
-                {item.recognition && (
-                    <div className="mt-3 p-2.5 bg-amber-50/90 border-l-2 border-amber-400 rounded">
-                        <p className="text-xs font-medium text-amber-900">{item.recognition}</p>
-                    </div>
-                )}
-
-                {/* Highlights */}
-                {item.highlights && item.highlights.length > 0 && (
-                    <ul className="mt-3 space-y-1.5">
-                        {item.highlights.map((highlight, idx) => (
-                            <li key={idx} className="flex items-start text-xs text-slate-600">
-                                <span className="w-1 h-1 bg-primary-600 rounded-full mr-2 mt-1.5 flex-shrink-0"></span>
-                                <span className="leading-relaxed">{highlight}</span>
-                            </li>
-                        ))}
-                    </ul>
-                )}
-
-                {/* Mentors */}
-                {item.mentors && item.mentors.length > 0 && (
-                    <div className="mt-4">
-                        <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide mb-1.5">
-                            {item.mentors.length > 1 ? "Mentors" : "Mentor"}
-                        </p>
-                        <div className="flex flex-wrap gap-2">
-                            {item.mentors.map((mentor) => (
-                                <div
-                                    key={mentor.name}
-                                    className="flex items-center gap-2 bg-white/80 rounded-lg px-2 py-1.5 shadow-sm border border-slate-100"
-                                >
-                                    {mentor.image && (
-                                        <img
-                                            src={mentor.image}
-                                            alt={mentor.name}
-                                            className="w-7 h-7 rounded-full object-cover border border-slate-100"
-                                        />
-                                    )}
-                                    <div>
-                                        <div className="font-medium text-slate-900 text-xs">
-                                            {mentor.name}
-                                        </div>
-                                        <div className="text-[10px] text-slate-500">
-                                            {mentor.affiliation}
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                )}
-
-                {/* Tech pills */}
-                {item.tech && item.tech.length > 0 && (
-                    <div className="mt-4 flex flex-wrap gap-1.5">
-                        {item.tech.map((tech) => (
-                            <span
-                                key={tech}
-                                className="px-2 py-0.5 bg-slate-100 text-slate-600 rounded text-[11px]"
-                            >
-                                {tech}
-                            </span>
-                        ))}
-                    </div>
-                )}
-
-                {/* Paper callout */}
-                {item.paperTitle && (
-                    <div className="mt-4 bg-blue-50/90 rounded-lg p-3 border-l-2 border-primary-600">
-                        <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide mb-1">
-                            Paper
-                        </p>
-                        <p className="text-xs text-slate-900 leading-relaxed">{item.paperTitle}</p>
-                        <div className="flex items-center gap-2 flex-wrap mt-2">
-                            {item.preprintLink && (
-                                <a
-                                    href={item.preprintLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-primary-600 hover:text-primary-700 font-semibold text-xs underline"
-                                >
-                                    View preprint →
-                                </a>
-                            )}
-                            {item.status && (
-                                <span className="px-2 py-0.5 bg-amber-100 text-amber-800 rounded text-[10px] font-medium">
-                                    {item.status}
-                                </span>
-                            )}
-                        </div>
-                    </div>
-                )}
-
-                {/* Status without a paper callout */}
-                {!item.paperTitle && item.status && (
-                    <div className="mt-4">
-                        <span className="px-2 py-0.5 bg-amber-100 text-amber-800 rounded text-[10px] font-medium">
-                            {item.status}
+                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-medium border border-slate-200 bg-slate-50 text-slate-500">
+                            {t4s.years}
                         </span>
                     </div>
-                )}
-
-                {/* Links */}
-                {(item.link || item.github) && (
-                    <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-slate-100">
-                        {item.link && (
-                            <a
-                                href={item.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="px-3.5 py-1.5 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-xs transition-colors duration-200"
-                            >
-                                {item.linkLabel || "View project"} →
-                            </a>
-                        )}
-                        {item.github && (
-                            <a
-                                href={item.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-900 text-white rounded-lg font-medium text-xs transition-colors duration-200"
-                            >
-                                View code →
-                            </a>
-                        )}
-                    </div>
-                )}
+                    <h3 className="font-libre text-2xl md:text-3xl font-bold text-slate-900 leading-tight">
+                        {t4s.title}
+                    </h3>
+                    <p className="text-xs text-slate-500 mt-2">{t4s.role}</p>
+                    <p className="font-libre text-lg md:text-xl leading-relaxed text-slate-800 border-l-2 border-primary-500 pl-5 mt-5">
+                        {t4s.pullQuote}
+                    </p>
+                    <a
+                        href={t4s.href}
+                        className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:text-primary-700 self-start"
+                    >
+                        Read the full Tech4Silvers card in Extracurriculars
+                        <span aria-hidden="true">↓</span>
+                    </a>
+                </div>
             </div>
         </motion.article>
+    );
+}
+
+function CondensedRow({ item }: { item: WorkItem }) {
+    const [open, setOpen] = useState(false);
+    const panelId = `work-panel-${item.id}`;
+
+    return (
+        <div className="border-b border-slate-200/70 last:border-b-0">
+            <button
+                type="button"
+                onClick={() => setOpen(!open)}
+                aria-expanded={open}
+                aria-controls={panelId}
+                className="w-full text-left px-5 py-4 flex items-center gap-4 hover:bg-slate-50 transition-colors duration-200"
+            >
+                <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                        <h4 className="font-libre text-base md:text-lg font-semibold text-slate-900">
+                            {item.title}
+                        </h4>
+                        {(item.dates || item.years) && (
+                            <span className="text-xs text-slate-400">
+                                {item.dates || item.years}
+                            </span>
+                        )}
+                    </div>
+                    <p className="text-sm text-slate-600 leading-snug mt-1">{item.tagline}</p>
+                    <div className="flex flex-wrap gap-1.5 mt-2 sm:hidden">
+                        <DomainPills domains={item.domains} />
+                    </div>
+                </div>
+                <div className="hidden sm:flex flex-wrap justify-end gap-1.5 max-w-[240px]">
+                    <DomainPills domains={item.domains} />
+                </div>
+                <svg
+                    className={`w-4 h-4 flex-shrink-0 text-slate-400 transition-transform duration-300 ${open ? "rotate-180" : ""
+                        }`}
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+
+            <AnimatePresence initial={false}>
+                {open && (
+                    <motion.div
+                        id={panelId}
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.28, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                    >
+                        <div className="px-5 pb-6 pt-1">
+                            {(item.role || item.organization) && (
+                                <p className="text-xs text-slate-500 mb-3">
+                                    {[item.role, item.organization].filter(Boolean).join(" · ")}
+                                    {item.hoursPerWeek ? ` · ${item.hoursPerWeek}` : ""}
+                                </p>
+                            )}
+                            <p className="text-sm text-slate-700 leading-relaxed">
+                                {item.description}
+                            </p>
+                            <WorkDetails item={item} />
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </div>
     );
 }
 
@@ -247,6 +405,13 @@ export default function Work() {
         selectedDomain === "All"
             ? workItems
             : workItems.filter((item) => item.domains.includes(selectedDomain));
+
+    const featured = filtered.filter((item) => item.featured).sort(orderFeatured);
+    const featuredWithFigure = featured.filter((item) => item.figure);
+    const featuredTypographic = featured.filter((item) => !item.figure);
+    const rest = filtered.filter((item) => !item.featured);
+    // Tech4Silvers isn't a Work entry, so it only belongs in the unfiltered view.
+    const showTech4Silvers = selectedDomain === "All";
 
     return (
         <section id="work" className="py-20 bg-gradient-to-br from-gray-50 to-white">
@@ -285,12 +450,51 @@ export default function Work() {
                     ))}
                 </div>
 
-                {/* Masonry columns keep uneven card heights from opening whitespace voids */}
-                <div className="columns-1 lg:columns-2 gap-6">
-                    {filtered.map((item, index) => (
-                        <WorkCard key={`${selectedDomain}-${item.id}`} item={item} index={index} />
-                    ))}
-                </div>
+                {(featured.length > 0 || showTech4Silvers) && (
+                    <div className="mb-16">
+                        <div className="flex items-center gap-4 mb-6">
+                            <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 flex-shrink-0">
+                                Start here
+                            </h3>
+                            <div className="h-px bg-slate-200 flex-1"></div>
+                        </div>
+
+                        <div className="space-y-6">
+                            {featuredWithFigure.map((item) => (
+                                <FeaturedWithFigure key={item.id} item={item} />
+                            ))}
+                            {showTech4Silvers && <Tech4SilversTile />}
+                            {featuredTypographic.length > 0 && (
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                                    {featuredTypographic.map((item) => (
+                                        <FeaturedTypographic key={item.id} item={item} />
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                )}
+
+                {rest.length > 0 && (
+                    <div>
+                        <div className="flex items-center gap-4 mb-5">
+                            <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 flex-shrink-0">
+                                {featured.length > 0 ? "Everything else" : "Projects & research"}
+                            </h3>
+                            <div className="h-px bg-slate-200 flex-1"></div>
+                            <span className="text-xs text-slate-400 flex-shrink-0">
+                                {rest.length} {rest.length === 1 ? "project" : "projects"} · expand
+                                for details
+                            </span>
+                        </div>
+
+                        <div className="rounded-2xl bg-white/90 backdrop-blur-sm border border-slate-200/80 shadow-md overflow-hidden">
+                            {rest.map((item) => (
+                                <CondensedRow key={`${selectedDomain}-${item.id}`} item={item} />
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
         </section>
     );
