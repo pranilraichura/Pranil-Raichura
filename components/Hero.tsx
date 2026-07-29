@@ -12,7 +12,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-accent-purple/10 pt-32">
+        <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-accent-orange/10 pt-32">
             {/* Main Content - appears directly */}
             <motion.div
                 initial={{ opacity: 0 }}
@@ -228,13 +228,9 @@ export default function Hero() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: waveDelays.center + 0.3 }}
                         whileHover={{ scale: 1.05, y: -5 }}
-                        className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 inline-block px-8 py-4 rounded-3xl bg-white/20 backdrop-blur-xl border border-white/30 shadow-2xl"
-                        style={{
-                            background: 'linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.15) 100%)',
-                            boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15), inset 0 0 20px rgba(255,255,255,0.1)'
-                        }}
+                        className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 inline-block px-8 py-4 rounded-md bg-white/85 border-b-4 border-accent-orange shadow-[0_10px_30px_-12px_rgba(15,23,42,0.4)]"
                     >
-                        <span className="bg-gradient-to-r from-gray-900 via-primary-600 to-accent-purple bg-clip-text text-transparent font-libre">
+                        <span className="text-gray-900 font-libre">
                             Pranil Raichura
                         </span>
                     </motion.h1>
@@ -244,11 +240,7 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: waveDelays.center + 0.4 }}
-                        className="inline-block px-6 py-3 rounded-2xl bg-white/20 backdrop-blur-xl border border-white/30 shadow-xl mb-3"
-                        style={{
-                            background: 'linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.15) 100%)',
-                            boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.1), inset 0 0 15px rgba(255,255,255,0.1)'
-                        }}
+                        className="inline-block px-5 py-2 rounded-full bg-white/70 border border-slate-900/10 shadow-sm mb-3"
                     >
                         <p className="text-lg md:text-xl lg:text-2xl text-gray-800 font-semibold">
                             Senior · Research & CS · Granite Bay High School
