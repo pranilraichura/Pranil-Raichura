@@ -9,9 +9,10 @@ import { useLightbox } from "./LightboxContext";
 
 const navItems = [
   { name: "Story", href: "#story" },
+  { name: "About", href: "#about" },
   { name: "Academics", href: "#academic" },
   { name: "Extracurriculars", href: "#extracurriculars" },
-  { name: "Projects & Research", href: "#portfolio-research" },
+  { name: "Work", href: "#work" },
 ];
 
 export default function Navigation() {

@@ -1,7 +1,8 @@
 import Hero from "@/components/Hero";
 import Navigation from "@/components/Navigation";
 import StorySection from "@/components/StorySection";
-import PortfolioAndResearch from "@/components/PortfolioAndResearch";
+import About from "@/components/About";
+import Work from "@/components/Work";
 import AcademicAchievements from "@/components/AcademicAchievements";
 import Extracurriculars from "@/components/Extracurriculars";
 import BackToTop from "@/components/BackToTop";
@@ -12,9 +13,10 @@ export default function MePage() {
             <Navigation />
             <Hero />
             <StorySection />
+            <About />
             <AcademicAchievements />
             <Extracurriculars />
-            <PortfolioAndResearch />
+            <Work />
             <BackToTop />
         </main>
     );

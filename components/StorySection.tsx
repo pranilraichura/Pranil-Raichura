@@ -225,7 +225,7 @@ export default function StorySection() {
             >
                 <p className="text-slate-600 text-lg">
                     That mindset now shows up in projects like{" "}
-                    <Link href="#portfolio" className="text-slate-800 font-semibold hover:underline">
+                    <Link href="#work" className="text-slate-800 font-semibold hover:underline">
                         Beyond Euler
                     </Link>{" "}
                     and{" "}

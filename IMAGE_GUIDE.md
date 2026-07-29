@@ -24,11 +24,10 @@
 - Update in the `favoriteCourses` map function
 - Paths: `/images/ap-calculus.jpg`, `/images/psychology.jpg`, `/images/statistics.jpg`
 
-### 4. Research Projects
-**File:** `components/ResearchProjects.tsx` (lines ~40-47)
-- **Research Program Image**: `/images/research-program.jpg`
-- **AI Game Development Image**: `/images/ai-game-dev.jpg`
-- **ML Structural Engineering Image**: `/images/ml-engineering.jpg`
+### 4. Work (Projects & Research)
+**File:** `components/Work.tsx`
+- Card background images come from the `backgroundMedia` field on each item
+- Add or change them in `data/work.ts`
 
 ### 5. Extracurriculars
 **File:** `components/Extracurriculars.tsx` (line ~73)
