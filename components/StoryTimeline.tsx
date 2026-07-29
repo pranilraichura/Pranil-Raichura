@@ -142,7 +142,7 @@ export default function StoryTimeline() {
                                     className="relative z-10 flex-shrink-0"
                                 >
                                     <div className="w-16 h-16 rounded-full bg-white border-4 border-primary-600 shadow-lg flex items-center justify-center">
-                                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary-500 to-accent-purple"></div>
+                                        <div className="w-8 h-8 rounded-full bg-primary-600"></div>
                                     </div>
                                 </motion.div>
 
@@ -210,7 +210,7 @@ export default function StoryTimeline() {
                     transition={{ duration: 0.8 }}
                     className="mt-20 text-center"
                 >
-                    <div className="inline-block px-8 py-6 rounded-2xl bg-gradient-to-br from-primary-50 to-accent-purple/10 border-2 border-primary-200 shadow-xl">
+                    <div className="inline-block px-8 py-6 rounded-2xl bg-gradient-to-br from-primary-50 to-accent-orange/10 border-2 border-primary-200 shadow-xl">
                         <p className="text-2xl font-semibold text-gray-800 mb-2">
                             The journey continues...
                         </p>

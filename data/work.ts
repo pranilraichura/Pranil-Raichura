@@ -77,7 +77,7 @@ export const workItems: WorkItem[] = [
     description:
       "Cold-emailed a professor about his work on Mantis, a platform that visualizes AI reasoning and makes it traceable to real data. Joined as a remote research assistant, contributing production features across 28 merged pull requests to the Mantis and MantisAPI codebases — expanding real-time 3D map rendering, collaboration tools, and backend reliability.",
     highlights: [
-      "Co-developed the Behavioral Consistency Metric (BCM) with the lab — evaluates whether an AI agent behaves consistently across tasks, not just whether it succeeds",
+      "Co-developed the Behavioral Consistency Metric (BCM) with the lab — evaluates whether an AI agent behaves consistently across tasks, separate from whether it succeeds",
       "Validated the metric across thousands of real AI agent task recordings drawn from six different systems",
       "Found that consistency and success rate are separable: two agents with similar success rates can differ by an order of magnitude in behavioral consistency",
     ],

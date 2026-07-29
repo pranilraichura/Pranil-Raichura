@@ -117,7 +117,7 @@ export default function MediaGallery() {
                 <p className="text-sm opacity-90">{item.category}</p>
               </div>
               {item.type === "image" ? (
-                <div className="w-full h-full bg-gradient-to-br from-primary-200 to-accent-purple/30 flex items-center justify-center">
+                <div className="w-full h-full bg-gradient-to-br from-slate-200 to-primary-200 flex items-center justify-center">
                   <span className="text-gray-500 text-sm">Add Image</span>
                 </div>
               ) : (

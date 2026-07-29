@@ -77,7 +77,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link href="/">
             <motion.div
-              className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary-600 to-accent-purple bg-clip-text text-transparent font-libre"
+              className="text-xl md:text-2xl font-bold text-slate-900 font-libre"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               style={{ cursor: "pointer" }}

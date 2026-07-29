@@ -9,7 +9,7 @@ export default function RecommendationPage() {
   return (
     <main className="min-h-screen relative z-10">
       <Navigation />
-      <div className="relative py-24 md:py-32 bg-gradient-to-br from-primary-600 via-primary-700 to-accent-purple text-white overflow-hidden">
+      <div className="relative py-24 md:py-32 bg-gradient-to-br from-primary-700 via-primary-800 to-slate-900 text-white overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
@@ -26,7 +26,7 @@ export default function RecommendationPage() {
             }}
           />
           <motion.div
-            className="absolute bottom-0 right-0 w-96 h-96 bg-accent-purple/20 rounded-full mix-blend-soft-light filter blur-3xl"
+            className="absolute bottom-0 right-0 w-96 h-96 bg-accent-orange/20 rounded-full mix-blend-soft-light filter blur-3xl"
             animate={{
               scale: [1, 1.3, 1],
               x: [0, -100, 0],
@@ -103,21 +103,21 @@ export default function RecommendationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               whileHover={{ scale: 1.02, y: -5 }}
-              className="bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-white/20 shadow-2xl"
+              className="bg-white rounded-md p-8 md:p-10 shadow-xl text-slate-700"
             >
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                <div className="w-12 h-12 rounded-full bg-primary-50 flex items-center justify-center mr-4">
                   <span className="text-2xl">✉️</span>
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold">My Request</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-slate-900">My Request</h2>
               </div>
-              <p className="leading-relaxed mb-4 text-lg text-white/95">
+              <p className="leading-relaxed mb-4 text-lg">
                 Thank you for taking the time to learn about me through this interactive website. I am applying to college, and I would be honored if you could write a letter of recommendation for me.
               </p>
-              <p className="leading-relaxed mb-4 text-lg text-white/95">
+              <p className="leading-relaxed mb-4 text-lg">
                 This website showcases my academic achievements, research projects, extracurricular activities, and personal growth throughout high school. I hope it provides you with a comprehensive understanding of who I am as a student and person.
               </p>
-              <p className="leading-relaxed text-lg text-white/95">
+              <p className="leading-relaxed text-lg">
                 Your support means the world to me, and I am grateful for the opportunity to have you as my teacher and mentor.
               </p>
             </motion.div>
@@ -127,7 +127,7 @@ export default function RecommendationPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               whileHover={{ scale: 1.02, y: -5 }}
-              className="bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-white/20 shadow-2xl"
+              className="bg-primary-900/40 rounded-2xl p-8 md:p-10 border-l-4 border-accent-orange"
             >
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
@@ -192,7 +192,7 @@ export default function RecommendationPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-10 mb-12 border border-white/20 shadow-2xl"
+            className="border-t border-white/20 pt-10 mb-12"
           >
             <div className="flex items-center mb-8">
               <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
@@ -233,7 +233,7 @@ export default function RecommendationPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-10 inline-block border border-white/20 shadow-2xl max-w-2xl"
+              className="bg-white/15 rounded-2xl p-8 md:p-10 inline-block border border-white/25 shadow-lg max-w-2xl"
             >
               <div className="flex items-center justify-center mb-6">
                 <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
@@ -271,7 +271,7 @@ export default function RecommendationPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mt-16 bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-white/20 shadow-2xl"
+            className="mt-16 bg-slate-900/40 rounded-2xl p-8 md:p-10 border border-white/15"
           >
             <div className="flex items-center mb-8">
               <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
