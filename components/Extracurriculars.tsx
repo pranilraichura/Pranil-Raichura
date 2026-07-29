@@ -101,12 +101,13 @@ export default function Extracurriculars() {
           {filteredExtracurriculars.map((ec, index) => (
             <motion.div
               key={ec.id}
+              id={`ec-${ec.id}`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ scale: 1.02, y: -5 }}
-              className="bg-white rounded-xl p-6 shadow-lg border border-gray-200 overflow-hidden"
+              className="bg-white rounded-xl p-6 shadow-lg border border-gray-200 overflow-hidden scroll-mt-28"
             >
               {/* Media Preview */}
               {ec.media && ec.media.length > 0 ? (

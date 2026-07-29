@@ -36,6 +36,17 @@ export interface WorkItem {
     opacity?: number;
     className?: string;
   };
+  // Featured items get a larger, quieter-around-them treatment at the top of the
+  // Work section. Everything else stays in the condensed list below it.
+  featured?: boolean;
+  // Must be a verbatim sentence lifted from `description` or `highlights`.
+  pullQuote?: string;
+  // A real photo shown inline at readable size, not as a background watermark.
+  figure?: {
+    src: string;
+    alt: string;
+    caption: string;
+  };
 }
 
 export const domainOrder: WorkDomain[] = [
@@ -52,6 +63,9 @@ export const workItems: WorkItem[] = [
     title: "Mantis — AI Reasoning Visualization",
     tagline: "Making AI reasoning traceable, and measuring whether agents stay consistent",
     domains: ["AI Safety & Evaluation"],
+    featured: true,
+    pullQuote:
+      "Cold-emailed Prof. Manolis Kellis about his work on Mantis, a platform that visualizes AI reasoning and makes it traceable to real data.",
     role: "Research Assistant",
     organization: "Kellis Lab, MIT CSAIL (remote)",
     tech: ["TypeScript", "React", "Python"],
@@ -76,6 +90,9 @@ export const workItems: WorkItem[] = [
     title: "Beyond Euler ML Framework",
     tagline: "Rebuilding a rejected paper into an honest, leakage-safe result",
     domains: ["Applied ML & Systems"],
+    featured: true,
+    pullQuote:
+      "The first version of this project used cross-validation that leaked information between train and test sets, producing an inflated R² of 0.97 — and was rejected by every venue it was submitted to for superficial novelty.",
     role: "Research Author",
     organization: "Johns Hopkins Explore Engineering Innovation",
     years: "10th Summer, 11th Grade",
@@ -108,10 +125,11 @@ export const workItems: WorkItem[] = [
       "Rebuilt the entire analysis with GroupKFold validation; honest direct ML model collapses to RMSE 0.350N",
       "Stratified Euler correction layer improves RMSE from 0.180N to 0.108N, validated on out-of-distribution diameters",
     ],
-    backgroundMedia: {
-      type: "image",
+    figure: {
       src: "/figure1_bucklingtest.png",
-      opacity: 0.2,
+      alt: "A hand pressing a single dried pasta strand vertically down onto a digital kitchen scale until it bends.",
+      caption:
+        "The physical setup behind the dataset — a dried pasta strand loaded by hand against a digital kitchen scale, run 147 times across 7 lengths and 4 diameters.",
     },
   },
   {
@@ -168,6 +186,9 @@ export const workItems: WorkItem[] = [
     title: "MERIDIAN — Fair AI-Text Detection for ESL Writers",
     tagline: "Cutting the ESL false-accusation rate from 29% to 3.9%",
     domains: ["AI Safety & Evaluation", "AI & Education"],
+    featured: true,
+    pullQuote:
+      "Built a dual-stream AI-text detector after learning that commercial AI detectors systematically misclassify writing by English-as-a-Second-Language (ESL) speakers as machine-generated.",
     role: "Lead Researcher",
     tech: ["Python", "PyTorch", "DistilGPT-2", "LSTM"],
     status: "Targeting NLP4PI and PANDORA workshops",
@@ -326,3 +347,21 @@ export const workItems: WorkItem[] = [
       "Coursework and independent research under Prof. Blair's mentorship, including PyTorch fundamentals (from-scratch SLP/MLP implementations) and computer vision work with GoogLeNet on the Stanford Dogs dataset.",
   },
 ];
+
+// Tech4Silvers is one of the two projects the Story section closes on, so it belongs
+// in the featured tier — but its content lives in data/extracurriculars.ts and is
+// deliberately not duplicated here. This is a pointer to that card, not a second entry.
+export const tech4SilversFeature = {
+  title: "Tech4Silvers",
+  role: "Founder & President",
+  years: "9th, 10th, 11th Grade",
+  // Verbatim first sentence of the Tech4Silvers description in data/extracurriculars.ts.
+  pullQuote:
+    "I started Tech4Silvers after realizing many seniors in our community were missing digital wildfire and emergency alerts.",
+  image: {
+    src: "/t4s_workshop.JPG",
+    alt: "A Tech4Silvers workshop in progress at a senior center, with a volunteer showing a device to a seated resident.",
+    caption: "Tech4Silvers workshop",
+  },
+  href: "#ec-tech4silvers",
+};
