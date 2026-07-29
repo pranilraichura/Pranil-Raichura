@@ -286,7 +286,11 @@ export default function Hero() {
                             </li>
                             <li className="flex items-start gap-2">
                                 <span className="text-slate-500 mt-0.5">•</span>
-                                <span className="leading-relaxed"><strong>Service & Leadership:</strong> Founder of Tech4Silvers, President of Competitive Programming Club, NHS Sergeant at Arms, UN GYEL participant, USAV national-level volleyball</span>
+                                <span className="leading-relaxed"><strong>Service:</strong> Founder of Tech4Silvers, co-founder of PraNam Innovations (1,000+ items donated), Rotary E-Club project lead, serving meals at Placer County shelters most Sundays</span>
+                            </li>
+                            <li className="flex items-start gap-2">
+                                <span className="text-slate-500 mt-0.5">•</span>
+                                <span className="leading-relaxed"><strong>Leadership & Athletics:</strong> President of Competitive Programming Club, elected GBHS Student Senator, JKYog Bay Area Youth Co-Coordinator, NHS Sergeant at Arms, UN GYEL participant, USAV national-level volleyball</span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <span className="text-slate-500 mt-0.5">•</span>
@@ -297,7 +301,7 @@ export default function Hero() {
 
                     {/* CTA Button */}
                     <motion.a
-                        href="#portfolio-research"
+                        href="#work"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: waveDelays.center + 0.65 }}

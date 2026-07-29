@@ -73,7 +73,13 @@ export default function Extracurriculars() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Extracurriculars & Leadership
           </h2>
-          <div className="w-24 h-1 bg-primary-600 mx-auto"></div>
+          <div className="w-24 h-1 bg-primary-600 mx-auto mb-6"></div>
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            If the story above is what changed in my head, this is where it went in practice:
+            the courts I stopped hiding on, the club I rebuilt, and the rooms full of seniors
+            and shelter residents that made service feel less like a requirement and more like
+            the point.
+          </p>
         </motion.div>
 
         <div className="flex flex-wrap justify-center gap-3 mb-12">
@@ -117,7 +123,7 @@ export default function Extracurriculars() {
                             src={ec.media[0].path}
                             alt={ec.media[0].caption || ec.title}
                             fill
-                            className={`transition-transform duration-300 group-hover:scale-110 ${ec.id === 'inspirit-ai' ? 'object-contain bg-slate-100 p-2' : 'object-cover'}`}
+                            className={`transition-transform duration-300 group-hover:scale-110 ${ec.media[0].fit === 'contain' ? 'object-contain bg-slate-50 p-2' : 'object-cover'}`}
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           />
                           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
@@ -174,7 +180,7 @@ export default function Extracurriculars() {
                               src={item.path}
                               alt={item.caption || `${ec.title} ${idx + 1}`}
                               fill
-                              className="object-cover transition-transform duration-300 group-hover:scale-110"
+                              className={`transition-transform duration-300 group-hover:scale-110 ${item.fit === 'contain' ? 'object-contain bg-slate-50 p-1.5' : 'object-cover'}`}
                               sizes="150px"
                             />
                           ) : (
@@ -224,9 +230,12 @@ export default function Extracurriculars() {
                   </div>
                 </div>
               ) : (
-                // No media - show placeholder
-                <div className="w-full h-40 mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                  <span className="text-gray-400 text-xs text-center px-2">{ec.title}</span>
+                // No media - show a styled placeholder
+                <div className="w-full h-40 mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-slate-50 via-white to-primary-50 border border-slate-100 flex flex-col items-center justify-center text-center px-5">
+                  <span className="text-slate-800 font-libre font-semibold leading-snug">{ec.title}</span>
+                  {ec.leadership && (
+                    <span className="mt-1.5 text-xs text-primary-600 font-medium">{ec.leadership}</span>
+                  )}
                 </div>
               )}
 
@@ -240,15 +249,21 @@ export default function Extracurriculars() {
                 </span>
               </div>
 
-              <div className="flex flex-wrap gap-2 mb-3">
-                <span className="text-sm text-gray-600">{ec.years}</span>
-                {ec.hoursPerWeek && (
-                  <span className="text-sm text-gray-500">• {ec.hoursPerWeek}</span>
-                )}
-                {ec.leadership && (
-                  <span className="text-sm font-semibold text-primary-600">• {ec.leadership}</span>
-                )}
-              </div>
+              {(ec.years || ec.hoursPerWeek || ec.leadership) && (
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {ec.years && <span className="text-sm text-gray-600">{ec.years}</span>}
+                  {ec.hoursPerWeek && (
+                    <span className="text-sm text-gray-500">
+                      {ec.years ? "• " : ""}{ec.hoursPerWeek}
+                    </span>
+                  )}
+                  {ec.leadership && (
+                    <span className="text-sm font-semibold text-primary-600">
+                      {ec.years || ec.hoursPerWeek ? "• " : ""}{ec.leadership}
+                    </span>
+                  )}
+                </div>
+              )}
 
               <p className={`text-gray-700 text-sm mb-4 ${expandedId === ec.id ? "" : "line-clamp-3"}`}>
                 {ec.description}

@@ -1,7 +1,8 @@
 export interface Extracurricular {
   id: string;
   title: string;
-  years: string;
+  // Optional: some roles have no year/grade range recorded, and guessing one would be inventing a fact.
+  years?: string;
   hoursPerWeek?: string;
   category: "Research" | "Sports" | "Service" | "Tech" | "Music" | "Leadership";
   description: string;
@@ -13,6 +14,8 @@ export interface Extracurricular {
     path: string;
     caption?: string;
     thumbnail?: string;
+    // Use 'contain' for logos and slide screenshots, which get their text cropped by 'cover'.
+    fit?: 'cover' | 'contain';
   }[];
 }
 
@@ -44,13 +47,29 @@ export const extracurriculars: Extracurricular[] = [
     category: "Leadership",
     hoursPerWeek: "30 mins per week",
     leadership: "Sergeant at Arms",
-    description: "NHS is the main service hub at my school, and as Sergeant at Arms I help plan and run projects instead of just showing up to volunteer hours. I’ve helped coordinate drives under our PraNam nonprofit umbrella, including a warm-clothes collection that delivered 500+ items to students at Kinney High School and a shoe drive that shipped over 150 pairs to families in Africa. I also help manage meeting logistics and keep events running smoothly. NHS has been where I practice turning big, vague goals—“help the community”—into specific, organized events that actually deliver.",
+    description: "NHS is the main service hub at my school, and as Sergeant at Arms I help plan and run projects instead of just showing up to volunteer hours. I’ve helped coordinate drives under our PraNam initiative, including a warm-clothes collection that delivered 500+ items to students at Kinney High School and a shoe drive that shipped over 150 pairs to families in Africa. I also help manage meeting logistics and keep events running smoothly. NHS has been where I practice turning big, vague goals—“help the community”—into specific, organized events that actually deliver.",
     media: [
       { type: 'image', path: '/extracurriculars/nhs/me_holding_book_new.jpg', caption: 'NHS Leadership' },
       { type: 'image', path: '/extracurriculars/nhs/book_picture_new.jpg', caption: 'NHS Book Collection' },
       { type: 'image', path: '/extracurriculars/nhs/full_with_people_new.jpg', caption: 'NHS Team' },
       { type: 'image', path: '/nhs_pic4.HEIC', caption: 'NHS Event' },
     ],
+  },
+  {
+    // TODO: confirm with Pranil — grade range and time commitment for this role are not in any source data.
+    id: "student-senate",
+    title: "GBHS Student Senate – School Policy & Public Relations",
+    category: "Leadership",
+    leadership: "Elected Student Senator",
+    description: "This is an elected school-government position at Granite Bay High School, in the School Policy and Public Relations seat. The job is to sit on the student side of how school policy actually gets made and explained — bringing student perspective into those conversations, and then carrying what was decided back to the people it affects. It is the least flashy leadership role I hold and the one that taught me the most about how slowly real institutions move.",
+  },
+  {
+    // TODO: confirm with Pranil — grade range, time commitment, and specific responsibilities are not in any source data.
+    id: "jkyog",
+    title: "JKYog",
+    category: "Leadership",
+    leadership: "Bay Area Youth Co-Coordinator",
+    description: "I serve as one of the Bay Area Youth Co-Coordinators for JKYog, a 501(c)(3) nonprofit, helping coordinate youth engagement across the region.",
   },
   {
     id: "usaco-coding",
@@ -89,6 +108,47 @@ export const extracurriculars: Extracurricular[] = [
       { type: 'image', path: '/t4s_1.JPG', caption: 'Tech4Silvers 1' },
       { type: 'image', path: '/t4s_2.JPG', caption: 'Tech4Silvers 2' },
     ],
+  },
+  {
+    id: "pranam",
+    title: "PraNam Innovations and Initiatives",
+    years: "Since summer 2022",
+    category: "Service",
+    leadership: "Co-Founder",
+    description: "My brother Naman and I started PraNam in the summer of 2022, and we have since donated over 1,000 items to underprivileged populations: 500+ warm clothing items, 600+ eyeframes, and 100+ educational books collected and shipped. Half of what we do is products — eco-friendly things meant to make everyday life a little more sustainable. The other half is initiatives for people who are vulnerable or in need: donating technological gadgets and necessary items to communities in different parts of the world, and sitting down with seniors to help them understand modern technology and what it can actually do for them. That second half is where Tech4Silvers came from. Same conviction, two forms — technology is only useful if the people who need it most can actually use it. PraNam is where my brother and I first tested that idea; Tech4Silvers is where I built an organization around it. We also collaborate with the E-Rotary Club of Silicon Valley on volunteering and fundraisers.",
+    achievements: [
+      "Donated over 1,000 items to underprivileged populations, and counting",
+      "500+ warm clothing items donated",
+      "600+ eyeframes donated",
+      "100+ educational books collected and shipped",
+      "Ongoing collaboration with the E-Rotary Club of Silicon Valley on volunteering and fundraisers",
+    ],
+    links: [
+      {
+        text: "pra-nam.com",
+        url: "https://www.pra-nam.com",
+      },
+    ],
+  },
+  {
+    // TODO: confirm with Pranil — grade range and time commitment for this role are not in any source data.
+    id: "rotary-eclub",
+    title: "Rotary E-Club of Silicon Valley",
+    category: "Service",
+    leadership: "Project Lead",
+    description: "As Project Lead with the Rotary E-Club of Silicon Valley, I ran collection drives with the club, organized under our PraNam initiative. We hosted a shoe drive that donated 150 pairs of shoes and shipped them to homeless families in Africa, and a warm clothes drive for students at Kinney High School in Rancho Cordova that collected 500+ items of clothing. The clothes drive received recognition from the Mayor of the city of Rancho Cordova, and I ended up holding a certificate at Rancho Cordova's City Hall, speaking in front of a crowd about what the drive meant for local families — exactly the kind of spotlight the fifth-grader in the squash court would have done anything to avoid.",
+    achievements: [
+      "Shoe drive: 150 pairs donated and shipped to homeless families in Africa",
+      "Warm clothes drive: 500+ items of clothing donated to students at Kinney High School, Rancho Cordova",
+      "Received recognition from the Mayor of the city of Rancho Cordova",
+    ],
+  },
+  {
+    // TODO: confirm with Pranil — grade range and time commitment for this role are not in any source data.
+    id: "annapurna",
+    title: "Annapurna USA Foundation",
+    category: "Service",
+    description: "On most Sunday mornings, we prepare, cook, and serve food for residents of homeless shelters around Placer County, rotating between different shelters. There is no technology in it, no metric I can optimize, and nobody writes it down — which is probably why it has been the steadiest commitment on this whole page.",
   },
   {
     id: "national-volleyball",
@@ -146,7 +206,7 @@ export const extracurriculars: Extracurricular[] = [
       },
     ],
     media: [
-      { type: 'image', path: '/extracurriculars/inspirit_ai/inspirit_ai_new.png', caption: 'Inspirit AI Scholars' },
+      { type: 'image', path: '/extracurriculars/inspirit_ai/inspirit_ai_new.png', caption: 'Inspirit AI Scholars', fit: 'contain' },
     ],
   },
   {
@@ -156,7 +216,7 @@ export const extracurriculars: Extracurricular[] = [
     category: "Tech",
     description: "I picked up chess in middle school and started playing USCF-rated tournaments soon after. Over seven tournaments, I’ve climbed to a 730 rating, around the 64th percentile for juniors, and spent countless hours analyzing my own blunders and learning classic tactics. Chess gives me a different kind of focus than coding or sports: slow, quiet calculation, accepting that one careless move can undo twenty good ones. The pattern recognition and patience I’ve built here spill over directly into algorithm design and debugging.",
     media: [
-      { type: 'image', path: '/extracurriculars/chess/chess_new.png', caption: 'USCF Chess' },
+      { type: 'image', path: '/extracurriculars/chess/chess_new.png', caption: 'USCF Chess', fit: 'contain' },
       { type: 'image', path: '/chess_pic1.JPG', caption: 'Chess Tournament' },
     ],
   },
