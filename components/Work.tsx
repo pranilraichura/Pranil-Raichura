@@ -19,7 +19,7 @@ const domainStyles: Record<WorkDomain, string> = {
 };
 
 // Beyond Euler leads because the Story section closes on it; the rest follow by weight.
-const featuredOrder = ["ml-structural-engineering", "mantis-kellis-lab", "meridian"];
+const featuredOrder = ["ml-structural-engineering", "mantis", "meridian"];
 
 function orderFeatured(a: WorkItem, b: WorkItem) {
     const ai = featuredOrder.indexOf(a.id);
@@ -49,7 +49,7 @@ function DomainPills({ domains }: { domains: WorkDomain[] }) {
     );
 }
 
-/** Everything below the headline: highlights, mentors, tech, paper, links. */
+/** Everything below the headline: highlights, mentorship, tech, paper, links. */
 function WorkDetails({ item }: { item: WorkItem }) {
     return (
         <>
@@ -70,35 +70,12 @@ function WorkDetails({ item }: { item: WorkItem }) {
                 </ul>
             )}
 
-            {item.mentors && item.mentors.length > 0 && (
+            {item.mentorship && (
                 <div className="mt-4">
                     <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide mb-1.5">
-                        {item.mentors.length > 1 ? "Mentors" : "Mentor"}
+                        Mentorship
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                        {item.mentors.map((mentor) => (
-                            <div
-                                key={mentor.name}
-                                className="flex items-center gap-2 bg-white/80 rounded-lg px-2 py-1.5 shadow-sm border border-slate-100"
-                            >
-                                {mentor.image && (
-                                    <img
-                                        src={mentor.image}
-                                        alt={mentor.name}
-                                        className="w-7 h-7 rounded-full object-cover border border-slate-100"
-                                    />
-                                )}
-                                <div>
-                                    <div className="font-medium text-slate-900 text-xs">
-                                        {mentor.name}
-                                    </div>
-                                    <div className="text-[10px] text-slate-500">
-                                        {mentor.affiliation}
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                    <p className="text-xs text-slate-600 leading-relaxed">{item.mentorship}</p>
                 </div>
             )}
 

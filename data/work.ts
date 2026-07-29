@@ -24,7 +24,9 @@ export interface WorkItem {
   recognition?: string;
   highlights?: string[];
   tech?: string[];
-  mentors?: { name: string; affiliation: string; image?: string }[];
+  // Deliberately a generalized phrase rather than named people. The public homepage
+  // describes the kind of mentorship; the /recommendation page keeps the full detail.
+  mentorship?: string;
   paperTitle?: string;
   preprintLink?: string;
   link?: string;
@@ -59,29 +61,24 @@ export const domainOrder: WorkDomain[] = [
 
 export const workItems: WorkItem[] = [
   {
-    id: "mantis-kellis-lab",
+    id: "mantis",
     title: "Mantis — AI Reasoning Visualization",
     tagline: "Making AI reasoning traceable, and measuring whether agents stay consistent",
     domains: ["AI Safety & Evaluation"],
     featured: true,
     pullQuote:
-      "Cold-emailed Prof. Manolis Kellis about his work on Mantis, a platform that visualizes AI reasoning and makes it traceable to real data.",
+      "Cold-emailed a professor about his work on Mantis, a platform that visualizes AI reasoning and makes it traceable to real data.",
     role: "Research Assistant",
-    organization: "Kellis Lab, MIT CSAIL (remote)",
+    organization: "A university AI research lab (remote)",
     tech: ["TypeScript", "React", "Python"],
-    mentors: [
-      {
-        name: "Prof. Manolis Kellis",
-        affiliation: "MIT CSAIL",
-      },
-    ],
+    mentorship: "Mentored by the professor who leads the lab.",
     paperTitle: "Measuring Cross-Task Behavioral Consistency in Language Model Agents",
     status: "Submitted, COLM 2026 AI Measurement Science (AIMS) Workshop",
     description:
-      "Cold-emailed Prof. Manolis Kellis about his work on Mantis, a platform that visualizes AI reasoning and makes it traceable to real data. Joined as a remote research assistant, contributing production features across 28 merged pull requests to the Mantis and MantisAPI codebases — expanding real-time 3D map rendering, collaboration tools, and backend reliability.",
+      "Cold-emailed a professor about his work on Mantis, a platform that visualizes AI reasoning and makes it traceable to real data. Joined as a remote research assistant, contributing production features across 28 merged pull requests to the Mantis and MantisAPI codebases — expanding real-time 3D map rendering, collaboration tools, and backend reliability.",
     highlights: [
-      "Co-developed the Behavioral Consistency Metric (BCM) with Prof. Kellis — evaluates whether an AI agent behaves consistently across tasks, not just whether it succeeds",
-      "Validated the metric across 9,191 SWE-bench agent trajectories from six different systems",
+      "Co-developed the Behavioral Consistency Metric (BCM) with the lab — evaluates whether an AI agent behaves consistently across tasks, not just whether it succeeds",
+      "Validated the metric across thousands of real AI agent task recordings drawn from six different systems",
       "Found that consistency and success rate are separable: two agents with similar success rates can differ by an order of magnitude in behavioral consistency",
     ],
   },
@@ -92,9 +89,9 @@ export const workItems: WorkItem[] = [
     domains: ["Applied ML & Systems"],
     featured: true,
     pullQuote:
-      "The first version of this project used cross-validation that leaked information between train and test sets, producing an inflated R² of 0.97 — and was rejected by every venue it was submitted to for superficial novelty.",
+      "The first version of this project used cross-validation that leaked information between train and test sets, producing results that looked far stronger than they really were — and was rejected by every venue it was submitted to for superficial novelty.",
     role: "Research Author",
-    organization: "Johns Hopkins Explore Engineering Innovation",
+    organization: "A university engineering research program",
     years: "10th Summer, 11th Grade",
     dates: "July 2025 - October 2025",
     hoursPerWeek: "6 hours/week",
@@ -106,24 +103,18 @@ export const workItems: WorkItem[] = [
       "GroupKFold Cross-Validation",
       "Data Analysis",
     ],
-    mentors: [
-      {
-        name: "Abdiel Rivera, PhD",
-        affiliation: "UConn, Associate Professor at Polytechnic University, Orlando",
-        image: "/abdiel_pfp.jpeg",
-      },
-    ],
+    mentorship: "Mentored by an engineering professor.",
     paperTitle:
       "Beyond Euler: An Explainable ML Framework for Predicting Buckling Instabilities in Non-Ideal Materials",
     preprintLink:
       "https://www.researchgate.net/publication/395824075_Beyond_Euler_An_Explainable_Machine_Learning_Framework_for_Predicting_and_Interpreting_Buckling_Instabilities_in_Non-Ideal_Materials",
     status: "Under review, IEEE Access",
     description:
-      "Ran 147 physical buckling tests on dried pasta strands (7 lengths × 4 diameters) to test where Euler's 250-year-old buckling formula breaks down for non-ideal materials. The first version of this project used cross-validation that leaked information between train and test sets, producing an inflated R² of 0.97 — and was rejected by every venue it was submitted to for superficial novelty. Rebuilt the entire analysis from scratch with proper GroupKFold validation: honest results show a direct ML model collapses to RMSE 0.350N, while a stratified correction layer on top of the classical Euler formula improves RMSE from 0.180N to 0.108N, holding up even under out-of-distribution diameter extrapolation.",
+      "Ran 147 physical buckling tests on dried pasta strands (7 lengths × 4 diameters) to test where Euler's 250-year-old buckling formula breaks down for non-ideal materials. The first version of this project used cross-validation that leaked information between train and test sets, producing results that looked far stronger than they really were — and was rejected by every venue it was submitted to for superficial novelty. Rebuilt the entire analysis from scratch with validation that keeps the test data genuinely unseen: the honest results show that throwing machine learning at the problem directly does worse than the classical formula, while a correction layer built on top of that formula cuts the remaining error by about 40% — and holds up even on strand thicknesses it was never trained on.",
     highlights: [
-      "Discovered data leakage in the original cross-validation — the inflated R²=0.97 was an artifact, not a real finding",
-      "Rebuilt the entire analysis with GroupKFold validation; honest direct ML model collapses to RMSE 0.350N",
-      "Stratified Euler correction layer improves RMSE from 0.180N to 0.108N, validated on out-of-distribution diameters",
+      "Discovered data leakage in the original cross-validation — the headline result was an artifact, not a real finding",
+      "Rebuilt the entire analysis with validation that keeps train and test data properly separated",
+      "A correction layer on the classical formula cut the remaining error by about 40%, and held up on unseen strand thicknesses",
     ],
     figure: {
       src: "/figure1_bucklingtest.png",
@@ -138,29 +129,19 @@ export const workItems: WorkItem[] = [
     tagline: "Improving emotional regulation for adolescents with autism",
     domains: ["Accessibility & Health"],
     role: "Lead Developer & Researcher",
-    organization: "Polygence",
+    organization: "A high school research mentorship program",
     years: "9th, 10th, 11th Grade",
     dates: "August 2024 - February 2026",
     hoursPerWeek: "4-5 hours/week",
     tech: ["Python", "C#", "Unity", "OpenCV", "Machine Learning"],
-    mentors: [
-      {
-        name: "Nolan Miranda, M.S.",
-        affiliation: "Stanford University",
-        image: "/nolan_pfp.jpeg",
-      },
-      {
-        name: "Dr. Nouchine Hadjikhani",
-        affiliation: "Harvard Medical School",
-        image: "/nouchine_pfp.jpeg",
-      },
-    ],
+    mentorship:
+      "Coauthored with a medical-school neuroscientist and a university researcher.",
     status: "Submitted to JMIR Serious Games",
     description:
-      "Designed and published a garden-themed, AI-assisted resource-management game with integrated guided breathing sessions for adolescents (12–16) with Autism Spectrum Disorder (ASD), aimed at improving emotional regulation and reducing state anxiety. The breathing sessions use OpenCV to detect diaphragmatic breathing from a webcam. Coauthored with Dr. Nouchine Hadjikhani (Harvard Medical School) and Nolan Miranda, M.S. (Stanford University).",
+      "Designed and published a garden-themed, AI-assisted resource-management game with integrated guided breathing sessions for adolescents (12–16) with Autism Spectrum Disorder (ASD), aimed at improving emotional regulation and reducing state anxiety. The breathing sessions use OpenCV to detect diaphragmatic breathing from a webcam.",
     highlights: [
-      "Conducting an IRB-aligned study with HRV and STAI-State evaluations across weekly gameplay",
-      "Authoring research paper with Dr. Nouchine Hadjikhani and Nolan Miranda, M.S.",
+      "Conducting an IRB-aligned study measuring heart-rate variability and self-reported anxiety across weekly gameplay",
+      "Authoring the resulting research paper alongside both coauthors",
     ],
     link: "https://pranil.itch.io/flora-frontier",
     linkLabel: "Play Flora Frontier",
@@ -236,37 +217,26 @@ export const workItems: WorkItem[] = [
     tagline: "Finding the flawed questions inside AI benchmark datasets",
     domains: ["AI Safety & Evaluation"],
     role: "Contributor and Researcher",
-    organization: "Stanford AI Measurement Science Lab (remote)",
+    organization: "A university AI measurement research lab (remote)",
     dates: "March 2026 - Present",
     tech: ["Python"],
-    mentors: [
-      {
-        name: "Sang Truong",
-        affiliation: "Stanford Ph.D. researcher",
-      },
-    ],
+    mentorship: "Coauthored with a Ph.D. researcher at the lab.",
     status: "Coauthor",
     description:
-      "Coauthored Torch_Measure with Stanford Ph.D. researcher Sang Truong, a paper and psychometric toolkit that helps researchers identify flawed items in AI evaluation datasets.",
+      "Coauthored Torch_Measure with a Ph.D. researcher at the lab — a paper and psychometric toolkit that helps researchers identify flawed items in AI evaluation datasets.",
   },
   {
-    id: "usc-isi-agentic-ai",
+    id: "agentic-ai",
     title: "Agentic AI Applications",
     tagline: "Emergent LLM behavior and responsible AI in health and crisis settings",
     domains: ["AI Safety & Evaluation"],
-    role: "Researcher, AICS Lab",
-    organization:
-      "USC Information Sciences Institute, Artificial Intelligence and Complex Systems Group",
+    role: "Researcher",
+    organization: "A university AI research institute",
     dates: "February 2026 - May 2026",
     tech: ["Python", "PyTorch"],
-    mentors: [
-      {
-        name: "Prof. Mayank Kejriwal",
-        affiliation: "USC Information Sciences Institute",
-      },
-    ],
+    mentorship: "Mentored by a professor at the institute.",
     description:
-      "Conducted research under Prof. Mayank Kejriwal in the Artificial Intelligence and Complex Systems Group, investigating emergent LLM behavior and responsible-AI applications in healthcare, crisis informatics, and social systems.",
+      "Conducted research with a professor's group at the institute, investigating emergent LLM behavior and responsible-AI applications in healthcare, crisis informatics, and social systems.",
   },
   {
     id: "prism-ai-writing",
@@ -277,18 +247,8 @@ export const workItems: WorkItem[] = [
     years: "11th Grade",
     dates: "November 2025 - January 2026",
     tech: ["Python", "K-means clustering", "Statistical Analysis"],
-    mentors: [
-      {
-        name: "Dr. Nouchine Hadjikhani",
-        affiliation: "Harvard Medical School",
-        image: "/nouchine_pfp.jpeg",
-      },
-      {
-        name: "Natalie Elkin",
-        affiliation: "Granite Bay High School",
-        image: "/elkin_pfp.jpeg",
-      },
-    ],
+    mentorship:
+      "Mentored by a medical-school neuroscientist and a teacher at Granite Bay High School.",
     paperTitle:
       "PRISM: Profiles of AI Use, Creativity, and Authorship in High School Writing",
     preprintLink: "https://osf.io/preprints/psyarxiv/dx4bf_v1",
@@ -341,10 +301,10 @@ export const workItems: WorkItem[] = [
     tagline: "Computational neuroscience and PyTorch, implemented from scratch",
     domains: ["Applied ML & Systems"],
     role: "Participant",
-    organization:
-      "UCLA COSMOS, mentored by Prof. Hugh Tad Blair (computational neuroscience)",
+    organization: "UCLA COSMOS, a UC computational neuroscience summer research program",
+    mentorship: "Mentored by a computational neuroscience professor.",
     description:
-      "Coursework and independent research under Prof. Blair's mentorship, including PyTorch fundamentals (from-scratch SLP/MLP implementations) and computer vision work with GoogLeNet on the Stanford Dogs dataset.",
+      "Coursework and independent research under a professor's mentorship, including PyTorch fundamentals (from-scratch SLP/MLP implementations) and computer vision work with GoogLeNet on the Stanford Dogs dataset.",
   },
 ];
 

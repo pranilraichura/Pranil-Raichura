@@ -282,7 +282,7 @@ export default function Hero() {
                             </li>
                             <li className="flex items-start gap-2">
                                 <span className="text-slate-500 mt-0.5">•</span>
-                                <span className="leading-relaxed"><strong>Research & CS:</strong> MIT CSAIL (Kellis Lab) research assistant, NASA Space Apps Global Nominee 2025, &quot;Beyond Euler&quot; ML paper under review at IEEE Access, MERIDIAN ESL-fair AI-text detector, ASD serious game with OpenCV breathing detection</span>
+                                <span className="leading-relaxed"><strong>Research & CS:</strong> AI safety research assistant at a top university lab, NASA Space Apps Global Nominee 2025, &quot;Beyond Euler&quot; ML paper under review at IEEE Access, MERIDIAN ESL-fair AI-text detector, ASD serious game with OpenCV breathing detection</span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <span className="text-slate-500 mt-0.5">•</span>
