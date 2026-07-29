@@ -205,7 +205,7 @@ export default function StorySection() {
             >
                 <div className="bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-sm border border-slate-200/60">
                     <p className="text-xl text-slate-800 font-medium leading-relaxed font-libre">
-                        Looking back, the progression is clear. I spent years fearing the spotlight and trying to avoid failure. I had to learn how to find calm in solitary problem-solving before I could realize that those same instincts could serve my community. Today, I don't just tolerate pressure—I actively choose to step into the arena.
+                        Looking back, the progression is clear. I spent years fearing the spotlight and trying to avoid failure. I had to learn how to find calm in solitary problem-solving before I could realize that those same instincts could serve my community. Today, I don&apos;t just tolerate pressure—I actively choose to step into the arena.
                     </p>
                     <div className="mt-6">
                         <Link href="/story" className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors">
