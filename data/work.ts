@@ -62,20 +62,20 @@ export const domainOrder: WorkDomain[] = [
 export const workItems: WorkItem[] = [
   {
     id: "mantis",
-    title: "Mantis: AI Reasoning Visualization",
+    title: "AI Reasoning Visualization",
     tagline: "Making AI reasoning traceable, and measuring whether agents stay consistent",
     domains: ["AI Safety & Evaluation"],
     featured: true,
     pullQuote:
-      "Cold-emailed a professor about his work on Mantis, a platform that visualizes AI reasoning and makes it traceable to real data.",
+      "Cold-emailed a professor at MIT CSAIL about research on making AI reasoning traceable to real data.",
     role: "Research Assistant",
-    organization: "A university AI research lab (remote)",
+    organization: "A lab at MIT CSAIL (remote)",
     tech: ["TypeScript", "React", "Python"],
     mentorship: "Mentored by the professor who leads the lab.",
     paperTitle: "Measuring Cross-Task Behavioral Consistency in Language Model Agents",
     status: "Submitted, COLM 2026 AI Measurement Science (AIMS) Workshop",
     description:
-      "Cold-emailed a professor about his work on Mantis, a platform that visualizes AI reasoning and makes it traceable to real data. Joined as a remote research assistant, contributing production features across 28 merged pull requests to the Mantis and MantisAPI codebases, expanding real-time 3D map rendering, collaboration tools, and backend reliability.",
+      "Cold-emailed a professor at MIT CSAIL about research on making AI reasoning traceable to real data. Joined as a remote research assistant, contributing production features across 28 merged pull requests to the lab's visualization platform and API, expanding real-time 3D map rendering, collaboration tools, and backend reliability.",
     highlights: [
       "Co-developed the Behavioral Consistency Metric (BCM) with the lab. It evaluates whether an AI agent behaves consistently across tasks, separate from whether it succeeds",
       "Validated the metric across thousands of real AI agent task recordings drawn from six different systems",
