@@ -95,7 +95,7 @@ export default function NolanPage() {
                         </p>
 
                         <p>
-                            It’s hard to believe it’s already been a year since we started working together. Even though our collaboration has been entirely asynchronous, I’ve genuinely enjoyed every specific sync and code review. Getting to know you and working on this research has been a highlight of my high school experience—honestly, you’re incredibly inspiring to me.
+                            It’s hard to believe it’s already been a year since we started working together. Even though our collaboration has been entirely asynchronous, I’ve genuinely enjoyed every specific sync and code review. Getting to know you and working on this research has been a highlight of my high school experience, honestly, you’re incredibly inspiring to me.
                         </p>
 
                         <p>

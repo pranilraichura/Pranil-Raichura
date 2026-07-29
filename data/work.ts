@@ -62,7 +62,7 @@ export const domainOrder: WorkDomain[] = [
 export const workItems: WorkItem[] = [
   {
     id: "mantis",
-    title: "Mantis — AI Reasoning Visualization",
+    title: "Mantis: AI Reasoning Visualization",
     tagline: "Making AI reasoning traceable, and measuring whether agents stay consistent",
     domains: ["AI Safety & Evaluation"],
     featured: true,
@@ -75,9 +75,9 @@ export const workItems: WorkItem[] = [
     paperTitle: "Measuring Cross-Task Behavioral Consistency in Language Model Agents",
     status: "Submitted, COLM 2026 AI Measurement Science (AIMS) Workshop",
     description:
-      "Cold-emailed a professor about his work on Mantis, a platform that visualizes AI reasoning and makes it traceable to real data. Joined as a remote research assistant, contributing production features across 28 merged pull requests to the Mantis and MantisAPI codebases — expanding real-time 3D map rendering, collaboration tools, and backend reliability.",
+      "Cold-emailed a professor about his work on Mantis, a platform that visualizes AI reasoning and makes it traceable to real data. Joined as a remote research assistant, contributing production features across 28 merged pull requests to the Mantis and MantisAPI codebases, expanding real-time 3D map rendering, collaboration tools, and backend reliability.",
     highlights: [
-      "Co-developed the Behavioral Consistency Metric (BCM) with the lab — evaluates whether an AI agent behaves consistently across tasks, separate from whether it succeeds",
+      "Co-developed the Behavioral Consistency Metric (BCM) with the lab. It evaluates whether an AI agent behaves consistently across tasks, separate from whether it succeeds",
       "Validated the metric across thousands of real AI agent task recordings drawn from six different systems",
       "Found that consistency and success rate are separable: two agents with similar success rates can differ by an order of magnitude in behavioral consistency",
     ],
@@ -89,7 +89,7 @@ export const workItems: WorkItem[] = [
     domains: ["Applied ML & Systems"],
     featured: true,
     pullQuote:
-      "The first version of this project used cross-validation that leaked information between train and test sets, producing results that looked far stronger than they really were — and was rejected by every venue it was submitted to for superficial novelty.",
+      "The first version of this project used cross-validation that leaked information between train and test sets, producing results that looked far stronger than they really were, and was rejected by every venue it was submitted to for superficial novelty.",
     role: "Research Author",
     organization: "A university engineering research program",
     years: "10th Summer, 11th Grade",
@@ -110,9 +110,9 @@ export const workItems: WorkItem[] = [
       "https://www.researchgate.net/publication/395824075_Beyond_Euler_An_Explainable_Machine_Learning_Framework_for_Predicting_and_Interpreting_Buckling_Instabilities_in_Non-Ideal_Materials",
     status: "Under review, IEEE Access",
     description:
-      "Ran 147 physical buckling tests on dried pasta strands (7 lengths × 4 diameters) to test where Euler's 250-year-old buckling formula breaks down for non-ideal materials. The first version of this project used cross-validation that leaked information between train and test sets, producing results that looked far stronger than they really were — and was rejected by every venue it was submitted to for superficial novelty. Rebuilt the entire analysis from scratch with validation that keeps the test data genuinely unseen: the honest results show that throwing machine learning at the problem directly does worse than the classical formula, while a correction layer built on top of that formula cuts the remaining error by about 40% — and holds up even on strand thicknesses it was never trained on.",
+      "Ran 147 physical buckling tests on dried pasta strands (7 lengths × 4 diameters) to test where Euler's 250-year-old buckling formula breaks down for non-ideal materials. The first version of this project used cross-validation that leaked information between train and test sets, producing results that looked far stronger than they really were, and was rejected by every venue it was submitted to for superficial novelty. Rebuilt the entire analysis from scratch with validation that keeps the test data genuinely unseen: the honest results show that throwing machine learning at the problem directly does worse than the classical formula, while a correction layer built on top of that formula cuts the remaining error by about 40%, and holds up even on strand thicknesses it was never trained on.",
     highlights: [
-      "Discovered data leakage in the original cross-validation — the headline result was an artifact, not a real finding",
+      "Discovered data leakage in the original cross-validation. The headline result was an artifact, not a real finding",
       "Rebuilt the entire analysis with validation that keeps train and test data properly separated",
       "A correction layer on the classical formula cut the remaining error by about 40%, and held up on unseen strand thicknesses",
     ],
@@ -120,7 +120,7 @@ export const workItems: WorkItem[] = [
       src: "/figure1_bucklingtest.png",
       alt: "A hand pressing a single dried pasta strand vertically down onto a digital kitchen scale until it bends.",
       caption:
-        "The physical setup behind the dataset — a dried pasta strand loaded by hand against a digital kitchen scale, run 147 times across 7 lengths and 4 diameters.",
+        "The physical setup behind the dataset: a dried pasta strand loaded by hand against a digital kitchen scale, run 147 times across 7 lengths and 4 diameters.",
     },
   },
   {
@@ -164,7 +164,7 @@ export const workItems: WorkItem[] = [
   },
   {
     id: "meridian",
-    title: "MERIDIAN — Fair AI-Text Detection for ESL Writers",
+    title: "MERIDIAN: Fair AI-Text Detection for ESL Writers",
     tagline: "Cutting the ESL false-accusation rate from 29% to 3.9%",
     domains: ["AI Safety & Evaluation", "AI & Education"],
     featured: true,
@@ -177,7 +177,7 @@ export const workItems: WorkItem[] = [
       "Built a dual-stream AI-text detector after learning that commercial AI detectors systematically misclassify writing by English-as-a-Second-Language (ESL) speakers as machine-generated. Combines a Native-Expert stream (sub-word perplexity) with an ESL-Expert stream (character-level LSTM trained on learner corpora), grounded in second-language-acquisition theory.",
     highlights: [
       "93–95% accuracy with an 8.3% false-positive rate under 5-fold cross-validation",
-      "Cut the ESL false-positive rate from 29% to 3.9% on held-out TOEFL11 data in a zero-shot setting — outperforming single-stream baselines (0% for low-proficiency writers)",
+      "Cut the ESL false-positive rate from 29% to 3.9% on held-out TOEFL11 data in a zero-shot setting, outperforming single-stream baselines (0% for low-proficiency writers)",
       "Live demo on Hugging Face Spaces",
     ],
   },
@@ -213,7 +213,7 @@ export const workItems: WorkItem[] = [
   },
   {
     id: "torch-measure",
-    title: "Torch_Measure — AI Evaluation Toolkit",
+    title: "Torch_Measure: AI Evaluation Toolkit",
     tagline: "Finding the flawed questions inside AI benchmark datasets",
     domains: ["AI Safety & Evaluation"],
     role: "Contributor and Researcher",
@@ -223,7 +223,7 @@ export const workItems: WorkItem[] = [
     mentorship: "Coauthored with a Ph.D. researcher at the lab.",
     status: "Coauthor",
     description:
-      "Coauthored Torch_Measure with a Ph.D. researcher at the lab — a paper and psychometric toolkit that helps researchers identify flawed items in AI evaluation datasets.",
+      "Coauthored Torch_Measure with a Ph.D. researcher at the lab: a paper and psychometric toolkit that helps researchers identify flawed items in AI evaluation datasets.",
   },
   {
     id: "agentic-ai",
@@ -284,7 +284,7 @@ export const workItems: WorkItem[] = [
     tagline: "AI-powered misinformation detection using NLP",
     domains: ["Applied ML & Systems", "Civic & Social Good"],
     tech: ["Python", "Streamlit", "Natural Language Processing", "Neural Networks"],
-    recognition: "Best Presentation Award – Inspirit AI Scholars",
+    recognition: "Best Presentation Award, Inspirit AI Scholars",
     description:
       "Machine learning application using NLP and neural networks to detect fake news articles. Built during the Inspirit AI Scholars program under Stanford alumnus mentorship. Employs confusion matrices to classify news authenticity with high accuracy.",
     link: "https://inspirit-ai-weekday2-allhands3-fake-news-detection.streamlit.app/",
@@ -297,7 +297,7 @@ export const workItems: WorkItem[] = [
   },
   {
     id: "cosmos-2026",
-    title: "COSMOS Summer Program — UCLA",
+    title: "COSMOS Summer Program at UCLA",
     tagline: "Computational neuroscience and PyTorch, implemented from scratch",
     domains: ["Applied ML & Systems"],
     role: "Participant",
@@ -309,7 +309,7 @@ export const workItems: WorkItem[] = [
 ];
 
 // Tech4Silvers is one of the two projects the Story section closes on, so it belongs
-// in the featured tier — but its content lives in data/extracurriculars.ts and is
+// in the featured tier, but its content lives in data/extracurriculars.ts and is
 // deliberately not duplicated here. This is a pointer to that card, not a second entry.
 export const tech4SilversFeature = {
   title: "Tech4Silvers",

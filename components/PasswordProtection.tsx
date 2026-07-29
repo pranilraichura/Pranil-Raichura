@@ -72,7 +72,7 @@ export default function PasswordProtection({
                 if (RESTRICTED_IPS.includes(visitorIp)) {
                     setIsRestricted(true);
                 } else {
-                    // Not on a restricted network — let them through
+                    // Not on a restricted network - let them through
                     setIsAuthenticated(true);
                 }
             } catch {

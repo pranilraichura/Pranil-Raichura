@@ -18,7 +18,7 @@ const timelineEvents: TimelineEvent[] = [
         phase: "Beginning",
         content: [
             "Pressure has been a constant presence in my life, even before I understood what to call it.",
-            "For a long time, I believed that I simply lacked the 'talent' to handle pressure—that I was inherently too anxious, too self-conscious, and too afraid of failure.",
+            "For a long time, I believed that I simply lacked the 'talent' to handle pressure, that I was inherently too anxious, too self-conscious, and too afraid of failure.",
         ],
     },
     {
@@ -29,7 +29,7 @@ const timelineEvents: TimelineEvent[] = [
         content: [
             "In fifth grade, my parents enrolled me in squash at the Bay Club in Santa Clara. Squash wasn't a passion I had discovered on my own; my parents noticed that a family friend's son was excelling in the sport and winning national awards, and they hoped I could follow a similar path.",
             "On the morning of my first tournament, my mom told me, 'Don't worry about the outcome, just do your best.' I walked onto the court expecting to win. I knew my opponent, Samyak, from practice and believed I was better than him.",
-            "But as the match began, I started losing—point by point, game by game—while a crowd watched from behind the glass wall. When it was over, I ran to the bathroom and cried for twenty minutes, too embarrassed to come out.",
+            "But as the match began, I started losing, point by point, game by game, while a crowd watched from behind the glass wall. When it was over, I ran to the bathroom and cried for twenty minutes, too embarrassed to come out.",
             "That loss convinced me that maybe I was not someone who could perform under pressure.",
         ],
     },
@@ -50,7 +50,7 @@ const timelineEvents: TimelineEvent[] = [
         content: [
             "When I joined one of the Bay Area's most prestigious volleyball clubs on their 12s team, I discovered that volleyball carried its own intense pressure.",
             "Suddenly, tournaments meant traveling to Los Angeles, staying in hotels, and spending entire days in massive convention centers filled with hundreds of courts, squeaking shoes, and constant shouting.",
-            "The first time my coach put me on the court, I felt fine—until I made my first mistake. In that instant, I felt the same shame I had felt in that Bay Club bathroom.",
+            "The first time my coach put me on the court, I felt fine until I made my first mistake. In that instant, I felt the same shame I had felt in that Bay Club bathroom.",
             "I slowly stopped playing to improve; instead, I played to avoid letting others down. At 6'4\", people looked at me and assumed I must be a dominant athlete. Ironically, I began to feel safer on the bench than on the court.",
         ],
     },
@@ -73,7 +73,7 @@ const timelineEvents: TimelineEvent[] = [
         content: [
             "Experiences like these forced me to confront a difficult truth: pressure is not something I can escape by changing environments, activities, or roles.",
             "Only recently have I started reframing these experiences. Instead of viewing them as proof that I cannot handle pressure, I now see them as repeated opportunities to practice responding to it.",
-            "In sports, that has meant asking for feedback, accepting playing time even when I'm nervous, and allowing myself to make—and learn from—mistakes in front of others.",
+            "In sports, that has meant asking for feedback, accepting playing time even when I'm nervous, and allowing myself to make, and learn from, mistakes in front of others.",
             "Academically, it has meant volunteering to present, pursuing rigorous programs, and reminding myself that my worth is not defined by a single performance, however public.",
         ],
     },
@@ -83,7 +83,7 @@ const timelineEvents: TimelineEvent[] = [
         phase: "Present Day",
         content: [
             "Friends from the Bay Area sometimes tell me I seem like a 'completely different person' now. On the outside, I may look transformed, but internally I am still the same person learning to live with, and grow through, pressure rather than run from it.",
-            "My goal is not to eliminate pressure—that would be impossible—but to build the resilience and confidence to stand in it.",
+            "My goal is not to eliminate pressure, that would be impossible, but to build the resilience and confidence to stand in it.",
         ],
     },
     {
@@ -92,7 +92,7 @@ const timelineEvents: TimelineEvent[] = [
         phase: "The Goal",
         content: [
             "One day, I hope to test that growth on one of the most intimidating stages of all: delivering my school's valedictorian speech.",
-            "If I earn that honor, I know the pressure will be immense. But by then, I also hope to be the person who can step up to the podium, take a breath, remember all the moments that brought me there, and speak—not in spite of the pressure, but alongside it.",
+            "If I earn that honor, I know the pressure will be immense. But by then, I also hope to be the person who can step up to the podium, take a breath, remember all the moments that brought me there, and speak, not in spite of the pressure, but alongside it.",
         ],
     },
 ];
