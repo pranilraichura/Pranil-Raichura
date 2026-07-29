@@ -22,7 +22,7 @@ export default function About() {
           </h2>
           <div className="w-24 h-1 bg-primary-600 mx-auto mb-6"></div>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            The two threads that run underneath everything else on this page.
+            The threads that run underneath everything else on this page.
           </p>
         </motion.div>
 
@@ -55,6 +55,43 @@ export default function About() {
             <p className="text-gray-700 leading-relaxed">
               {personalInfo.about.techPassion}
             </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 shadow-lg"
+          >
+            <h3 className="text-2xl font-bold text-orange-700 mb-4">
+              What I&apos;m Working Toward
+            </h3>
+            <p className="text-gray-700 leading-relaxed">
+              {personalInfo.about.goals}
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="pt-4 text-center"
+          >
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 mb-4">
+              Outside of school
+            </h3>
+            <div className="flex flex-wrap justify-center gap-2.5">
+              {personalInfo.hobbies.map((hobby) => (
+                <span
+                  key={hobby}
+                  className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-600 shadow-sm"
+                >
+                  {hobby}
+                </span>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>
