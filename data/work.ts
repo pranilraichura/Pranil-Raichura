@@ -152,7 +152,7 @@ export const workItems: WorkItem[] = [
     ],
     status: "Submitted to JMIR Serious Games",
     description:
-      "Designed and published a garden-themed, AI-assisted resource-management game with integrated guided breathing sessions for adolescents (12–16) with Autism Spectrum Disorder (ASD), aimed at improving emotional regulation and reducing state anxiety. The breathing sessions use OpenCV to detect diaphragmatic breathing from a webcam.",
+      "Designed and published a garden-themed, AI-assisted resource-management game with integrated guided breathing sessions for adolescents (12-16) with Autism Spectrum Disorder (ASD), aimed at improving emotional regulation and reducing state anxiety. The breathing sessions use OpenCV to detect diaphragmatic breathing from a webcam.",
     highlights: [
       "Conducting an IRB-aligned study measuring heart-rate variability and self-reported anxiety across weekly gameplay",
       "Authoring the resulting research paper alongside both coauthors",
@@ -190,7 +190,7 @@ export const workItems: WorkItem[] = [
     description:
       "Built a dual-stream AI-text detector after learning that commercial AI detectors systematically misclassify writing by English-as-a-Second-Language (ESL) speakers as machine-generated. Combines a Native-Expert stream (sub-word perplexity) with an ESL-Expert stream (character-level LSTM trained on learner corpora), grounded in second-language-acquisition theory.",
     highlights: [
-      "93–95% accuracy with an 8.3% false-positive rate under 5-fold cross-validation",
+      "93-95% accuracy with an 8.3% false-positive rate under 5-fold cross-validation",
       "Cut the ESL false-positive rate from 29% to 3.9% on held-out TOEFL11 data in a zero-shot setting, outperforming single-stream baselines (0% for low-proficiency writers)",
       "Live demo on Hugging Face Spaces",
     ],
