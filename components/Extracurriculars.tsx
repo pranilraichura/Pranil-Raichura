@@ -3,12 +3,31 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import {
+  BrainCircuit,
+  Code2,
+  HandHeart,
+  Landmark,
+  Music2,
+  Trophy,
+  UsersRound,
+} from "lucide-react";
 import { extracurriculars, Extracurricular } from "@/data/extracurriculars";
 import MediaLightbox from "./MediaLightbox";
 import { useLightbox } from "./LightboxContext";
+import { ScrollReveal, ScrollRevealGroup } from "./ScrollReveal";
 
 const categories = ["All", "Research", "Sports", "Service", "Tech", "Music", "Leadership"] as const;
 type Category = typeof categories[number];
+
+const categoryIcons = {
+  Research: BrainCircuit,
+  Sports: Trophy,
+  Service: HandHeart,
+  Tech: Code2,
+  Music: Music2,
+  Leadership: Landmark,
+} as const;
 
 export default function Extracurriculars() {
   const [selectedCategory, setSelectedCategory] = useState<Category>("All");
@@ -46,7 +65,7 @@ export default function Extracurriculars() {
   return (
     <section
       id="extracurriculars"
-      className="py-24 relative"
+      className="pt-24 pb-12 relative"
       style={{
         backgroundImage: 'url(/starry_night.jpg)',
         backgroundSize: 'cover',
@@ -63,13 +82,10 @@ export default function Extracurriculars() {
       {/* Bottom Gradient Transition to next section */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 to-transparent pointer-events-none z-10"></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <ScrollReveal className="text-center mb-16">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary-600 mb-3">
+            Beyond the classroom
+          </p>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Extracurriculars & Leadership
           </h2>
@@ -80,35 +96,36 @@ export default function Extracurriculars() {
             and shelter residents that made service feel less like a requirement and more like
             the point.
           </p>
-        </motion.div>
+        </ScrollReveal>
 
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <ScrollReveal className="flex flex-wrap justify-center gap-3 mb-12" distance={18}>
           {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${selectedCategory === category
-                ? "bg-primary-600 text-white shadow-lg scale-105"
-                : "bg-white text-gray-700 hover:bg-gray-100 shadow-md"
-                }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${selectedCategory === category
+                  ? "bg-primary-600 text-white shadow-lg scale-105"
+                  : "bg-white text-gray-700 hover:bg-gray-100 shadow-md"
+                  }`}
+              >
+                {category}
+              </button>
+            ))}
+        </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredExtracurriculars.map((ec, index) => (
-            <motion.div
-              key={ec.id}
-              id={`ec-${ec.id}`}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.02, y: -5 }}
-              className="bg-white rounded-xl p-6 shadow-lg border border-gray-200 overflow-hidden scroll-mt-28"
-            >
+        <ScrollRevealGroup
+          dependencyKey={selectedCategory}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          stagger={0.075}
+        >
+          {filteredExtracurriculars.map((ec) => (
+            <div key={ec.id} data-reveal-item className="h-full">
+              <motion.article
+                id={`ec-${ec.id}`}
+                whileHover={{ scale: 1.015, y: -5 }}
+                transition={{ duration: 0.24 }}
+                className="bg-white rounded-xl p-6 shadow-lg border border-gray-200 overflow-hidden scroll-mt-28 h-full"
+              >
               {/* Media Preview */}
               {ec.media && ec.media.length > 0 ? (
                 <div className="mb-4">
@@ -231,11 +248,32 @@ export default function Extracurriculars() {
                   </div>
                 </div>
               ) : (
-                // No media - show a styled placeholder
-                <div className="w-full h-40 mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-slate-50 via-white to-primary-50 border border-slate-100 flex flex-col items-center justify-center text-center px-5">
-                  <span className="text-slate-800 font-libre font-semibold leading-snug">{ec.title}</span>
+                // No media - an intentional category-led visual treatment.
+                <div className="relative w-full h-40 mb-4 rounded-lg overflow-hidden bg-slate-950 border border-slate-800 flex flex-col items-center justify-center text-center px-5">
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.34),transparent_35%),radial-gradient(circle_at_80%_75%,rgba(249,115,22,0.28),transparent_36%)]"
+                  ></div>
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:24px_24px]"
+                  ></div>
+                  <div className="relative mb-3 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-white shadow-lg">
+                    {(() => {
+                      const CategoryIcon = categoryIcons[ec.category] || UsersRound;
+                      return <CategoryIcon className="h-5 w-5" strokeWidth={1.8} />;
+                    })()}
+                  </div>
+                  <span className="relative mb-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary-200">
+                    {ec.category}
+                  </span>
+                  <span className="relative text-white font-libre font-semibold leading-snug">
+                    {ec.title}
+                  </span>
                   {ec.leadership && (
-                    <span className="mt-1.5 text-xs text-primary-600 font-medium">{ec.leadership}</span>
+                    <span className="relative mt-1.5 text-xs text-slate-300 font-medium">
+                      {ec.leadership}
+                    </span>
                   )}
                 </div>
               )}
@@ -320,9 +358,10 @@ export default function Extracurriculars() {
                   {expandedId === ec.id ? "Click to collapse" : "Click to expand"}
                 </div>
               </div>
-            </motion.div>
+              </motion.article>
+            </div>
           ))}
-        </div>
+        </ScrollRevealGroup>
       </div>
 
       {/* Lightbox */}

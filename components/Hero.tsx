@@ -1,9 +1,14 @@
 "use client";
 
+import { useLayoutEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 
 export default function Hero() {
+    const heroRef = useRef<HTMLElement>(null);
+
     // Wave animation timing (left → center → right)
     const waveDelays = {
         left: 0.1,      // Left photos appear first
@@ -11,8 +16,50 @@ export default function Hero() {
         right: 0.9,     // Right photos appear last
     };
 
+    useLayoutEffect(() => {
+        const hero = heroRef.current;
+        if (!hero) return;
+
+        gsap.registerPlugin(ScrollTrigger);
+        const context = gsap.context(() => {
+            const cards = gsap.utils.toArray<HTMLElement>("[data-hero-parallax]", hero);
+            const media = gsap.matchMedia();
+
+            media.add(
+                "(min-width: 768px) and (prefers-reduced-motion: no-preference)",
+                () => {
+                    cards.forEach((card) => {
+                        const factor = Number(card.dataset.heroParallax || 0);
+                        gsap.to(card, {
+                            y: () => window.innerHeight * factor,
+                            ease: "none",
+                            scrollTrigger: {
+                                trigger: hero,
+                                start: "top top",
+                                end: "bottom top",
+                                scrub: 0.35,
+                                invalidateOnRefresh: true,
+                            },
+                        });
+                    });
+                },
+            );
+
+            media.add("(prefers-reduced-motion: reduce)", () => {
+                gsap.set(cards, { clearProps: "transform" });
+            });
+
+            return () => media.revert();
+        }, hero);
+
+        return () => context.revert();
+    }, []);
+
     return (
-        <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-accent-orange/10 pt-32">
+        <section
+            ref={heroRef}
+            className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-accent-orange/10 pt-32"
+        >
             {/* Main Content - appears directly */}
             <motion.div
                 initial={{ opacity: 0 }}
@@ -25,44 +72,54 @@ export default function Hero() {
                     {/* LEFT SIDE PHOTOS - Wave starts here */}
 
                     {/* Young Me Photo - Top Left */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -80, scale: 0.9 }}
-                        animate={{ opacity: 1, x: 0, scale: 1, rotate: -8 }}
-                        transition={{ type: "spring", stiffness: 60, damping: 15, delay: waveDelays.left }}
-                        whileHover={{ scale: 1.05, rotate: -5, transition: { duration: 0.3 } }}
+                    <div
+                        data-hero-parallax="0.14"
                         className="absolute top-8 left-8 md:top-12 md:left-12 w-48 h-48 md:w-64 md:h-80 lg:w-80 lg:h-96"
                     >
-                        <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/80">
-                            <Image
-                                src="/young-me.jpg"
-                                alt="Young Pranil"
-                                fill
-                                className="object-cover object-center"
-                                style={{ filter: "brightness(0.9)" }}
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-br from-primary-400/20 to-transparent" />
-                        </div>
-                    </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, x: -80, scale: 0.9 }}
+                            animate={{ opacity: 1, x: 0, scale: 1, rotate: -8 }}
+                            transition={{ type: "spring", stiffness: 60, damping: 15, delay: waveDelays.left }}
+                            whileHover={{ scale: 1.05, rotate: -5, transition: { duration: 0.3 } }}
+                            className="w-full h-full"
+                        >
+                            <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/80">
+                                <Image
+                                    src="/young-me.jpg"
+                                    alt="Young Pranil"
+                                    fill
+                                    className="object-cover object-center"
+                                    style={{ filter: "brightness(0.9)" }}
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-br from-primary-400/20 to-transparent" />
+                            </div>
+                        </motion.div>
+                    </div>
 
                     {/* Young Volleyball Photo - Bottom Left */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -80, scale: 0.9 }}
-                        animate={{ opacity: 1, x: 0, scale: 1, rotate: 6 }}
-                        transition={{ type: "spring", stiffness: 60, damping: 15, delay: waveDelays.left + 0.1 }}
-                        whileHover={{ scale: 1.05, rotate: 8, transition: { duration: 0.3 } }}
+                    <div
+                        data-hero-parallax="-0.09"
                         className="absolute bottom-24 left-8 md:bottom-28 md:left-12 w-48 h-48 md:w-64 md:h-80 lg:w-80 lg:h-96"
                     >
-                        <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/80">
-                            <Image
-                                src="/volleyball-young.jpg"
-                                alt="Young volleyball player"
-                                fill
-                                className="object-cover object-center"
-                                style={{ filter: "brightness(0.9)" }}
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-br from-accent-orange/20 to-transparent" />
-                        </div>
-                    </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, x: -80, scale: 0.9 }}
+                            animate={{ opacity: 1, x: 0, scale: 1, rotate: 6 }}
+                            transition={{ type: "spring", stiffness: 60, damping: 15, delay: waveDelays.left + 0.1 }}
+                            whileHover={{ scale: 1.05, rotate: 8, transition: { duration: 0.3 } }}
+                            className="w-full h-full"
+                        >
+                            <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/80">
+                                <Image
+                                    src="/volleyball-young.jpg"
+                                    alt="Young volleyball player"
+                                    fill
+                                    className="object-cover object-center"
+                                    style={{ filter: "brightness(0.9)" }}
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-br from-accent-orange/20 to-transparent" />
+                            </div>
+                        </motion.div>
+                    </div>
 
                     {/* 2008 Label - Left Timeline */}
                     <motion.div
@@ -80,86 +137,107 @@ export default function Hero() {
                     {/* CENTER CONTENT - Wave middle */}
 
                     {/* Violin Orchestra Photo - Left-Center */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                        animate={{ opacity: 1, y: 0, scale: 1, rotate: 3 }}
-                        transition={{ type: "spring", stiffness: 60, damping: 12, delay: waveDelays.center }}
-                        whileHover={{ scale: 1.08, rotate: 6, y: -5, transition: { duration: 0.3 } }}
+                    <div
+                        data-hero-parallax="0.07"
                         className="absolute top-[2%] md:top-[4%] left-[14%] md:left-[23%] lg:left-[28%] w-[221px] h-[294px] md:w-[258px] md:h-[331px] lg:w-[294px] lg:h-[405px]"
                     >
-                        <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/80">
-                            <Image
-                                src="/violin-orchestra.jpg"
-                                alt="Orchestra violin performance"
-                                fill
-                                className="object-cover object-center"
-                                style={{ filter: "brightness(0.95)" }}
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-br from-accent-orange/15 to-transparent" />
-                        </div>
-                    </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                            animate={{ opacity: 1, y: 0, scale: 1, rotate: 3 }}
+                            transition={{ type: "spring", stiffness: 60, damping: 12, delay: waveDelays.center }}
+                            whileHover={{ scale: 1.08, rotate: 6, y: -5, transition: { duration: 0.3 } }}
+                            className="w-full h-full"
+                        >
+                            <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/80">
+                                <Image
+                                    src="/violin-orchestra.jpg"
+                                    alt="Orchestra violin performance"
+                                    fill
+                                    className="object-cover object-center"
+                                    style={{ filter: "brightness(0.95)" }}
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-br from-accent-orange/15 to-transparent" />
+                            </div>
+                        </motion.div>
+                    </div>
 
                     {/* HPE Codewars Photo - Top Center */}
-                    <motion.div
-                        initial={{ opacity: 0, y: -50, scale: 0.9 }}
-                        animate={{ opacity: 1, y: 0, scale: 1, rotate: -3 }}
-                        transition={{ type: "spring", stiffness: 60, damping: 12, delay: waveDelays.center + 0.15 }}
-                        whileHover={{ scale: 1.08, rotate: 0, y: -5, transition: { duration: 0.3 } }}
-                        className="absolute top-4 left-1/2 -translate-x-1/2 w-56 h-56 md:w-72 md:h-96 lg:w-96 lg:h-[28rem]"
-                    >
-                        <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/80">
-                            <Image
-                                src="/codewars-hpe.jpg"
-                                alt="HPE Codewars 2nd Place"
-                                fill
-                                className="object-cover object-center"
-                                style={{ filter: "brightness(0.95)" }}
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-br from-primary-500/15 to-transparent" />
+                    <div className="absolute top-4 left-1/2 w-0 h-0">
+                        <div className="-translate-x-1/2 w-56 h-56 md:w-72 md:h-96 lg:w-96 lg:h-[28rem]">
+                            <div data-hero-parallax="0.03" className="w-full h-full">
+                                <motion.div
+                                    initial={{ opacity: 0, y: -50, scale: 0.9 }}
+                                    animate={{ opacity: 1, y: 0, scale: 1, rotate: -3 }}
+                                    transition={{ type: "spring", stiffness: 60, damping: 12, delay: waveDelays.center + 0.15 }}
+                                    whileHover={{ scale: 1.08, rotate: 0, y: -5, transition: { duration: 0.3 } }}
+                                    className="w-full h-full"
+                                >
+                                    <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/80">
+                                        <Image
+                                            src="/codewars-hpe.jpg"
+                                            alt="HPE Codewars 2nd Place"
+                                            fill
+                                            className="object-cover object-center"
+                                            style={{ filter: "brightness(0.95)" }}
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-br from-primary-500/15 to-transparent" />
+                                    </div>
+                                </motion.div>
+                            </div>
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* RIGHT SIDE PHOTOS - Wave ends here */}
 
                     {/* Recent Team Photo - Top Right */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 80, scale: 0.9 }}
-                        animate={{ opacity: 1, x: 0, scale: 1, rotate: 8 }}
-                        transition={{ type: "spring", stiffness: 60, damping: 15, delay: waveDelays.right }}
-                        whileHover={{ scale: 1.05, rotate: 10, transition: { duration: 0.3 } }}
+                    <div
+                        data-hero-parallax="0.12"
                         className="absolute top-8 right-8 md:top-12 md:right-12 w-48 h-48 md:w-64 md:h-80 lg:w-80 lg:h-96"
                     >
-                        <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/80">
-                            <Image
-                                src="/volleyball-team-recent.jpg"
-                                alt="Granite Bay Grizzlies team celebration"
-                                fill
-                                className="object-cover object-center"
-                                style={{ filter: "brightness(0.95)" }}
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/15 to-transparent" />
-                        </div>
-                    </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, x: 80, scale: 0.9 }}
+                            animate={{ opacity: 1, x: 0, scale: 1, rotate: 8 }}
+                            transition={{ type: "spring", stiffness: 60, damping: 15, delay: waveDelays.right }}
+                            whileHover={{ scale: 1.05, rotate: 10, transition: { duration: 0.3 } }}
+                            className="w-full h-full"
+                        >
+                            <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/80">
+                                <Image
+                                    src="/volleyball-team-recent.jpg"
+                                    alt="Granite Bay Grizzlies team celebration"
+                                    fill
+                                    className="object-cover object-center"
+                                    style={{ filter: "brightness(0.95)" }}
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/15 to-transparent" />
+                            </div>
+                        </motion.div>
+                    </div>
 
                     {/* Recent Team Huddle - Bottom Right */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 80, scale: 0.9 }}
-                        animate={{ opacity: 1, x: 0, scale: 1, rotate: -6 }}
-                        transition={{ type: "spring", stiffness: 60, damping: 15, delay: waveDelays.right + 0.1 }}
-                        whileHover={{ scale: 1.05, rotate: -4, transition: { duration: 0.3 } }}
+                    <div
+                        data-hero-parallax="-0.08"
                         className="absolute bottom-24 right-8 md:bottom-28 md:right-12 w-48 h-48 md:w-64 md:h-80 lg:w-80 lg:h-96"
                     >
-                        <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/80">
-                            <Image
-                                src="/volleyball-team-huddle.jpg"
-                                alt="Granite Bay team huddle"
-                                fill
-                                className="object-cover"
-                                style={{ filter: "brightness(0.95)", objectPosition: "70% top" }}
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-br from-primary-500/15 to-transparent" />
-                        </div>
-                    </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, x: 80, scale: 0.9 }}
+                            animate={{ opacity: 1, x: 0, scale: 1, rotate: -6 }}
+                            transition={{ type: "spring", stiffness: 60, damping: 15, delay: waveDelays.right + 0.1 }}
+                            whileHover={{ scale: 1.05, rotate: -4, transition: { duration: 0.3 } }}
+                            className="w-full h-full"
+                        >
+                            <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white/80">
+                                <Image
+                                    src="/volleyball-team-huddle.jpg"
+                                    alt="Granite Bay team huddle"
+                                    fill
+                                    className="object-cover"
+                                    style={{ filter: "brightness(0.95)", objectPosition: "70% top" }}
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/15 to-transparent" />
+                            </div>
+                        </motion.div>
+                    </div>
 
                     {/* 2025 Label - Right Timeline */}
                     <motion.div

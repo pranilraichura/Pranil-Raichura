@@ -9,6 +9,7 @@ import {
     WorkDomain,
     WorkItem,
 } from "@/data/work";
+import { ScrollReveal, ScrollRevealGroup } from "./ScrollReveal";
 
 const domainStyles: Record<WorkDomain, string> = {
     "AI Safety & Evaluation": "bg-indigo-100 text-indigo-700 border-indigo-200",
@@ -16,6 +17,14 @@ const domainStyles: Record<WorkDomain, string> = {
     "Civic & Social Good": "bg-blue-100 text-blue-700 border-blue-200",
     "Accessibility & Health": "bg-rose-100 text-rose-700 border-rose-200",
     "Applied ML & Systems": "bg-emerald-100 text-emerald-700 border-emerald-200",
+};
+
+const domainAccents: Record<WorkDomain, string> = {
+    "AI Safety & Evaluation": "bg-indigo-500",
+    "AI & Education": "bg-amber-500",
+    "Civic & Social Good": "bg-blue-500",
+    "Accessibility & Health": "bg-rose-500",
+    "Applied ML & Systems": "bg-emerald-500",
 };
 
 // Beyond Euler leads because the Story section closes on it; the rest follow by weight.
@@ -213,11 +222,7 @@ function FeaturedHeading({ item }: { item: WorkItem }) {
 /** Full-width featured tile: text on one side, a real photo on the other. */
 function FeaturedWithFigure({ item }: { item: WorkItem }) {
     return (
-        <motion.article
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.5 }}
+        <article
             className="rounded-3xl bg-white shadow-xl border border-slate-200/80 overflow-hidden"
         >
             <div className="grid grid-cols-1 lg:grid-cols-5">
@@ -244,18 +249,14 @@ function FeaturedWithFigure({ item }: { item: WorkItem }) {
                     </figure>
                 )}
             </div>
-        </motion.article>
+        </article>
     );
 }
 
 /** Featured tile for work with no photo available; typography carries it instead. */
 function FeaturedTypographic({ item }: { item: WorkItem }) {
     return (
-        <motion.article
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.5 }}
+        <article
             className="rounded-3xl bg-white shadow-xl border border-slate-200/80 p-7 md:p-9"
         >
             <FeaturedHeading item={item} />
@@ -263,7 +264,7 @@ function FeaturedTypographic({ item }: { item: WorkItem }) {
                 {bodyWithoutPullQuote(item)}
             </p>
             <WorkDetails item={item} />
-        </motion.article>
+        </article>
     );
 }
 
@@ -275,11 +276,7 @@ function Tech4SilversTile() {
     const t4s = tech4SilversFeature;
 
     return (
-        <motion.article
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.5 }}
+        <article
             className="rounded-3xl bg-white shadow-xl border border-slate-200/80 overflow-hidden"
         >
             <div className="grid grid-cols-1 lg:grid-cols-5">
@@ -321,22 +318,29 @@ function Tech4SilversTile() {
                     </a>
                 </div>
             </div>
-        </motion.article>
+        </article>
     );
 }
 
 function CondensedRow({ item }: { item: WorkItem }) {
     const [open, setOpen] = useState(false);
     const panelId = `work-panel-${item.id}`;
+    const accent = domainAccents[item.domains[0]];
 
     return (
-        <div className="border-b border-slate-200/70 last:border-b-0">
+        <div className="relative">
+            <span
+                aria-hidden="true"
+                className={`absolute left-0 top-3 bottom-3 w-1 rounded-r-full ${accent} transition-transform duration-300 ${open ? "scale-y-100" : "scale-y-50"
+                    }`}
+            ></span>
             <button
                 type="button"
                 onClick={() => setOpen(!open)}
                 aria-expanded={open}
                 aria-controls={panelId}
-                className="w-full text-left px-5 py-4 flex items-center gap-4 hover:bg-slate-50 transition-colors duration-200"
+                className={`w-full text-left pl-7 pr-5 flex items-center gap-4 hover:bg-slate-50 transition-all duration-200 ${open ? "pt-6 pb-4 bg-slate-50/70" : "py-4"
+                    }`}
             >
                 <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
@@ -380,7 +384,7 @@ function CondensedRow({ item }: { item: WorkItem }) {
                         transition={{ duration: 0.28, ease: "easeInOut" }}
                         className="overflow-hidden"
                     >
-                        <div className="px-5 pb-6 pt-1">
+                        <div className="pl-7 pr-6 pb-7 pt-2 bg-gradient-to-r from-slate-50/90 to-white">
                             {(item.role || item.organization) && (
                                 <p className="text-xs text-slate-500 mb-3">
                                     {[item.role, item.organization].filter(Boolean).join(" · ")}
@@ -415,15 +419,12 @@ export default function Work() {
     const showTech4Silvers = selectedDomain === "All";
 
     return (
-        <section id="work" className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <section id="work" className="pt-16 pb-20 bg-gradient-to-br from-gray-50 to-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-10"
-                >
+                <ScrollReveal className="text-center mb-10">
+                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-primary-600 mb-3">
+                        Research, systems, and impact
+                    </p>
                     <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Work</h2>
                     <div className="w-24 h-1 bg-primary-600 mx-auto mb-6"></div>
                     <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
@@ -433,10 +434,10 @@ export default function Work() {
                         &ldquo;projects&rdquo; and &ldquo;research,&rdquo; they&apos;re grouped by what
                         they&apos;re actually about.
                     </p>
-                </motion.div>
+                </ScrollReveal>
 
                 {/* Domain filter */}
-                <div className="flex flex-wrap justify-center gap-2.5 mb-12">
+                <ScrollReveal className="flex flex-wrap justify-center gap-2.5 mb-12" distance={18}>
                     {(["All", ...domainOrder] as const).map((domain) => (
                         <button
                             key={domain}
@@ -449,7 +450,7 @@ export default function Work() {
                             {domain}
                         </button>
                     ))}
-                </div>
+                </ScrollReveal>
 
                 {(featured.length > 0 || showTech4Silvers) && (
                     <div className="mb-16">
@@ -460,19 +461,31 @@ export default function Work() {
                             <div className="h-px bg-slate-200 flex-1"></div>
                         </div>
 
-                        <div className="space-y-6">
+                        <ScrollRevealGroup
+                            dependencyKey={selectedDomain}
+                            className="space-y-6"
+                            stagger={0.1}
+                        >
                             {featuredWithFigure.map((item) => (
-                                <FeaturedWithFigure key={item.id} item={item} />
+                                <div key={item.id} data-reveal-item>
+                                    <FeaturedWithFigure item={item} />
+                                </div>
                             ))}
-                            {showTech4Silvers && <Tech4SilversTile />}
+                            {showTech4Silvers && (
+                                <div data-reveal-item>
+                                    <Tech4SilversTile />
+                                </div>
+                            )}
                             {featuredTypographic.length > 0 && (
                                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
                                     {featuredTypographic.map((item) => (
-                                        <FeaturedTypographic key={item.id} item={item} />
+                                        <div key={item.id} data-reveal-item>
+                                            <FeaturedTypographic item={item} />
+                                        </div>
                                     ))}
                                 </div>
                             )}
-                        </div>
+                        </ScrollRevealGroup>
                     </div>
                 )}
 
@@ -489,11 +502,21 @@ export default function Work() {
                             </span>
                         </div>
 
-                        <div className="rounded-2xl bg-white/90 backdrop-blur-sm border border-slate-200/80 shadow-md overflow-hidden">
+                        <ScrollRevealGroup
+                            dependencyKey={selectedDomain}
+                            className="rounded-2xl bg-white/90 backdrop-blur-sm border border-slate-200/80 shadow-md overflow-hidden"
+                            stagger={0.065}
+                        >
                             {rest.map((item) => (
-                                <CondensedRow key={`${selectedDomain}-${item.id}`} item={item} />
+                                <div
+                                    key={`${selectedDomain}-${item.id}`}
+                                    data-reveal-item
+                                    className="border-b border-slate-200/70 last:border-b-0"
+                                >
+                                    <CondensedRow item={item} />
+                                </div>
                             ))}
-                        </div>
+                        </ScrollRevealGroup>
                     </div>
                 )}
             </div>

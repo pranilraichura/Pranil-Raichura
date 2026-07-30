@@ -129,6 +129,13 @@ export const extracurriculars: Extracurricular[] = [
         url: "https://www.pra-nam.com",
       },
     ],
+    media: [
+      {
+        type: 'image',
+        path: '/gallery/full/clothing-donation.jpg',
+        caption: 'PraNam clothing donation',
+      },
+    ],
   },
   {
     // TODO: confirm with Pranil - grade range and time commitment for this role are not in any source data.
@@ -141,6 +148,13 @@ export const extracurriculars: Extracurricular[] = [
       "Shoe drive: 150 pairs donated and shipped to homeless families in Africa",
       "Warm clothes drive: 500+ items of clothing donated to students at Kinney High School, Rancho Cordova",
       "Received recognition from the Mayor of the city of Rancho Cordova",
+    ],
+    media: [
+      {
+        type: 'image',
+        path: '/gallery/full/recognition-ceremony.jpg',
+        caption: 'Recognition at Rancho Cordova City Hall',
+      },
     ],
   },
   {

@@ -1,7 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 
 interface TimelineEvent {
@@ -104,6 +106,9 @@ export default function StorySection() {
     const sectionRef = useRef<HTMLElement>(null);
     const timelineRef = useRef<HTMLDivElement>(null);
     const railRef = useRef<HTMLDivElement>(null);
+    const signatureRef = useRef<HTMLDivElement>(null);
+    const signatureCardRef = useRef<HTMLDivElement>(null);
+    const signatureGlowRef = useRef<HTMLDivElement>(null);
     const prefersReducedMotion = useReducedMotion();
 
     const { scrollYProgress: sectionProgress } = useScroll({
@@ -145,6 +150,73 @@ export default function StorySection() {
             window.removeEventListener("resize", measure);
         };
     }, [prefersReducedMotion]);
+
+    useLayoutEffect(() => {
+        const signature = signatureRef.current;
+        const card = signatureCardRef.current;
+        const glow = signatureGlowRef.current;
+        if (!signature || !card || !glow) return;
+
+        gsap.registerPlugin(ScrollTrigger);
+        const context = gsap.context(() => {
+            const media = gsap.matchMedia();
+
+            media.add(
+                "(min-width: 768px) and (prefers-reduced-motion: no-preference)",
+                () => {
+                    gsap.timeline({
+                        scrollTrigger: {
+                            trigger: signature,
+                            start: "center center",
+                            end: "+=280",
+                            pin: card,
+                            pinSpacing: true,
+                            scrub: 0.65,
+                            anticipatePin: 1,
+                        },
+                    })
+                        .fromTo(
+                            card,
+                            {
+                                scale: 0.94,
+                                y: 26,
+                                willChange: "transform",
+                            },
+                            {
+                                scale: 1,
+                                y: 0,
+                                ease: "none",
+                                clearProps: "willChange",
+                            },
+                            0,
+                        )
+                        .fromTo(
+                            glow,
+                            {
+                                opacity: 0,
+                                scale: 0.72,
+                                willChange: "transform, opacity",
+                            },
+                            {
+                                opacity: 1,
+                                scale: 1,
+                                ease: "none",
+                                clearProps: "willChange",
+                            },
+                            0,
+                        );
+                },
+            );
+
+            media.add("(prefers-reduced-motion: reduce)", () => {
+                gsap.set([card, glow], { clearProps: "all" });
+            });
+
+            return () => media.revert();
+        }, signature);
+
+        return () => context.revert();
+    }, []);
 
     return (
         <section
@@ -313,24 +385,29 @@ export default function StorySection() {
             </div>
 
             {/* Closing Reflection */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+            <div
+                ref={signatureRef}
                 className="relative z-10 text-center mt-16 max-w-4xl mx-auto px-6"
+                data-signature-moment="story-reflection"
             >
-                <div className="bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-sm border border-slate-200/60">
-                    <p className="text-xl text-slate-800 font-medium leading-relaxed font-libre">
-                        Looking back, the progression is clear. I spent years fearing the spotlight and trying to avoid failure. I had to learn how to find calm in solitary problem-solving before I could realize that those same instincts could serve my community. Today, I don&apos;t just tolerate pressure. I actively choose to step into the arena.
-                    </p>
-                    <div className="mt-6">
-                        <Link href="/story" className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors">
-                            Read the extended story <span aria-hidden="true">&rarr;</span>
-                        </Link>
+                <div ref={signatureCardRef} className="relative">
+                    <div
+                        ref={signatureGlowRef}
+                        aria-hidden="true"
+                        className="absolute -inset-6 md:-inset-10 rounded-[3rem] bg-gradient-to-r from-primary-300/20 via-orange-300/25 to-primary-300/20 blur-2xl opacity-0 pointer-events-none"
+                    ></div>
+                    <div className="relative bg-white/85 backdrop-blur-md rounded-2xl p-8 shadow-xl shadow-slate-900/10 border border-slate-200/60">
+                        <p className="text-xl text-slate-800 font-medium leading-relaxed font-libre">
+                            Looking back, the progression is clear. I spent years fearing the spotlight and trying to avoid failure. I had to learn how to find calm in solitary problem-solving before I could realize that those same instincts could serve my community. Today, I don&apos;t just tolerate pressure. I actively choose to step into the arena.
+                        </p>
+                        <div className="mt-6">
+                            <Link href="/story" className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors">
+                                Read the extended story <span aria-hidden="true">&rarr;</span>
+                            </Link>
+                        </div>
                     </div>
                 </div>
-            </motion.div>
+            </div>
 
             {/* Bridge to Evidence - Centered on Viewport */}
             <motion.div
