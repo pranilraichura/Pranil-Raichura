@@ -32,7 +32,7 @@ export const galleryPhotos: GalleryPhoto[] = [
     fullSrc: "/gallery/full/club-volleyball-double-block.jpg",
     alt: "Two club volleyball teammates jumping together to block at the net",
     caption: "Club volleyball",
-    aspectRatio: 1.4972,
+    aspectRatio: 1.4963,
   },
   {
     slug: "volleyball-block-action",
@@ -68,7 +68,7 @@ export const galleryPhotos: GalleryPhoto[] = [
     fullSrc: "/gallery/full/granite-bay-spike.jpg",
     alt: "Granite Bay volleyball player number 29 reaching over the net to spike",
     caption: "Granite Bay volleyball",
-    aspectRatio: 0.686,
+    aspectRatio: 0.6859,
   },
   {
     slug: "granite-bay-volleyball-net",
@@ -124,7 +124,7 @@ export const galleryPhotos: GalleryPhoto[] = [
     alt: "Discussing ClearPolicy with a visitor beside the project display",
     caption: "Presenting ClearPolicy",
     featured: true,
-    aspectRatio: 1.7774,
+    aspectRatio: 1.7778,
   },
   {
     slug: "recognition-ceremony",
@@ -142,7 +142,7 @@ export const galleryPhotos: GalleryPhoto[] = [
     fullSrc: "/gallery/full/award-presentation.jpg",
     alt: "Receiving a certificate folder during an award presentation",
     caption: "Award presentation",
-    aspectRatio: 1.0102,
+    aspectRatio: 1.01,
   },
 
   // Programs
@@ -179,7 +179,7 @@ export const galleryPhotos: GalleryPhoto[] = [
     thumbSrc: "/gallery/thumb/summer-program-boba-group.jpg",
     fullSrc: "/gallery/full/summer-program-boba-group.jpg",
     alt: "A group of students posing together inside a boba shop",
-    aspectRatio: 1.3333,
+    aspectRatio: 1.3326,
   },
   {
     slug: "tech-for-seniors-presentation",
@@ -310,7 +310,7 @@ export const galleryPhotos: GalleryPhoto[] = [
     alt: "Playing a grand piano under colorful stage lights",
     caption: "Piano",
     featured: true,
-    aspectRatio: 1.3333,
+    aspectRatio: 1.3326,
   },
   {
     slug: "orchestra-performance",
@@ -334,7 +334,7 @@ export const galleryPhotos: GalleryPhoto[] = [
     thumbSrc: "/gallery/thumb/beach-friends.jpg",
     fullSrc: "/gallery/full/beach-friends.jpg",
     alt: "Friends standing together at the edge of the ocean",
-    aspectRatio: 1.3394,
+    aspectRatio: 1.3398,
   },
   {
     slug: "clothing-donation",

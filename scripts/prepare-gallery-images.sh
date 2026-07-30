@@ -6,7 +6,7 @@
 #
 # For every image in <source-folder> this writes two optimized JPEGs:
 #   public/gallery/full/<slug>.jpg    longest edge 1920px, for the full-screen view
-#   public/gallery/thumb/<slug>.jpg   longest edge 600px, for the grid tiles
+#   public/gallery/thumb/<slug>.jpg   longest edge 800px, for the grid tiles
 #
 # This site is a static export with `images: { unoptimized: true }`, so whatever
 # lands in public/ is what visitors download. Nothing resizes at build time.
@@ -23,7 +23,7 @@ SOURCE_DIR="${1:?usage: scripts/prepare-gallery-images.sh <source-folder> [outpu
 OUTPUT_ROOT="${2:-public/gallery}"
 
 FULL_MAX_EDGE=1920
-THUMB_MAX_EDGE=600
+THUMB_MAX_EDGE=800
 FULL_QUALITY=4   # ffmpeg -q:v, roughly 80% JPEG quality
 THUMB_QUALITY=5
 

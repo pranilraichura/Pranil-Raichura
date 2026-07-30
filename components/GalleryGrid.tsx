@@ -129,7 +129,7 @@ export default function GalleryGrid({
                   transition={{ duration: prefersReducedMotion ? 0 : 0.45, ease: [0.32, 0.72, 0, 1] }}
                 >
                   <Image
-                    src={photo.thumbSrc}
+                    src={photo.featured ? photo.fullSrc : photo.thumbSrc}
                     alt={photo.alt}
                     fill
                     sizes={
