@@ -19,7 +19,7 @@
 
 ### 1. Add Your Media Files
 - Add images and videos to the `public/` folder
-- Update `components/MediaGallery.tsx` - modify the `mediaItems` array with your actual file paths
+- For the `/gallery` page, run `scripts/prepare-gallery-images.sh <source-folder>` and add the resulting entries to `data/gallery.ts`
 
 ### 2. Update Contact Information
 - Edit `components/RecommendationRequest.tsx`
