@@ -39,10 +39,10 @@
 - Images are dynamically generated from the `awards` data
 - Add image paths to each item in `data/awards.ts`
 
-### 7. Media Gallery
-**File:** `components/MediaGallery.tsx` (lines ~10-43)
-- Update the `mediaItems` array with your actual image/video paths
-- Supports both images and videos
+### 7. Gallery page
+**File:** `data/gallery.ts`
+- Photos on `/gallery` come from the `galleryPhotos` array
+- Each entry needs a thumbnail and a full-size file: run `scripts/prepare-gallery-images.sh <source-folder>` to generate both into `public/gallery/`
 
 ## Recommended Folder Structure
 ```

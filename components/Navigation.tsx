@@ -13,6 +13,7 @@ const navItems = [
   { name: "Academics", href: "#academic" },
   { name: "Extracurriculars", href: "#extracurriculars" },
   { name: "Work", href: "#work" },
+  { name: "Gallery", href: "/gallery" },
 ];
 
 export default function Navigation() {
@@ -89,7 +90,7 @@ export default function Navigation() {
             {navItems.map((item) => {
               const isActive = item.href.startsWith("#")
                 ? activeSection === item.href.substring(1)
-                : pathname === item.href;
+                : pathname === item.href || pathname === `${item.href}/`;
 
               if (item.href.startsWith("#")) {
                 return (
@@ -167,7 +168,7 @@ export default function Navigation() {
               {navItems.map((item, index) => {
                 const isActive = item.href.startsWith("#")
                   ? activeSection === item.href.substring(1)
-                  : pathname === item.href;
+                  : pathname === item.href || pathname === `${item.href}/`;
 
                 if (item.href.startsWith("#")) {
                   return (
