@@ -166,7 +166,7 @@ body {
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* GPU-accelerated animations — opt-in only to avoid breaking background-attachment: fixed */
+/* GPU-accelerated animations - opt-in only to avoid breaking background-attachment: fixed */
 .gpu-accelerated {
   will-change: transform;
   transform: translateZ(0);

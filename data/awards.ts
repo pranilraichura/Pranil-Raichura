@@ -53,6 +53,6 @@ export const awards: Award[] = [
     title: "Commended Scholar, National Merit Scholarship Program",
     category: "Academic",
     year: "11th Grade",
-    description: "National recognition from the National Merit Scholarship Corporation, awarded to the top 3–4% of PSAT/NMSQT scorers nationally.",
+    description: "National recognition from the National Merit Scholarship Corporation, awarded to the top 3-4% of PSAT/NMSQT scorers nationally.",
   },
 ];

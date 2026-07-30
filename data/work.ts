@@ -24,9 +24,7 @@ export interface WorkItem {
   recognition?: string;
   highlights?: string[];
   tech?: string[];
-  // Deliberately a generalized phrase rather than named people. The public homepage
-  // describes the kind of mentorship; the /recommendation page keeps the full detail.
-  mentorship?: string;
+  mentors?: { name: string; affiliation: string; image?: string }[];
   paperTitle?: string;
   preprintLink?: string;
   link?: string;
@@ -61,23 +59,23 @@ export const domainOrder: WorkDomain[] = [
 
 export const workItems: WorkItem[] = [
   {
-    id: "mantis",
+    id: "ai-reasoning-visualization",
     title: "AI Reasoning Visualization",
     tagline: "Making AI reasoning traceable, and measuring whether agents stay consistent",
     domains: ["AI Safety & Evaluation"],
     featured: true,
     pullQuote:
-      "Cold-emailed a professor at MIT CSAIL about research on making AI reasoning traceable to real data.",
+      "Cold-emailed Prof. MK at MIT CSAIL about research on making AI reasoning traceable to real data.",
     role: "Research Assistant",
-    organization: "A lab at MIT CSAIL (remote)",
+    organization: "Kellis Lab, MIT CSAIL (remote)",
     tech: ["TypeScript", "React", "Python"],
-    mentorship: "Mentored by the professor who leads the lab.",
-    paperTitle: "Measuring Cross-Task Behavioral Consistency in Language Model Agents",
-    status: "Submitted, COLM 2026 AI Measurement Science (AIMS) Workshop",
+    mentors: [{ name: "Prof. MK", affiliation: "MIT CSAIL" }],
+    paperTitle: "Research on measuring behavioral consistency in AI agents",
+    status: "Submitted to an academic AI workshop",
     description:
-      "Cold-emailed a professor at MIT CSAIL about research on making AI reasoning traceable to real data. Joined as a remote research assistant, contributing production features across 28 merged pull requests to the lab's visualization platform and API, expanding real-time 3D map rendering, collaboration tools, and backend reliability.",
+      "Cold-emailed Prof. MK at MIT CSAIL about research on making AI reasoning traceable to real data. Joined as a remote research assistant, contributing production features across dozens of merged pull requests to a visualization platform and API, expanding real-time 3D map rendering, collaboration tools, and backend reliability.",
     highlights: [
-      "Co-developed the Behavioral Consistency Metric (BCM) with the lab. It evaluates whether an AI agent behaves consistently across tasks, separate from whether it succeeds",
+      "Co-developed a new metric for evaluating whether an AI agent behaves consistently across tasks, separate from whether it succeeds",
       "Validated the metric across thousands of real AI agent task recordings drawn from six different systems",
       "Found that consistency and success rate are separable: two agents with similar success rates can differ by an order of magnitude in behavioral consistency",
     ],
@@ -91,7 +89,7 @@ export const workItems: WorkItem[] = [
     pullQuote:
       "The first version of this project used cross-validation that leaked information between train and test sets, producing results that looked far stronger than they really were, and was rejected by every venue it was submitted to for superficial novelty.",
     role: "Research Author",
-    organization: "A university engineering research program",
+    organization: "Johns Hopkins Explore Engineering Innovation",
     years: "10th Summer, 11th Grade",
     dates: "July 2025 - October 2025",
     hoursPerWeek: "6 hours/week",
@@ -103,7 +101,13 @@ export const workItems: WorkItem[] = [
       "GroupKFold Cross-Validation",
       "Data Analysis",
     ],
-    mentorship: "Mentored by an engineering professor.",
+    mentors: [
+      {
+        name: "Dr. AR",
+        affiliation: "UConn; Associate Professor at Polytechnic University, Orlando",
+        image: "/abdiel_pfp.jpeg",
+      },
+    ],
     paperTitle:
       "Beyond Euler: An Explainable ML Framework for Predicting Buckling Instabilities in Non-Ideal Materials",
     preprintLink:
@@ -129,16 +133,26 @@ export const workItems: WorkItem[] = [
     tagline: "Improving emotional regulation for adolescents with autism",
     domains: ["Accessibility & Health"],
     role: "Lead Developer & Researcher",
-    organization: "A high school research mentorship program",
+    organization: "Polygence",
     years: "9th, 10th, 11th Grade",
     dates: "August 2024 - February 2026",
     hoursPerWeek: "4-5 hours/week",
     tech: ["Python", "C#", "Unity", "OpenCV", "Machine Learning"],
-    mentorship:
-      "Coauthored with a medical-school neuroscientist and a university researcher.",
+    mentors: [
+      {
+        name: "NM, M.S.",
+        affiliation: "Stanford University",
+        image: "/nolan_pfp.jpeg",
+      },
+      {
+        name: "Dr. NH",
+        affiliation: "Harvard Medical School",
+        image: "/nouchine_pfp.jpeg",
+      },
+    ],
     status: "Submitted to JMIR Serious Games",
     description:
-      "Designed and published a garden-themed, AI-assisted resource-management game with integrated guided breathing sessions for adolescents (12–16) with Autism Spectrum Disorder (ASD), aimed at improving emotional regulation and reducing state anxiety. The breathing sessions use OpenCV to detect diaphragmatic breathing from a webcam.",
+      "Designed and published a garden-themed, AI-assisted resource-management game with integrated guided breathing sessions for adolescents (12-16) with Autism Spectrum Disorder (ASD), aimed at improving emotional regulation and reducing state anxiety. The breathing sessions use OpenCV to detect diaphragmatic breathing from a webcam.",
     highlights: [
       "Conducting an IRB-aligned study measuring heart-rate variability and self-reported anxiety across weekly gameplay",
       "Authoring the resulting research paper alongside both coauthors",
@@ -176,7 +190,7 @@ export const workItems: WorkItem[] = [
     description:
       "Built a dual-stream AI-text detector after learning that commercial AI detectors systematically misclassify writing by English-as-a-Second-Language (ESL) speakers as machine-generated. Combines a Native-Expert stream (sub-word perplexity) with an ESL-Expert stream (character-level LSTM trained on learner corpora), grounded in second-language-acquisition theory.",
     highlights: [
-      "93–95% accuracy with an 8.3% false-positive rate under 5-fold cross-validation",
+      "93-95% accuracy with an 8.3% false-positive rate under 5-fold cross-validation",
       "Cut the ESL false-positive rate from 29% to 3.9% on held-out TOEFL11 data in a zero-shot setting, outperforming single-stream baselines (0% for low-proficiency writers)",
       "Live demo on Hugging Face Spaces",
     ],
@@ -217,26 +231,32 @@ export const workItems: WorkItem[] = [
     tagline: "Finding the flawed questions inside AI benchmark datasets",
     domains: ["AI Safety & Evaluation"],
     role: "Contributor and Researcher",
-    organization: "A university AI measurement research lab (remote)",
+    organization: "Stanford AI Measurement Science Lab (remote)",
     dates: "March 2026 - Present",
     tech: ["Python"],
-    mentorship: "Coauthored with a Ph.D. researcher at the lab.",
+    mentors: [{ name: "ST", affiliation: "Stanford Ph.D. researcher" }],
     status: "Coauthor",
     description:
-      "Coauthored Torch_Measure with a Ph.D. researcher at the lab: a paper and psychometric toolkit that helps researchers identify flawed items in AI evaluation datasets.",
+      "Coauthored Torch_Measure with ST, a Stanford Ph.D. researcher: a paper and psychometric toolkit that helps researchers identify flawed items in AI evaluation datasets.",
   },
   {
     id: "agentic-ai",
     title: "Agentic AI Applications",
     tagline: "Emergent LLM behavior and responsible AI in health and crisis settings",
     domains: ["AI Safety & Evaluation"],
-    role: "Researcher",
-    organization: "A university AI research institute",
+    role: "Researcher, AICS Lab",
+    organization:
+      "USC Information Sciences Institute, Artificial Intelligence and Complex Systems Group",
     dates: "February 2026 - May 2026",
     tech: ["Python", "PyTorch"],
-    mentorship: "Mentored by a professor at the institute.",
+    mentors: [
+      {
+        name: "Prof. MK",
+        affiliation: "USC Information Sciences Institute",
+      },
+    ],
     description:
-      "Conducted research with a professor's group at the institute, investigating emergent LLM behavior and responsible-AI applications in healthcare, crisis informatics, and social systems.",
+      "Conducted research under Prof. MK in the Artificial Intelligence and Complex Systems Group, investigating emergent LLM behavior and responsible-AI applications in healthcare, crisis informatics, and social systems.",
   },
   {
     id: "prism-ai-writing",
@@ -247,8 +267,18 @@ export const workItems: WorkItem[] = [
     years: "11th Grade",
     dates: "November 2025 - January 2026",
     tech: ["Python", "K-means clustering", "Statistical Analysis"],
-    mentorship:
-      "Mentored by a medical-school neuroscientist and a teacher at Granite Bay High School.",
+    mentors: [
+      {
+        name: "Dr. NH",
+        affiliation: "Harvard Medical School",
+        image: "/nouchine_pfp.jpeg",
+      },
+      {
+        name: "Ms. NE",
+        affiliation: "Teacher, Granite Bay High School",
+        image: "/elkin_pfp.jpeg",
+      },
+    ],
     paperTitle:
       "PRISM: Profiles of AI Use, Creativity, and Authorship in High School Writing",
     preprintLink: "https://osf.io/preprints/psyarxiv/dx4bf_v1",
@@ -301,10 +331,10 @@ export const workItems: WorkItem[] = [
     tagline: "Computational neuroscience and PyTorch, implemented from scratch",
     domains: ["Applied ML & Systems"],
     role: "Participant",
-    organization: "UCLA COSMOS, a UC computational neuroscience summer research program",
-    mentorship: "Mentored by a computational neuroscience professor.",
+    organization: "UCLA COSMOS (computational neuroscience)",
+    mentors: [{ name: "Prof. HTB", affiliation: "UCLA COSMOS" }],
     description:
-      "Coursework and independent research under a professor's mentorship, including PyTorch fundamentals (from-scratch SLP/MLP implementations) and computer vision work with GoogLeNet on the Stanford Dogs dataset.",
+      "Coursework and independent research under Prof. HTB's mentorship, including PyTorch fundamentals (from-scratch SLP/MLP implementations) and computer vision work with GoogLeNet on the Stanford Dogs dataset.",
   },
 ];
 
