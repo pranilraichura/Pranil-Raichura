@@ -1,6 +1,7 @@
 "use client";
 
-import { LayoutGroup, motion } from "framer-motion";
+import { LayoutGroup, motion, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import GalleryFullscreen from "@/components/GalleryFullscreen";
@@ -10,28 +11,88 @@ import { useLightbox } from "@/components/LightboxContext";
 import { galleryPhotos } from "@/data/gallery";
 
 const LAYOUT_DURATION_MS = 450;
+const LAYOUT_EASE = [0.32, 0.72, 0, 1] as const;
+const HERO_INDEX = 0;
 
 export default function GalleryPage() {
+  const prefersReducedMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const { setLightboxOpen } = useLightbox();
   const lastOpenedIndex = useRef<number | null>(null);
   const unlockTimer = useRef<number | null>(null);
+  const lightboxTimer = useRef<number | null>(null);
+  const heroPhoto = galleryPhotos[HERO_INDEX];
+  const gridPhotos = galleryPhotos.slice(1);
+  const heroIsActive = activeIndex === HERO_INDEX;
+
+  const lockGalleryScroll = useCallback(() => {
+    const { body, documentElement } = document;
+    if (body.dataset.galleryScrollLocked === "true") return;
+
+    body.dataset.galleryPrevOverflow = body.style.overflow;
+    body.dataset.galleryPrevOverscroll = body.style.overscrollBehavior;
+    body.dataset.galleryPrevPadding = body.style.paddingRight;
+    documentElement.dataset.galleryPrevOverflow = documentElement.style.overflow;
+    documentElement.dataset.galleryPrevOverscroll = documentElement.style.overscrollBehavior;
+    body.dataset.galleryScrollLocked = "true";
+
+    const scrollbarWidth = window.innerWidth - documentElement.clientWidth;
+    body.style.overflow = "hidden";
+    body.style.overscrollBehavior = "none";
+    documentElement.style.overflow = "hidden";
+    documentElement.style.overscrollBehavior = "none";
+    if (scrollbarWidth > 0) body.style.paddingRight = `${scrollbarWidth}px`;
+  }, []);
+
+  const unlockGalleryScroll = useCallback(() => {
+    const { body, documentElement } = document;
+    if (body.dataset.galleryScrollLocked !== "true") return;
+
+    body.style.overflow = body.dataset.galleryPrevOverflow ?? "";
+    body.style.overscrollBehavior = body.dataset.galleryPrevOverscroll ?? "";
+    body.style.paddingRight = body.dataset.galleryPrevPadding ?? "";
+    documentElement.style.overflow = documentElement.dataset.galleryPrevOverflow ?? "";
+    documentElement.style.overscrollBehavior =
+      documentElement.dataset.galleryPrevOverscroll ?? "";
+    delete body.dataset.galleryPrevOverflow;
+    delete body.dataset.galleryPrevOverscroll;
+    delete body.dataset.galleryPrevPadding;
+    delete body.dataset.galleryScrollLocked;
+    delete documentElement.dataset.galleryPrevOverflow;
+    delete documentElement.dataset.galleryPrevOverscroll;
+  }, []);
 
   const openPhoto = useCallback(
     (index: number) => {
+      if (lightboxTimer.current) {
+        window.clearTimeout(lightboxTimer.current);
+        lightboxTimer.current = null;
+      }
+      // Apply the lock in the click event itself so even an immediate wheel
+      // input cannot reach the page before React commits the fullscreen layer.
+      lockGalleryScroll();
       setActiveIndex(index);
       setLightboxOpen(true);
     },
-    [setLightboxOpen]
+    [lockGalleryScroll, setLightboxOpen]
   );
 
   const closePhoto = useCallback(() => {
     setActiveIndex(null);
     // Keep nav hidden through the shrink-back so it doesn't flash over the photo.
-    window.setTimeout(() => setLightboxOpen(false), LAYOUT_DURATION_MS);
+    lightboxTimer.current = window.setTimeout(() => {
+      setLightboxOpen(false);
+      lightboxTimer.current = null;
+    }, LAYOUT_DURATION_MS);
   }, [setLightboxOpen]);
 
-  useEffect(() => () => setLightboxOpen(false), [setLightboxOpen]);
+  useEffect(
+    () => () => {
+      if (lightboxTimer.current) window.clearTimeout(lightboxTimer.current);
+      setLightboxOpen(false);
+    },
+    [setLightboxOpen]
+  );
 
   // Hold scroll lock for the open duration plus the shared-element close, so the
   // destination tile does not shift under the shrinking photo.
@@ -41,39 +102,26 @@ export default function GalleryPage() {
       unlockTimer.current = null;
     }
 
-    const { body, documentElement } = document;
     if (activeIndex !== null) {
-      const previousOverflow = body.dataset.galleryPrevOverflow ?? body.style.overflow;
-      const previousPadding = body.dataset.galleryPrevPadding ?? body.style.paddingRight;
-      body.dataset.galleryPrevOverflow = previousOverflow;
-      body.dataset.galleryPrevPadding = previousPadding;
-      const scrollbarWidth = window.innerWidth - documentElement.clientWidth;
-      body.style.overflow = "hidden";
-      if (scrollbarWidth > 0) body.style.paddingRight = `${scrollbarWidth}px`;
+      lockGalleryScroll();
       return;
     }
 
     unlockTimer.current = window.setTimeout(() => {
-      body.style.overflow = body.dataset.galleryPrevOverflow ?? "";
-      body.style.paddingRight = body.dataset.galleryPrevPadding ?? "";
-      delete body.dataset.galleryPrevOverflow;
-      delete body.dataset.galleryPrevPadding;
+      unlockGalleryScroll();
+      unlockTimer.current = null;
     }, LAYOUT_DURATION_MS);
 
     return () => {
       if (unlockTimer.current) window.clearTimeout(unlockTimer.current);
     };
-  }, [activeIndex]);
+  }, [activeIndex, lockGalleryScroll, unlockGalleryScroll]);
 
   useEffect(() => {
     return () => {
-      const { body } = document;
-      body.style.overflow = body.dataset.galleryPrevOverflow ?? "";
-      body.style.paddingRight = body.dataset.galleryPrevPadding ?? "";
-      delete body.dataset.galleryPrevOverflow;
-      delete body.dataset.galleryPrevPadding;
+      unlockGalleryScroll();
     };
-  }, []);
+  }, [unlockGalleryScroll]);
 
   // Return keyboard focus to the tile the photo came from.
   useEffect(() => {
@@ -92,32 +140,75 @@ export default function GalleryPage() {
     <main className="min-h-screen bg-white">
       <Navigation />
 
-      <div className="mx-auto max-w-7xl px-4 pb-24 pt-28 sm:px-6 md:pt-36 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-10 md:mb-14"
+      <LayoutGroup>
+        <motion.section
+          initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.55 }}
+          className="relative h-[54svh] min-h-[440px] w-full overflow-hidden bg-neutral-950 md:h-[72svh] md:min-h-[560px] md:max-h-[820px]"
         >
+          <button
+            type="button"
+            data-gallery-index={HERO_INDEX}
+            onClick={() => openPhoto(HERO_INDEX)}
+            aria-label={`Open full screen: ${heroPhoto.alt}`}
+            className="absolute inset-0 h-full w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/90"
+          >
+            {!heroIsActive && (
+              <motion.div
+                layoutId={`gallery-${heroPhoto.slug}`}
+                transition={{
+                  duration: prefersReducedMotion ? 0 : LAYOUT_DURATION_MS / 1000,
+                  ease: LAYOUT_EASE,
+                }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={heroPhoto.fullSrc}
+                  alt={heroPhoto.alt}
+                  fill
+                  priority
+                  fetchPriority="high"
+                  sizes="100vw"
+                  className="object-cover object-center"
+                />
+              </motion.div>
+            )}
+          </button>
+
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-black/35" />
+
           <Link
             href="/"
-            className="text-sm font-medium text-gray-500 transition-colors hover:text-primary-600"
+            className="absolute left-4 top-24 z-20 text-sm font-medium text-white/75 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 sm:left-6 md:left-10 md:top-28"
           >
             Back to main page
           </Link>
-          <h1 className="mt-5 font-libre text-4xl font-bold text-slate-900 md:text-5xl">
-            Gallery
-          </h1>
-          <p className="mt-4 max-w-xl text-base text-gray-600 md:text-lg">
-            A few more moments - on the court, in the field, and beyond.
-          </p>
-        </motion.div>
 
-        <LayoutGroup>
+          <motion.div
+            initial={prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 22 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.55, delay: 0.12 }}
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-10 mx-auto max-w-7xl px-4 pb-8 text-white sm:px-6 md:pb-12 lg:px-8"
+          >
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-white/65">
+              Beyond the resume
+            </p>
+            <h1 className="font-libre text-5xl font-bold tracking-tight md:text-7xl">
+              Gallery
+            </h1>
+            <p className="mt-4 max-w-xl text-base text-white/80 md:text-lg">
+              A few more moments - on the court, in the field, and beyond.
+            </p>
+          </motion.div>
+        </motion.section>
+
+        <div className="mx-auto max-w-7xl px-4 pb-24 pt-10 sm:px-6 md:pt-14 lg:px-8">
           <GalleryGrid
-            photos={galleryPhotos}
+            photos={gridPhotos}
             activeIndex={activeIndex}
             onSelect={openPhoto}
+            indexOffset={1}
           />
 
           {activeIndex !== null && (
@@ -128,8 +219,8 @@ export default function GalleryPage() {
               onNavigate={setActiveIndex}
             />
           )}
-        </LayoutGroup>
-      </div>
+        </div>
+      </LayoutGroup>
     </main>
   );
 }
