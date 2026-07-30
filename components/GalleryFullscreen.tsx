@@ -2,7 +2,9 @@
 
 import {
   AnimatePresence,
+  animate,
   motion,
+  useMotionValue,
   useReducedMotion,
   type PanInfo,
 } from "framer-motion";
@@ -41,9 +43,14 @@ export default function GalleryFullscreen({
   // Skip shared-element motion when stepping between photos while already open;
   // only open/close should grow/shrink against the grid tile.
   const [suppressLayout, setSuppressLayout] = useState(false);
-  const [backdropDim, setBackdropDim] = useState(1);
+  const [promoteLayer, setPromoteLayer] = useState(!prefersReducedMotion);
+  const backdropDim = useMotionValue(1);
 
   const idleTimer = useRef<number | null>(null);
+  const activityFrame = useRef<number | null>(null);
+  const layoutResetFrame = useRef<number | null>(null);
+  const promoteTimer = useRef<number | null>(null);
+  const adjacentPreloads = useRef<HTMLImageElement[]>([]);
   const isClosing = useRef(false);
   const indexRef = useRef(index);
   indexRef.current = index;
@@ -55,6 +62,9 @@ export default function GalleryFullscreen({
   useEffect(
     () => () => {
       if (idleTimer.current) window.clearTimeout(idleTimer.current);
+      if (activityFrame.current) window.cancelAnimationFrame(activityFrame.current);
+      if (layoutResetFrame.current) window.cancelAnimationFrame(layoutResetFrame.current);
+      if (promoteTimer.current) window.clearTimeout(promoteTimer.current);
     },
     []
   );
@@ -69,6 +79,51 @@ export default function GalleryFullscreen({
     idleTimer.current = window.setTimeout(() => setChromeVisible(false), CHROME_IDLE_MS);
   }, []);
 
+  const promoteLayerFor = useCallback(
+    (durationMs: number) => {
+      if (prefersReducedMotion) {
+        setPromoteLayer(false);
+        return;
+      }
+      if (promoteTimer.current) window.clearTimeout(promoteTimer.current);
+      setPromoteLayer(true);
+      promoteTimer.current = window.setTimeout(() => {
+        setPromoteLayer(false);
+        promoteTimer.current = null;
+      }, durationMs);
+    },
+    [prefersReducedMotion]
+  );
+
+  useEffect(() => {
+    promoteLayerFor(LAYOUT_DURATION * 1000 + 80);
+  }, [promoteLayerFor]);
+
+  // Warm the browser cache for both navigation directions without keeping
+  // hidden React image layers mounted in the fullscreen compositor.
+  useEffect(() => {
+    if (photos.length < 2) return;
+    const adjacentIndices = Array.from(
+      new Set([
+        (index - 1 + photos.length) % photos.length,
+        (index + 1) % photos.length,
+      ])
+    );
+
+    adjacentPreloads.current = adjacentIndices.map((adjacentIndex) => {
+      const preload = new window.Image();
+      preload.decoding = "async";
+      preload.fetchPriority = "high";
+      preload.src = photos[adjacentIndex].fullSrc;
+      void preload.decode().catch(() => undefined);
+      return preload;
+    });
+
+    return () => {
+      adjacentPreloads.current = [];
+    };
+  }, [index, photos]);
+
   // Controls stay hidden until the shared-element open has settled.
   useEffect(() => {
     const delay = prefersReducedMotion ? 80 : LAYOUT_DURATION * 1000 + 40;
@@ -77,10 +132,16 @@ export default function GalleryFullscreen({
   }, [prefersReducedMotion, revealChrome]);
 
   useEffect(() => {
-    const onActivity = () => revealChrome();
+    const onActivity = () => {
+      if (activityFrame.current !== null) return;
+      activityFrame.current = window.requestAnimationFrame(() => {
+        activityFrame.current = null;
+        revealChrome();
+      });
+    };
     window.addEventListener("pointermove", onActivity);
     window.addEventListener("pointerdown", onActivity);
-    window.addEventListener("touchstart", onActivity);
+    window.addEventListener("touchstart", onActivity, { passive: true });
     return () => {
       window.removeEventListener("pointermove", onActivity);
       window.removeEventListener("pointerdown", onActivity);
@@ -94,6 +155,7 @@ export default function GalleryFullscreen({
     if (idleTimer.current) window.clearTimeout(idleTimer.current);
     setChromeVisible(false);
     setSuppressLayout(false);
+    setPromoteLayer(true);
 
     // Bring the destination tile on-screen so the shrink lands correctly.
     const tile = document.querySelector<HTMLElement>(
@@ -115,13 +177,20 @@ export default function GalleryFullscreen({
   const navigate = useCallback(
     (direction: 1 | -1) => {
       if (photos.length < 2 || isClosing.current) return;
+      promoteLayerFor(CROSSFADE_DURATION * 1000 + 100);
       setSuppressLayout(true);
       onNavigate((indexRef.current + direction + photos.length) % photos.length);
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => setSuppressLayout(false));
+      if (layoutResetFrame.current) {
+        window.cancelAnimationFrame(layoutResetFrame.current);
+      }
+      layoutResetFrame.current = window.requestAnimationFrame(() => {
+        layoutResetFrame.current = window.requestAnimationFrame(() => {
+          layoutResetFrame.current = null;
+          setSuppressLayout(false);
+        });
       });
     },
-    [onNavigate, photos.length]
+    [onNavigate, photos.length, promoteLayerFor]
   );
 
   useEffect(() => {
@@ -142,12 +211,20 @@ export default function GalleryFullscreen({
   const handleDrag = (_event: unknown, info: PanInfo) => {
     if (isClosing.current) return;
     if (info.offset.y > 0) {
-      setBackdropDim(Math.max(0.4, 1 - info.offset.y / 500));
+      backdropDim.set(Math.max(0.4, 1 - info.offset.y / 500));
     }
+  };
+
+  const restoreBackdrop = () => {
+    animate(backdropDim, 1, {
+      duration: prefersReducedMotion ? 0 : 0.18,
+      ease: "easeOut",
+    });
   };
 
   const handleDragEnd = (_event: unknown, info: PanInfo) => {
     if (isClosing.current) return;
+    promoteLayerFor(220);
     const { offset, velocity } = info;
     const verticalIntent = Math.abs(offset.y) > Math.abs(offset.x);
 
@@ -156,21 +233,21 @@ export default function GalleryFullscreen({
         dismiss();
         return;
       }
-      setBackdropDim(1);
+      restoreBackdrop();
       return;
     }
 
     if (offset.x < -SWIPE_OFFSET || velocity.x < -SWIPE_VELOCITY) {
-      setBackdropDim(1);
+      restoreBackdrop();
       navigate(1);
       return;
     }
     if (offset.x > SWIPE_OFFSET || velocity.x > SWIPE_VELOCITY) {
-      setBackdropDim(1);
+      restoreBackdrop();
       navigate(-1);
       return;
     }
-    setBackdropDim(1);
+    restoreBackdrop();
   };
 
   if (!photo) return null;
@@ -182,18 +259,23 @@ export default function GalleryFullscreen({
 
   return (
     <div
-      className="fixed inset-0 z-[10050]"
+      className="fixed inset-0 z-[10050] overscroll-contain"
       role="dialog"
       aria-modal="true"
       aria-label={photo.alt}
     >
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: backdropDim }}
-        transition={{ duration: prefersReducedMotion ? 0.1 : 0.3 }}
-        className="absolute inset-0 bg-neutral-950"
+        animate={{ opacity: 1 }}
+        transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
+        className="absolute inset-0"
         onClick={dismiss}
-      />
+      >
+        <motion.div
+          className="absolute inset-0 bg-neutral-950"
+          style={{ opacity: backdropDim }}
+        />
+      </motion.div>
 
       <div className="absolute inset-0 flex items-center justify-center" onClick={dismiss}>
         <motion.div
@@ -202,6 +284,14 @@ export default function GalleryFullscreen({
           drag={isTouch ? true : false}
           dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
           dragElastic={0.65}
+          onDragStart={
+            isTouch
+              ? () => {
+                  if (promoteTimer.current) window.clearTimeout(promoteTimer.current);
+                  setPromoteLayer(true);
+                }
+              : undefined
+          }
           onDrag={isTouch ? handleDrag : undefined}
           onDragEnd={isTouch ? handleDragEnd : undefined}
           onClick={(event) => {
@@ -212,6 +302,7 @@ export default function GalleryFullscreen({
           style={{
             width: `min(100vw, calc(100dvh * ${photo.aspectRatio}))`,
             aspectRatio: photo.aspectRatio,
+            willChange: promoteLayer ? "transform" : undefined,
           }}
         >
           <AnimatePresence mode="sync" initial={false}>
@@ -220,7 +311,7 @@ export default function GalleryFullscreen({
               initial={{ opacity: suppressLayout ? 0 : 1 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: prefersReducedMotion ? 0.05 : CROSSFADE_DURATION }}
+              transition={{ duration: prefersReducedMotion ? 0 : CROSSFADE_DURATION }}
               className="absolute inset-0 overflow-hidden"
             >
               <Image
@@ -228,6 +319,7 @@ export default function GalleryFullscreen({
                 alt=""
                 aria-hidden
                 fill
+                decoding="async"
                 sizes="100vw"
                 className="object-contain"
               />
@@ -236,6 +328,8 @@ export default function GalleryFullscreen({
                 alt={photo.alt}
                 fill
                 priority
+                fetchPriority="high"
+                decoding="async"
                 sizes="100vw"
                 className="object-contain"
               />
@@ -250,7 +344,7 @@ export default function GalleryFullscreen({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.2 }}
             className="pointer-events-none absolute inset-0 z-10"
           >
             <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/70 to-transparent" />
@@ -260,12 +354,12 @@ export default function GalleryFullscreen({
               type="button"
               onClick={dismiss}
               aria-label="Close full screen view"
-              className="pointer-events-auto absolute right-3 top-3 flex h-11 w-11 items-center justify-center rounded-full bg-black/40 text-white/90 backdrop-blur-sm transition-colors hover:bg-black/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:right-5 md:top-5"
+              className="pointer-events-auto absolute right-3 top-3 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/35 text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md transition-colors hover:bg-black/65 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:right-5 md:top-5"
             >
               <X className="h-6 w-6" strokeWidth={1.75} />
             </button>
 
-            <p className="absolute left-4 top-6 text-xs font-medium tracking-wide text-white/70 md:left-6">
+            <p className="absolute left-3 top-3 rounded-full border border-white/10 bg-black/35 px-3 py-2 text-xs font-medium tracking-wide text-white/75 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-md md:left-5 md:top-5">
               {index + 1} / {photos.length}
             </p>
 
@@ -275,7 +369,7 @@ export default function GalleryFullscreen({
                   type="button"
                   onClick={() => navigate(-1)}
                   aria-label="Previous photo"
-                  className="pointer-events-auto absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white/90 backdrop-blur-sm transition-colors hover:bg-black/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:left-5 md:h-12 md:w-12"
+                  className="pointer-events-auto absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/35 text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md transition-colors hover:bg-black/65 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:left-5 md:h-12 md:w-12"
                 >
                   <ChevronLeft className="h-6 w-6" strokeWidth={1.75} />
                 </button>
@@ -283,7 +377,7 @@ export default function GalleryFullscreen({
                   type="button"
                   onClick={() => navigate(1)}
                   aria-label="Next photo"
-                  className="pointer-events-auto absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white/90 backdrop-blur-sm transition-colors hover:bg-black/70 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:right-5 md:h-12 md:w-12"
+                  className="pointer-events-auto absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/35 text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.15)] backdrop-blur-md transition-colors hover:bg-black/65 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70 md:right-5 md:h-12 md:w-12"
                 >
                   <ChevronRight className="h-6 w-6" strokeWidth={1.75} />
                 </button>

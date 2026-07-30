@@ -16,6 +16,8 @@ export interface GalleryPhoto {
   // Captions only where the subject is self-evident or already documented
   // elsewhere on the site. Undefined captions render nothing.
   caption?: string;
+  /** Gives a small number of grid photos extra visual weight. */
+  featured?: boolean;
   /** width / height of the displayed image, so tiles reserve space before load. */
   aspectRatio: number;
 }
@@ -47,6 +49,7 @@ export const galleryPhotos: GalleryPhoto[] = [
     thumbSrc: "/gallery/thumb/volleyball-celebration.jpg",
     fullSrc: "/gallery/full/volleyball-celebration.jpg",
     alt: "Volleyball teammates celebrating a point on the court",
+    featured: true,
     aspectRatio: 1.2821,
   },
   {
@@ -120,6 +123,7 @@ export const galleryPhotos: GalleryPhoto[] = [
     fullSrc: "/gallery/full/clearpolicy-conversation.jpg",
     alt: "Discussing ClearPolicy with a visitor beside the project display",
     caption: "Presenting ClearPolicy",
+    featured: true,
     aspectRatio: 1.7774,
   },
   {
@@ -166,6 +170,7 @@ export const galleryPhotos: GalleryPhoto[] = [
     fullSrc: "/gallery/full/cosmos-fountain-group.jpg",
     alt: "Four COSMOS students standing together in front of a fountain",
     caption: "COSMOS",
+    featured: true,
     aspectRatio: 1.3333,
   },
   {
@@ -259,6 +264,7 @@ export const galleryPhotos: GalleryPhoto[] = [
     thumbSrc: "/gallery/thumb/market-street-walk.jpg",
     fullSrc: "/gallery/full/market-street-walk.jpg",
     alt: "Walking down a narrow market street lined with shops and colorful umbrellas",
+    featured: true,
     aspectRatio: 1.7774,
   },
   {
@@ -303,6 +309,7 @@ export const galleryPhotos: GalleryPhoto[] = [
     fullSrc: "/gallery/full/piano-under-stage-lights.jpg",
     alt: "Playing a grand piano under colorful stage lights",
     caption: "Piano",
+    featured: true,
     aspectRatio: 1.3333,
   },
   {
