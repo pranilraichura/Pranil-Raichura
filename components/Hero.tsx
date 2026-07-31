@@ -25,23 +25,35 @@ export default function Hero() {
             const cards = gsap.utils.toArray<HTMLElement>("[data-hero-parallax]", hero);
             const media = gsap.matchMedia();
 
+            const addParallax = (intensity: number, scrub: number) => {
+                cards.forEach((card) => {
+                    const factor = Number(card.dataset.heroParallax || 0);
+                    gsap.to(card, {
+                        y: () => window.innerHeight * factor * intensity,
+                        ease: "none",
+                        force3D: true,
+                        scrollTrigger: {
+                            trigger: hero,
+                            start: "top top",
+                            end: "bottom top",
+                            scrub,
+                            invalidateOnRefresh: true,
+                        },
+                    });
+                });
+            };
+
             media.add(
                 "(min-width: 768px) and (prefers-reduced-motion: no-preference)",
                 () => {
-                    cards.forEach((card) => {
-                        const factor = Number(card.dataset.heroParallax || 0);
-                        gsap.to(card, {
-                            y: () => window.innerHeight * factor,
-                            ease: "none",
-                            scrollTrigger: {
-                                trigger: hero,
-                                start: "top top",
-                                end: "bottom top",
-                                scrub: 0.35,
-                                invalidateOnRefresh: true,
-                            },
-                        });
-                    });
+                    addParallax(1, 0.35);
+                },
+            );
+
+            media.add(
+                "(max-width: 767px) and (prefers-reduced-motion: no-preference)",
+                () => {
+                    addParallax(0.6, 0.5);
                 },
             );
 

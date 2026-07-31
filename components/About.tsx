@@ -56,7 +56,7 @@ export default function About() {
             data-reveal-item
             className="relative lg:col-span-5 min-h-[410px] sm:min-h-[500px]"
           >
-            <div className="absolute inset-x-3 top-0 bottom-20 rounded-[2rem] overflow-hidden shadow-2xl shadow-slate-900/15 border border-white">
+            <div className="absolute inset-x-3 top-0 bottom-24 rounded-[2rem] overflow-hidden shadow-2xl shadow-slate-900/15 border border-white">
               <Image
                 src="/gallery/full/group-coding-session.jpg"
                 alt="Students working together around a table with laptops"
@@ -70,7 +70,21 @@ export default function About() {
               </span>
             </div>
 
-            <div className="absolute right-0 bottom-0 w-[55%] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white rotate-3">
+            <div className="absolute left-0 bottom-0 z-10 w-[44%] aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-white -rotate-3">
+              <Image
+                src="/gallery/full/raspberry-pi-prototype.jpg"
+                alt="Raspberry Pi and sensor prototype for an assistive technology project"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 42vw, 19vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 to-transparent"></div>
+              <span className="absolute left-3 bottom-3 text-[10px] sm:text-[11px] font-semibold text-white">
+                What I&apos;m Working Toward
+              </span>
+            </div>
+
+            <div className="absolute right-0 bottom-0 z-20 w-[52%] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white rotate-3">
               <Image
                 src="/gallery/full/clothing-donation.jpg"
                 alt="Standing beside boxes of donated clothing outside a community building"
@@ -84,14 +98,6 @@ export default function About() {
               </span>
             </div>
 
-            <div
-              aria-hidden="true"
-              className="absolute -left-1 bottom-10 h-20 w-20 rounded-full border border-primary-300/70"
-            ></div>
-            <div
-              aria-hidden="true"
-              className="absolute left-8 bottom-2 h-3 w-3 rounded-full bg-orange-400"
-            ></div>
           </div>
 
           <div className="lg:col-span-7">

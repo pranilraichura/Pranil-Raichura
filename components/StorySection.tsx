@@ -5,6 +5,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
+import Image from "next/image";
 
 interface TimelineEvent {
     id: string;
@@ -14,6 +15,8 @@ interface TimelineEvent {
         type: 'image' | 'video';
         path: string;
         caption?: string;
+        width: number;
+        height: number;
     };
 }
 
@@ -29,7 +32,9 @@ const timelineEvents: TimelineEvent[] = [
         media: {
             type: 'image',
             path: '/squash-young.jpg',
-            caption: 'Young Squash Player'
+            caption: 'Young Squash Player',
+            width: 1024,
+            height: 576,
         }
     },
     {
@@ -44,7 +49,9 @@ const timelineEvents: TimelineEvent[] = [
         media: {
             type: 'image',
             path: '/bench.jpg',
-            caption: 'The Reserve Bench'
+            caption: 'The Reserve Bench',
+            width: 750,
+            height: 790,
         }
     },
     {
@@ -59,7 +66,9 @@ const timelineEvents: TimelineEvent[] = [
         media: {
             type: 'image',
             path: '/3am_hum.jpg',
-            caption: 'Late Night Coding'
+            caption: 'Late Night Coding',
+            width: 1324,
+            height: 1600,
         }
     },
     {
@@ -75,7 +84,9 @@ const timelineEvents: TimelineEvent[] = [
         media: {
             type: 'image',
             path: '/t4s_workshop.JPG',
-            caption: 'Tech4Silvers workshop'
+            caption: 'Tech4Silvers workshop',
+            width: 1600,
+            height: 1205,
         }
     },
     {
@@ -92,7 +103,9 @@ const timelineEvents: TimelineEvent[] = [
         media: {
             type: 'video',
             path: '/pranil_city_speech.mp4',
-            caption: 'Speaking with confidence'
+            caption: 'Speaking with confidence',
+            width: 1920,
+            height: 1080,
         }
     },
 ];
@@ -201,6 +214,51 @@ export default function StorySection() {
                                 opacity: 1,
                                 scale: 1,
                                 ease: "none",
+                                clearProps: "willChange",
+                            },
+                            0,
+                        );
+                },
+            );
+
+            media.add(
+                "(max-width: 767px) and (prefers-reduced-motion: no-preference)",
+                () => {
+                    gsap.timeline({
+                        scrollTrigger: {
+                            trigger: signature,
+                            start: "top 82%",
+                            once: true,
+                        },
+                    })
+                        .fromTo(
+                            card,
+                            {
+                                scale: 0.94,
+                                y: 24,
+                                willChange: "transform",
+                            },
+                            {
+                                scale: 1,
+                                y: 0,
+                                duration: 0.85,
+                                ease: "power3.out",
+                                clearProps: "willChange",
+                            },
+                            0,
+                        )
+                        .fromTo(
+                            glow,
+                            {
+                                opacity: 0,
+                                scale: 0.72,
+                                willChange: "transform, opacity",
+                            },
+                            {
+                                opacity: 1,
+                                scale: 1,
+                                duration: 1,
+                                ease: "power3.out",
                                 clearProps: "willChange",
                             },
                             0,
@@ -363,12 +421,17 @@ export default function StorySection() {
                                             <video
                                                 src={event.media.path}
                                                 controls
+                                                width={event.media.width}
+                                                height={event.media.height}
                                                 className="w-full h-auto"
                                             />
                                         ) : (
-                                            <img
+                                            <Image
                                                 src={event.media.path}
                                                 alt={event.media.caption || event.title}
+                                                width={event.media.width}
+                                                height={event.media.height}
+                                                sizes="(min-width: 1024px) 32vw, 100vw"
                                                 className="w-full h-auto object-cover"
                                             />
                                         )}
