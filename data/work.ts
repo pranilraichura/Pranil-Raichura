@@ -9,6 +9,25 @@ export type WorkDomain =
   | "Accessibility & Health"
   | "Applied ML & Systems";
 
+export type WorkBrandTone =
+  | "blue"
+  | "cardinal"
+  | "crimson"
+  | "gold"
+  | "indigo"
+  | "navy"
+  | "slate";
+
+export interface WorkBrand {
+  /** Short, neutral mark shown beside condensed listings. */
+  shortLabel: string;
+  /** Full affiliation or project name shown on larger cards and to assistive tech. */
+  label: string;
+  tone: WorkBrandTone;
+  /** Project-owned artwork only; institutional affiliations use neutral text marks. */
+  logoSrc?: string;
+}
+
 export interface WorkItem {
   id: string;
   title: string;
@@ -36,6 +55,7 @@ export interface WorkItem {
     opacity?: number;
     className?: string;
   };
+  brand?: WorkBrand;
   // Featured items get a larger, quieter-around-them treatment at the top of the
   // Work section. Everything else stays in the condensed list below it.
   featured?: boolean;
@@ -68,6 +88,11 @@ export const workItems: WorkItem[] = [
       "Cold-emailed Prof. MK at MIT CSAIL about research on making AI reasoning traceable to real data.",
     role: "Research Assistant",
     organization: "Kellis Lab, MIT CSAIL (remote)",
+    brand: {
+      shortLabel: "MIT",
+      label: "MIT CSAIL · Kellis Lab",
+      tone: "crimson",
+    },
     tech: ["TypeScript", "React", "Python"],
     mentors: [{ name: "Prof. MK", affiliation: "MIT CSAIL" }],
     paperTitle: "Research on measuring behavioral consistency in AI agents",
@@ -90,6 +115,11 @@ export const workItems: WorkItem[] = [
       "The first version of this project used cross-validation that leaked information between train and test sets, producing results that looked far stronger than they really were, and was rejected by every venue it was submitted to for superficial novelty.",
     role: "Research Author",
     organization: "Johns Hopkins Explore Engineering Innovation",
+    brand: {
+      shortLabel: "JHU",
+      label: "Johns Hopkins · Explore Engineering Innovation",
+      tone: "blue",
+    },
     years: "10th Summer, 11th Grade",
     dates: "July 2025 - October 2025",
     hoursPerWeek: "6 hours/week",
@@ -134,6 +164,12 @@ export const workItems: WorkItem[] = [
     domains: ["Accessibility & Health"],
     role: "Lead Developer & Researcher",
     organization: "Polygence",
+    brand: {
+      shortLabel: "FF",
+      label: "Flora Frontier",
+      tone: "slate",
+      logoSrc: "/breath_background.png",
+    },
     years: "9th, 10th, 11th Grade",
     dates: "August 2024 - February 2026",
     hoursPerWeek: "4-5 hours/week",
@@ -172,6 +208,12 @@ export const workItems: WorkItem[] = [
     tagline: "Ranking peptide drug candidates before they reach the lab bench",
     domains: ["Accessibility & Health", "Applied ML & Systems"],
     role: "Second Author",
+    brand: {
+      shortLabel: "IEEE",
+      label: "Accepted · IEEE CIBCB 2026",
+      tone: "blue",
+    },
+    recognition: "Accepted to IEEE CIBCB 2026",
     status: "Accepted, IEEE CIBCB 2026",
     description:
       "Built an AI pipeline that screens candidate peptide drugs for glioblastoma by predicting 3D structure and scoring binding affinity to the tumor and blood-brain-barrier crossover potential. Co-designed a new ranking metric intended to reduce costly lab testing of low-potential candidates.",
@@ -203,6 +245,12 @@ export const workItems: WorkItem[] = [
     role: "Founder",
     years: "11th Grade",
     dates: "October 2025 - Present",
+    brand: {
+      shortLabel: "CP",
+      label: "ClearPolicy",
+      tone: "indigo",
+      logoSrc: "/marks/clearpolicy.svg",
+    },
     tech: [
       "TypeScript",
       "React",
@@ -232,6 +280,11 @@ export const workItems: WorkItem[] = [
     domains: ["AI Safety & Evaluation"],
     role: "Contributor and Researcher",
     organization: "Stanford AI Measurement Science Lab (remote)",
+    brand: {
+      shortLabel: "S",
+      label: "Stanford AI Measurement Science Lab",
+      tone: "cardinal",
+    },
     dates: "March 2026 - Present",
     tech: ["Python"],
     mentors: [{ name: "ST", affiliation: "Stanford Ph.D. researcher" }],
@@ -247,6 +300,11 @@ export const workItems: WorkItem[] = [
     role: "Researcher, AICS Lab",
     organization:
       "USC Information Sciences Institute, Artificial Intelligence and Complex Systems Group",
+    brand: {
+      shortLabel: "USC",
+      label: "USC Information Sciences Institute",
+      tone: "gold",
+    },
     dates: "February 2026 - May 2026",
     tech: ["Python", "PyTorch"],
     mentors: [
@@ -298,6 +356,11 @@ export const workItems: WorkItem[] = [
     domains: ["Applied ML & Systems"],
     tech: ["Python", "Streamlit", "Machine Learning", "Data Science"],
     recognition: "Global Nominee, International NASA SpaceApps Competition 2025",
+    brand: {
+      shortLabel: "NASA",
+      label: "NASA Space Apps · Global Nominee",
+      tone: "navy",
+    },
     description:
       "An AI-powered application for detecting and analyzing exoplanets using machine learning. Built with Python and Streamlit, this tool leverages advanced algorithms to identify potential exoplanets from astronomical data.",
     link: "https://exoscope-ai.streamlit.app",
@@ -332,6 +395,11 @@ export const workItems: WorkItem[] = [
     domains: ["Applied ML & Systems"],
     role: "Participant",
     organization: "UCLA COSMOS (computational neuroscience)",
+    brand: {
+      shortLabel: "UCLA",
+      label: "UCLA COSMOS · Computational Neuroscience",
+      tone: "blue",
+    },
     mentors: [{ name: "Prof. HTB", affiliation: "UCLA COSMOS" }],
     description:
       "Coursework and independent research under Prof. HTB's mentorship, including PyTorch fundamentals (from-scratch SLP/MLP implementations) and computer vision work with GoogLeNet on the Stanford Dogs dataset.",

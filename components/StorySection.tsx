@@ -181,11 +181,15 @@ export default function StorySection() {
                         scrollTrigger: {
                             trigger: signature,
                             start: "center center",
-                            end: "+=280",
-                            pin: card,
+                            end: "+=560",
+                            // Pin the stable wrapper, never the element whose transform is
+                            // animated. Pinning and transforming the same node caused the
+                            // card to snap back to its pre-pin position at release.
+                            pin: signature,
                             pinSpacing: true,
-                            scrub: 0.65,
+                            scrub: 0.75,
                             anticipatePin: 1,
+                            invalidateOnRefresh: true,
                         },
                     })
                         .fromTo(
@@ -198,8 +202,8 @@ export default function StorySection() {
                             {
                                 scale: 1,
                                 y: 0,
+                                duration: 0.28,
                                 ease: "none",
-                                clearProps: "willChange",
                             },
                             0,
                         )
@@ -213,10 +217,36 @@ export default function StorySection() {
                             {
                                 opacity: 1,
                                 scale: 1,
+                                duration: 0.32,
                                 ease: "none",
-                                clearProps: "willChange",
                             },
                             0,
+                        )
+                        // A quiet hold keeps the reflection present while the next section
+                        // approaches, then the final phase eases it upward into normal flow.
+                        .to(card, { scale: 1, y: 0, duration: 0.4, ease: "none" }, 0.28)
+                        .to(glow, { opacity: 1, scale: 1, duration: 0.36, ease: "none" }, 0.32)
+                        .to(
+                            card,
+                            {
+                                scale: 0.985,
+                                y: -14,
+                                duration: 0.32,
+                                ease: "power1.inOut",
+                                clearProps: "willChange",
+                            },
+                            0.68,
+                        )
+                        .to(
+                            glow,
+                            {
+                                opacity: 0.42,
+                                scale: 1.08,
+                                duration: 0.32,
+                                ease: "power1.inOut",
+                                clearProps: "willChange",
+                            },
+                            0.68,
                         );
                 },
             );

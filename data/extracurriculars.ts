@@ -56,14 +56,6 @@ export const extracurriculars: Extracurricular[] = [
     ],
   },
   {
-    // TODO: confirm with Pranil - grade range and time commitment for this role are not in any source data.
-    id: "student-senate",
-    title: "GBHS Student Senate: School Policy & Public Relations",
-    category: "Leadership",
-    leadership: "Elected Student Senator",
-    description: "This is an elected school-government position at Granite Bay High School, in the School Policy and Public Relations seat. The job is to sit on the student side of how school policy actually gets made and explained, bringing student perspective into those conversations, and then carrying what was decided back to the people it affects. It is the least flashy leadership role I hold and the one that taught me the most about how slowly real institutions move.",
-  },
-  {
     // TODO: confirm with Pranil - grade range, time commitment, and specific responsibilities are not in any source data.
     id: "jkyog",
     title: "JKYog",
@@ -158,13 +150,6 @@ export const extracurriculars: Extracurricular[] = [
     ],
   },
   {
-    // TODO: confirm with Pranil - grade range and time commitment for this role are not in any source data.
-    id: "annapurna",
-    title: "Annapurna USA Foundation",
-    category: "Service",
-    description: "On most Sunday mornings, we prepare, cook, and serve food for residents of homeless shelters around Placer County, rotating between different shelters. There is no technology in it, no metric I can optimize, and nobody writes it down, which is probably why it has been the steadiest commitment on this whole page.",
-  },
-  {
     id: "national-volleyball",
     title: "National Volleyball (Club)",
     years: "9th, 10th",
@@ -195,32 +180,6 @@ export const extracurriculars: Extracurricular[] = [
     media: [
       { type: 'image', path: '/extracurriculars/varsity_volleyball/pic1.jpg', caption: 'Varsity Volleyball' },
       { type: 'image', path: '/extracurriculars/varsity_volleyball/pic2.jpg', caption: 'Team Photo' },
-    ],
-  },
-  {
-    id: "un-gyel",
-    title: "United Nations GYEL Program",
-    years: "Spring 25 (10th)",
-    category: "Leadership",
-    description: "In 10th grade I was selected for the Global Youth Excellence & Leadership (GYEL) program, affiliated with the UN’s Economic and Social Council (ECOSOC). Over several months I joined students worldwide in workshops on the Sustainable Development Goals, particularly public health, education, and digital equity. We heard from entrepreneurs and leaders, including Kevin O’Leary, Jessica Nabongo, and NASA engineer Kenneth Harris II, then worked in teams to design projects addressing local needs. I used the program to refine my vision for Tech4Silvers and to frame digital literacy for seniors as part of SDG 4: Quality Education and SDG 10: Reduced Inequalities.",
-    media: [
-      { type: 'image', path: '/extracurriculars/gyel/gyel_pic_new.jpg', caption: 'UN GYEL Program' },
-    ],
-  },
-  {
-    id: "inspirit-ai",
-    title: "Inspirit AI Scholars",
-    years: "Summer 23 (8th → 9th)",
-    category: "Tech",
-    description: "The summer before high school, I joined Inspirit AI’s Scholars program, working in a small team mentored by a Stanford alumnus. We learned the foundations of machine learning (neural networks, embeddings, evaluation metrics) and then applied them to build a fake-news detection web app. I focused on model training and evaluation, using NLP techniques and confusion matrices to compare our models, and then helped deploy the project on Streamlit so anyone could test URLs in real time. Our project earned the “Best Presentation” award in our cohort and gave me my first experience shipping an end-to-end AI tool with real users in mind.",
-    links: [
-      {
-        text: "Fake News Detection App",
-        url: "https://inspirit-ai-weekday2-allhands3-fake-news-detection.streamlit.app/",
-      },
-    ],
-    media: [
-      { type: 'image', path: '/extracurriculars/inspirit_ai/inspirit_ai_new.png', caption: 'Inspirit AI Scholars', fit: 'contain' },
     ],
   },
   {

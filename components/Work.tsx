@@ -6,9 +6,8 @@ import {
     workItems,
     domainOrder,
     tech4SilversFeature,
-    WorkDomain,
-    WorkItem,
 } from "@/data/work";
+import type { WorkBrand, WorkDomain, WorkItem } from "@/data/work";
 import { ScrollReveal, ScrollRevealGroup } from "./ScrollReveal";
 
 const domainStyles: Record<WorkDomain, string> = {
@@ -25,6 +24,16 @@ const domainAccents: Record<WorkDomain, string> = {
     "Civic & Social Good": "bg-blue-500",
     "Accessibility & Health": "bg-rose-500",
     "Applied ML & Systems": "bg-emerald-500",
+};
+
+const brandToneStyles: Record<WorkBrand["tone"], string> = {
+    blue: "border-sky-200 bg-sky-50 text-[#2774AE]",
+    cardinal: "border-red-200 bg-red-50 text-[#8C1515]",
+    crimson: "border-rose-200 bg-rose-50 text-[#A31F34]",
+    gold: "border-amber-200 bg-amber-50 text-[#990000]",
+    indigo: "border-indigo-200 bg-indigo-50 text-indigo-800",
+    navy: "border-blue-200 bg-blue-50 text-[#0B3D91]",
+    slate: "border-emerald-200 bg-emerald-50 text-emerald-900",
 };
 
 // Beyond Euler leads because the Story section closes on it; the rest follow by weight.
@@ -55,6 +64,49 @@ function DomainPills({ domains }: { domains: WorkDomain[] }) {
                 </span>
             ))}
         </>
+    );
+}
+
+function WorkBrandBadge({ brand, compact = false }: { brand: WorkBrand; compact?: boolean }) {
+    const artwork = brand.logoSrc ? (
+        <img
+            src={brand.logoSrc}
+            alt=""
+            aria-hidden="true"
+            loading="lazy"
+            className="h-full w-full object-contain"
+        />
+    ) : (
+        <span className="text-[10px] font-black tracking-[-0.02em] leading-none">
+            {brand.shortLabel}
+        </span>
+    );
+
+    if (compact) {
+        return (
+            <span
+                aria-label={brand.label}
+                title={brand.label}
+                data-work-brand={brand.shortLabel}
+                className={`h-11 ${brand.logoSrc ? "w-16 px-1.5" : "w-11 px-1"} rounded-xl border flex items-center justify-center flex-shrink-0 shadow-sm ${brandToneStyles[brand.tone]}`}
+            >
+                {artwork}
+            </span>
+        );
+    }
+
+    return (
+        <div
+            data-work-brand={brand.shortLabel}
+            className={`inline-flex items-center gap-2 rounded-xl border py-1.5 pl-1.5 pr-3 ${brandToneStyles[brand.tone]}`}
+        >
+            <span className={`h-8 ${brand.logoSrc ? "w-14" : "w-8"} flex items-center justify-center overflow-hidden rounded-lg bg-white/75 px-1`}>
+                {artwork}
+            </span>
+            <span className="text-[11px] font-semibold tracking-wide leading-tight">
+                {brand.label}
+            </span>
+        </div>
     );
 }
 
@@ -190,6 +242,11 @@ function WorkDetails({ item }: { item: WorkItem }) {
 function FeaturedHeading({ item }: { item: WorkItem }) {
     return (
         <>
+            {item.brand && (
+                <div className="mb-3">
+                    <WorkBrandBadge brand={item.brand} />
+                </div>
+            )}
             <div className="flex flex-wrap gap-1.5 mb-3">
                 <DomainPills domains={item.domains} />
                 {(item.dates || item.years) && (
@@ -342,6 +399,7 @@ function CondensedRow({ item }: { item: WorkItem }) {
                 className={`w-full text-left pl-7 pr-5 flex items-center gap-4 hover:bg-slate-50 transition-all duration-200 ${open ? "pt-6 pb-4 bg-slate-50/70" : "py-4"
                     }`}
             >
+                {item.brand && <WorkBrandBadge brand={item.brand} compact />}
                 <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                         <h4 className="font-libre text-base md:text-lg font-semibold text-slate-900">
