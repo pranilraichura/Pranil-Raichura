@@ -142,21 +142,18 @@ export default function GalleryGrid({
                 </motion.div>
               )}
 
-              {/* A compact editorial caption on hover. Travel photos lead with
-                  the location; other photos lead with the documented moment. */}
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden translate-y-2 bg-gradient-to-t from-black/85 via-black/45 to-transparent px-3 pb-3 pt-12 text-left opacity-0 transition-[opacity,transform] duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 md:block">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/65">
-                  {photo.category}
-                </p>
-                <p className="mt-1 text-sm font-semibold leading-tight text-white">
-                  {photo.caption ?? photo.alt}
-                </p>
-                {photo.caption ? (
-                  <p className="mt-1 line-clamp-2 text-[11px] leading-snug text-white/75">
-                    {photo.alt}
+              {/* Only show a short, verified label. Alt text remains available
+                  to assistive technology but is not repurposed as editorial copy. */}
+              {photo.caption ? (
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden translate-y-2 bg-gradient-to-t from-black/85 via-black/45 to-transparent px-3 pb-3 pt-12 text-left opacity-0 transition-[opacity,transform] duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 md:block">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/65">
+                    {photo.category}
                   </p>
-                ) : null}
-              </div>
+                  <p className="mt-1 text-sm font-semibold leading-tight text-white">
+                    {photo.caption}
+                  </p>
+                </div>
+              ) : null}
             </div>
           </motion.button>
         );
