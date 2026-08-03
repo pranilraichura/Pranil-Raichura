@@ -1,13 +1,14 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useCallback, useState, useEffect } from "react";
 import Image from "next/image";
 
 interface MediaItem {
     type: 'image' | 'video';
     path: string;
     caption?: string;
+    thumbnail?: string;
 }
 
 interface MediaLightboxProps {
@@ -19,6 +20,14 @@ interface MediaLightboxProps {
 
 export default function MediaLightbox({ media, isOpen, onClose, initialIndex = 0 }: MediaLightboxProps) {
     const [currentIndex, setCurrentIndex] = useState(initialIndex);
+
+    const handleNext = useCallback(() => {
+        setCurrentIndex((prev) => (prev + 1) % media.length);
+    }, [media.length]);
+
+    const handlePrevious = useCallback(() => {
+        setCurrentIndex((prev) => (prev - 1 + media.length) % media.length);
+    }, [media.length]);
 
     useEffect(() => {
         setCurrentIndex(initialIndex);
@@ -35,7 +44,7 @@ export default function MediaLightbox({ media, isOpen, onClose, initialIndex = 0
 
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [isOpen, currentIndex]);
+    }, [handleNext, handlePrevious, isOpen, onClose]);
 
     // Prevent scroll when lightbox is open
     useEffect(() => {
@@ -48,14 +57,6 @@ export default function MediaLightbox({ media, isOpen, onClose, initialIndex = 0
             document.body.style.overflow = 'unset';
         };
     }, [isOpen]);
-
-    const handleNext = () => {
-        setCurrentIndex((prev) => (prev + 1) % media.length);
-    };
-
-    const handlePrevious = () => {
-        setCurrentIndex((prev) => (prev - 1 + media.length) % media.length);
-    };
 
     const currentMedia = media[currentIndex];
 
@@ -112,6 +113,8 @@ export default function MediaLightbox({ media, isOpen, onClose, initialIndex = 0
                                 src={currentMedia.path}
                                 controls
                                 autoPlay
+                                playsInline
+                                preload="metadata"
                                 className="max-h-[80vh] w-full rounded-lg"
                             >
                                 Your browser does not support the video tag.
@@ -172,7 +175,7 @@ export default function MediaLightbox({ media, isOpen, onClose, initialIndex = 0
                                 >
                                     {item.type === 'image' ? (
                                         <Image
-                                            src={item.path}
+                                            src={item.thumbnail ?? item.path}
                                             alt={`Thumbnail ${index + 1}`}
                                             fill
                                             className="object-cover"

@@ -52,7 +52,7 @@ export const extracurriculars: Extracurricular[] = [
       { type: 'image', path: '/extracurriculars/nhs/me_holding_book_new.jpg', caption: 'NHS Leadership' },
       { type: 'image', path: '/extracurriculars/nhs/book_picture_new.jpg', caption: 'NHS Book Collection' },
       { type: 'image', path: '/extracurriculars/nhs/full_with_people_new.jpg', caption: 'NHS Team' },
-      { type: 'image', path: '/nhs_pic4.HEIC', caption: 'NHS Event' },
+      { type: 'image', path: '/nhs_pic4.webp', caption: 'NHS Event' },
     ],
   },
   {
@@ -95,10 +95,13 @@ export const extracurriculars: Extracurricular[] = [
     leadership: "Founder & President",
     description: "I started Tech4Silvers after realizing many seniors in our community were missing digital wildfire and emergency alerts. What began as one small workshop is now a student-run organization and GBHS club that partners with senior centers across Sacramento and Northern California. I recruit and train volunteers, design slides and handouts, and lead sessions on smartphones, scams and phishing, online safety, telehealth, and local alert systems. We’ve helped dozens of seniors set up alerts, avoid fraud, and reconnect with family over video calls. Coordinating venues, outreach, and Q&A has turned my interest in tech into a long-term commitment to digital inclusion.",
     media: [
-      { type: 'image', path: '/extracurriculars/tech4silvers/presentation_pic_new.jpg', caption: 'Tech4Silvers Presentation' },
-      { type: 'video', path: '/t4s_video.MP4', caption: 'Tech4Silvers Session', thumbnail: '/extracurriculars/tech4silvers/presentation_pic_new.jpg' },
-      { type: 'image', path: '/t4s_1.JPG', caption: 'Tech4Silvers 1' },
-      { type: 'image', path: '/t4s_2.JPG', caption: 'Tech4Silvers 2' },
+      { type: 'image', path: '/gallery/full/tech4silvers-hands-on.jpg', thumbnail: '/gallery/thumb/tech4silvers-hands-on.jpg', caption: 'Hands-on help at a Tech4Silvers workshop' },
+      { type: 'image', path: '/gallery/full/tech4silvers-team-workshop.jpg', thumbnail: '/gallery/thumb/tech4silvers-team-workshop.jpg', caption: 'Leading a Tech4Silvers workshop with the team' },
+      { type: 'image', path: '/gallery/full/tech4silvers-one-on-one.jpg', thumbnail: '/gallery/thumb/tech4silvers-one-on-one.jpg', caption: 'One-on-one phone guidance' },
+      { type: 'video', path: '/t4s_video.MP4', caption: 'Tech4Silvers session', thumbnail: '/gallery/thumb/tech4silvers-team-workshop.jpg' },
+      { type: 'image', path: '/gallery/full/tech4silvers-community-seminar.jpg', thumbnail: '/gallery/thumb/tech4silvers-community-seminar.jpg', caption: 'A community cybersecurity seminar' },
+      { type: 'image', path: '/gallery/full/tech4silvers-guided-help.jpg', thumbnail: '/gallery/thumb/tech4silvers-guided-help.jpg', caption: 'Working through a device question together' },
+      { type: 'image', path: '/gallery/full/tech4silvers-rotary-workshop.jpg', thumbnail: '/gallery/thumb/tech4silvers-rotary-workshop.jpg', caption: 'Tech4Silvers with the Rotary E-Club of Silicon Valley' },
     ],
   },
   {

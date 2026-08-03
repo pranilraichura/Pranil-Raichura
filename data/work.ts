@@ -19,12 +19,12 @@ export type WorkBrandTone =
   | "slate";
 
 export interface WorkBrand {
-  /** Short, neutral mark shown beside condensed listings. */
+  /** Short fallback shown only if an artwork file is unavailable. */
   shortLabel: string;
   /** Full affiliation or project name shown on larger cards and to assistive tech. */
   label: string;
   tone: WorkBrandTone;
-  /** Project-owned artwork only; institutional affiliations use neutral text marks. */
+  /** Sourced institution or project artwork. See public/marks/SOURCES.md. */
   logoSrc?: string;
 }
 
@@ -85,20 +85,21 @@ export const workItems: WorkItem[] = [
     domains: ["AI Safety & Evaluation"],
     featured: true,
     pullQuote:
-      "Cold-emailed Prof. MK at MIT CSAIL about research on making AI reasoning traceable to real data.",
+      "Cold-emailed Prof. MK at MIT about research on making AI reasoning traceable to real data.",
     role: "Research Assistant",
-    organization: "Kellis Lab, MIT CSAIL (remote)",
+    organization: "Massachusetts Institute of Technology (remote)",
     brand: {
       shortLabel: "MIT",
-      label: "MIT CSAIL · Kellis Lab",
+      label: "Massachusetts Institute of Technology",
       tone: "crimson",
+      logoSrc: "/marks/mit.webp",
     },
     tech: ["TypeScript", "React", "Python"],
-    mentors: [{ name: "Prof. MK", affiliation: "MIT CSAIL" }],
+    mentors: [{ name: "Prof. MK", affiliation: "MIT" }],
     paperTitle: "Research on measuring behavioral consistency in AI agents",
     status: "Submitted to an academic AI workshop",
     description:
-      "Cold-emailed Prof. MK at MIT CSAIL about research on making AI reasoning traceable to real data. Joined as a remote research assistant, contributing production features across dozens of merged pull requests to a visualization platform and API, expanding real-time 3D map rendering, collaboration tools, and backend reliability.",
+      "Cold-emailed Prof. MK at MIT about research on making AI reasoning traceable to real data. Joined as a remote research assistant, contributing production features across dozens of merged pull requests to a visualization platform and API, expanding real-time 3D map rendering, collaboration tools, and backend reliability.",
     highlights: [
       "Co-developed a new metric for evaluating whether an AI agent behaves consistently across tasks, separate from whether it succeeds",
       "Validated the metric across thousands of real AI agent task recordings drawn from six different systems",
@@ -114,11 +115,12 @@ export const workItems: WorkItem[] = [
     pullQuote:
       "The first version of this project used cross-validation that leaked information between train and test sets, producing results that looked far stronger than they really were, and was rejected by every venue it was submitted to for superficial novelty.",
     role: "Research Author",
-    organization: "Johns Hopkins Explore Engineering Innovation",
+    organization: "Johns Hopkins University",
     brand: {
       shortLabel: "JHU",
-      label: "Johns Hopkins · Explore Engineering Innovation",
+      label: "Johns Hopkins University",
       tone: "blue",
+      logoSrc: "/marks/johns-hopkins.svg",
     },
     years: "10th Summer, 11th Grade",
     dates: "July 2025 - October 2025",
@@ -168,7 +170,7 @@ export const workItems: WorkItem[] = [
       shortLabel: "FF",
       label: "Flora Frontier",
       tone: "slate",
-      logoSrc: "/breath_background.png",
+      logoSrc: "/marks/flora-frontier.webp",
     },
     years: "9th, 10th, 11th Grade",
     dates: "August 2024 - February 2026",
@@ -212,6 +214,7 @@ export const workItems: WorkItem[] = [
       shortLabel: "IEEE",
       label: "Accepted · IEEE CIBCB 2026",
       tone: "blue",
+      logoSrc: "/marks/ieee.svg",
     },
     recognition: "Accepted to IEEE CIBCB 2026",
     status: "Accepted, IEEE CIBCB 2026",
@@ -249,7 +252,7 @@ export const workItems: WorkItem[] = [
       shortLabel: "CP",
       label: "ClearPolicy",
       tone: "indigo",
-      logoSrc: "/marks/clearpolicy.svg",
+      logoSrc: "/marks/clearpolicy.webp",
     },
     tech: [
       "TypeScript",
@@ -279,11 +282,12 @@ export const workItems: WorkItem[] = [
     tagline: "Finding the flawed questions inside AI benchmark datasets",
     domains: ["AI Safety & Evaluation"],
     role: "Contributor and Researcher",
-    organization: "Stanford AI Measurement Science Lab (remote)",
+    organization: "Stanford University (remote)",
     brand: {
       shortLabel: "S",
-      label: "Stanford AI Measurement Science Lab",
+      label: "Stanford University",
       tone: "cardinal",
+      logoSrc: "/marks/stanford.webp",
     },
     dates: "March 2026 - Present",
     tech: ["Python"],
@@ -297,24 +301,24 @@ export const workItems: WorkItem[] = [
     title: "Agentic AI Applications",
     tagline: "Emergent LLM behavior and responsible AI in health and crisis settings",
     domains: ["AI Safety & Evaluation"],
-    role: "Researcher, AICS Lab",
-    organization:
-      "USC Information Sciences Institute, Artificial Intelligence and Complex Systems Group",
+    role: "Researcher",
+    organization: "University of Southern California",
     brand: {
       shortLabel: "USC",
-      label: "USC Information Sciences Institute",
+      label: "University of Southern California",
       tone: "gold",
+      logoSrc: "/marks/usc.webp",
     },
     dates: "February 2026 - May 2026",
     tech: ["Python", "PyTorch"],
     mentors: [
       {
         name: "Prof. MK",
-        affiliation: "USC Information Sciences Institute",
+        affiliation: "USC",
       },
     ],
     description:
-      "Conducted research under Prof. MK in the Artificial Intelligence and Complex Systems Group, investigating emergent LLM behavior and responsible-AI applications in healthcare, crisis informatics, and social systems.",
+      "Conducted research under Prof. MK at USC, investigating emergent LLM behavior and responsible-AI applications in healthcare, crisis informatics, and social systems.",
   },
   {
     id: "prism-ai-writing",
@@ -360,6 +364,7 @@ export const workItems: WorkItem[] = [
       shortLabel: "NASA",
       label: "NASA Space Apps · Global Nominee",
       tone: "navy",
+      logoSrc: "/marks/nasa.webp",
     },
     description:
       "An AI-powered application for detecting and analyzing exoplanets using machine learning. Built with Python and Streamlit, this tool leverages advanced algorithms to identify potential exoplanets from astronomical data.",
@@ -394,11 +399,12 @@ export const workItems: WorkItem[] = [
     tagline: "Computational neuroscience and PyTorch, implemented from scratch",
     domains: ["Applied ML & Systems"],
     role: "Participant",
-    organization: "UCLA COSMOS (computational neuroscience)",
+    organization: "University of California, Los Angeles",
     brand: {
       shortLabel: "UCLA",
-      label: "UCLA COSMOS · Computational Neuroscience",
+      label: "UCLA",
       tone: "blue",
+      logoSrc: "/marks/ucla.svg",
     },
     mentors: [{ name: "Prof. HTB", affiliation: "UCLA COSMOS" }],
     description:
@@ -417,9 +423,9 @@ export const tech4SilversFeature = {
   pullQuote:
     "I started Tech4Silvers after realizing many seniors in our community were missing digital wildfire and emergency alerts.",
   image: {
-    src: "/t4s_workshop.JPG",
-    alt: "A Tech4Silvers workshop in progress at a senior center, with a volunteer showing a device to a seated resident.",
-    caption: "Tech4Silvers workshop",
+    src: "/gallery/full/tech4silvers-hands-on.jpg",
+    alt: "Pranil and other Tech4Silvers volunteers helping senior-center residents one-on-one with their devices.",
+    caption: "Hands-on help at a Tech4Silvers workshop",
   },
   href: "#ec-tech4silvers",
 };

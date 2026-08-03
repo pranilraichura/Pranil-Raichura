@@ -70,11 +70,10 @@ export default function Extracurriculars() {
         backgroundImage: 'url(/starry_night.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
       }}
     >
       {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-white/90 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-white/[0.92]"></div>
 
       {/* Subtle Top Divider Gradient */}
       <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/60 to-transparent pointer-events-none z-10"></div>
@@ -138,7 +137,7 @@ export default function Extracurriculars() {
                       {ec.media[0].type === 'image' ? (
                         <>
                           <Image
-                            src={ec.media[0].path}
+                            src={ec.media[0].thumbnail ?? ec.media[0].path}
                             alt={ec.media[0].caption || ec.title}
                             fill
                             className={`transition-transform duration-300 group-hover:scale-110 ${ec.media[0].fit === 'contain' ? 'object-contain bg-slate-50 p-2' : 'object-cover'}`}
@@ -195,7 +194,7 @@ export default function Extracurriculars() {
                         >
                           {item.type === 'image' ? (
                             <Image
-                              src={item.path}
+                              src={item.thumbnail ?? item.path}
                               alt={item.caption || `${ec.title} ${idx + 1}`}
                               fill
                               className={`transition-transform duration-300 group-hover:scale-110 ${item.fit === 'contain' ? 'object-contain bg-slate-50 p-1.5' : 'object-cover'}`}

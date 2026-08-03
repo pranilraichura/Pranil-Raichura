@@ -157,7 +157,7 @@ export default function RecommendationPage() {
                   <span className="text-3xl mr-4">🔬</span>
                   <div>
                     <div className="font-bold text-lg">Research Projects</div>
-                    <div className="text-sm opacity-90">AI Game Development, ML Engineering, MIT CSAIL, & more</div>
+                    <div className="text-sm opacity-90">AI Game Development, ML Engineering, MIT, & more</div>
                   </div>
                 </motion.li>
                 <motion.li
@@ -349,4 +349,3 @@ export default function RecommendationPage() {
     </main>
   );
 }
-

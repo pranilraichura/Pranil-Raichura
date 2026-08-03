@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import Image from "next/image";
+import LazyVideo from "./LazyVideo";
 
 interface TimelineEvent {
     id: string;
@@ -83,10 +84,10 @@ const timelineEvents: TimelineEvent[] = [
         ],
         media: {
             type: 'image',
-            path: '/t4s_workshop.JPG',
-            caption: 'Tech4Silvers workshop',
-            width: 1600,
-            height: 1205,
+            path: '/gallery/full/tech4silvers-hands-on.jpg',
+            caption: 'Hands-on help at a Tech4Silvers workshop',
+            width: 1920,
+            height: 1080,
         }
     },
     {
@@ -139,6 +140,7 @@ export default function StorySection() {
         if (prefersReducedMotion) return;
 
         let lastPct = -1;
+        let frame = 0;
         const measure = () => {
             const container = timelineRef.current;
             const rail = railRef.current;
@@ -155,12 +157,21 @@ export default function StorySection() {
             rail.style.webkitMaskImage = mask;
         };
 
+        const scheduleMeasure = () => {
+            if (frame) return;
+            frame = window.requestAnimationFrame(() => {
+                frame = 0;
+                measure();
+            });
+        };
+
         measure();
-        window.addEventListener("scroll", measure, { passive: true });
-        window.addEventListener("resize", measure);
+        window.addEventListener("scroll", scheduleMeasure, { passive: true });
+        window.addEventListener("resize", scheduleMeasure, { passive: true });
         return () => {
-            window.removeEventListener("scroll", measure);
-            window.removeEventListener("resize", measure);
+            window.removeEventListener("scroll", scheduleMeasure);
+            window.removeEventListener("resize", scheduleMeasure);
+            if (frame) window.cancelAnimationFrame(frame);
         };
     }, [prefersReducedMotion]);
 
@@ -315,11 +326,10 @@ export default function StorySection() {
                 backgroundImage: 'url(/backgrounds/turkey_ocean.jpg)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                backgroundAttachment: 'fixed',
             }}
         >
             {/* Overlay for readability - Adjusted to favor the right side */}
-            <div className="absolute inset-0 bg-white/60 backdrop-blur-sm lg:bg-gradient-to-r lg:from-transparent lg:via-white/50 lg:to-white/80"></div>
+            <div className="absolute inset-0 bg-white/70 lg:bg-gradient-to-r lg:from-white/20 lg:via-white/65 lg:to-white/90"></div>
 
             {/* Cold light at the top of the arc, warm light at the bottom. */}
             {!prefersReducedMotion && (
@@ -424,7 +434,7 @@ export default function StorySection() {
                             {/* Content card - Left Side (Wider) */}
                             <motion.div
                                 whileHover={{ x: 4, scale: 1.01 }}
-                                className="lg:col-span-3 bg-white/95 backdrop-blur rounded-xl p-6 md:p-8 shadow-md border border-slate-200 hover:shadow-lg transition-all"
+                                className="lg:col-span-3 bg-white/95 rounded-xl p-6 md:p-8 shadow-md border border-slate-200 hover:shadow-lg transition-[transform,box-shadow]"
                             >
                                 <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4">
                                     {event.title}
@@ -448,9 +458,11 @@ export default function StorySection() {
                                         className="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white transform rotate-2 hover:rotate-0 transition-transform duration-500"
                                     >
                                         {event.media.type === 'video' ? (
-                                            <video
+                                            <LazyVideo
                                                 src={event.media.path}
                                                 controls
+                                                poster="/posters/pranil-city-speech.webp"
+                                                aria-label={event.media.caption || event.title}
                                                 width={event.media.width}
                                                 height={event.media.height}
                                                 className="w-full h-auto"
@@ -489,7 +501,7 @@ export default function StorySection() {
                         aria-hidden="true"
                         className="absolute -inset-6 md:-inset-10 rounded-[3rem] bg-gradient-to-r from-primary-300/20 via-orange-300/25 to-primary-300/20 blur-2xl opacity-0 pointer-events-none"
                     ></div>
-                    <div className="relative bg-white/85 backdrop-blur-md rounded-2xl p-8 shadow-xl shadow-slate-900/10 border border-slate-200/60">
+                    <div className="relative bg-white/95 rounded-2xl p-8 shadow-xl shadow-slate-900/10 border border-slate-200/60">
                         <p className="text-xl text-slate-800 font-medium leading-relaxed font-libre">
                             Looking back, the progression is clear. I spent years fearing the spotlight and trying to avoid failure. I had to learn how to find calm in solitary problem-solving before I could realize that those same instincts could serve my community. Today, I don&apos;t just tolerate pressure. I actively choose to step into the arena.
                         </p>

@@ -1,81 +1,85 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useFlashlight } from "./FlashlightContext";
 
 export default function MouseSpotlight() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isVisible, setIsVisible] = useState(false);
+  const outerRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
   const { isEnabled } = useFlashlight();
 
   useEffect(() => {
-    let animationFrameId: number;
+    const outer = outerRef.current;
+    const inner = innerRef.current;
+    const finePointer = window.matchMedia("(pointer: fine)").matches;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!outer || !inner || !finePointer || reducedMotion || !isEnabled) {
+      if (outer) outer.style.opacity = "0";
+      if (inner) inner.style.opacity = "0";
+      return;
+    }
 
-    const handleMouseMove = (e: MouseEvent) => {
-      // Use requestAnimationFrame for smooth updates
-      animationFrameId = requestAnimationFrame(() => {
-        setMousePosition({ x: e.clientX, y: e.clientY });
-        setIsVisible(true);
-      });
+    let frame = 0;
+    let x = window.innerWidth / 2;
+    let y = window.innerHeight / 2;
+    let pointerVisible = false;
+    let heroVisible = window.scrollY <= window.innerHeight * 0.8;
+
+    const paint = () => {
+      frame = 0;
+      const visible = pointerVisible && heroVisible;
+      outer.style.opacity = visible ? "1" : "0";
+      inner.style.opacity = visible ? "0.42" : "0";
+      inner.style.transform = `translate3d(${x - 250}px, ${y - 250}px, 0)`;
     };
 
-    const handleMouseLeave = () => {
-      setIsVisible(false);
+    const schedulePaint = () => {
+      if (!frame) frame = window.requestAnimationFrame(paint);
     };
 
-    // Initialize with center position
-    setMousePosition({
-      x: window.innerWidth / 2,
-      y: window.innerHeight / 2
-    });
+    const handlePointerMove = (event: PointerEvent) => {
+      x = event.clientX;
+      y = event.clientY;
+      pointerVisible = true;
+      schedulePaint();
+    };
+    const handlePointerLeave = () => {
+      pointerVisible = false;
+      schedulePaint();
+    };
+    const handleScroll = () => {
+      const nextHeroVisible = window.scrollY <= window.innerHeight * 0.8;
+      if (nextHeroVisible === heroVisible) return;
+      heroVisible = nextHeroVisible;
+      schedulePaint();
+    };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseleave", handleMouseLeave);
+    paint();
+    window.addEventListener("pointermove", handlePointerMove, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    document.addEventListener("pointerleave", handlePointerLeave);
 
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseleave", handleMouseLeave);
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
+      window.removeEventListener("pointermove", handlePointerMove);
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("pointerleave", handlePointerLeave);
+      if (frame) window.cancelAnimationFrame(frame);
     };
-  }, []);
-
-  const [inHeroSection, setInHeroSection] = useState(true);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Fade out when scrolled past 80% of viewport
-      if (window.scrollY > window.innerHeight * 0.8) {
-        setInHeroSection(false);
-      } else {
-        setInHeroSection(true);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isEnabled]);
 
   return (
     <>
-      {/* Subtle dark overlay that creates gentle focus effect */}
       <div
-        className="pointer-events-none fixed inset-0 z-[9999] transition-opacity duration-500"
-        style={{
-          opacity: isVisible && isEnabled && inHeroSection ? 1 : 0,
-          background: `radial-gradient(500px circle at ${mousePosition.x}px ${mousePosition.y}px, transparent 0%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.25) 80%)`,
-        }}
+        ref={outerRef}
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 z-[9998] bg-black/10 opacity-0 transition-opacity duration-500"
       />
-      {/* Very subtle inner glow for the spotlight */}
       <div
-        className="pointer-events-none fixed inset-0 z-[9998] transition-opacity duration-300"
-        style={{
-          opacity: isVisible && isEnabled && inHeroSection ? 0.3 : 0,
-          background: `radial-gradient(250px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 255, 255, 0.08), transparent 70%)`,
-        }}
+        ref={innerRef}
+        aria-hidden="true"
+        className="pointer-events-none fixed left-0 top-0 z-[9999] h-[500px] w-[500px] rounded-full opacity-0 transition-opacity duration-300 will-change-transform [background:radial-gradient(circle,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0.04)_48%,transparent_72%)]"
+        style={{ transform: "translate3d(-1000px, -1000px, 0)" }}
       />
     </>
   );
 }
-

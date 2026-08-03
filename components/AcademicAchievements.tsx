@@ -20,10 +20,9 @@ export default function AcademicAchievements() {
         backgroundImage: "url(/starry_night.jpg)",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundAttachment: "fixed",
       }}
     >
-      <div className="absolute inset-0 bg-white/90 backdrop-blur-sm"></div>
+      <div className="absolute inset-0 bg-white/[0.92]"></div>
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white to-transparent pointer-events-none z-10"></div>
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white/60 to-transparent pointer-events-none z-10"></div>
 

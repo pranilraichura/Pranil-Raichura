@@ -64,8 +64,14 @@ export default function PasswordProtection({
             }
 
             // Fetch the visitor's public IP
+            const controller = new AbortController();
+            const timeoutId = window.setTimeout(() => controller.abort(), 1500);
+
             try {
-                const res = await fetch("https://api.ipify.org?format=json");
+                const res = await fetch("https://api.ipify.org?format=json", {
+                    signal: controller.signal,
+                    cache: "no-store",
+                });
                 const data = await res.json();
                 const visitorIp = data.ip;
 
@@ -78,6 +84,8 @@ export default function PasswordProtection({
             } catch {
                 // If IP lookup fails, let them through (fail-open)
                 setIsAuthenticated(true);
+            } finally {
+                window.clearTimeout(timeoutId);
             }
 
             setIsLoading(false);

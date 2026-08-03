@@ -27,26 +27,46 @@ export default function Navigation() {
     // Only track scroll on home page
     if (pathname !== "/") return;
 
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+    let frame = 0;
+    const sectionIds = navItems
+      .filter((item) => item.href.startsWith("#"))
+      .map((item) => item.href.substring(1));
+    const visibleSections = new Set<string>();
 
-      // Update active section based on scroll position
-      const sections = navItems
-        .filter(item => item.href.startsWith("#"))
-        .map(item => item.href.substring(1));
-      const current = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      if (current) setActiveSection(current);
+    const updateScrolled = () => {
+      frame = 0;
+      const next = window.scrollY > 50;
+      setIsScrolled((current) => (current === next ? current : next));
+    };
+    const handleScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(updateScrolled);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) visibleSections.add(entry.target.id);
+          else visibleSections.delete(entry.target.id);
+        });
+
+        const current = sectionIds.find((id) => visibleSections.has(id));
+        if (current) setActiveSection((active) => (active === current ? active : current));
+      },
+      { rootMargin: "-88px 0px -72% 0px", threshold: 0 },
+    );
+
+    sectionIds.forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) sectionObserver.observe(section);
+    });
+
+    updateScrolled();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      sectionObserver.disconnect();
+      if (frame) window.cancelAnimationFrame(frame);
+    };
   }, [pathname]);
 
   const handleNavClick = (href: string) => {
@@ -67,10 +87,10 @@ export default function Navigation() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-[10000] transition-all duration-300 ${isLightboxOpen
+      className={`fixed top-0 left-0 right-0 z-[10000] transition-[background-color,border-color,box-shadow,opacity] duration-300 ${isLightboxOpen
         ? "bg-transparent pointer-events-none opacity-0"
         : (isScrolled || pathname !== "/")
-          ? "bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-100"
+          ? "bg-white/95 shadow-lg border-b border-gray-100"
           : "bg-transparent"
         }`}
     >
@@ -99,8 +119,8 @@ export default function Navigation() {
                     onClick={() => handleNavClick(item.href)}
                     whileHover={{ y: -2 }}
                     whileTap={{ y: 0 }}
-                    className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg ${isActive
-                      ? "text-primary-600 bg-white/30 backdrop-blur-md border border-white/40 shadow-lg"
+                    className={`px-4 py-2 text-sm font-medium transition-[color,background-color,border-color,box-shadow,transform] duration-200 rounded-lg ${isActive
+                      ? "text-primary-600 bg-primary-50 border border-primary-100 shadow-sm"
                       : "text-gray-700 hover:text-primary-600 hover:bg-gray-50"
                       }`}
                   >
@@ -114,8 +134,8 @@ export default function Navigation() {
                       onClick={() => handleNavClick(item.href)}
                       whileHover={{ y: -2 }}
                       whileTap={{ y: 0 }}
-                      className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg ${isActive
-                        ? "text-primary-600 bg-white/30 backdrop-blur-md border border-white/40 shadow-lg"
+                      className={`px-4 py-2 text-sm font-medium transition-[color,background-color,border-color,box-shadow,transform] duration-200 rounded-lg ${isActive
+                        ? "text-primary-600 bg-primary-50 border border-primary-100 shadow-sm"
                         : "text-gray-700 hover:text-primary-600 hover:bg-gray-50"
                         }`}
                     >
@@ -161,7 +181,7 @@ export default function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100"
+            className="md:hidden bg-white border-t border-gray-100"
           >
             <div className="px-4 py-4 space-y-2">
 
@@ -178,8 +198,8 @@ export default function Navigation() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
                       onClick={() => handleNavClick(item.href)}
-                      className={`w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-200 ${isActive
-                        ? "text-primary-600 bg-white/30 backdrop-blur-md border border-white/40 shadow-lg"
+                      className={`w-full text-left px-4 py-3 rounded-lg font-medium transition-colors duration-200 ${isActive
+                        ? "text-primary-600 bg-primary-50 border border-primary-100 shadow-sm"
                         : "text-gray-700 hover:text-primary-600 hover:bg-gray-50"
                         }`}
                     >
@@ -194,8 +214,8 @@ export default function Navigation() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.05 }}
                         onClick={() => handleNavClick(item.href)}
-                        className={`w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-200 ${isActive
-                          ? "text-primary-600 bg-white/30 backdrop-blur-md border border-white/40 shadow-lg"
+                        className={`w-full text-left px-4 py-3 rounded-lg font-medium transition-colors duration-200 ${isActive
+                          ? "text-primary-600 bg-primary-50 border border-primary-100 shadow-sm"
                           : "text-gray-700 hover:text-primary-600 hover:bg-gray-50"
                           }`}
                       >
@@ -212,4 +232,3 @@ export default function Navigation() {
     </motion.nav>
   );
 }
-

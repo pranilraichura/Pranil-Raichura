@@ -184,7 +184,9 @@ video {
 /* Premium transitions for interactive elements */
 a,
 button {
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: color, background-color, border-color, opacity, transform, box-shadow;
+  transition-duration: 0.25s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Libre Baskerville utility for the name */

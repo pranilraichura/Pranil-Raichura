@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import {
     workItems,
     domainOrder,
@@ -36,6 +37,16 @@ const brandToneStyles: Record<WorkBrand["tone"], string> = {
     slate: "border-emerald-200 bg-emerald-50 text-emerald-900",
 };
 
+const brandStickerTilt: Record<WorkBrand["tone"], string> = {
+    blue: "rotate-[1.5deg]",
+    cardinal: "-rotate-[2deg]",
+    crimson: "rotate-[1deg]",
+    gold: "rotate-[2deg]",
+    indigo: "-rotate-[1.5deg]",
+    navy: "rotate-[1.5deg]",
+    slate: "-rotate-[1deg]",
+};
+
 // Beyond Euler leads because the Story section closes on it; the rest follow by weight.
 const featuredOrder = ["ml-structural-engineering", "ai-reasoning-visualization", "meridian"];
 
@@ -67,13 +78,21 @@ function DomainPills({ domains }: { domains: WorkDomain[] }) {
     );
 }
 
-function WorkBrandBadge({ brand, compact = false }: { brand: WorkBrand; compact?: boolean }) {
+function WorkBrandSticker({
+    brand,
+    className,
+}: {
+    brand: WorkBrand;
+    className: string;
+}) {
     const artwork = brand.logoSrc ? (
-        <img
+        <Image
             src={brand.logoSrc}
             alt=""
             aria-hidden="true"
-            loading="lazy"
+            width={256}
+            height={128}
+            decoding="async"
             className="h-full w-full object-contain"
         />
     ) : (
@@ -82,31 +101,16 @@ function WorkBrandBadge({ brand, compact = false }: { brand: WorkBrand; compact?
         </span>
     );
 
-    if (compact) {
-        return (
-            <span
-                aria-label={brand.label}
-                title={brand.label}
-                data-work-brand={brand.shortLabel}
-                className={`h-11 ${brand.logoSrc ? "w-16 px-1.5" : "w-11 px-1"} rounded-xl border flex items-center justify-center flex-shrink-0 shadow-sm ${brandToneStyles[brand.tone]}`}
-            >
-                {artwork}
-            </span>
-        );
-    }
-
     return (
-        <div
+        <span
+            role="img"
+            aria-label={brand.label}
+            title={brand.label}
             data-work-brand={brand.shortLabel}
-            className={`inline-flex items-center gap-2 rounded-xl border py-1.5 pl-1.5 pr-3 ${brandToneStyles[brand.tone]}`}
+            className={`pointer-events-none absolute z-20 flex items-center justify-center overflow-hidden rounded-xl border bg-white/95 p-1.5 shadow-[0_5px_16px_rgba(15,23,42,0.16)] ring-1 ring-white/80 ${brandToneStyles[brand.tone]} ${brandStickerTilt[brand.tone]} ${className}`}
         >
-            <span className={`h-8 ${brand.logoSrc ? "w-14" : "w-8"} flex items-center justify-center overflow-hidden rounded-lg bg-white/75 px-1`}>
-                {artwork}
-            </span>
-            <span className="text-[11px] font-semibold tracking-wide leading-tight">
-                {brand.label}
-            </span>
-        </div>
+            {artwork}
+        </span>
     );
 }
 
@@ -143,10 +147,11 @@ function WorkDetails({ item }: { item: WorkItem }) {
                                 className="flex items-center gap-2.5 min-w-0"
                             >
                                 {mentor.image && (
-                                    <img
+                                    <Image
                                         src={mentor.image}
                                         alt=""
-                                        loading="lazy"
+                                        width={36}
+                                        height={36}
                                         className="h-9 w-9 rounded-full object-cover border border-slate-200"
                                     />
                                 )}
@@ -242,11 +247,6 @@ function WorkDetails({ item }: { item: WorkItem }) {
 function FeaturedHeading({ item }: { item: WorkItem }) {
     return (
         <>
-            {item.brand && (
-                <div className="mb-3">
-                    <WorkBrandBadge brand={item.brand} />
-                </div>
-            )}
             <div className="flex flex-wrap gap-1.5 mb-3">
                 <DomainPills domains={item.domains} />
                 {(item.dates || item.years) && (
@@ -280,8 +280,14 @@ function FeaturedHeading({ item }: { item: WorkItem }) {
 function FeaturedWithFigure({ item }: { item: WorkItem }) {
     return (
         <article
-            className="rounded-3xl bg-white shadow-xl border border-slate-200/80 overflow-hidden"
+            className="relative rounded-3xl bg-white shadow-xl border border-slate-200/80 overflow-hidden"
         >
+            {item.brand && (
+                <WorkBrandSticker
+                    brand={item.brand}
+                    className="right-4 top-4 h-12 w-[4.5rem] md:right-5 md:top-5 md:h-14 md:w-20"
+                />
+            )}
             <div className="grid grid-cols-1 lg:grid-cols-5">
                 <div className="lg:col-span-3 p-7 md:p-9">
                     <FeaturedHeading item={item} />
@@ -293,10 +299,11 @@ function FeaturedWithFigure({ item }: { item: WorkItem }) {
                 {item.figure && (
                     <figure className="lg:col-span-2 bg-slate-50 border-t lg:border-t-0 lg:border-l border-slate-200/80 flex flex-col">
                         <div className="relative flex-1 min-h-[280px]">
-                            <img
+                            <Image
                                 src={item.figure.src}
                                 alt={item.figure.alt}
-                                loading="lazy"
+                                fill
+                                sizes="(min-width: 1024px) 40vw, 100vw"
                                 className="absolute inset-0 w-full h-full object-cover object-center"
                             />
                         </div>
@@ -314,8 +321,14 @@ function FeaturedWithFigure({ item }: { item: WorkItem }) {
 function FeaturedTypographic({ item }: { item: WorkItem }) {
     return (
         <article
-            className="rounded-3xl bg-white shadow-xl border border-slate-200/80 p-7 md:p-9"
+            className="relative rounded-3xl bg-white shadow-xl border border-slate-200/80 p-7 md:p-9"
         >
+            {item.brand && (
+                <WorkBrandSticker
+                    brand={item.brand}
+                    className="right-4 top-4 h-12 w-[4.5rem] md:right-5 md:top-5 md:h-14 md:w-20"
+                />
+            )}
             <FeaturedHeading item={item} />
             <p className="text-sm text-slate-700 leading-relaxed mt-5">
                 {bodyWithoutPullQuote(item)}
@@ -339,10 +352,11 @@ function Tech4SilversTile() {
             <div className="grid grid-cols-1 lg:grid-cols-5">
                 <figure className="lg:col-span-2 bg-slate-50 border-b lg:border-b-0 lg:border-r border-slate-200/80 flex flex-col">
                     <div className="relative flex-1 min-h-[240px]">
-                        <img
+                        <Image
                             src={t4s.image.src}
                             alt={t4s.image.alt}
-                            loading="lazy"
+                            fill
+                            sizes="(min-width: 1024px) 40vw, 100vw"
                             className="absolute inset-0 w-full h-full object-cover object-center"
                         />
                     </div>
@@ -386,6 +400,12 @@ function CondensedRow({ item }: { item: WorkItem }) {
 
     return (
         <div className="relative">
+            {item.brand && (
+                <WorkBrandSticker
+                    brand={item.brand}
+                    className="-right-2 top-2 h-10 w-14 md:-right-4 md:top-3 md:h-11 md:w-16"
+                />
+            )}
             <span
                 aria-hidden="true"
                 className={`absolute left-0 top-3 bottom-3 w-1 rounded-r-full ${accent} transition-transform duration-300 ${open ? "scale-y-100" : "scale-y-50"
@@ -399,7 +419,6 @@ function CondensedRow({ item }: { item: WorkItem }) {
                 className={`w-full text-left pl-7 pr-5 flex items-center gap-4 hover:bg-slate-50 transition-all duration-200 ${open ? "pt-6 pb-4 bg-slate-50/70" : "py-4"
                     }`}
             >
-                {item.brand && <WorkBrandBadge brand={item.brand} compact />}
                 <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                         <h4 className="font-libre text-base md:text-lg font-semibold text-slate-900">
@@ -562,7 +581,7 @@ export default function Work() {
 
                         <ScrollRevealGroup
                             dependencyKey={selectedDomain}
-                            className="rounded-2xl bg-white/90 backdrop-blur-sm border border-slate-200/80 shadow-md overflow-hidden"
+                            className="rounded-2xl bg-white/95 border border-slate-200/80 shadow-md overflow-visible"
                             stagger={0.065}
                         >
                             {rest.map((item) => (

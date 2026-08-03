@@ -8,17 +8,23 @@ export default function BackToTop() {
     const { isLightboxOpen } = useLightbox();
 
     useEffect(() => {
+        let frame = 0;
         const toggleVisibility = () => {
-            if (window.pageYOffset > 300) {
-                setIsVisible(true);
-            } else {
-                setIsVisible(false);
-            }
+            frame = 0;
+            const next = window.pageYOffset > 300;
+            setIsVisible((current) => current === next ? current : next);
+        };
+        const scheduleVisibility = () => {
+            if (!frame) frame = window.requestAnimationFrame(toggleVisibility);
         };
 
-        window.addEventListener('scroll', toggleVisibility);
+        toggleVisibility();
+        window.addEventListener('scroll', scheduleVisibility, { passive: true });
 
-        return () => window.removeEventListener('scroll', toggleVisibility);
+        return () => {
+            window.removeEventListener('scroll', scheduleVisibility);
+            if (frame) window.cancelAnimationFrame(frame);
+        };
     }, []);
 
     const scrollToTop = () => {
@@ -55,4 +61,3 @@ export default function BackToTop() {
         </button>
     );
 }
-
