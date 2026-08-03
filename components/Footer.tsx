@@ -50,10 +50,11 @@ export default function Footer() {
                 backgroundImage: 'url(/starry_night.jpg)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
+                backgroundAttachment: 'fixed',
             }}
         >
             {/* Dark Overlay for contrast */}
-            <div className="absolute inset-0 bg-slate-900/[0.88]"></div>
+            <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm"></div>
 
             {/* Top Gradient for Smooth Transition from White/Light section */}
             <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white to-transparent pointer-events-none z-10"></div>

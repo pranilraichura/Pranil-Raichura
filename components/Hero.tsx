@@ -149,7 +149,7 @@ export default function Hero() {
                     {/* Violin Orchestra Photo - Left-Center */}
                     <div
                         data-hero-parallax="0.07"
-                        className="absolute top-[2%] md:top-[4%] left-[14%] md:left-[23%] lg:left-[28%] w-[221px] h-[294px] md:w-[258px] md:h-[331px] lg:w-[294px] lg:h-[405px]"
+                        className="absolute z-[2] top-[2%] md:top-[4%] left-[14%] md:left-[23%] lg:left-[28%] w-[221px] h-[294px] md:w-[258px] md:h-[331px] lg:w-[294px] lg:h-[405px]"
                     >
                         <motion.div
                             initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -172,7 +172,7 @@ export default function Hero() {
                     </div>
 
                     {/* HPE Codewars Photo - Top Center */}
-                    <div className="absolute top-4 left-1/2 w-0 h-0">
+                    <div className="absolute z-[1] top-4 left-1/2 w-0 h-0">
                         <div className="-translate-x-1/2 w-56 h-56 md:w-72 md:h-96 lg:w-96 lg:h-[28rem]">
                             <div data-hero-parallax="0.03" className="w-full h-full">
                                 <motion.div

@@ -13,8 +13,7 @@ export interface GalleryPhoto {
   /** ~1920px longest edge, used for the full-screen view. */
   fullSrc: string;
   alt: string;
-  // Captions only where the subject is self-evident or already documented
-  // elsewhere on the site. Undefined captions render nothing.
+  /** Short display label; travel photos use the location as the lead. */
   caption?: string;
   /** Gives a small number of grid photos extra visual weight. */
   featured?: boolean;
@@ -314,8 +313,8 @@ export const galleryPhotos: GalleryPhoto[] = [
     category: "Travel",
     thumbSrc: "/gallery/thumb/san-francisco-bay-view.jpg",
     fullSrc: "/gallery/full/san-francisco-bay-view.jpg",
-    alt: "Looking across the water toward the San Francisco skyline from a ship",
-    caption: "San Francisco",
+    alt: "Pranil in a DARE shirt looking toward the San Francisco skyline from a ship",
+    caption: "San Francisco, California",
     aspectRatio: 1.3333,
   },
   {
@@ -323,7 +322,8 @@ export const galleryPhotos: GalleryPhoto[] = [
     category: "Travel",
     thumbSrc: "/gallery/thumb/waterway-overlook.jpg",
     fullSrc: "/gallery/full/waterway-overlook.jpg",
-    alt: "Looking out over a waterway with ferries from a terrace",
+    alt: "Pranil in a North Face jacket looking across the Bosphorus from a terrace",
+    caption: "The Bosphorus · Istanbul, Türkiye",
     aspectRatio: 1.7774,
   },
   {
@@ -331,7 +331,8 @@ export const galleryPhotos: GalleryPhoto[] = [
     category: "Travel",
     thumbSrc: "/gallery/thumb/mountain-overlook.jpg",
     fullSrc: "/gallery/full/mountain-overlook.jpg",
-    alt: "Arms outstretched at a mountain overlook above a lake",
+    alt: "Pranil taking in the lakes and mountain ridges from the Harder Kulm overlook",
+    caption: "Harder Kulm · Interlaken, Switzerland",
     aspectRatio: 0.75,
   },
   {
@@ -339,7 +340,8 @@ export const galleryPhotos: GalleryPhoto[] = [
     category: "Travel",
     thumbSrc: "/gallery/thumb/beach-pier.jpg",
     fullSrc: "/gallery/full/beach-pier.jpg",
-    alt: "Standing on a beach with a pier across the water",
+    alt: "Pranil standing on the beach with the Santa Cruz Beach Boardwalk pier across the water",
+    caption: "Santa Cruz Beach Boardwalk · California",
     aspectRatio: 0.75,
   },
   {
@@ -347,8 +349,8 @@ export const galleryPhotos: GalleryPhoto[] = [
     category: "Travel",
     thumbSrc: "/gallery/thumb/hilton-hawaiian-village.jpg",
     fullSrc: "/gallery/full/hilton-hawaiian-village.jpg",
-    alt: "Taking a selfie beside the Hilton Hawaiian Village waterfall sign",
-    caption: "Hilton Hawaiian Village",
+    alt: "Pranil taking a selfie beside the Hilton Hawaiian Village waterfall sign",
+    caption: "Hilton Hawaiian Village · Honolulu, Hawaiʻi",
     aspectRatio: 1.3333,
   },
   {
@@ -356,7 +358,8 @@ export const galleryPhotos: GalleryPhoto[] = [
     category: "Travel",
     thumbSrc: "/gallery/thumb/travel-square-portrait.jpg",
     fullSrc: "/gallery/full/travel-square-portrait.jpg",
-    alt: "Standing in a large public square with twin-domed churches behind",
+    alt: "Pranil standing in Piazza del Popolo between its twin churches and central obelisk",
+    caption: "Piazza del Popolo · Rome, Italy",
     aspectRatio: 0.75,
   },
   {
@@ -364,7 +367,8 @@ export const galleryPhotos: GalleryPhoto[] = [
     category: "Travel",
     thumbSrc: "/gallery/thumb/market-street-walk.jpg",
     fullSrc: "/gallery/full/market-street-walk.jpg",
-    alt: "Walking down a narrow market street lined with shops and colorful umbrellas",
+    alt: "Pranil walking down an Istanbul market street lined with shops and colorful umbrellas",
+    caption: "Istanbul, Türkiye",
     featured: true,
     aspectRatio: 1.7774,
   },
@@ -373,7 +377,8 @@ export const galleryPhotos: GalleryPhoto[] = [
     category: "Travel",
     thumbSrc: "/gallery/thumb/sunset-overlook.jpg",
     fullSrc: "/gallery/full/sunset-overlook.jpg",
-    alt: "Silhouette against a sunset over a valley",
+    alt: "Pranil silhouetted against a sunset over the Northern California foothills",
+    caption: "Northern California",
     aspectRatio: 1.3333,
   },
   {
@@ -381,7 +386,8 @@ export const galleryPhotos: GalleryPhoto[] = [
     category: "Travel",
     thumbSrc: "/gallery/thumb/museum-gallery.jpg",
     fullSrc: "/gallery/full/museum-gallery.jpg",
-    alt: "Standing in a museum gallery between colorful exhibit walls",
+    alt: "Pranil studying the prints inside a colorful Honolulu Museum of Art gallery",
+    caption: "Honolulu Museum of Art · Honolulu, Hawaiʻi",
     aspectRatio: 1.7774,
   },
   {
@@ -390,7 +396,7 @@ export const galleryPhotos: GalleryPhoto[] = [
     thumbSrc: "/gallery/thumb/venice-canal.jpg",
     fullSrc: "/gallery/full/venice-canal.jpg",
     alt: "Gondolas passing beneath a stone bridge along a Venice canal",
-    caption: "Venice",
+    caption: "Venice, Italy",
     aspectRatio: 0.75,
   },
   {
@@ -399,7 +405,7 @@ export const galleryPhotos: GalleryPhoto[] = [
     thumbSrc: "/gallery/thumb/rome-colosseum.jpg",
     fullSrc: "/gallery/full/rome-colosseum.jpg",
     alt: "The Colosseum in Rome beneath a deep blue sky",
-    caption: "Rome",
+    caption: "The Colosseum · Rome, Italy",
     aspectRatio: 0.75,
   },
   {
@@ -407,8 +413,8 @@ export const galleryPhotos: GalleryPhoto[] = [
     category: "Travel",
     thumbSrc: "/gallery/thumb/alpine-lake-overlook.jpg",
     fullSrc: "/gallery/full/alpine-lake-overlook.jpg",
-    alt: "Looking across a calm alpine lake toward a mountain valley",
-    caption: "The Alps",
+    alt: "Pranil looking across a calm alpine lake toward the mountains near Interlaken",
+    caption: "Interlaken, Switzerland",
     featured: true,
     aspectRatio: 1.3333,
   },
@@ -417,7 +423,8 @@ export const galleryPhotos: GalleryPhoto[] = [
     category: "Travel",
     thumbSrc: "/gallery/thumb/alpine-summit-clouds.jpg",
     fullSrc: "/gallery/full/alpine-summit-clouds.jpg",
-    alt: "Clouds rolling over a high alpine summit and snowfield",
+    alt: "Clouds rolling over the glacier and high alpine ridges at Jungfraujoch",
+    caption: "Jungfraujoch · Top of Europe, Switzerland",
     aspectRatio: 0.75,
   },
   {
@@ -425,8 +432,8 @@ export const galleryPhotos: GalleryPhoto[] = [
     category: "Travel",
     thumbSrc: "/gallery/thumb/jungfrau-valley.jpg",
     fullSrc: "/gallery/full/jungfrau-valley.jpg",
-    alt: "A green Swiss valley framed by snow-covered peaks",
-    caption: "Switzerland",
+    alt: "The Lauterbrunnen Valley framed by the snow-covered peaks of the Jungfrau region",
+    caption: "Lauterbrunnen · Jungfrau Region, Switzerland",
     aspectRatio: 0.75,
   },
   {
@@ -435,7 +442,7 @@ export const galleryPhotos: GalleryPhoto[] = [
     thumbSrc: "/gallery/thumb/eiffel-tower-at-night.jpg",
     fullSrc: "/gallery/full/eiffel-tower-at-night.jpg",
     alt: "The Eiffel Tower illuminated above Paris at night",
-    caption: "Paris",
+    caption: "Eiffel Tower · Paris, France",
     featured: true,
     aspectRatio: 1.3337,
   },
@@ -445,7 +452,7 @@ export const galleryPhotos: GalleryPhoto[] = [
     thumbSrc: "/gallery/thumb/brussels-cathedral-walk.jpg",
     fullSrc: "/gallery/full/brussels-cathedral-walk.jpg",
     alt: "Walking beside the Cathedral of St. Michael and St. Gudula in Brussels",
-    caption: "Brussels",
+    caption: "Brussels, Belgium",
     aspectRatio: 0.75,
   },
   {
@@ -453,7 +460,8 @@ export const galleryPhotos: GalleryPhoto[] = [
     category: "Travel",
     thumbSrc: "/gallery/thumb/immersive-blue-gallery.jpg",
     fullSrc: "/gallery/full/immersive-blue-gallery.jpg",
-    alt: "Standing inside an immersive blue-lit art installation",
+    alt: "Pranil exploring an immersive blue-lit miniature art installation at Madurodam",
+    caption: "Madurodam · The Hague, Netherlands",
     featured: true,
     aspectRatio: 1.7774,
   },
@@ -462,7 +470,8 @@ export const galleryPhotos: GalleryPhoto[] = [
     category: "Travel",
     thumbSrc: "/gallery/thumb/van-gogh-room.jpg",
     fullSrc: "/gallery/full/van-gogh-room.jpg",
-    alt: "Sitting inside a life-size recreation of Van Gogh's bedroom",
+    alt: "Pranil sitting inside a life-size recreation of Van Gogh's bedroom at Madurodam",
+    caption: "Van Gogh's Room · Madurodam, Netherlands",
     aspectRatio: 0.75,
   },
   {
@@ -470,7 +479,8 @@ export const galleryPhotos: GalleryPhoto[] = [
     category: "Travel",
     thumbSrc: "/gallery/thumb/night-flight-laptop.jpg",
     fullSrc: "/gallery/full/night-flight-laptop.jpg",
-    alt: "Laptop open to a code editor on a night flight",
+    alt: "Flora Frontier open in a code editor on Pranil's laptop during a night flight",
+    caption: "Somewhere over the Atlantic",
     aspectRatio: 0.75,
   },
 

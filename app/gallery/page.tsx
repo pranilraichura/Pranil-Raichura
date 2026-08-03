@@ -152,7 +152,7 @@ export default function GalleryPage() {
             data-gallery-index={HERO_INDEX}
             onClick={() => openPhoto(HERO_INDEX)}
             aria-label={`Open full screen: ${heroPhoto.alt}`}
-            className="absolute inset-0 h-full w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/90"
+            className="group absolute inset-0 h-full w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/90"
           >
             {!heroIsActive && (
               <motion.div
@@ -174,6 +174,20 @@ export default function GalleryPage() {
                 />
               </motion.div>
             )}
+
+            <div className="pointer-events-none absolute bottom-10 right-8 z-20 hidden max-w-xs translate-y-2 text-right opacity-0 transition-[opacity,transform] duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 lg:block">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/60">
+                {heroPhoto.category}
+              </p>
+              <p className="mt-1 text-sm font-semibold text-white">
+                {heroPhoto.caption ?? heroPhoto.alt}
+              </p>
+              {heroPhoto.caption ? (
+                <p className="mt-1 text-xs leading-snug text-white/70">
+                  {heroPhoto.alt}
+                </p>
+              ) : null}
+            </div>
           </button>
 
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-black/35" />

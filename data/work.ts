@@ -396,9 +396,9 @@ export const workItems: WorkItem[] = [
   {
     id: "cosmos-2026",
     title: "COSMOS Summer Program at UCLA",
-    tagline: "Computational neuroscience and PyTorch, implemented from scratch",
-    domains: ["Applied ML & Systems"],
-    role: "Participant",
+    tagline: "Measuring whether AI theorem provers reason consistently—not only whether they succeed",
+    domains: ["AI Safety & Evaluation", "Applied ML & Systems"],
+    role: "Student Researcher",
     organization: "University of California, Los Angeles",
     brand: {
       shortLabel: "UCLA",
@@ -406,9 +406,10 @@ export const workItems: WorkItem[] = [
       tone: "blue",
       logoSrc: "/marks/ucla.svg",
     },
-    mentors: [{ name: "Prof. HTB", affiliation: "UCLA COSMOS" }],
+    mentors: [{ name: "Prof. Hugh Tad Blair", affiliation: "UCLA" }],
     description:
-      "Coursework and independent research under Prof. HTB's mentorship, including PyTorch fundamentals (from-scratch SLP/MLP implementations) and computer vision work with GoogLeNet on the Stanford Dogs dataset.",
+      "Working with Professor Hugh Tad Blair, I adapted the Behavioral Consistency Metric to Lean theorem-proving agents. I represented proofs as attribution-based fingerprints of tactics, structure, and errors, then used LightGBM and cosine similarity to test whether those fingerprints captured repeatable reasoning strategies. The method recovered known mutation types in 260,103 APRIL proofs (0.923 macro-F1), found DeepSeek-Prover-V1 substantially more consistent across tasks than a large human Mathlib corpus, and distinguished its proof-writing behavior from Goedel-Prover-SFT across six robustness checks.",
+    tech: ["Python", "Lean", "LightGBM", "Machine Learning"],
   },
 ];
 

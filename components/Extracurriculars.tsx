@@ -70,10 +70,11 @@ export default function Extracurriculars() {
         backgroundImage: 'url(/starry_night.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
       }}
     >
       {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-white/[0.92]"></div>
+      <div className="absolute inset-0 bg-white/90 backdrop-blur-sm"></div>
 
       {/* Subtle Top Divider Gradient */}
       <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-white/60 to-transparent pointer-events-none z-10"></div>
@@ -128,123 +129,52 @@ export default function Extracurriculars() {
               {/* Media Preview */}
               {ec.media && ec.media.length > 0 ? (
                 <div className="mb-4">
-                  {ec.media.length === 1 ? (
-                    // Single image/video
-                    <div
-                      className="relative w-full h-48 rounded-lg overflow-hidden cursor-pointer group"
-                      onClick={() => openLightbox(ec.media!, 0)}
-                    >
-                      {ec.media[0].type === 'image' ? (
-                        <>
-                          <Image
-                            src={ec.media[0].thumbnail ?? ec.media[0].path}
-                            alt={ec.media[0].caption || ec.title}
-                            fill
-                            className={`transition-transform duration-300 group-hover:scale-110 ${ec.media[0].fit === 'contain' ? 'object-contain bg-slate-50 p-2' : 'object-cover'}`}
-                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          />
-                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                            <div className="bg-white/90 px-3 py-1 rounded-full text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                              Click to view
-                            </div>
-                          </div>
-                        </>
-                      ) : (
-                        // Video Preview
-                        ec.media[0].thumbnail ? (
-                          <div className="relative w-full h-full">
-                            <Image
-                              src={ec.media[0].thumbnail}
-                              alt={ec.media[0].caption || ec.title}
-                              fill
-                              className="object-cover transition-transform duration-300 group-hover:scale-110"
-                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            />
-                            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
-                              <svg className="w-16 h-16 text-white opacity-90 shadow-lg" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
-                              </svg>
-                            </div>
-                            <span className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded backdrop-blur-sm">
-                              Video
-                            </span>
-                          </div>
-                        ) : (
-                          <div className="relative w-full h-full bg-gray-900 flex items-center justify-center">
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <svg className="w-16 h-16 text-white opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
-                              </svg>
-                            </div>
-                            <span className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
-                              Video
-                            </span>
-                          </div>
-                        )
-                      )}
+                  <button
+                    type="button"
+                    className="group relative block h-48 w-full overflow-hidden rounded-lg bg-slate-950 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+                    onClick={() => openLightbox(ec.media!, 0)}
+                    aria-label={`Open ${ec.title} ${ec.media.length > 1 ? `gallery with ${ec.media.length} items` : "media"}`}
+                  >
+                    {ec.media[0].type === 'image' ? (
+                      <Image
+                        src={ec.media[0].thumbnail ?? ec.media[0].path}
+                        alt={ec.media[0].caption || ec.title}
+                        fill
+                        className={`transition-transform duration-500 ease-out group-hover:scale-[1.035] ${ec.media[0].fit === 'contain' ? 'object-contain bg-slate-50 p-2' : 'object-cover'}`}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                    ) : ec.media[0].thumbnail ? (
+                      <Image
+                        src={ec.media[0].thumbnail}
+                        alt={ec.media[0].caption || ec.title}
+                        fill
+                        className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.035]"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 bg-slate-950" />
+                    )}
+
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors duration-300 group-hover:bg-black/20">
+                      <span className="translate-y-1 rounded-full border border-white/30 bg-black/65 px-3 py-1.5 text-xs font-semibold text-white opacity-0 shadow-lg backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                        {ec.media.length > 1 ? "View gallery" : "View image"}
+                      </span>
                     </div>
-                  ) : (
-                    // Multiple images - Show grid
-                    <div className="grid grid-cols-3 gap-2">
-                      {ec.media.slice(0, 3).map((item, idx) => (
-                        <div
-                          key={idx}
-                          className="relative h-32 rounded-lg overflow-hidden cursor-pointer group"
-                          onClick={() => openLightbox(ec.media!, idx)}
-                        >
-                          {item.type === 'image' ? (
-                            <Image
-                              src={item.thumbnail ?? item.path}
-                              alt={item.caption || `${ec.title} ${idx + 1}`}
-                              fill
-                              className={`transition-transform duration-300 group-hover:scale-110 ${item.fit === 'contain' ? 'object-contain bg-slate-50 p-1.5' : 'object-cover'}`}
-                              sizes="150px"
-                            />
-                          ) : (
-                            item.thumbnail ? (
-                              <div className="relative w-full h-full group-hover:scale-105 transition-transform duration-300">
-                                <Image
-                                  src={item.thumbnail}
-                                  alt={item.caption || `${ec.title} video thumbnail`}
-                                  fill
-                                  className="object-cover"
-                                  sizes="150px"
-                                />
-                                <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                                  <svg className="w-8 h-8 text-white opacity-90" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
-                                  </svg>
-                                </div>
-                              </div>
-                            ) : (
-                              <div className="w-full h-full bg-gray-900 flex items-center justify-center group-hover:bg-gray-800 transition-colors">
-                                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                  <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
-                                </svg>
-                              </div>
-                            )
-                          )}
-                          {idx === 2 && ec.media && ec.media.length > 3 && (
-                            <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-white font-semibold">
-                              +{ec.media.length - 3}
-                            </div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                  {/* Media count badge */}
-                  <div className="mt-2 flex items-center gap-2">
-                    <button
-                      onClick={() => openLightbox(ec.media!, 0)}
-                      className="text-sm text-primary-600 hover:text-primary-700 font-medium flex items-center gap-1"
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      View {ec.media.length} {ec.media.length === 1 ? 'item' : 'items'}
-                    </button>
-                  </div>
+
+                    {ec.media[0].type === 'video' && (
+                      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                        <svg className="h-14 w-14 text-white opacity-90 drop-shadow-lg" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                          <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
+                        </svg>
+                      </div>
+                    )}
+
+                    {ec.media.length > 1 && (
+                      <span className="absolute right-3 top-1/2 flex h-12 min-w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/75 px-3 text-sm font-bold text-white shadow-xl backdrop-blur-md transition-transform duration-300 group-hover:scale-105">
+                        +{ec.media.length - 1}
+                      </span>
+                    )}
+                  </button>
                 </div>
               ) : (
                 // No media - an intentional category-led visual treatment.

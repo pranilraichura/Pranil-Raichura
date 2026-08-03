@@ -142,10 +142,21 @@ export default function GalleryGrid({
                 </motion.div>
               )}
 
-              {/* Subtle category hint on hover only - not interactive/filterable. */}
-              <span className="pointer-events-none absolute bottom-2 left-2 hidden rounded bg-black/45 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-white/90 opacity-0 transition-opacity duration-200 group-hover:opacity-100 md:inline">
-                {photo.category}
-              </span>
+              {/* A compact editorial caption on hover. Travel photos lead with
+                  the location; other photos lead with the documented moment. */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden translate-y-2 bg-gradient-to-t from-black/85 via-black/45 to-transparent px-3 pb-3 pt-12 text-left opacity-0 transition-[opacity,transform] duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 md:block">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/65">
+                  {photo.category}
+                </p>
+                <p className="mt-1 text-sm font-semibold leading-tight text-white">
+                  {photo.caption ?? photo.alt}
+                </p>
+                {photo.caption ? (
+                  <p className="mt-1 line-clamp-2 text-[11px] leading-snug text-white/75">
+                    {photo.alt}
+                  </p>
+                ) : null}
+              </div>
             </div>
           </motion.button>
         );

@@ -18,29 +18,60 @@ const navItems = [
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isNavVisible, setIsNavVisible] = useState(true);
   const [activeSection, setActiveSection] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const { isLightboxOpen } = useLightbox();
 
   useEffect(() => {
-    // Only track scroll on home page
-    if (pathname !== "/") return;
-
     let frame = 0;
+    let lastIntentY = window.scrollY;
+
+    const updateScrollState = () => {
+      frame = 0;
+      const nextY = window.scrollY;
+      setIsScrolled((current) => {
+        const next = nextY > 50;
+        return current === next ? current : next;
+      });
+
+      if (mobileMenuOpen || nextY < 28) {
+        setIsNavVisible(true);
+        lastIntentY = nextY;
+        return;
+      }
+
+      const delta = nextY - lastIntentY;
+      if (Math.abs(delta) >= 10) {
+        setIsNavVisible(delta < 0);
+        lastIntentY = nextY;
+      }
+    };
+
+    const handleScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(updateScrollState);
+    };
+
+    setIsNavVisible(true);
+    updateScrollState();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
+  }, [mobileMenuOpen, pathname]);
+
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActiveSection("");
+      return;
+    }
+
     const sectionIds = navItems
       .filter((item) => item.href.startsWith("#"))
       .map((item) => item.href.substring(1));
     const visibleSections = new Set<string>();
-
-    const updateScrolled = () => {
-      frame = 0;
-      const next = window.scrollY > 50;
-      setIsScrolled((current) => (current === next ? current : next));
-    };
-    const handleScroll = () => {
-      if (!frame) frame = window.requestAnimationFrame(updateScrolled);
-    };
 
     const sectionObserver = new IntersectionObserver(
       (entries) => {
@@ -60,12 +91,8 @@ export default function Navigation() {
       if (section) sectionObserver.observe(section);
     });
 
-    updateScrolled();
-    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
-      window.removeEventListener("scroll", handleScroll);
       sectionObserver.disconnect();
-      if (frame) window.cancelAnimationFrame(frame);
     };
   }, [pathname]);
 
@@ -85,10 +112,14 @@ export default function Navigation() {
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-[10000] transition-[background-color,border-color,box-shadow,opacity] duration-300 ${isLightboxOpen
-        ? "bg-transparent pointer-events-none opacity-0"
+      initial={{ y: -100, opacity: 0 }}
+      animate={{
+        y: isLightboxOpen || (!isNavVisible && !mobileMenuOpen) ? "-110%" : 0,
+        opacity: isLightboxOpen ? 0 : 1,
+      }}
+      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      className={`fixed top-0 left-0 right-0 z-[10000] transition-[background-color,border-color,box-shadow] duration-300 ${isLightboxOpen || (!isNavVisible && !mobileMenuOpen)
+        ? "bg-transparent pointer-events-none"
         : (isScrolled || pathname !== "/")
           ? "bg-white/95 shadow-lg border-b border-gray-100"
           : "bg-transparent"

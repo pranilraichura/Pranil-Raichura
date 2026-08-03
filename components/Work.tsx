@@ -47,6 +47,14 @@ const brandStickerTilt: Record<WorkBrand["tone"], string> = {
     slate: "-rotate-[1deg]",
 };
 
+const brandArtworkStyles: Record<string, string> = {
+    MIT: "scale-[1.7] contrast-[1.18] brightness-[1.02]",
+    S: "scale-[1.08]",
+    NASA: "scale-[1.12]",
+    USC: "scale-[2.7]",
+    FF: "scale-[1.12]",
+};
+
 // Beyond Euler leads because the Story section closes on it; the rest follow by weight.
 const featuredOrder = ["ml-structural-engineering", "ai-reasoning-visualization", "meridian"];
 
@@ -93,7 +101,7 @@ function WorkBrandSticker({
             width={256}
             height={128}
             decoding="async"
-            className="h-full w-full object-contain"
+            className={`h-full w-full object-contain transition-transform duration-300 ${brandArtworkStyles[brand.shortLabel] ?? "scale-100"}`}
         />
     ) : (
         <span className="text-[10px] font-black tracking-[-0.02em] leading-none">
@@ -247,7 +255,7 @@ function WorkDetails({ item }: { item: WorkItem }) {
 function FeaturedHeading({ item }: { item: WorkItem }) {
     return (
         <>
-            <div className="flex flex-wrap gap-1.5 mb-3">
+            <div className={`flex flex-wrap gap-1.5 mb-3 ${item.brand ? "pl-20 md:pl-24" : ""}`}>
                 <DomainPills domains={item.domains} />
                 {(item.dates || item.years) && (
                     <span className="px-2.5 py-0.5 rounded-full text-[11px] font-medium border border-slate-200 bg-slate-50 text-slate-500">
@@ -255,7 +263,7 @@ function FeaturedHeading({ item }: { item: WorkItem }) {
                     </span>
                 )}
             </div>
-            <h3 className="font-libre text-2xl md:text-3xl font-bold text-slate-900 leading-tight">
+            <h3 className={`font-libre text-2xl md:text-3xl font-bold text-slate-900 leading-tight ${item.brand ? "mt-2" : ""}`}>
                 {item.title}
             </h3>
             <p className="font-libre text-base text-primary-600 font-medium mt-1.5">
@@ -285,7 +293,7 @@ function FeaturedWithFigure({ item }: { item: WorkItem }) {
             {item.brand && (
                 <WorkBrandSticker
                     brand={item.brand}
-                    className="right-4 top-4 h-12 w-[4.5rem] md:right-5 md:top-5 md:h-14 md:w-20"
+                    className="left-4 top-4 h-12 w-[4.5rem] md:left-5 md:top-5 md:h-14 md:w-20"
                 />
             )}
             <div className="grid grid-cols-1 lg:grid-cols-5">
@@ -326,7 +334,7 @@ function FeaturedTypographic({ item }: { item: WorkItem }) {
             {item.brand && (
                 <WorkBrandSticker
                     brand={item.brand}
-                    className="right-4 top-4 h-12 w-[4.5rem] md:right-5 md:top-5 md:h-14 md:w-20"
+                    className="left-4 top-4 h-12 w-[4.5rem] md:left-5 md:top-5 md:h-14 md:w-20"
                 />
             )}
             <FeaturedHeading item={item} />
@@ -403,7 +411,7 @@ function CondensedRow({ item }: { item: WorkItem }) {
             {item.brand && (
                 <WorkBrandSticker
                     brand={item.brand}
-                    className="-right-2 top-2 h-10 w-14 md:-right-4 md:top-3 md:h-11 md:w-16"
+                    className="left-3 top-2.5 h-10 w-14 md:left-4 md:top-3 md:h-11 md:w-16"
                 />
             )}
             <span
@@ -416,7 +424,7 @@ function CondensedRow({ item }: { item: WorkItem }) {
                 onClick={() => setOpen(!open)}
                 aria-expanded={open}
                 aria-controls={panelId}
-                className={`w-full text-left pl-7 pr-5 flex items-center gap-4 hover:bg-slate-50 transition-all duration-200 ${open ? "pt-6 pb-4 bg-slate-50/70" : "py-4"
+                className={`w-full text-left ${item.brand ? "pl-24 md:pl-28" : "pl-7"} pr-5 flex items-center gap-4 hover:bg-slate-50 transition-all duration-200 ${open ? "pt-6 pb-4 bg-slate-50/70" : "py-4"
                     }`}
             >
                 <div className="flex-1 min-w-0">
