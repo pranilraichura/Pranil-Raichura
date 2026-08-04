@@ -218,15 +218,6 @@ export const galleryPhotos: GalleryPhoto[] = [
     aspectRatio: 1.3333,
   },
   {
-    slug: "cosmos-night-portrait",
-    category: "Programs",
-    thumbSrc: "/gallery/thumb/cosmos-night-portrait.jpg",
-    fullSrc: "/gallery/full/cosmos-night-portrait.jpg",
-    alt: "Two COSMOS students posing together during an evening event",
-    caption: "COSMOS",
-    aspectRatio: 1.1013,
-  },
-  {
     slug: "tech-for-seniors-presentation",
     category: "Programs",
     thumbSrc: "/gallery/thumb/tech-for-seniors-presentation.jpg",
