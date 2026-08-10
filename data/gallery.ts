@@ -494,14 +494,6 @@ export const galleryPhotos: GalleryPhoto[] = [
     aspectRatio: 1.3326,
   },
   {
-    slug: "orchestra-performance",
-    category: "Behind the Scenes",
-    thumbSrc: "/gallery/thumb/orchestra-performance.jpg",
-    fullSrc: "/gallery/full/orchestra-performance.jpg",
-    alt: "Violin section during an orchestra performance",
-    aspectRatio: 0.667,
-  },
-  {
     slug: "dog-at-home",
     category: "Behind the Scenes",
     thumbSrc: "/gallery/thumb/dog-at-home.jpg",
