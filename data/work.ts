@@ -43,7 +43,12 @@ export interface WorkItem {
   recognition?: string;
   highlights?: string[];
   tech?: string[];
-  mentors?: { name: string; affiliation: string; image?: string }[];
+  mentors?: {
+    name: string;
+    affiliation: string;
+    image?: string;
+    credit?: "Mentor" | "Acknowledgment";
+  }[];
   paperTitle?: string;
   preprintLink?: string;
   link?: string;
@@ -178,14 +183,16 @@ export const workItems: WorkItem[] = [
     tech: ["Python", "C#", "Unity", "OpenCV", "Machine Learning"],
     mentors: [
       {
-        name: "NM, M.S.",
-        affiliation: "Stanford University",
-        image: "/nolan_pfp.jpeg",
-      },
-      {
         name: "Dr. NH",
         affiliation: "Harvard Medical School",
         image: "/nouchine_pfp.jpeg",
+        credit: "Mentor",
+      },
+      {
+        name: "NM, M.S.",
+        affiliation: "Stanford University",
+        image: "/nolan_pfp.jpeg",
+        credit: "Acknowledgment",
       },
     ],
     status: "Submitted to JMIR Serious Games",

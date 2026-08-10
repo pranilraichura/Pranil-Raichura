@@ -146,7 +146,9 @@ function WorkDetails({ item }: { item: WorkItem }) {
             {item.mentors && item.mentors.length > 0 && (
                 <div className="mt-4">
                     <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide mb-1.5">
-                        Mentorship
+                        {item.mentors.some((mentor) => mentor.credit === "Acknowledgment")
+                            ? "Mentorship & acknowledgment"
+                            : "Mentorship"}
                     </p>
                     <div className="flex flex-wrap gap-3">
                         {item.mentors.map((mentor) => (
@@ -168,7 +170,9 @@ function WorkDetails({ item }: { item: WorkItem }) {
                                         {mentor.name}
                                     </p>
                                     <p className="text-[11px] text-slate-500 leading-snug">
-                                        {mentor.affiliation}
+                                        {mentor.credit
+                                            ? `${mentor.credit} · ${mentor.affiliation}`
+                                            : mentor.affiliation}
                                     </p>
                                 </div>
                             </div>
