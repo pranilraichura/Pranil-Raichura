@@ -111,6 +111,7 @@ export default function MediaLightbox({ media, isOpen, onClose, initialIndex = 0
                         ) : (
                             <video
                                 src={currentMedia.path}
+                                poster={currentMedia.thumbnail}
                                 controls
                                 autoPlay
                                 playsInline
@@ -181,6 +182,21 @@ export default function MediaLightbox({ media, isOpen, onClose, initialIndex = 0
                                             className="object-cover"
                                             sizes="64px"
                                         />
+                                    ) : item.thumbnail ? (
+                                        <div className="relative h-full w-full bg-gray-700">
+                                            <Image
+                                                src={item.thumbnail}
+                                                alt={`Video thumbnail ${index + 1}`}
+                                                fill
+                                                className="object-cover"
+                                                sizes="64px"
+                                            />
+                                            <span className="absolute inset-0 flex items-center justify-center bg-black/25">
+                                                <svg className="w-6 h-6 text-white drop-shadow-md" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
+                                                </svg>
+                                            </span>
+                                        </div>
                                     ) : (
                                         <div className="w-full h-full bg-gray-700 flex items-center justify-center">
                                             <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">

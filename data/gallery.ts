@@ -297,6 +297,34 @@ export const galleryPhotos: GalleryPhoto[] = [
     caption: "Tech4Silvers x Rotary",
     aspectRatio: 1.3333,
   },
+  {
+    slug: "tech4silvers-community-presentation-2026",
+    category: "Programs",
+    thumbSrc: "/gallery/thumb/tech4silvers-community-presentation-2026.jpg",
+    fullSrc: "/gallery/full/tech4silvers-community-presentation-2026.jpg",
+    alt: "Tech4Silvers student presenters leading a scam-call prevention workshop for older adults",
+    caption: "Tech4Silvers scam-call prevention workshop",
+    featured: true,
+    aspectRatio: 1.3278,
+  },
+  {
+    slug: "tech4silvers-attendee-support-2026",
+    category: "Programs",
+    thumbSrc: "/gallery/thumb/tech4silvers-attendee-support-2026.jpg",
+    fullSrc: "/gallery/full/tech4silvers-attendee-support-2026.jpg",
+    alt: "Tech4Silvers volunteers helping attendees apply scam-prevention settings on their devices",
+    caption: "Hands-on help at Tech4Silvers",
+    aspectRatio: 1.3278,
+  },
+  {
+    slug: "tech4silvers-summer-workshop-team",
+    category: "Programs",
+    thumbSrc: "/gallery/thumb/tech4silvers-summer-workshop-team.jpg",
+    fullSrc: "/gallery/full/tech4silvers-summer-workshop-team.jpg",
+    alt: "The Tech4Silvers summer workshop team standing together in front of the program logo",
+    caption: "Tech4Silvers workshop team",
+    aspectRatio: 1.3278,
+  },
 
   // Travel
   {
