@@ -195,28 +195,24 @@ export default function Tech4SilversShowcase() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#f5f1e8] text-slate-950">
       <header
-        className={`fixed inset-x-0 top-0 z-40 transition-[transform,opacity] duration-500 ease-out ${headerVisible && !lightboxOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}`}
+        className={`fixed inset-x-0 top-0 z-40 border-b border-slate-200/90 bg-white/95 text-slate-900 shadow-sm backdrop-blur-xl transition-[transform,opacity] duration-500 ease-out ${headerVisible && !lightboxOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}`}
       >
-        <div className="mx-auto mt-3 flex w-[calc(100%-1.5rem)] max-w-7xl items-center justify-between rounded-2xl border border-white/20 bg-slate-950/80 px-4 py-3 text-white shadow-2xl backdrop-blur-xl sm:px-5">
+        <div className="flex h-16 w-full items-center justify-between px-5 sm:px-8 lg:h-20 lg:px-10">
           <Link
             href="/"
-            className="group flex items-center gap-3 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300"
+            className="font-libre text-xl font-bold tracking-tight focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-4 md:text-2xl"
           >
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-amber-300 text-slate-950 transition-transform duration-300 group-hover:-translate-x-0.5">
-              <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-            </span>
-            <span>
-              <span className="block font-libre text-sm font-bold leading-none">Tech4Silvers</span>
-              <span className="mt-1 block text-[9px] font-semibold uppercase tracking-[0.18em] text-white/50">
-                Founded by Pranil Raichura
-              </span>
-            </span>
+            Pranil Raichura
           </Link>
 
-          <nav className="hidden items-center gap-6 text-xs font-semibold uppercase tracking-[0.14em] text-white/70 md:flex" aria-label="Tech4Silvers page">
-            <a href="#mission" className="hover:text-amber-300">Mission</a>
-            <a href="#workshops" className="hover:text-amber-300">Workshops</a>
-            <a href="#field-notes" className="hover:text-amber-300">Field notes</a>
+          <div className="hidden text-xs font-semibold uppercase tracking-[0.16em] text-slate-400 sm:block">
+            Tech4Silvers
+          </div>
+
+          <nav className="hidden items-center gap-7 text-sm font-medium text-slate-700 md:flex" aria-label="Tech4Silvers page">
+            <a href="#mission">Mission</a>
+            <a href="#workshops">Workshops</a>
+            <a href="#field-notes">Field notes</a>
           </nav>
         </div>
       </header>
