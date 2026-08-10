@@ -350,10 +350,7 @@ function FeaturedTypographic({ item }: { item: WorkItem }) {
     );
 }
 
-/**
- * Tech4Silvers lives in the Extracurriculars section. This tile points at that card
- * instead of restating its content as a second entry.
- */
+/** Tech4Silvers has a dedicated long-form showcase page. */
 function Tech4SilversTile() {
     const t4s = tech4SilversFeature;
 
@@ -396,8 +393,8 @@ function Tech4SilversTile() {
                         href={t4s.href}
                         className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:text-primary-700 self-start"
                     >
-                        Read the full Tech4Silvers card in Extracurriculars
-                        <span aria-hidden="true">↓</span>
+                        Explore the Tech4Silvers story
+                        <span aria-hidden="true">↗</span>
                     </a>
                 </div>
             </div>

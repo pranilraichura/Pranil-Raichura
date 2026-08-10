@@ -435,5 +435,5 @@ export const tech4SilversFeature = {
     alt: "Pranil and other Tech4Silvers volunteers helping senior-center residents one-on-one with their devices.",
     caption: "Hands-on help at a Tech4Silvers workshop",
   },
-  href: "#ec-tech4silvers",
+  href: "/tech4silvers/",
 };

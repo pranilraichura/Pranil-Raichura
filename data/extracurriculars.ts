@@ -94,6 +94,9 @@ export const extracurriculars: Extracurricular[] = [
     hoursPerWeek: "2-3 hours/week",
     leadership: "Founder & President",
     description: "I started Tech4Silvers after realizing many seniors in our community were missing digital wildfire and emergency alerts. What began as one small workshop is now a student-run organization and GBHS club that partners with senior centers across Sacramento and Northern California. I recruit and train volunteers, design slides and handouts, and lead sessions on smartphones, scams and phishing, online safety, telehealth, and local alert systems. We’ve helped dozens of seniors set up alerts, avoid fraud, and reconnect with family over video calls. Coordinating venues, outreach, and Q&A has turned my interest in tech into a long-term commitment to digital inclusion.",
+    links: [
+      { text: "Explore the Tech4Silvers story", url: "/tech4silvers/" },
+    ],
     media: [
       { type: 'image', path: '/gallery/full/tech4silvers-community-presentation-2026.jpg', thumbnail: '/gallery/thumb/tech4silvers-community-presentation-2026.jpg', caption: 'Leading a scam-call prevention workshop for older adults' },
       { type: 'image', path: '/gallery/full/tech4silvers-attendee-support-2026.jpg', thumbnail: '/gallery/thumb/tech4silvers-attendee-support-2026.jpg', caption: 'Helping attendees apply the workshop lessons to their own devices' },
@@ -106,6 +109,9 @@ export const extracurriculars: Extracurricular[] = [
       { type: 'image', path: '/gallery/full/tech4silvers-community-seminar.jpg', thumbnail: '/gallery/thumb/tech4silvers-community-seminar.jpg', caption: 'A community cybersecurity seminar' },
       { type: 'image', path: '/gallery/full/tech4silvers-guided-help.jpg', thumbnail: '/gallery/thumb/tech4silvers-guided-help.jpg', caption: 'Working through a device question together' },
       { type: 'image', path: '/gallery/full/tech4silvers-rotary-workshop.jpg', thumbnail: '/gallery/thumb/tech4silvers-rotary-workshop.jpg', caption: 'Tech4Silvers with the Rotary E-Club of Silicon Valley' },
+      { type: 'image', path: '/t4s_1.JPG', caption: 'Explaining local emergency alerts at a senior-center workshop' },
+      { type: 'image', path: '/t4s_2.JPG', caption: 'A senior-center workshop in progress' },
+      { type: 'image', path: '/t4s_workshop.JPG', caption: 'Helping participants one-on-one after a workshop' },
     ],
   },
   {

@@ -269,8 +269,8 @@ export default function Extracurriculars() {
                             <a
                               key={idx}
                               href={link.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
+                              target={link.url.startsWith("http") ? "_blank" : undefined}
+                              rel={link.url.startsWith("http") ? "noopener noreferrer" : undefined}
                               className="text-primary-600 hover:text-primary-700 text-sm block"
                               onClick={(e) => e.stopPropagation()}
                             >
