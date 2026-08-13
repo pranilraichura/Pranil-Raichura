@@ -19,6 +19,20 @@ const libreBaskerville = Libre_Baskerville({
 export const metadata: Metadata = {
   title: "Pranil Raichura's Website",
   description: "Interactive portfolio showcasing academic achievements, research projects, and extracurriculars",
+  robots: {
+    index: false,
+    follow: false,
+    noarchive: true,
+    nosnippet: true,
+    noimageindex: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noarchive: true,
+      nosnippet: true,
+      noimageindex: true,
+    },
+  },
   icons: {
     icon: '/favicon.png',
     shortcut: '/favicon.png',
