@@ -20,7 +20,7 @@ export const awards: Award[] = [
     title: "Gold, USA Computing Olympiad",
     category: "Competition",
     year: "9th, 10th, 11th Grade",
-    description: "Exceeded the Platinum-division cutoff score (top 1%); not promoted due to a contest scheduling/time-window rule."
+    description: "Qualified for the USACO Gold Division."
   },
   {
     id: "hpe-codewars",

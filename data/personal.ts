@@ -4,16 +4,16 @@ export const personalInfo = {
   school: "Granite Bay High School",
   about: {
     service: "Service has required me to speak up even when I am nervous. I have led technology workshops for seniors and presented the results of our clothing drive at Rancho Cordova City Hall. Those experiences taught me that community work depends on showing up, organizing the details, and explaining why the work matters.",
-    techPassion: "I have been curious about technology for as long as I can remember, from the cockpit systems on an A320 to the differences between Android and iOS. I started programming in fall 2021 and have since worked with Python, JavaScript, HTML/CSS, and C#. Python is my main focus, especially for algorithms, networking, and data processing.",
-    goals: "My high school goals include reaching the Platinum Division in the USA Computing Olympiad, doing well in school, and making time for friends. I also want to complete a serious game designed to support the behavioral and emotional needs of children with ASD and publish the related research.",
+    techPassion: "My recent work has pulled me toward AI and machine learning, especially questions about how we evaluate intelligent systems and who those systems work well for. I have explored behavioral consistency in AI agents, fairer AI-text detection, and computer-vision support for a serious game. What interests me most is moving between research and building: defining a useful question, testing it with real data, and turning the result into something people can use.",
+    goals: "Right now, I am focused on becoming a stronger researcher and builder. I want to finish and publish the projects already underway, keep developing more rigorous ways to evaluate AI systems, and continue building technology for health, education, and civic access. I also want to stay open to new collaborators and problems instead of forcing everything into one narrow path.",
   },
   hobbies: [
     "Playing volleyball recreationally with friends",
-    "Playing violin",
+    "Playing piano",
     "Watching anime and TV shows",
-    "Playing console games with friends",
-    "Photography and fashion content on Instagram (1.5k+ followers)",
-    "Shopping",
+    "Hanging out with friends",
+    "Fashion content on Instagram (1.5k+ followers)",
+    "Clothes shopping",
   ],
   instagramFollowers: "1.5k+",
   socials: {
