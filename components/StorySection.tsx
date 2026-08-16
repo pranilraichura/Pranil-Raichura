@@ -23,12 +23,12 @@ interface TimelineEvent {
 
 const timelineEvents: TimelineEvent[] = [
     {
-        id: "glass-box",
-        title: "The Glass Box",
+        id: "the-shirt",
+        title: "The Shirt I Didn’t Earn",
         content: [
-            "Fifth grade. I’m standing inside a glass-walled squash court. The air smells like rubber soles and expensive cologne. My parents are watching from the gallery. My coach is watching with his arms crossed. And I am freezing.",
-            "I’m not thinking about the game. I’m thinking: “If I miss this shot, they’ll all know I’m a fraud.”",
-            "I lost. I ran to the locker room, locked the stall, and sat on the cold tile for twenty minutes. I didn't want to win; I just wanted to survive the gaze. That was my relationship with pressure: a spotlight I wanted to smash.",
+            "For years, I treated effort like a contract: work hard enough and the result would follow.",
+            "I carried that certainty through six months of squash training, expecting to earn the Gold Division shirt at the end. Then I lost the match that would have earned it.",
+            "After that loss, pressure became physical. My palms began to sweat before courts, podiums, and classrooms where the outcome might reveal something about me.",
         ],
         media: {
             type: 'image',
@@ -39,81 +39,73 @@ const timelineEvents: TimelineEvent[] = [
         }
     },
     {
-        id: "the-whiff",
-        title: "The Whiff",
+        id: "nowhere-to-hide",
+        title: "Nowhere Left to Hide",
         content: [
-            "The same freeze followed me from the squash court onto the volleyball court, just with more people watching.",
-            "High school volleyball nationals. Orlando Convention Center. The noise is a deafening roar of 500 whistles blowing at once. I’m standing on the court, knees bent, waiting for the serve.",
-            "I’m not thinking 'I got this.' I’m thinking: “Please don't hit it to me. Please, God, don't let the ball come to me.”",
-            "The serve comes. It floats right to my platform. I swing, and completely whiff. The ball hits the floor behind me. My teammate taps my shoulder, but the silence in my head is louder than the crowd. I wanted to dissolve into the hardwood. I wasn't playing to compete; I was playing not to lose.",
+            "At UC Irvine’s GSET program, every team had to present. I memorized my part and waited under the stage lights while a teammate spoke first.",
+            "My rehearsed words flowed until they did not. I forgot a section, stumbled through the rest, and sat down convinced that preparation should have guaranteed control.",
+            "I had done the work. Still, the outcome I expected never arrived.",
         ],
         media: {
             type: 'image',
-            path: '/bench.jpg',
-            caption: 'The Reserve Bench',
-            width: 750,
-            height: 790,
+            path: '/extracurriculars/uci_gati/pic1_new.jpg',
+            caption: 'UCI GSET closing ceremony',
+            width: 1205,
+            height: 1600,
         }
     },
     {
-        id: "3am-hum",
-        title: "The 3 AM Hum",
+        id: "control",
+        title: "What I Could Control",
         content: [
-            "It took years before I found a place where that fear didn't show up at all.",
-            "Junior year. 3 AM on a Tuesday. My room is dark except for the harsh blue glow of VS Code. No audience. No scoreboard. No parents. Just the hum of my laptop fan.",
-            "I'm debugging a breathing detection algorithm for a friend with ASD. I hit 'Run'. The green box tracks my chest movement with surgical precision.",
-            "The result worked. Solving a real problem felt different from performing for an audience because I could focus entirely on the work in front of me.",
+            "On the ride to the airport, my mom asked a simple question: what did I expect to happen? It brought back an idea I had heard at spiritual gatherings since childhood: I was responsible for my actions, not entitled to their results.",
+            "At first, that sounded like an argument against ambition. Eventually, I understood the distinction. Aspiration asks me to prepare fully. Attachment says the work is worthless unless it produces the exact result I imagined.",
+            "My preparation, choices, and response afterward were mine. The score, applause, and final outcome never fully were.",
         ],
         media: {
             type: 'image',
             path: '/3am_hum.jpg',
-            caption: 'Late Night Coding',
+            caption: 'Focusing on the work in front of me',
             width: 1324,
             height: 1600,
         }
     },
     {
-        id: "orange-skies",
-        title: "Orange Skies Day",
+        id: "practice-in-public",
+        title: "Practice in Public",
         content: [
-            "Soon after, a wildfire emergency showed me where technical work could help other people.",
-            "The smoke from the wildfires spread orange light across the horizon. We called it ‘Orange Skies Day.’ I was younger then, but I remember my neighbor clearly: a widower in his seventies, always out in his yard, reclusive but present.",
-            "As the smoke rose, it became clear he had no idea an evacuation order existed. The alerts were all digital, and he, like a lot of seniors in our community, had never set them up.",
-            "We walked over and knocked on his door because he needed the warning immediately. I realized that technology can leave people behind when no one shows them how to use it.",
-            "That experience led me to start Tech4Silvers.",
+            "I tested that idea at a Tech4Silvers session in front of a hall of older adults. My palms dampened around the microphone, but I delivered the workshop and stayed for every question.",
+            "Afterward, I sat beside participants as they worked through unfamiliar settings on their phones and laptops. Their hands were tense too.",
+            "Standing up was no longer a test of whether I could eliminate fear. It was a choice to remain useful while feeling it.",
         ],
         media: {
             type: 'image',
-            path: '/gallery/full/tech4silvers-hands-on.jpg',
-            caption: 'Hands-on help at a Tech4Silvers workshop',
+            path: '/gallery/full/tech4silvers-community-presentation-2026.jpg',
+            caption: 'Leading a Tech4Silvers workshop',
             width: 1920,
-            height: 1080,
+            height: 1446,
         }
     },
     {
-        id: "the-arena",
-        title: "The Arena",
+        id: "the-next-point",
+        title: "The Next Point",
         content: [
-            "The sense of purpose I found in helping others eventually changed how I faced my own failures.",
-            "Present day. I'm about to resubmit our 'Beyond Euler' research paper. The first version got rejected everywhere, inflated results from a cross-validation mistake I didn't catch. I rebuilt the entire analysis from scratch.",
-            "The deadline is in 5 minutes. My heart is hammering, the same physical feeling as the squash court.",
-            "But this time, I'm not looking for an exit. I'm grinning. The results are honest now. The paper is better because it failed first.",
-            "I type the final sentence. Click.",
-            "I can now work through pressure without looking for an exit. I still feel nervous, but I know how to keep going and focus on the work in front of me.",
+            "During a volleyball timeout, I once noticed a teammate’s hand shaking just before he was subbed in. I recognized the feeling immediately.",
+            "Instead of reading the tremor as weakness, I saw how much the moment mattered to him. I encouraged him, and we returned to the court for the next point.",
+            "My palms still dampen before games and presentations. They just do not decide whether I step forward anymore.",
         ],
         media: {
-            type: 'video',
-            path: '/pranil_city_speech.mp4',
-            caption: 'Speaking with confidence',
-            width: 1920,
-            height: 1080,
+            type: 'image',
+            path: '/gallery/full/granite-bay-spike.jpg',
+            caption: 'Competing for Granite Bay',
+            width: 1317,
+            height: 1920,
         }
     },
 ];
 
-// The story runs cold to warm: a frozen kid in a glass box, then orange wildfire light,
-// then the arena. The section's lighting and the timeline rail follow that same arc as
-// the reader descends, so the page warms up at the pace they're actually reading.
+// The story runs from outcome-focused certainty to a steadier sense of agency.
+// The section lighting and timeline rail warm as that distinction becomes clearer.
 const beatColors = ["#475569", "#57534e", "#78716c", "#d97706", "#ea580c"];
 
 export default function StorySection() {
@@ -504,7 +496,7 @@ export default function StorySection() {
                     ></div>
                     <div className="relative bg-white/85 backdrop-blur-md rounded-2xl p-8 shadow-xl shadow-slate-900/10 border border-slate-200/60">
                         <p className="text-xl text-slate-800 font-medium leading-relaxed font-libre">
-                            Looking back, the progression is clear. I spent years fearing the spotlight and trying to avoid failure. I had to learn how to find calm in solitary problem-solving before I could realize that those same instincts could serve my community. Today, I don&apos;t just tolerate pressure. I actively choose to step into the arena.
+                            I used to think confidence meant knowing I would win. Now it means being willing to act before I know how the story ends. I can master my preparation, choices, and response without pretending to master the outcome. That difference has made me more ambitious, not less.
                         </p>
                         <div className="mt-6">
                             <Link href="/story" className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors">
@@ -524,13 +516,13 @@ export default function StorySection() {
                 className="relative z-10 text-center mt-12 pb-12 max-w-7xl mx-auto"
             >
                 <p className="text-slate-600 text-lg">
-                    That mindset now shows up in projects like{" "}
+                    That mindset now shapes how I approach{" "}
                     <Link href="#work" className="text-slate-800 font-semibold hover:underline">
-                        Beyond Euler
+                        research setbacks
                     </Link>{" "}
                     and{" "}
                     <Link href="#extracurriculars" className="text-slate-800 font-semibold hover:underline">
-                        Tech4Silvers
+                        service and competition
                     </Link>.
                 </p>
             </motion.div>

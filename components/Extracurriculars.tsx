@@ -1,11 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
   BrainCircuit,
+  ChevronDown,
   Code2,
   HandHeart,
   Landmark,
@@ -29,6 +30,15 @@ const categoryIcons = {
   Music: Music2,
   Leadership: Landmark,
 } as const;
+
+const categoryAccents: Record<string, string> = {
+  Research: "from-purple-500 to-violet-400",
+  Sports: "from-emerald-500 to-green-400",
+  Service: "from-blue-500 to-cyan-400",
+  Tech: "from-indigo-500 to-blue-400",
+  Music: "from-pink-500 to-rose-400",
+  Leadership: "from-amber-500 to-yellow-400",
+};
 
 export default function Extracurriculars() {
   const [selectedCategory, setSelectedCategory] = useState<Category>("All");
@@ -115,23 +125,34 @@ export default function Extracurriculars() {
 
         <ScrollRevealGroup
           dependencyKey={selectedCategory}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-7 lg:gap-8"
           stagger={0.075}
         >
-          {filteredExtracurriculars.map((ec) => (
+          {filteredExtracurriculars.map((ec) => {
+            const isExpanded = expandedId === ec.id;
+            const visibleHighlights = ec.achievements?.slice(0, 2) ?? [];
+            const remainingHighlights = ec.achievements?.slice(2) ?? [];
+            const hasExpandableContent =
+              ec.description.length > 360 || remainingHighlights.length > 0 || Boolean(ec.links?.length);
+
+            return (
             <div key={ec.id} data-reveal-item className="h-full">
               <motion.article
                 id={`ec-${ec.id}`}
-                whileHover={{ scale: 1.015, y: -5 }}
-                transition={{ duration: 0.24 }}
-                className="bg-white rounded-xl p-6 shadow-lg border border-gray-200 overflow-hidden scroll-mt-28 h-full"
+                whileHover={{ scale: 1.012, y: -7 }}
+                transition={{ duration: 0.22, ease: "easeOut" }}
+                className="group/card relative flex h-full scroll-mt-28 flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-6 shadow-[0_14px_38px_rgba(15,23,42,0.09)] transition-shadow duration-300 hover:shadow-[0_22px_52px_rgba(15,23,42,0.15)] sm:p-7"
               >
+              <div
+                aria-hidden="true"
+                className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${categoryAccents[ec.category] || "from-slate-500 to-slate-300"}`}
+              />
               {/* Media Preview */}
               {ec.media && ec.media.length > 0 ? (
-                <div className="mb-4">
+                <div className="mb-6">
                   <button
                     type="button"
-                    className="group relative block h-48 w-full overflow-hidden rounded-lg bg-slate-950 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+                    className="group relative block h-56 w-full overflow-hidden rounded-xl bg-slate-950 text-left shadow-inner focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 sm:h-64"
                     onClick={() => openLightbox(ec.media!, 0)}
                     aria-label={`Open ${ec.title} ${ec.media.length > 1 ? `gallery with ${ec.media.length} items` : "media"}`}
                   >
@@ -141,7 +162,7 @@ export default function Extracurriculars() {
                         alt={ec.media[0].caption || ec.title}
                         fill
                         className={`transition-transform duration-500 ease-out group-hover:scale-[1.035] ${ec.media[0].fit === 'contain' ? 'object-contain bg-slate-50 p-2' : 'object-cover'}`}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     ) : ec.media[0].thumbnail ? (
                       <Image
@@ -149,7 +170,7 @@ export default function Extracurriculars() {
                         alt={ec.media[0].caption || ec.title}
                         fill
                         className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.035]"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     ) : (
                       <div className="absolute inset-0 bg-slate-950" />
@@ -178,7 +199,7 @@ export default function Extracurriculars() {
                 </div>
               ) : (
                 // No media - an intentional category-led visual treatment.
-                <div className="relative w-full h-40 mb-4 rounded-lg overflow-hidden bg-slate-950 border border-slate-800 flex flex-col items-center justify-center text-center px-5">
+                <div className="relative mb-6 flex h-56 w-full flex-col items-center justify-center overflow-hidden rounded-xl border border-slate-800 bg-slate-950 px-5 text-center sm:h-64">
                   <div
                     aria-hidden="true"
                     className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.34),transparent_35%),radial-gradient(circle_at_80%_75%,rgba(249,115,22,0.28),transparent_36%)]"
@@ -207,10 +228,10 @@ export default function Extracurriculars() {
                 </div>
               )}
 
-              <div className="flex items-start justify-between mb-3">
-                <h3 className="text-xl font-bold text-gray-900 flex-1">{ec.title}</h3>
+              <div className="mb-3 flex items-start justify-between gap-4">
+                <h3 className="flex-1 font-libre text-2xl font-bold leading-tight text-gray-900">{ec.title}</h3>
                 <span
-                  className={`px-3 py-1 rounded-full text-xs font-medium border ${categoryColors[ec.category] || "bg-gray-100 text-gray-700"
+                  className={`shrink-0 rounded-full border px-3 py-1 text-xs font-medium ${categoryColors[ec.category] || "bg-gray-100 text-gray-700"
                     }`}
                 >
                   {ec.category}
@@ -218,53 +239,63 @@ export default function Extracurriculars() {
               </div>
 
               {(ec.years || ec.hoursPerWeek || ec.leadership) && (
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {ec.years && <span className="text-sm text-gray-600">{ec.years}</span>}
+                <div className="mb-4 flex flex-wrap gap-2">
+                  {ec.years && <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">{ec.years}</span>}
                   {ec.hoursPerWeek && (
-                    <span className="text-sm text-gray-500">
-                      {ec.years ? "• " : ""}{ec.hoursPerWeek}
+                    <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
+                      {ec.hoursPerWeek}
                     </span>
                   )}
                   {ec.leadership && (
-                    <span className="text-sm font-semibold text-primary-600">
-                      {ec.years || ec.hoursPerWeek ? "• " : ""}{ec.leadership}
+                    <span className="rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-700">
+                      {ec.leadership}
                     </span>
                   )}
                 </div>
               )}
 
-              <p className={`text-gray-700 text-sm mb-4 ${expandedId === ec.id ? "" : "line-clamp-3"}`}>
+              <p
+                id={`ec-description-${ec.id}`}
+                className={`mb-5 text-[15px] leading-6 text-slate-700 ${isExpanded ? "" : "line-clamp-6"}`}
+              >
                 {ec.description}
               </p>
 
-              {ec.detailPage && (
-                <Link
-                  href={ec.detailPage.href}
-                  className="mb-2 inline-flex items-center gap-2 rounded-full bg-slate-950 px-4 py-2 text-xs font-semibold text-white shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:bg-primary-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
-                >
-                  {ec.detailPage.label}
-                  <span aria-hidden="true">↗</span>
-                </Link>
+              {visibleHighlights.length > 0 && (
+                <div className="mb-5 rounded-xl border border-slate-200 bg-slate-50/80 p-4">
+                  <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500">
+                    At a glance
+                  </p>
+                  <ul className="space-y-2">
+                    {visibleHighlights.map((achievement) => (
+                      <li key={achievement} className="flex gap-2 text-sm leading-5 text-slate-700">
+                        <span aria-hidden="true" className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-primary-500" />
+                        <span>{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               )}
 
               {/* Expandable section */}
-              <div
-                className="cursor-pointer"
-                onClick={() => setExpandedId(expandedId === ec.id ? null : ec.id)}
-              >
-                {expandedId === ec.id && (
+              <div className="mt-auto">
+                <AnimatePresence initial={false}>
+                {isExpanded && (remainingHighlights.length > 0 || Boolean(ec.links?.length)) && (
                   <motion.div
+                    id={`ec-details-${ec.id}`}
+                    role="region"
+                    aria-label={`${ec.title} details`}
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
-                    className="mt-4 pt-4 border-t border-gray-200"
+                    className="overflow-hidden border-t border-gray-200 pt-4"
                   >
-                    {ec.achievements && ec.achievements.length > 0 && (
+                    {remainingHighlights.length > 0 && (
                       <div className="mb-4">
-                        <h4 className="font-semibold text-gray-800 mb-2">Achievements:</h4>
-                        <ul className="list-disc list-inside space-y-1">
-                          {ec.achievements.map((achievement, idx) => (
-                            <li key={idx} className="text-sm text-gray-700">
+                        <h4 className="mb-2 font-semibold text-gray-800">More highlights</h4>
+                        <ul className="list-inside list-disc space-y-1">
+                          {remainingHighlights.map((achievement) => (
+                            <li key={achievement} className="text-sm text-gray-700">
                               {achievement}
                             </li>
                           ))}
@@ -273,7 +304,7 @@ export default function Extracurriculars() {
                     )}
                     {ec.links && ec.links.length > 0 && (
                       <div>
-                        <h4 className="font-semibold text-gray-800 mb-2">Links:</h4>
+                        <h4 className="mb-2 font-semibold text-gray-800">Links</h4>
                         <div className="space-y-1">
                           {ec.links.map((link, idx) => (
                             <a
@@ -292,14 +323,40 @@ export default function Extracurriculars() {
                     )}
                   </motion.div>
                 )}
+                </AnimatePresence>
 
-                <div className="text-primary-600 text-sm font-medium mt-4">
-                  {expandedId === ec.id ? "Click to collapse" : "Click to expand"}
+                <div className="mt-4 flex flex-wrap items-center gap-3 border-t border-slate-100 pt-4">
+                  {ec.detailPage && (
+                    <Link
+                      href={ec.detailPage.href}
+                      className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:bg-primary-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+                    >
+                      {ec.detailPage.label}
+                      <span aria-hidden="true">↗</span>
+                    </Link>
+                  )}
+
+                  {hasExpandableContent && (
+                    <button
+                      type="button"
+                      onClick={() => setExpandedId(isExpanded ? null : ec.id)}
+                      aria-expanded={isExpanded}
+                      aria-controls={`ec-description-${ec.id}`}
+                      className="inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-semibold text-primary-700 transition-colors hover:bg-primary-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+                    >
+                      {isExpanded ? "Show less" : "Read full entry"}
+                      <ChevronDown
+                        aria-hidden="true"
+                        className={`h-4 w-4 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                  )}
                 </div>
               </div>
               </motion.article>
             </div>
-          ))}
+          );
+          })}
         </ScrollRevealGroup>
       </div>
 

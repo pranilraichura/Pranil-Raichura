@@ -14,85 +14,72 @@ interface TimelineEvent {
 const timelineEvents: TimelineEvent[] = [
     {
         id: "intro",
-        title: "Understanding Pressure",
+        title: "What I Thought Mastery Meant",
         phase: "Beginning",
         content: [
-            "Pressure has been a constant presence in my life, even before I understood what to call it.",
-            "For a long time, I believed that I simply lacked the 'talent' to handle pressure, that I was inherently too anxious, too self-conscious, and too afraid of failure.",
+            "For most of my childhood, I believed effort and outcomes followed a simple formula. If I worked hard enough, success would arrive.",
+            "That belief made me disciplined, but it also made every result feel like a verdict. When the formula stopped working, I did not know how to separate a failed outcome from a failed self.",
         ],
     },
     {
         id: "squash",
-        title: "The Squash Tournament",
+        title: "The Shirt I Didn’t Earn",
         phase: "Fifth Grade",
-        year: "First Challenge",
+        year: "The first rupture",
         content: [
-            "In fifth grade, my parents enrolled me in squash at the Bay Club in Santa Clara. Squash wasn't a passion I had discovered on my own; my parents noticed that a family friend's son was excelling in the sport and winning national awards, and they hoped I could follow a similar path.",
-            "On the morning of my first tournament, my mom told me, 'Don't worry about the outcome, just do your best.' I walked onto the court expecting to win. I knew my opponent, Samyak, from practice and believed I was better than him.",
-            "But as the match began, I started losing, point by point, game by game, while a crowd watched from behind the glass wall. When it was over, I ran to the bathroom and cried for twenty minutes, too embarrassed to come out.",
-            "That loss convinced me that maybe I was not someone who could perform under pressure.",
+            "I trained for six months expecting to earn a Squash Gold Division shirt. To me, it was not simply a shirt. It was the promised return on every practice and every hour I had invested.",
+            "Then I lost the match that would have earned it. The effort was real, but the result I had treated as inevitable never came.",
+            "That was the first time I remember pressure becoming physical. My palms began to sweat before situations where other people could watch me fall short.",
         ],
     },
     {
-        id: "volleyball-start",
-        title: "A Fresh Start: Volleyball",
-        phase: "Middle School",
+        id: "avoidance",
+        title: "A Smaller and Smaller Stage",
+        phase: "The pattern",
         content: [
-            "Soon after, I quit squash and transitioned to volleyball, inspired by my best friend who played competitively. I convinced myself that a team sport would 'split' the pressure among teammates.",
-            "In middle school, that illusion held. Everyone was still learning; winning and losing felt inconsequential, and the atmosphere was light.",
-        ],
-    },
-    {
-        id: "club-volleyball",
-        title: "Joining Competitive Volleyball",
-        phase: "High School",
-        year: "The Pressure Returns",
-        content: [
-            "When I joined one of the Bay Area's most prestigious volleyball clubs on their 12s team, I discovered that volleyball carried its own intense pressure.",
-            "Suddenly, tournaments meant traveling to Los Angeles, staying in hotels, and spending entire days in massive convention centers filled with hundreds of courts, squeaking shoes, and constant shouting.",
-            "The first time my coach put me on the court, I felt fine until I made my first mistake. In that instant, I felt the same shame I had felt in that Bay Club bathroom.",
-            "I slowly stopped playing to improve; instead, I played to avoid letting others down. At 6'4\", people looked at me and assumed I must be a dominant athlete. Ironically, I began to feel safer on the bench than on the court.",
+            "The sweating itself was manageable. What followed mattered more: I began steering away from courts, podiums, and the front of classrooms whenever the outcome felt uncertain.",
+            "Avoidance protected me from visible failure, but it also quietly removed every chance to discover that I could survive it.",
         ],
     },
     {
         id: "gset",
-        title: "The GSET Presentation",
-        phase: "Summer Program",
-        year: "A Flashbulb Memory",
+        title: "Nowhere Left to Hide",
+        phase: "UCI GSET",
+        year: "Presentation day",
         content: [
-            "I expected academics to be different, but the same pattern emerged. One of my clearest memories comes from the final day of presentations at the UCI × GATI Game Science, Entertainment, and Technology (GSET) program.",
-            "I had left Volleyball Nationals in Orlando early to attend this summer research program, which only raised the stakes in my mind.",
-            "When it was my turn to present with my team, I walked on stage and completely forgot my lines. The auditorium blurred. The crowd tried to encourage me with applause, but I stood there, embarrassed, beside teammates who had every reason to be disappointed.",
-            "In a cohort of driven students, I felt like the only one who had crumbled under pressure.",
+            "At UC Irvine’s GSET program, every team had to present. I memorized my section and repeated it internally while a teammate spoke first.",
+            "When my turn came, the words flowed until they did not. I forgot part of the script, stumbled through the rest, and sat down believing I had wasted all the preparation that came before it.",
+            "On the ride to the airport, my mom asked what I had expected to happen. I had no answer, but the question stayed with me.",
         ],
     },
     {
         id: "reframe",
-        title: "Reframing the Experience",
-        phase: "Growth",
+        title: "Two Kinds of Control",
+        phase: "Reframing",
         content: [
-            "Experiences like these forced me to confront a difficult truth: pressure is not something I can escape by changing environments, activities, or roles.",
-            "I have started treating these experiences as chances to practice responding to pressure instead of evidence that I cannot handle it.",
-            "In sports, that has meant asking for feedback, accepting playing time even when I'm nervous, and allowing myself to make, and learn from, mistakes in front of others.",
-            "Academically, it has meant volunteering to present, pursuing rigorous programs, and reminding myself that my worth is not defined by a single performance, however public.",
+            "My mom’s question brought back a principle from the Bhagavad Gita that I had heard at spiritual gatherings since childhood: I was responsible for doing the work, but not entitled to its fruits.",
+            "I once heard that as indifference. Now I understand it as a boundary. Aspiration asks me to prepare seriously; attachment insists that the work only counts if reality returns the exact outcome I imagined.",
+            "I could master my preparation, choices, and response without pretending to master the score, applause, or result.",
         ],
     },
     {
-        id: "transformation",
-        title: "Becoming Different",
-        phase: "Present Day",
+        id: "tech4silvers",
+        title: "Practice in Public",
+        phase: "Tech4Silvers",
         content: [
-            "Friends from the Bay Area sometimes tell me I seem like a 'completely different person' now. On the outside, I may look transformed, but internally I am still the same person learning to live with, and grow through, pressure rather than run from it.",
-            "I cannot eliminate pressure. My goal is to build the confidence to work through it.",
+            "At a Tech4Silvers workshop, my palms dampened around the microphone in front of a hall of older adults. I delivered the session anyway, then stayed to answer every question.",
+            "While helping participants use their devices afterward, I noticed how tightly some of them held their phones and laptops. They were uncertain too, but they had shown up to learn.",
+            "The goal was no longer to prove that I felt no fear. It was to remain useful while feeling it.",
         ],
     },
     {
-        id: "future",
-        title: "Looking Forward",
-        phase: "The Goal",
+        id: "volleyball",
+        title: "The Next Point",
+        phase: "Volleyball",
         content: [
-            "One day, I hope to test that growth on one of the most intimidating stages of all: delivering my school's valedictorian speech.",
-            "If I earn that honor, I know the pressure will be immense. I hope I can step up to the podium, take a breath, and speak clearly even while I feel it.",
+            "During a volleyball timeout, I noticed a teammate’s hand shaking just before he was subbed in. I recognized the feeling, encouraged him, and watched him step onto the court.",
+            "The tremor did not mean he was unprepared. It showed that the moment mattered to him.",
+            "My palms still dampen before games and presentations. They just do not cool me away anymore. Confidence now means acting fully before I know how the story will end.",
         ],
     },
 ];
@@ -115,7 +102,7 @@ export default function StoryTimeline() {
                     </h1>
                     <div className="w-24 h-1 bg-primary-600 mx-auto mb-6"></div>
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                        How I learned to handle pressure instead of avoiding it.
+                        How I learned to own my choices without trying to own every outcome.
                         <br/><span className="text-sm font-medium text-slate-500 mt-2 block">(This is the extended version of the story featured on the homepage.)</span>
                     </p>
                 </motion.div>
@@ -212,10 +199,10 @@ export default function StoryTimeline() {
                 >
                     <div className="inline-block px-8 py-6 rounded-2xl bg-gradient-to-br from-primary-50 to-accent-orange/10 border-2 border-primary-200 shadow-xl">
                         <p className="text-2xl font-semibold text-gray-800 mb-2">
-                            More to come.
+                            The outcome is still uncertain.
                         </p>
                         <p className="text-gray-600">
-                            I am still learning how to work through pressure.
+                            I am learning to step forward anyway.
                         </p>
                     </div>
                 </motion.div>
