@@ -374,7 +374,7 @@ export default function Hero() {
                             </li>
                             <li className="flex items-start gap-2">
                                 <span className="text-slate-500 mt-0.5">•</span>
-                                <span className="leading-relaxed"><strong>Leadership & Athletics:</strong> President of Competitive Programming Club, elected GBHS Student Senator, JKYog Bay Area Youth Co-Coordinator, NHS Sergeant at Arms, UN GYEL participant, USAV national-level volleyball</span>
+                                <span className="leading-relaxed"><strong>Leadership & Athletics:</strong> President of Competitive Programming Club, elected GBHS Student Senator, NHS Sergeant at Arms, UN GYEL participant, USAV national-level volleyball</span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <span className="text-slate-500 mt-0.5">•</span>

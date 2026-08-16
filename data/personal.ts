@@ -24,12 +24,14 @@ export const personalInfo = {
   },
 };
 
-export const leadershipPositions = [
-  {
-    title: "Bay Area Youth Co-Coordinator",
-    organization: "JKYog",
-    type: "501(c)(3) non-profit organization",
-  },
+interface LeadershipPosition {
+  title: string;
+  organization: string;
+  type?: string;
+  description?: string;
+}
+
+export const leadershipPositions: LeadershipPosition[] = [
   {
     title: "President",
     organization: "Competitive Programming Club at GBHS",

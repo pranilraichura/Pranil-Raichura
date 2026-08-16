@@ -61,14 +61,6 @@ export const extracurriculars: Extracurricular[] = [
     ],
   },
   {
-    // TODO: confirm with Pranil - grade range, time commitment, and specific responsibilities are not in any source data.
-    id: "jkyog",
-    title: "JKYog",
-    category: "Leadership",
-    leadership: "Bay Area Youth Co-Coordinator",
-    description: "I serve as one of the Bay Area Youth Co-Coordinators for JKYog, a 501(c)(3) nonprofit, helping coordinate youth engagement across the region.",
-  },
-  {
     id: "usaco-coding",
     title: "USACO & Coding Hackathons",
     years: "9th, 10th, 11th Grade",
@@ -100,10 +92,8 @@ export const extracurriculars: Extracurricular[] = [
     category: "Service",
     hoursPerWeek: "2-3 hours/week",
     leadership: "Founder & President",
+    detailPage: { href: "/tech4silvers/", label: "Explore the Tech4Silvers story" },
     description: "I started Tech4Silvers after realizing many seniors in our community were missing digital wildfire and emergency alerts. It started with one workshop and has grown into a student-run organization and GBHS club that partners with senior centers across Sacramento and Northern California. I recruit and train volunteers, design slides and handouts, and lead sessions on smartphones, scams and phishing, online safety, telehealth, and local alert systems. We’ve helped dozens of seniors set up alerts, avoid fraud, and reconnect with family over video calls. The work has taught me how to organize community programs around practical needs.",
-    links: [
-      { text: "Explore the Tech4Silvers story", url: "/tech4silvers/" },
-    ],
     media: [
       { type: 'image', path: '/gallery/full/tech4silvers-community-presentation-2026.jpg', thumbnail: '/gallery/thumb/tech4silvers-community-presentation-2026.jpg', caption: 'Leading a scam-call prevention workshop for older adults' },
       { type: 'image', path: '/gallery/full/tech4silvers-attendee-support-2026.jpg', thumbnail: '/gallery/thumb/tech4silvers-attendee-support-2026.jpg', caption: 'Helping attendees apply the workshop lessons to their own devices' },
@@ -172,12 +162,12 @@ export const extracurriculars: Extracurricular[] = [
     ],
   },
   {
-    id: "national-volleyball",
-    title: "National Volleyball (Club)",
-    years: "9th, 10th",
+    id: "volleyball",
+    title: "Club & Varsity Volleyball",
+    years: "9 years club · 9th JV · 10th and 11th Varsity",
     category: "Sports",
     detailPage: { href: "/activities/volleyball/", label: "Explore the volleyball story" },
-    description: "I’ve played club volleyball for nine years, competing in some of the most competitive boys’ leagues on the West Coast. As an outside hitter, I’ve helped my teams earn silver at USAV Nationals (14 Open, Salt Lake City), gold at SCVA SoCal Cup in Anaheim, gold in NCVA Power League, and multiple qualification medals. Long tournament days, from 7 a.m. warm-ups to late-night bracket finals, taught me how to handle pressure, bounce back from mistakes, and contribute even when I’m not the star of the court. Club volleyball is where I first learned that discipline and chemistry matter as much as raw talent.",
+    description: "I have played club volleyball for nine years and school volleyball throughout high school. As an outside hitter, I helped club teams earn silver at USAV Nationals (14 Open), gold at the SCVA SoCal Cup, gold in the NCVA Power League, and multiple qualification medals. At Granite Bay, I played JV as a freshman, winning league and the Stockton JV tournament, then joined varsity as a sophomore. Moving between club and school teams taught me to reset after mistakes, contribute in different roles, and balance long practices, film, and travel with a demanding academic schedule.",
     links: [
       {
         text: "News Article",
@@ -192,16 +182,6 @@ export const extracurriculars: Extracurricular[] = [
       { type: 'image', path: '/vb_1.JPG', caption: 'Volleyball Action 1' },
       { type: 'image', path: '/vb_2.JPG', caption: 'Volleyball Action 2' },
       { type: 'image', path: '/vb_3.JPG', caption: 'Volleyball Action 3' },
-    ],
-  },
-  {
-    id: "varsity-volleyball",
-    title: "Varsity Volleyball (School)",
-    years: "9th JV, 10th-11th Var",
-    category: "Sports",
-    detailPage: { href: "/activities/volleyball/", label: "Explore the volleyball story" },
-    description: "At Granite Bay, I played JV in 9th grade and made Varsity as a sophomore. Our JV team won league and the Stockton JV tournament, and on Varsity I’ve contributed as both a starter and role player in league and postseason play. Balancing practices, film sessions, and travel with AP/IB coursework forced me to get serious about time management. Being one of the few “tech kids” on an athletic team also pushed me to bridge very different social circles on campus.",
-    media: [
       { type: 'image', path: '/extracurriculars/varsity_volleyball/pic1.jpg', caption: 'Varsity Volleyball' },
       { type: 'image', path: '/extracurriculars/varsity_volleyball/pic2.jpg', caption: 'Team Photo' },
     ],
