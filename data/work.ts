@@ -53,6 +53,7 @@ export interface WorkItem {
   preprintLink?: string;
   link?: string;
   linkLabel?: string;
+  detailPage?: { href: string; label: string };
   github?: string;
   backgroundMedia?: {
     type: "image" | "video";
@@ -204,6 +205,7 @@ export const workItems: WorkItem[] = [
     ],
     link: "https://pranil.itch.io/flora-frontier",
     linkLabel: "Play Flora Frontier",
+    detailPage: { href: "/activities/flora-frontier/", label: "Explore the full story" },
     backgroundMedia: {
       type: "image",
       src: "/breath_background.png",
@@ -277,6 +279,7 @@ export const workItems: WorkItem[] = [
     ],
     link: "https://clearpolicy.org",
     linkLabel: "Visit clearpolicy.org",
+    detailPage: { href: "/activities/clearpolicy/", label: "Read the case study" },
     backgroundMedia: {
       type: "video",
       src: "/ClearPolicy_Animation.mp4",
@@ -414,6 +417,7 @@ export const workItems: WorkItem[] = [
       logoSrc: "/marks/ucla.svg",
     },
     mentors: [{ name: "Prof. Hugh Tad Blair", affiliation: "UCLA" }],
+    detailPage: { href: "/activities/cosmos/", label: "Explore the COSMOS research story" },
     description:
       "Working with Professor Hugh Tad Blair, I adapted the Behavioral Consistency Metric to Lean theorem-proving agents. I represented proofs as attribution-based fingerprints of tactics, structure, and errors, then used LightGBM and cosine similarity to test whether those fingerprints captured repeatable reasoning strategies. The method recovered known mutation types in 260,103 APRIL proofs (0.923 macro-F1), found DeepSeek-Prover-V1 substantially more consistent across tasks than a large human Mathlib corpus, and distinguished its proof-writing behavior from Goedel-Prover-SFT across six robustness checks.",
     tech: ["Python", "Lean", "LightGBM", "Machine Learning"],

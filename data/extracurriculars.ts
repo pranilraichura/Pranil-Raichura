@@ -1,3 +1,12 @@
+export interface ActivityMedia {
+  type: 'image' | 'video';
+  path: string;
+  caption?: string;
+  thumbnail?: string;
+  // Use 'contain' for logos and slide screenshots, which get their text cropped by 'cover'.
+  fit?: 'cover' | 'contain';
+}
+
 export interface Extracurricular {
   id: string;
   title: string;
@@ -8,15 +17,9 @@ export interface Extracurricular {
   description: string;
   achievements?: string[];
   links?: { text: string; url: string }[];
+  detailPage?: { href: string; label: string };
   leadership?: string;
-  media?: {
-    type: 'image' | 'video';
-    path: string;
-    caption?: string;
-    thumbnail?: string;
-    // Use 'contain' for logos and slide screenshots, which get their text cropped by 'cover'.
-    fit?: 'cover' | 'contain';
-  }[];
+  media?: ActivityMedia[];
 }
 
 export const extracurriculars: Extracurricular[] = [
@@ -34,6 +37,7 @@ export const extracurriculars: Extracurricular[] = [
     years: "9th, 10th, 11th Grade (Leadership)",
     category: "Tech",
     leadership: "President",
+    detailPage: { href: "/activities/competitive-programming/", label: "Explore the competition story" },
     description: "When I joined “Coding Club” as a freshman, it met once a week to casually solve a few problems before HPE CodeWars. As President, I’ve rebuilt it into the Competitive Programming Olympiad Club. I design weekly practices on algorithms and data structures, teach Python/Java solutions live, and organize our teams for all four USACO contests, NASA Space Apps, HPE CodeWars, and other hackathons. Under this new structure, our members earned a NASA Space Apps Global Nominee, multiple CodeWars trophies, and a big jump in USACO participation. At a school where most STEM kids lean pre-med, this club has become the main hub for students who want to push themselves in CS and competitive coding.",
     media: [
       { type: 'image', path: '/extracurriculars/coding/coding_club_new.jpg', caption: 'Programming Club' },
@@ -47,6 +51,7 @@ export const extracurriculars: Extracurricular[] = [
     category: "Leadership",
     hoursPerWeek: "30 mins per week",
     leadership: "Sergeant at Arms",
+    detailPage: { href: "/activities/pranam/", label: "Explore the service story" },
     description: "NHS is the main service hub at my school, and as Sergeant at Arms I help plan and run projects instead of just showing up to volunteer hours. I’ve helped coordinate drives under our PraNam initiative, including a warm-clothes collection that delivered 500+ items to students at Kinney High School and a shoe drive that shipped over 150 pairs to families in Africa. I also help manage meeting logistics and keep events running smoothly. NHS has been where I practice turning big, vague goals like \"help the community\" into specific, organized events that actually deliver.",
     media: [
       { type: 'image', path: '/extracurriculars/nhs/me_holding_book_new.jpg', caption: 'NHS Leadership' },
@@ -69,6 +74,7 @@ export const extracurriculars: Extracurricular[] = [
     years: "9th, 10th, 11th Grade",
     category: "Tech",
     hoursPerWeek: "2-3 hours/week",
+    detailPage: { href: "/activities/competitive-programming/", label: "Explore the competition story" },
     description: "I’ve been programming for six years and competing for three. I qualified for the USACO Gold division and train year-round by solving past contests in Python and Java, focusing on graph algorithms, DP, and implementation speed. Outside USACO, I’ve led or joined teams for events like NASA Space Apps, HPE CodeWars, and the YoungWonks National Coding Challenge, where we’ve earned a Global Nominee in Space Apps and a 2nd-place regional finish at CodeWars. These contests force me to write clean, efficient code under time pressure and to communicate clearly with teammates when the clock is ticking.",
     media: [
       { type: 'image', path: '/extracurriculars/coding/hackathon_team_new.jpg', caption: 'Hackathon Team' },
@@ -80,6 +86,7 @@ export const extracurriculars: Extracurricular[] = [
     title: "Game Development and Sciences Research, UCI x GATI (GSET)",
     years: "9th Summer → 10th",
     category: "Research",
+    detailPage: { href: "/activities/flora-frontier/", label: "Explore the Flora Frontier story" },
     description: "At UCI x GATI’s GSET program, I spent a summer studying how game design can support education and behavior. Working in Unity with C#, my team built a prototype that combined reward schedules, difficulty curves, and machine-learning-driven customization. We wrote a lightweight business plan and presented the demo to a panel of faculty and judges. The project later informed my work on Flora Frontier.",
     media: [
       { type: 'image', path: '/extracurriculars/uci_gati/pic1_new.jpg', caption: 'UCI GATI Program' },
@@ -120,6 +127,7 @@ export const extracurriculars: Extracurricular[] = [
     years: "Since summer 2022",
     category: "Service",
     leadership: "Co-Founder",
+    detailPage: { href: "/activities/pranam/", label: "Explore the service story" },
     description: "My brother Naman and I started PraNam in the summer of 2022. Since then, we have collected and donated more than 1,000 items, including 500+ warm clothing items, 600+ eyeframes, and 100+ educational books. We also develop eco-friendly products and help seniors learn to use modern technology. That work led me to start Tech4Silvers as a separate organization focused on digital access. We collaborate with the E-Rotary Club of Silicon Valley on volunteer projects and fundraisers.",
     achievements: [
       "Donated over 1,000 items to underprivileged populations, and counting",
@@ -148,6 +156,7 @@ export const extracurriculars: Extracurricular[] = [
     title: "Rotary E-Club of Silicon Valley",
     category: "Service",
     leadership: "Project Lead",
+    detailPage: { href: "/activities/pranam/", label: "Explore the service story" },
     description: "As Project Lead with the Rotary E-Club of Silicon Valley, I ran collection drives with the club, organized under our PraNam initiative. We hosted a shoe drive that donated 150 pairs of shoes and shipped them to homeless families in Africa, and a warm clothes drive for students at Kinney High School in Rancho Cordova that collected 500+ items of clothing. The clothes drive received recognition from the Mayor of the city of Rancho Cordova, and I ended up holding a certificate at Rancho Cordova's City Hall, speaking in front of a crowd about what the drive meant for local families, exactly the kind of spotlight the fifth-grader in the squash court would have done anything to avoid.",
     achievements: [
       "Shoe drive: 150 pairs donated and shipped to homeless families in Africa",
@@ -167,6 +176,7 @@ export const extracurriculars: Extracurricular[] = [
     title: "National Volleyball (Club)",
     years: "9th, 10th",
     category: "Sports",
+    detailPage: { href: "/activities/volleyball/", label: "Explore the volleyball story" },
     description: "I’ve played club volleyball for nine years, competing in some of the most competitive boys’ leagues on the West Coast. As an outside hitter, I’ve helped my teams earn silver at USAV Nationals (14 Open, Salt Lake City), gold at SCVA SoCal Cup in Anaheim, gold in NCVA Power League, and multiple qualification medals. Long tournament days, from 7 a.m. warm-ups to late-night bracket finals, taught me how to handle pressure, bounce back from mistakes, and contribute even when I’m not the star of the court. Club volleyball is where I first learned that discipline and chemistry matter as much as raw talent.",
     links: [
       {
@@ -189,6 +199,7 @@ export const extracurriculars: Extracurricular[] = [
     title: "Varsity Volleyball (School)",
     years: "9th JV, 10th-11th Var",
     category: "Sports",
+    detailPage: { href: "/activities/volleyball/", label: "Explore the volleyball story" },
     description: "At Granite Bay, I played JV in 9th grade and made Varsity as a sophomore. Our JV team won league and the Stockton JV tournament, and on Varsity I’ve contributed as both a starter and role player in league and postseason play. Balancing practices, film sessions, and travel with AP/IB coursework forced me to get serious about time management. Being one of the few “tech kids” on an athletic team also pushed me to bridge very different social circles on campus.",
     media: [
       { type: 'image', path: '/extracurriculars/varsity_volleyball/pic1.jpg', caption: 'Varsity Volleyball' },

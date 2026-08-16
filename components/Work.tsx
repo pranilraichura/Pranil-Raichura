@@ -228,8 +228,16 @@ function WorkDetails({ item }: { item: WorkItem }) {
                 </div>
             )}
 
-            {(item.link || item.github) && (
+            {(item.detailPage || item.link || item.github) && (
                 <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-slate-100">
+                    {item.detailPage && (
+                        <a
+                            href={item.detailPage.href}
+                            className="px-3.5 py-1.5 bg-slate-950 hover:bg-primary-700 text-white rounded-lg font-medium text-xs transition-colors duration-200"
+                        >
+                            {item.detailPage.label} ↗
+                        </a>
+                    )}
                     {item.link && (
                         <a
                             href={item.link}

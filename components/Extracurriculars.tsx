@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   BrainCircuit,
   Code2,
@@ -12,7 +13,7 @@ import {
   Trophy,
   UsersRound,
 } from "lucide-react";
-import { extracurriculars, Extracurricular } from "@/data/extracurriculars";
+import { extracurriculars, type ActivityMedia } from "@/data/extracurriculars";
 import MediaLightbox from "./MediaLightbox";
 import { useLightbox } from "./LightboxContext";
 import { ScrollReveal, ScrollRevealGroup } from "./ScrollReveal";
@@ -33,7 +34,7 @@ export default function Extracurriculars() {
   const [selectedCategory, setSelectedCategory] = useState<Category>("All");
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [lightboxOpen, setLightboxOpenLocal] = useState(false);
-  const [lightboxMedia, setLightboxMedia] = useState<any[]>([]);
+  const [lightboxMedia, setLightboxMedia] = useState<ActivityMedia[]>([]);
   const [lightboxInitialIndex, setLightboxInitialIndex] = useState(0);
   const { setLightboxOpen: setGlobalLightboxOpen } = useLightbox();
 
@@ -56,7 +57,7 @@ export default function Extracurriculars() {
     Leadership: "bg-yellow-100 text-yellow-700 border-yellow-300",
   };
 
-  const openLightbox = (media: any[], index: number = 0) => {
+  const openLightbox = (media: ActivityMedia[], index: number = 0) => {
     setLightboxMedia(media);
     setLightboxInitialIndex(index);
     setLightboxOpenLocal(true);
@@ -235,6 +236,16 @@ export default function Extracurriculars() {
               <p className={`text-gray-700 text-sm mb-4 ${expandedId === ec.id ? "" : "line-clamp-3"}`}>
                 {ec.description}
               </p>
+
+              {ec.detailPage && (
+                <Link
+                  href={ec.detailPage.href}
+                  className="mb-2 inline-flex items-center gap-2 rounded-full bg-slate-950 px-4 py-2 text-xs font-semibold text-white shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:bg-primary-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+                >
+                  {ec.detailPage.label}
+                  <span aria-hidden="true">↗</span>
+                </Link>
+              )}
 
               {/* Expandable section */}
               <div
