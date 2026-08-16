@@ -72,7 +72,7 @@ const timelineEvents: TimelineEvent[] = [
         phase: "Growth",
         content: [
             "Experiences like these forced me to confront a difficult truth: pressure is not something I can escape by changing environments, activities, or roles.",
-            "Only recently have I started reframing these experiences. Instead of viewing them as proof that I cannot handle pressure, I now see them as repeated opportunities to practice responding to it.",
+            "I have started treating these experiences as chances to practice responding to pressure instead of evidence that I cannot handle it.",
             "In sports, that has meant asking for feedback, accepting playing time even when I'm nervous, and allowing myself to make, and learn from, mistakes in front of others.",
             "Academically, it has meant volunteering to present, pursuing rigorous programs, and reminding myself that my worth is not defined by a single performance, however public.",
         ],
@@ -83,7 +83,7 @@ const timelineEvents: TimelineEvent[] = [
         phase: "Present Day",
         content: [
             "Friends from the Bay Area sometimes tell me I seem like a 'completely different person' now. On the outside, I may look transformed, but internally I am still the same person learning to live with, and grow through, pressure rather than run from it.",
-            "My goal is not to eliminate pressure, that would be impossible, but to build the resilience and confidence to stand in it.",
+            "I cannot eliminate pressure. My goal is to build the confidence to work through it.",
         ],
     },
     {
@@ -92,7 +92,7 @@ const timelineEvents: TimelineEvent[] = [
         phase: "The Goal",
         content: [
             "One day, I hope to test that growth on one of the most intimidating stages of all: delivering my school's valedictorian speech.",
-            "If I earn that honor, I know the pressure will be immense. But by then, I also hope to be the person who can step up to the podium, take a breath, remember all the moments that brought me there, and speak, not in spite of the pressure, but alongside it.",
+            "If I earn that honor, I know the pressure will be immense. I hope I can step up to the podium, take a breath, and speak clearly even while I feel it.",
         ],
     },
 ];
@@ -115,7 +115,7 @@ export default function StoryTimeline() {
                     </h1>
                     <div className="w-24 h-1 bg-primary-600 mx-auto mb-6"></div>
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                        A journey of learning to stand in pressure, not run from it.
+                        How I learned to handle pressure instead of avoiding it.
                         <br/><span className="text-sm font-medium text-slate-500 mt-2 block">(This is the extended version of the story featured on the homepage.)</span>
                     </p>
                 </motion.div>
@@ -212,10 +212,10 @@ export default function StoryTimeline() {
                 >
                     <div className="inline-block px-8 py-6 rounded-2xl bg-gradient-to-br from-primary-50 to-accent-orange/10 border-2 border-primary-200 shadow-xl">
                         <p className="text-2xl font-semibold text-gray-800 mb-2">
-                            The journey continues...
+                            More to come.
                         </p>
                         <p className="text-gray-600">
-                            Not in spite of the pressure, but alongside it.
+                            I am still learning how to work through pressure.
                         </p>
                     </div>
                 </motion.div>

@@ -85,7 +85,7 @@ export default function RecommendationRequest() {
               Thank you for taking the time to learn about me through this interactive website. I am applying to college, and I would be honored if you could write a letter of recommendation for me.
             </p>
             <p className="leading-relaxed mb-4 text-lg">
-              This website showcases my academic achievements, research projects, extracurricular activities, and personal growth throughout high school. I hope it provides you with a comprehensive understanding of who I am as a student and person.
+              This site collects my academic work, research projects, activities, and experiences from high school. I hope it gives you useful context about my interests and how I work.
             </p>
             <p className="leading-relaxed text-lg">
               Your support means the world to me, and I am grateful for the opportunity to have you as my teacher and mentor.
@@ -249,4 +249,3 @@ export default function RecommendationRequest() {
     </section>
   );
 }
-

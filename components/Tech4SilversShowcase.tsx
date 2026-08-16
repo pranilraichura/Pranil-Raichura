@@ -60,7 +60,7 @@ const workshopSteps = [
     number: "01",
     title: "Start with the room",
     description:
-      "Each session begins with the questions participants actually have—not a generic technology lecture.",
+      "Each session begins with the questions participants bring, rather than a general technology lecture.",
   },
   {
     number: "02",
@@ -195,21 +195,21 @@ export default function Tech4SilversShowcase() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#f5f1e8] text-slate-950">
       <header
-        className={`fixed inset-x-0 top-0 z-40 border-b border-slate-200/90 bg-white/95 text-slate-900 shadow-sm backdrop-blur-xl transition-[transform,opacity] duration-500 ease-out ${headerVisible && !lightboxOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}`}
+        className={`fixed inset-x-0 top-0 z-40 border-b border-slate-200/80 bg-white/90 text-slate-900 shadow-sm backdrop-blur-lg transition-[transform,opacity] duration-500 ease-out ${headerVisible && !lightboxOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}`}
       >
-        <div className="flex h-16 w-full items-center justify-between px-5 sm:px-8 lg:h-20 lg:px-10">
+        <div className="flex h-12 w-full items-center justify-between px-5 sm:px-8 lg:h-14 lg:px-10">
           <Link
             href="/"
-            className="font-libre text-xl font-bold tracking-tight focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-4 md:text-2xl"
+            className="font-libre text-lg font-bold tracking-tight focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-4 md:text-xl"
           >
             Pranil Raichura
           </Link>
 
-          <div className="hidden text-xs font-semibold uppercase tracking-[0.16em] text-slate-400 sm:block">
+          <div className="hidden text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400 sm:block">
             Tech4Silvers
           </div>
 
-          <nav className="hidden items-center gap-7 text-sm font-medium text-slate-700 md:flex" aria-label="Tech4Silvers page">
+          <nav className="hidden items-center gap-6 text-[13px] font-medium text-slate-700 md:flex" aria-label="Tech4Silvers page">
             <a href="#mission">Mission</a>
             <a href="#workshops">Workshops</a>
             <a href="#field-notes">Field notes</a>
@@ -238,7 +238,7 @@ export default function Tech4SilversShowcase() {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/30" />
         <div className="pointer-events-none absolute inset-0 opacity-20 [background-image:radial-gradient(circle_at_1px_1px,white_1px,transparent_0)] [background-size:24px_24px] [mask-image:linear-gradient(to_right,black,transparent_70%)]" />
 
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-14 pt-32 text-white sm:px-8 md:pb-20 lg:px-10">
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-14 pt-24 text-white sm:px-8 md:pb-20 md:pt-28 lg:px-10">
           <div className="max-w-4xl">
             <div className="mb-6 flex items-center gap-3">
               <span className="h-px w-10 bg-amber-300" />
@@ -253,9 +253,9 @@ export default function Tech4SilversShowcase() {
               Helping older adults feel safe, confident, and connected in a digital world.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.16em] text-white/65">
-              <span className="rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-md">Student-run</span>
-              <span className="rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-md">Sacramento + Northern California</span>
-              <span className="rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-md">Workshops + one-on-one help</span>
+              <span className="rounded-full border border-white/15 bg-slate-950/85 px-4 py-2 text-white/80 shadow-lg">Student run</span>
+              <span className="rounded-full border border-white/15 bg-slate-950/85 px-4 py-2 text-white/80 shadow-lg">Sacramento + Northern California</span>
+              <span className="rounded-full border border-white/15 bg-slate-950/85 px-4 py-2 text-white/80 shadow-lg">Workshops + one-on-one help</span>
             </div>
           </div>
 
@@ -263,7 +263,7 @@ export default function Tech4SilversShowcase() {
             href="#mission"
             className="pointer-events-auto mt-12 inline-flex items-center gap-3 text-sm font-semibold text-white/75 hover:text-amber-300"
           >
-            Enter the story
+            See how it works
             <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/10 backdrop-blur-md">
               <ArrowDown className="h-4 w-4" aria-hidden="true" />
             </span>
@@ -290,14 +290,14 @@ export default function Tech4SilversShowcase() {
                 One small workshop grew into a student-run organization and GBHS club partnering with senior centers across Sacramento and Northern California. Pranil recruits and trains volunteers, designs the lessons and handouts, and leads the sessions.
               </p>
               <p>
-                The work is deliberately practical: set up the alert, identify the suspicious message, make the video call, and leave with a process that can be repeated without a volunteer standing nearby.
+                Workshops focus on tasks participants can use immediately: setting up an alert, identifying a suspicious message, making a video call, and repeating the process later without a volunteer nearby.
               </p>
             </div>
 
             <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-[1.75rem] border border-slate-300 bg-slate-300 sm:grid-cols-4">
               {[
                 ["Dozens", "of seniors helped"],
-                ["2–3 hrs", "each week"],
+                ["2 to 3 hrs", "each week"],
                 ["3 years", "and growing"],
                 ["1 goal", "digital confidence"],
               ].map(([value, label]) => (
@@ -329,9 +329,9 @@ export default function Tech4SilversShowcase() {
           </button>
           <div className="flex flex-col justify-between p-8 sm:p-10 md:p-14">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.24em] text-slate-700">The difference</p>
+              <p className="text-xs font-bold uppercase tracking-[0.24em] text-slate-700">Hands-on support</p>
               <h2 className="mt-6 font-libre text-3xl font-bold leading-tight tracking-tight text-slate-950 md:text-5xl">
-                Technology should preserve independence—not make people feel left behind.
+                Technology should preserve independence. It should not make people feel left behind.
               </h2>
             </div>
             <p className="mt-16 max-w-md text-base leading-7 text-slate-700 md:text-lg md:leading-8">
@@ -351,7 +351,7 @@ export default function Tech4SilversShowcase() {
               </h2>
             </div>
             <p className="max-w-2xl text-lg leading-8 text-white/60 lg:justify-self-end">
-              Every session combines a clear group lesson with patient, one-on-one support. The aim is not to do the task for someone—it is to make the next time easier.
+              Every session combines a clear group lesson with patient, one-on-one support. Volunteers explain each process so participants can repeat it later on their own.
             </p>
           </div>
 
@@ -414,12 +414,12 @@ export default function Tech4SilversShowcase() {
         <div className="absolute -right-20 -top-24 h-80 w-80 rounded-full border-[56px] border-slate-950/5" />
         <div className="relative mx-auto max-w-7xl text-center">
           <UsersRound className="mx-auto h-8 w-8 text-slate-900" aria-hidden="true" />
-          <p className="mt-6 text-xs font-bold uppercase tracking-[0.24em] text-slate-700">The bigger idea</p>
+          <p className="mt-6 text-xs font-bold uppercase tracking-[0.24em] text-slate-700">Why it matters</p>
           <h2 className="mx-auto mt-5 max-w-5xl font-libre text-4xl font-bold leading-tight tracking-tight text-slate-950 sm:text-5xl md:text-7xl">
-            Digital inclusion starts with meeting people where they are.
+            Older adults deserve clear, patient help with the technology they use every day.
           </h2>
           <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-slate-700 md:text-lg md:leading-8">
-            Tech4Silvers turns technical knowledge into patient, practical service—one workshop, one device, and one question at a time.
+            Tech4Silvers provides practical instruction through community workshops and one-on-one support.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <a href="#field-notes" className="inline-flex items-center gap-2 rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white hover:-translate-y-0.5 hover:bg-slate-800">

@@ -3,9 +3,9 @@ export const personalInfo = {
   grade: "Senior",
   school: "Granite Bay High School",
   about: {
-    service: "Service is about getting out in your community to take risks, even if you are nervous at first. I've learned this through volunteering projects and experience over time, as I often had to step out of my comfort zone to make a difference; whether it was standing on the stage in front of many seniors, helping them navigate the world of technology, or holding a certificate and speaking about the effects of our clothes drive on local families at a high school in front of a crowd at Rancho Cordova's City Hall.",
-    techPassion: "Ever since I was young, I have always been interested in the nuances of technology, from the intricate instruments that handle an A320 passenger aircraft to the differences between operating systems in the Samsung S24 Ultra and the iPhone 15. This drove me to try to learn programming in the fall of 2021, where over time I've learned Python, JavaScript, HTML/CSS, and C#. Python is my main focus as I regularly use multithreading, algorithms, and sockets to manage data and connections.",
-    goals: "While I have a lot of goals in high school, such as reaching the Platinum Division in the USA Computing Olympiad, trying my best in school, and making friends along the way, my main goal is to complete a passion project of developing a serious game honed towards improving behavior and emotional patterns of kids with ASD and writing a research paper on it.",
+    service: "Service has required me to speak up even when I am nervous. I have led technology workshops for seniors and presented the results of our clothing drive at Rancho Cordova City Hall. Those experiences taught me that community work depends on showing up, organizing the details, and explaining why the work matters.",
+    techPassion: "I have been curious about technology for as long as I can remember, from the cockpit systems on an A320 to the differences between Android and iOS. I started programming in fall 2021 and have since worked with Python, JavaScript, HTML/CSS, and C#. Python is my main focus, especially for algorithms, networking, and data processing.",
+    goals: "My high school goals include reaching the Platinum Division in the USA Computing Olympiad, doing well in school, and making time for friends. I also want to complete a serious game designed to support the behavioral and emotional needs of children with ASD and publish the related research.",
   },
   hobbies: [
     "Playing volleyball recreationally with friends",
@@ -76,4 +76,3 @@ export const serviceActivities = [
     description: "On most Sunday mornings, we prepare, cook, and serve food for residents of different homeless shelters in Placer County.",
   },
 ];
-

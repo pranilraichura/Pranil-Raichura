@@ -80,7 +80,7 @@ export const extracurriculars: Extracurricular[] = [
     title: "Game Development and Sciences Research, UCI x GATI (GSET)",
     years: "9th Summer → 10th",
     category: "Research",
-    description: "At UCI x GATI’s GSET program, I spent a summer exploring the science of game design and its applications to education and behavior. Working in Unity with C#, my team built a prototype game that combined reward schedules, difficulty curves, and machine-learning-driven customization. We also learned how to pitch like founders: writing a lightweight business plan, crafting a problem-solution narrative, and presenting our demo to a panel of faculty and “investors.” The experience turned game design from a hobby into a research interest and directly paved the way for my later Flora Frontier autism project.",
+    description: "At UCI x GATI’s GSET program, I spent a summer studying how game design can support education and behavior. Working in Unity with C#, my team built a prototype that combined reward schedules, difficulty curves, and machine-learning-driven customization. We wrote a lightweight business plan and presented the demo to a panel of faculty and judges. The project later informed my work on Flora Frontier.",
     media: [
       { type: 'image', path: '/extracurriculars/uci_gati/pic1_new.jpg', caption: 'UCI GATI Program' },
       { type: 'image', path: '/extracurriculars/uci_gati/pic2_new.jpg', caption: 'Final Presentation' },
@@ -93,7 +93,7 @@ export const extracurriculars: Extracurricular[] = [
     category: "Service",
     hoursPerWeek: "2-3 hours/week",
     leadership: "Founder & President",
-    description: "I started Tech4Silvers after realizing many seniors in our community were missing digital wildfire and emergency alerts. What began as one small workshop is now a student-run organization and GBHS club that partners with senior centers across Sacramento and Northern California. I recruit and train volunteers, design slides and handouts, and lead sessions on smartphones, scams and phishing, online safety, telehealth, and local alert systems. We’ve helped dozens of seniors set up alerts, avoid fraud, and reconnect with family over video calls. Coordinating venues, outreach, and Q&A has turned my interest in tech into a long-term commitment to digital inclusion.",
+    description: "I started Tech4Silvers after realizing many seniors in our community were missing digital wildfire and emergency alerts. It started with one workshop and has grown into a student-run organization and GBHS club that partners with senior centers across Sacramento and Northern California. I recruit and train volunteers, design slides and handouts, and lead sessions on smartphones, scams and phishing, online safety, telehealth, and local alert systems. We’ve helped dozens of seniors set up alerts, avoid fraud, and reconnect with family over video calls. The work has taught me how to organize community programs around practical needs.",
     links: [
       { text: "Explore the Tech4Silvers story", url: "/tech4silvers/" },
     ],
@@ -120,7 +120,7 @@ export const extracurriculars: Extracurricular[] = [
     years: "Since summer 2022",
     category: "Service",
     leadership: "Co-Founder",
-    description: "My brother Naman and I started PraNam in the summer of 2022, and we have since donated over 1,000 items to underprivileged populations: 500+ warm clothing items, 600+ eyeframes, and 100+ educational books collected and shipped. Half of what we do is products: eco-friendly things meant to make everyday life a little more sustainable. The other half is initiatives for people who are vulnerable or in need: donating technological gadgets and necessary items to communities in different parts of the world, and sitting down with seniors to help them understand modern technology and what it can actually do for them. That second half is where Tech4Silvers came from. Same conviction, two forms. Technology is only useful if the people who need it most can actually use it. PraNam is where my brother and I first tested that idea; Tech4Silvers is where I built an organization around it. We also collaborate with the E-Rotary Club of Silicon Valley on volunteering and fundraisers.",
+    description: "My brother Naman and I started PraNam in the summer of 2022. Since then, we have collected and donated more than 1,000 items, including 500+ warm clothing items, 600+ eyeframes, and 100+ educational books. We also develop eco-friendly products and help seniors learn to use modern technology. That work led me to start Tech4Silvers as a separate organization focused on digital access. We collaborate with the E-Rotary Club of Silicon Valley on volunteer projects and fundraisers.",
     achievements: [
       "Donated over 1,000 items to underprivileged populations, and counting",
       "500+ warm clothing items donated",
@@ -196,22 +196,11 @@ export const extracurriculars: Extracurricular[] = [
     ],
   },
   {
-    id: "chess",
-    title: "USCF Competitive Chess",
-    years: "9th, 10th, 11th Grade",
-    category: "Tech",
-    description: "I picked up chess in middle school and started playing USCF-rated tournaments soon after. Over seven tournaments, I’ve climbed to a 730 rating, around the 64th percentile for juniors, and spent countless hours analyzing my own blunders and learning classic tactics. Chess gives me a different kind of focus than coding or sports: slow, quiet calculation, accepting that one careless move can undo twenty good ones. The pattern recognition and patience I’ve built here spill over directly into algorithm design and debugging.",
-    media: [
-      { type: 'image', path: '/extracurriculars/chess/chess_new.png', caption: 'USCF Chess', fit: 'contain' },
-      { type: 'image', path: '/chess_pic1.JPG', caption: 'Chess Tournament' },
-    ],
-  },
-  {
     id: "violin",
     title: "Musical Instrument: Violin / Sacramento Youth Symphony",
     years: "9th, 10th",
     category: "Music",
-    description: "I’ve played violin for five years, starting in school orchestra and later joining the Sacramento Youth Symphony. Between rehearsals, sectionals, and concerts, I’ve performed in over fifty events across California. Playing in an ensemble taught me how to listen as carefully as I play: adjusting intonation, matching phrasing, and staying locked to the conductor even when my mind is elsewhere. Music has been the long, slow counterbalance to my tech life, a place where progress happens measure by measure, not in sudden “aha” moments.",
+    description: "I’ve played violin for five years, starting in school orchestra and later joining the Sacramento Youth Symphony. Between rehearsals, sectionals, and concerts, I’ve performed in over fifty events across California. Playing in an ensemble taught me to listen carefully, adjust my intonation, match phrasing, and stay with the conductor. Violin gives me a steady routine outside my technical work.",
     media: [
       { type: 'image', path: '/extracurriculars/violin/violin_new.jpg', caption: 'Violin Performance' },
       { type: 'image', path: '/pranil_violin.jpeg', caption: 'Violin Performance 2' },

@@ -99,7 +99,7 @@ export default function NolanPage() {
                         </p>
 
                         <p>
-                            You actually introduced me to the world of formal research. From those first literature reviews to our deep dives into the data, you’ve helped shape not just this project, but my entire interest in the field. I often find myself hoping to follow a similar path in my own undergraduate years and beyond.
+                            You introduced me to formal research. From the first literature review through our work with the data, your guidance shaped this project and my interest in the field. I hope to pursue similar work as an undergraduate.
                         </p>
 
                         <p>

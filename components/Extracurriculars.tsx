@@ -91,10 +91,9 @@ export default function Extracurriculars() {
           </h2>
           <div className="w-24 h-1 bg-primary-600 mx-auto mb-6"></div>
           <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            If the story above is what changed in my head, this is where it went in practice:
-            the courts I stopped hiding on, the club I rebuilt, and the rooms full of seniors
-            and shelter residents that made service feel less like a requirement and more like
-            the point.
+            Outside class, I lead community service projects, compete in programming and
+            volleyball, and perform violin. These are the teams, clubs, and organizations where
+            I spend most of my time.
           </p>
         </ScrollReveal>
 

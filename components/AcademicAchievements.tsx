@@ -6,7 +6,9 @@ import { ScrollReveal, ScrollRevealGroup } from "./ScrollReveal";
 const coursework = [
   "AP CS Principles & A (Java)",
   "AP Calculus BC & AB",
-  "AP Physics 1 & Statistics",
+  "AP Physics 1 & 2",
+  "AP Statistics",
+  "DE/AP Psychology",
   "Multivariable Calculus",
   "Machine Learning Specialization",
 ];
@@ -104,7 +106,9 @@ export default function AcademicAchievements() {
               <h3 className="text-sm font-bold text-slate-900 uppercase tracking-[0.18em]">
                 Relevant Coursework
               </h3>
-              <span className="text-3xl font-libre text-slate-300">05</span>
+              <span className="text-3xl font-libre text-slate-300">
+                {coursework.length.toString().padStart(2, "0")}
+              </span>
             </div>
             <ol className="space-y-4">
               {coursework.map((course, index) => (

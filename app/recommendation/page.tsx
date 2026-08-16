@@ -115,7 +115,7 @@ export default function RecommendationPage() {
                 Thank you for taking the time to learn about me through this interactive website. I am applying to college, and I would be honored if you could write a letter of recommendation for me.
               </p>
               <p className="leading-relaxed mb-4 text-lg">
-                This website showcases my academic achievements, research projects, extracurricular activities, and personal growth throughout high school. I hope it provides you with a comprehensive understanding of who I am as a student and person.
+                This site collects my academic work, research projects, activities, and experiences from high school. I hope it gives you useful context about my interests and how I work.
               </p>
               <p className="leading-relaxed text-lg">
                 Your support means the world to me, and I am grateful for the opportunity to have you as my teacher and mentor.
@@ -295,7 +295,7 @@ export default function RecommendationPage() {
               </div>
 
               <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-                <h3 className="font-bold text-xl mb-2">🤝 Tech4Silvers: Starting Something From a Real Need</h3>
+                <h3 className="font-bold text-xl mb-2">🤝 Why I Started Tech4Silvers</h3>
                 <p className="text-white/90 leading-relaxed">
                   During wildfire season, I realized my elderly neighbor had no idea a digital evacuation alert had been issued.
                   That moment turned into Tech4Silvers, a student-run organization that teaches seniors about technology, scam prevention, and emergency alerts.

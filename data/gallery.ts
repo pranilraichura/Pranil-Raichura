@@ -267,7 +267,7 @@ export const galleryPhotos: GalleryPhoto[] = [
     thumbSrc: "/gallery/thumb/tech4silvers-one-on-one.jpg",
     fullSrc: "/gallery/full/tech4silvers-one-on-one.jpg",
     alt: "Pranil helping a senior-center resident use her phone",
-    caption: "One question at a time",
+    caption: "One-on-one phone guidance",
     aspectRatio: 1.3566,
   },
   {

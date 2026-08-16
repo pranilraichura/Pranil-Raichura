@@ -374,7 +374,7 @@ export const workItems: WorkItem[] = [
       logoSrc: "/marks/nasa.webp",
     },
     description:
-      "An AI-powered application for detecting and analyzing exoplanets using machine learning. Built with Python and Streamlit, this tool leverages advanced algorithms to identify potential exoplanets from astronomical data.",
+      "A Python and Streamlit application that uses machine learning to identify possible exoplanets in astronomical data.",
     link: "https://exoscope-ai.streamlit.app",
     linkLabel: "Try Exoscope AI",
     backgroundMedia: {
@@ -403,7 +403,7 @@ export const workItems: WorkItem[] = [
   {
     id: "cosmos-2026",
     title: "COSMOS Summer Program at UCLA",
-    tagline: "Measuring whether AI theorem provers reason consistently—not only whether they succeed",
+    tagline: "Measuring whether AI theorem provers reason consistently, rather than only whether they succeed",
     domains: ["AI Safety & Evaluation", "Applied ML & Systems"],
     role: "Student Researcher",
     organization: "University of California, Los Angeles",

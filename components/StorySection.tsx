@@ -62,7 +62,7 @@ const timelineEvents: TimelineEvent[] = [
             "It took years before I found a place where that fear didn't show up at all.",
             "Junior year. 3 AM on a Tuesday. My room is dark except for the harsh blue glow of VS Code. No audience. No scoreboard. No parents. Just the hum of my laptop fan.",
             "I'm debugging a breathing detection algorithm for a friend with ASD. I hit 'Run'. The green box tracks my chest movement with surgical precision.",
-            "I leaned back, not with relief, but with power. I realized: When I solve real problems, the fear disappears. I wasn't an imposter here. I wasn't performing for anyone. I was an engineer.",
+            "The result worked. Solving a real problem felt different from performing for an audience because I could focus entirely on the work in front of me.",
         ],
         media: {
             type: 'image',
@@ -76,11 +76,11 @@ const timelineEvents: TimelineEvent[] = [
         id: "orange-skies",
         title: "Orange Skies Day",
         content: [
-            "That newfound confidence in solving problems alone soon collided with a very public emergency.",
+            "Soon after, a wildfire emergency showed me where technical work could help other people.",
             "The smoke from the wildfires spread orange light across the horizon. We called it ‘Orange Skies Day.’ I was younger then, but I remember my neighbor clearly: a widower in his seventies, always out in his yard, reclusive but present.",
             "As the smoke rose, it became clear he had no idea an evacuation order existed. The alerts were all digital, and he, like a lot of seniors in our community, had never set them up.",
-            "We walked over and knocked on his door like we were delivering news he needed to hear immediately. That was the moment I realized technology wasn’t just something I liked tinkering with. It was something that could leave people behind if no one showed them how to use it.",
-            "That’s what started Tech4Silvers. Not a plan, not a club pitch, just a neighbor who didn’t get the alert.",
+            "We walked over and knocked on his door because he needed the warning immediately. I realized that technology can leave people behind when no one shows them how to use it.",
+            "That experience led me to start Tech4Silvers.",
         ],
         media: {
             type: 'image',
@@ -99,7 +99,7 @@ const timelineEvents: TimelineEvent[] = [
             "The deadline is in 5 minutes. My heart is hammering, the same physical feeling as the squash court.",
             "But this time, I'm not looking for an exit. I'm grinning. The results are honest now. The paper is better because it failed first.",
             "I type the final sentence. Click.",
-            "I don't just tolerate the pressure now; I hunt for it. The 'shaky guy' is gone. I've learned that fear is just fuel, and I have a lot of work left to do.",
+            "I can now work through pressure without looking for an exit. I still feel nervous, but I know how to keep going and focus on the work in front of me.",
         ],
         media: {
             type: 'video',
