@@ -38,13 +38,13 @@ const brandToneStyles: Record<WorkBrand["tone"], string> = {
 };
 
 const brandStickerTilt: Record<WorkBrand["tone"], string> = {
-    blue: "-rotate-[20deg]",
-    cardinal: "-rotate-[25deg]",
-    crimson: "-rotate-[15deg]",
-    gold: "-rotate-[20deg]",
-    indigo: "-rotate-[15deg]",
-    navy: "-rotate-[25deg]",
-    slate: "-rotate-[20deg]",
+    blue: "-rotate-[5deg]",
+    cardinal: "-rotate-[7deg]",
+    crimson: "-rotate-[9deg]",
+    gold: "-rotate-[10deg]",
+    indigo: "-rotate-[6deg]",
+    navy: "-rotate-[12deg]",
+    slate: "-rotate-[8deg]",
 };
 
 const brandArtworkStyles: Record<string, string> = {
@@ -207,38 +207,21 @@ function WorkDetails({ item }: { item: WorkItem }) {
                             </span>
                         )}
                     </div>
-                </div>
-            )}
-
-            {item.publicationMedia && item.publicationMedia.length > 0 && (
-                <div className="mt-4 rounded-xl border border-[#e7ddd0] bg-[#fbf7f0] p-3">
-                    <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
-                        Publication evidence
-                    </p>
-                    <div className="grid gap-3 sm:grid-cols-2">
-                        {item.publicationMedia.map((media) => (
-                            <a
-                                key={media.src}
-                                href={media.src}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="group overflow-hidden rounded-lg border border-[#e4d6c4] bg-white"
-                            >
-                                <div className="relative aspect-[16/7] overflow-hidden bg-[#f4ede3]">
-                                    <Image
-                                        src={media.src}
-                                        alt={media.alt}
-                                        fill
-                                        sizes="(min-width: 640px) 280px, 100vw"
-                                        className="object-cover transition-transform duration-300 group-hover:scale-[1.015]"
-                                    />
-                                </div>
-                                <p className="px-3 py-2 text-[11px] leading-snug text-slate-600">
-                                    {media.caption}
-                                </p>
-                            </a>
-                        ))}
-                    </div>
+                    {item.publicationMedia?.[0] && (
+                        <figure className="mt-3 overflow-hidden rounded-lg border border-blue-100 bg-white">
+                            <Image
+                                src={item.publicationMedia[0].src}
+                                alt={item.publicationMedia[0].alt}
+                                width={1580}
+                                height={746}
+                                sizes="(min-width: 1024px) 620px, 100vw"
+                                className="h-auto w-full object-contain"
+                            />
+                            <figcaption className="border-t border-blue-100 px-3 py-2 text-[11px] leading-snug text-slate-600">
+                                {item.publicationMedia[0].caption}
+                            </figcaption>
+                        </figure>
+                    )}
                 </div>
             )}
 

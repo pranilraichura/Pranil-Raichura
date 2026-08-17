@@ -164,14 +164,9 @@ export const workItems: WorkItem[] = [
     ],
     publicationMedia: [
       {
-        src: "/work/publication/ieee-access-acceptance-letter.webp",
-        alt: "Cropped IEEE Access acceptance letter confirming that the leakage-safe physics-machine learning manuscript was accepted for publication.",
-        caption: "IEEE Access acceptance letter, August 2026",
-      },
-      {
-        src: "/work/publication/ieee-access-accepted-status.webp",
-        alt: "Cropped IEEE Access submission portal showing the physics-machine learning manuscript with an accepted status.",
-        caption: "The manuscript recorded as accepted in the IEEE Access portal",
+        src: "/work/publication/ieee-access-accepted-status.png",
+        alt: "Full IEEE Access submission portal showing the leakage-safe physics-machine learning manuscript with an accepted status.",
+        caption: "IEEE Access recorded the manuscript as accepted in August 2026",
       },
     ],
     figure: {
