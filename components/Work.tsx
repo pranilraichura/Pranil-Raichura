@@ -38,13 +38,13 @@ const brandToneStyles: Record<WorkBrand["tone"], string> = {
 };
 
 const brandStickerTilt: Record<WorkBrand["tone"], string> = {
-    blue: "rotate-[1.5deg]",
-    cardinal: "-rotate-[2deg]",
-    crimson: "rotate-[1deg]",
-    gold: "rotate-[2deg]",
-    indigo: "-rotate-[1.5deg]",
-    navy: "rotate-[1.5deg]",
-    slate: "-rotate-[1deg]",
+    blue: "-rotate-[20deg]",
+    cardinal: "-rotate-[25deg]",
+    crimson: "-rotate-[15deg]",
+    gold: "-rotate-[20deg]",
+    indigo: "-rotate-[15deg]",
+    navy: "-rotate-[25deg]",
+    slate: "-rotate-[20deg]",
 };
 
 const brandArtworkStyles: Record<string, string> = {
@@ -55,7 +55,7 @@ const brandArtworkStyles: Record<string, string> = {
     FF: "scale-[1.12]",
 };
 
-// Beyond Euler leads because the Story section closes on it; the rest follow by weight.
+// The physics-ML study leads because the Story section closes on it; the rest follow by weight.
 const featuredOrder = ["ml-structural-engineering", "ai-reasoning-visualization", "meridian"];
 
 function orderFeatured(a: WorkItem, b: WorkItem) {
@@ -115,7 +115,7 @@ function WorkBrandSticker({
             aria-label={brand.label}
             title={brand.label}
             data-work-brand={brand.shortLabel}
-            className={`pointer-events-none absolute z-20 flex items-center justify-center overflow-hidden rounded-xl border bg-white/95 p-1.5 shadow-[0_5px_16px_rgba(15,23,42,0.16)] ring-1 ring-white/80 ${brandToneStyles[brand.tone]} ${brandStickerTilt[brand.tone]} ${className}`}
+            className={`pointer-events-none absolute z-20 flex items-center justify-center overflow-hidden rounded-xl border bg-white/95 p-1.5 shadow-[0_5px_16px_rgba(15,23,42,0.16)] ring-1 ring-white/80 will-change-transform ${brandToneStyles[brand.tone]} ${brandStickerTilt[brand.tone]} ${className}`}
         >
             {artwork}
         </span>
@@ -201,21 +201,43 @@ function WorkDetails({ item }: { item: WorkItem }) {
                     </p>
                     <p className="text-xs text-slate-900 leading-relaxed">{item.paperTitle}</p>
                     <div className="flex items-center gap-2 flex-wrap mt-2">
-                        {item.preprintLink && (
-                            <a
-                                href={item.preprintLink}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-primary-600 hover:text-primary-700 font-semibold text-xs underline"
-                            >
-                                View preprint →
-                            </a>
-                        )}
                         {item.status && (
                             <span className="px-2 py-0.5 bg-amber-100 text-amber-800 rounded text-[10px] font-medium">
                                 {item.status}
                             </span>
                         )}
+                    </div>
+                </div>
+            )}
+
+            {item.publicationMedia && item.publicationMedia.length > 0 && (
+                <div className="mt-4 rounded-xl border border-[#e7ddd0] bg-[#fbf7f0] p-3">
+                    <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                        Publication evidence
+                    </p>
+                    <div className="grid gap-3 sm:grid-cols-2">
+                        {item.publicationMedia.map((media) => (
+                            <a
+                                key={media.src}
+                                href={media.src}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group overflow-hidden rounded-lg border border-[#e4d6c4] bg-white"
+                            >
+                                <div className="relative aspect-[16/7] overflow-hidden bg-[#f4ede3]">
+                                    <Image
+                                        src={media.src}
+                                        alt={media.alt}
+                                        fill
+                                        sizes="(min-width: 640px) 280px, 100vw"
+                                        className="object-cover transition-transform duration-300 group-hover:scale-[1.015]"
+                                    />
+                                </div>
+                                <p className="px-3 py-2 text-[11px] leading-snug text-slate-600">
+                                    {media.caption}
+                                </p>
+                            </a>
+                        ))}
                     </div>
                 </div>
             )}
@@ -305,7 +327,7 @@ function FeaturedWithFigure({ item }: { item: WorkItem }) {
             {item.brand && (
                 <WorkBrandSticker
                     brand={item.brand}
-                    className="left-4 top-4 h-12 w-[4.5rem] md:left-5 md:top-5 md:h-14 md:w-20"
+                    className="left-5 top-6 h-12 w-[4.5rem] md:left-6 md:top-7 md:h-14 md:w-20"
                 />
             )}
             <div className="grid grid-cols-1 lg:grid-cols-5">
@@ -346,7 +368,7 @@ function FeaturedTypographic({ item }: { item: WorkItem }) {
             {item.brand && (
                 <WorkBrandSticker
                     brand={item.brand}
-                    className="left-4 top-4 h-12 w-[4.5rem] md:left-5 md:top-5 md:h-14 md:w-20"
+                    className="left-5 top-6 h-12 w-[4.5rem] md:left-6 md:top-7 md:h-14 md:w-20"
                 />
             )}
             <FeaturedHeading item={item} />
@@ -420,7 +442,7 @@ function CondensedRow({ item }: { item: WorkItem }) {
             {item.brand && (
                 <WorkBrandSticker
                     brand={item.brand}
-                    className="left-3 top-2.5 h-10 w-14 md:left-4 md:top-3 md:h-11 md:w-16"
+                    className="left-4 top-4 h-10 w-14 md:left-5 md:top-5 md:h-11 md:w-16"
                 />
             )}
             <span
@@ -433,7 +455,7 @@ function CondensedRow({ item }: { item: WorkItem }) {
                 onClick={() => setOpen(!open)}
                 aria-expanded={open}
                 aria-controls={panelId}
-                className={`w-full text-left ${item.brand ? "pl-24 md:pl-28" : "pl-7"} pr-5 flex items-center gap-4 hover:bg-slate-50 transition-all duration-200 ${open ? "pt-6 pb-4 bg-slate-50/70" : "py-4"
+                className={`w-full text-left ${item.brand ? "pl-24 md:pl-28" : "pl-7"} pr-5 flex items-center gap-4 hover:bg-[#f8f3eb] transition-all duration-200 ${open ? "pt-6 pb-4 bg-[#f4ede3]" : "py-4"
                     }`}
             >
                 <div className="flex-1 min-w-0">
@@ -478,7 +500,7 @@ function CondensedRow({ item }: { item: WorkItem }) {
                         transition={{ duration: 0.28, ease: "easeInOut" }}
                         className="overflow-hidden"
                     >
-                        <div className="pl-7 pr-6 pb-7 pt-2 bg-gradient-to-r from-slate-50/90 to-white">
+                        <div className="mx-3 mb-3 rounded-2xl border border-[#e4d6c4] bg-gradient-to-br from-[#fbf7f0] via-[#f5eee4] to-[#eee3d5] px-5 pb-6 pt-4 shadow-inner">
                             {(item.role || item.organization) && (
                                 <p className="text-xs text-slate-500 mb-3">
                                     {[item.role, item.organization].filter(Boolean).join(" · ")}

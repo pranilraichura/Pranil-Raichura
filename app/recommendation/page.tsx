@@ -285,12 +285,12 @@ export default function RecommendationPage() {
 
             <div className="space-y-6">
               <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-                <h3 className="font-bold text-xl mb-2">🔬 Beyond Euler: Persistence Through Failure</h3>
+                <h3 className="font-bold text-xl mb-2">🔬 Leakage-Safe Physics-ML: Persistence Through Failure</h3>
                 <p className="text-white/90 leading-relaxed">
                   I physically tested 147 pasta strands to see where a 250-year-old engineering formula breaks down.
                   My first paper had a hidden statistical error and got rejected everywhere.
                   Instead of giving up, I found the mistake myself, rebuilt the entire analysis honestly, and resubmitted.
-                  That paper is now under review at IEEE Access.
+                  The rebuilt successor paper has now been accepted for publication in IEEE Access.
                 </p>
               </div>
 

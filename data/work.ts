@@ -50,7 +50,11 @@ export interface WorkItem {
     credit?: "Mentor" | "Acknowledgment";
   }[];
   paperTitle?: string;
-  preprintLink?: string;
+  publicationMedia?: {
+    src: string;
+    alt: string;
+    caption: string;
+  }[];
   link?: string;
   linkLabel?: string;
   detailPage?: { href: string; label: string };
@@ -114,8 +118,8 @@ export const workItems: WorkItem[] = [
   },
   {
     id: "ml-structural-engineering",
-    title: "Beyond Euler ML Framework",
-    tagline: "Rebuilding a rejected paper into an honest, leakage-safe result",
+    title: "Leakage-Safe Physics-ML Framework",
+    tagline: "Correcting Euler buckling predictions without leaking test data",
     domains: ["Applied ML & Systems"],
     featured: true,
     pullQuote:
@@ -129,7 +133,7 @@ export const workItems: WorkItem[] = [
       logoSrc: "/marks/johns-hopkins.svg",
     },
     years: "10th Summer, 11th Grade",
-    dates: "July 2025 - October 2025",
+    dates: "July 2025 - August 2026",
     hoursPerWeek: "6 hours/week",
     tech: [
       "Python",
@@ -147,16 +151,28 @@ export const workItems: WorkItem[] = [
       },
     ],
     paperTitle:
-      "Beyond Euler: An Explainable ML Framework for Predicting Buckling Instabilities in Non-Ideal Materials",
-    preprintLink:
-      "https://www.researchgate.net/publication/395824075_Beyond_Euler_An_Explainable_Machine_Learning_Framework_for_Predicting_and_Interpreting_Buckling_Instabilities_in_Non-Ideal_Materials",
-    status: "Under review, IEEE Access",
+      "A Leakage-Safe Hybrid Physics-Machine Learning Framework for Correcting Euler Buckling Predictions in Non-Ideal Columns",
+    status: "Accepted for publication in IEEE Access",
+    recognition: "Accepted for publication in IEEE Access, August 2026",
     description:
-      "Ran 147 physical buckling tests on dried pasta strands (7 lengths × 4 diameters) to test where Euler's 250-year-old buckling formula breaks down for non-ideal materials. The first version of this project used cross-validation that leaked information between train and test sets, producing results that looked far stronger than they really were, and was rejected by every venue it was submitted to for superficial novelty. Rebuilt the entire analysis from scratch with validation that keeps the test data genuinely unseen: the honest results show that throwing machine learning at the problem directly does worse than the classical formula, while a correction layer built on top of that formula cuts the remaining error by about 40%, and holds up even on strand thicknesses it was never trained on.",
+      "Ran 147 physical buckling tests on dried pasta strands (7 lengths × 4 diameters) to test where Euler's 250-year-old buckling formula breaks down for non-ideal materials. The first version of this project used cross-validation that leaked information between train and test sets, producing results that looked far stronger than they really were, and was rejected by every venue it was submitted to for superficial novelty. Rebuilt the entire analysis from scratch with validation that keeps the test data genuinely unseen. The successor manuscript was accepted for publication in IEEE Access in August 2026. Its central result is that direct machine learning performs worse than the classical formula, while a correction layer built on top of that formula cuts the remaining error by about 40% and holds up on strand thicknesses it was never trained on.",
     highlights: [
       "Discovered data leakage in the original cross-validation. The headline result was an artifact, not a real finding",
       "Rebuilt the entire analysis with validation that keeps train and test data properly separated",
       "A correction layer on the classical formula cut the remaining error by about 40%, and held up on unseen strand thicknesses",
+      "Accepted for publication in IEEE Access in August 2026",
+    ],
+    publicationMedia: [
+      {
+        src: "/work/publication/ieee-access-acceptance-letter.webp",
+        alt: "Cropped IEEE Access acceptance letter confirming that the leakage-safe physics-machine learning manuscript was accepted for publication.",
+        caption: "IEEE Access acceptance letter, August 2026",
+      },
+      {
+        src: "/work/publication/ieee-access-accepted-status.webp",
+        alt: "Cropped IEEE Access submission portal showing the physics-machine learning manuscript with an accepted status.",
+        caption: "The manuscript recorded as accepted in the IEEE Access portal",
+      },
     ],
     figure: {
       src: "/figure1_bucklingtest.png",
@@ -183,12 +199,6 @@ export const workItems: WorkItem[] = [
     hoursPerWeek: "4-5 hours/week",
     tech: ["Python", "C#", "Unity", "OpenCV", "Machine Learning"],
     mentors: [
-      {
-        name: "Dr. NH",
-        affiliation: "Harvard Medical School",
-        image: "/nouchine_pfp.jpeg",
-        credit: "Mentor",
-      },
       {
         name: "NM, M.S.",
         affiliation: "Stanford University",
@@ -341,11 +351,6 @@ export const workItems: WorkItem[] = [
     tech: ["Python", "K-means clustering", "Statistical Analysis"],
     mentors: [
       {
-        name: "Dr. NH",
-        affiliation: "Harvard Medical School",
-        image: "/nouchine_pfp.jpeg",
-      },
-      {
         name: "Ms. NE",
         affiliation: "Teacher, Granite Bay High School",
         image: "/elkin_pfp.jpeg",
@@ -353,7 +358,6 @@ export const workItems: WorkItem[] = [
     ],
     paperTitle:
       "PRISM: Profiles of AI Use, Creativity, and Authorship in High School Writing",
-    preprintLink: "https://osf.io/preprints/psyarxiv/dx4bf_v1",
     status: "Submitted Jan 2026",
     description:
       "Conducted a correlational survey of 246 high school students to examine the relationship between AI tool usage, self-reported creativity, and perceived authorship. Identified three distinct student profiles (PRISM) using K-means clustering, revealing that frequent AI use correlates with lower creativity but higher perceived authorship.",

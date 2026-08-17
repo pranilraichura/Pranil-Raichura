@@ -30,6 +30,32 @@ export const extracurriculars: Extracurricular[] = [
     category: "Leadership",
     leadership: "Co-Founder & Principal Investigator",
     description: "A free fellowship co-founded to give underprivileged high schoolers (including QuestBridge scholars) who lack access to scientific research mentorship a path into AI research. Over a four-month program, delivered weekly skill-building lectures and paper-review sessions for 20+ students across 4 teams, guiding them from an initial idea to a submitted paper.",
+    media: [
+      {
+        type: 'image',
+        path: '/extracurriculars/hair/cnn-foundations-lecture.webp',
+        caption: 'Teaching the foundations of convolutional neural networks for medical image analysis',
+        fit: 'contain',
+      },
+      {
+        type: 'image',
+        path: '/extracurriculars/hair/dataset-strategy-lecture.webp',
+        caption: 'Walking fellows through leakage-safe training, validation, and test splits',
+        fit: 'contain',
+      },
+      {
+        type: 'image',
+        path: '/extracurriculars/hair/fellow-introduction.webp',
+        caption: 'Introducing my applied machine learning and research background to the fellowship cohort',
+        fit: 'contain',
+      },
+      {
+        type: 'image',
+        path: '/extracurriculars/hair/medical-ai-lecture.webp',
+        caption: 'Leading a medical AI and computer vision lecture for HAIR fellows',
+        fit: 'contain',
+      },
+    ],
   },
   {
     id: "competitive-programming-club",
