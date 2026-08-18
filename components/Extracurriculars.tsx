@@ -137,11 +137,9 @@ export default function Extracurriculars() {
 
             return (
             <div key={ec.id} data-reveal-item className="h-full">
-              <motion.article
+              <article
                 id={`ec-${ec.id}`}
-                whileHover={{ scale: 1.012, y: -7 }}
-                transition={{ duration: 0.22, ease: "easeOut" }}
-                className="group/card relative flex h-full scroll-mt-28 flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-6 shadow-[0_14px_38px_rgba(15,23,42,0.09)] transition-shadow duration-300 hover:shadow-[0_22px_52px_rgba(15,23,42,0.15)] sm:p-7"
+                className="relative flex h-full scroll-mt-28 flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-6 shadow-[0_14px_38px_rgba(15,23,42,0.09)] sm:p-7"
               >
               <div
                 aria-hidden="true"
@@ -353,7 +351,7 @@ export default function Extracurriculars() {
                   )}
                 </div>
               </div>
-              </motion.article>
+              </article>
             </div>
           );
           })}

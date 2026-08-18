@@ -195,10 +195,10 @@ export const workItems: WorkItem[] = [
     tech: ["Python", "C#", "Unity", "OpenCV", "Machine Learning"],
     mentors: [
       {
-        name: "NM, M.S.",
-        affiliation: "Stanford University",
-        image: "/nolan_pfp.jpeg",
-        credit: "Acknowledgment",
+        name: "Dr. NH",
+        affiliation: "Harvard Medical School",
+        image: "/nouchine_pfp.jpeg",
+        credit: "Mentor",
       },
     ],
     status: "Submitted to JMIR Serious Games",
@@ -306,7 +306,13 @@ export const workItems: WorkItem[] = [
     },
     dates: "March 2026 - Present",
     tech: ["Python"],
-    mentors: [{ name: "ST", affiliation: "Stanford Ph.D. researcher" }],
+    mentors: [
+      {
+        name: "ST",
+        affiliation: "Stanford Ph.D. researcher",
+        image: "/sang_truong_pfp.webp",
+      },
+    ],
     status: "Coauthor",
     description:
       "Coauthored Torch_Measure with ST, a Stanford Ph.D. researcher: a paper and psychometric toolkit that helps researchers identify flawed items in AI evaluation datasets.",
@@ -386,23 +392,6 @@ export const workItems: WorkItem[] = [
     },
   },
   {
-    id: "fake-news-detection",
-    title: "Fake News Detection App",
-    tagline: "AI-powered misinformation detection using NLP",
-    domains: ["Applied ML & Systems", "Civic & Social Good"],
-    tech: ["Python", "Streamlit", "Natural Language Processing", "Neural Networks"],
-    recognition: "Best Presentation Award, Inspirit AI Scholars",
-    description:
-      "Machine learning application using NLP and neural networks to detect fake news articles. Built during the Inspirit AI Scholars program under Stanford alumnus mentorship. Employs confusion matrices to classify news authenticity with high accuracy.",
-    link: "https://inspirit-ai-weekday2-allhands3-fake-news-detection.streamlit.app/",
-    linkLabel: "Try the app",
-    backgroundMedia: {
-      type: "image",
-      src: "/fake_news.png",
-      opacity: 0.1,
-    },
-  },
-  {
     id: "cosmos-2026",
     title: "COSMOS Summer Program at UCLA",
     tagline: "Measuring whether AI theorem provers reason consistently, rather than only whether they succeed",
@@ -415,7 +404,13 @@ export const workItems: WorkItem[] = [
       tone: "blue",
       logoSrc: "/marks/ucla.svg",
     },
-    mentors: [{ name: "Prof. Hugh Tad Blair", affiliation: "UCLA" }],
+    mentors: [
+      {
+        name: "Prof. Hugh Tad Blair",
+        affiliation: "UCLA",
+        image: "/hugh_tad_blair_pfp.webp",
+      },
+    ],
     detailPage: { href: "/activities/cosmos/", label: "Explore the COSMOS research story" },
     description:
       "Working with Professor Hugh Tad Blair, I adapted the Behavioral Consistency Metric to Lean theorem-proving agents. I represented proofs as attribution-based fingerprints of tactics, structure, and errors, then used LightGBM and cosine similarity to test whether those fingerprints captured repeatable reasoning strategies. The method recovered known mutation types in 260,103 APRIL proofs (0.923 macro-F1), found DeepSeek-Prover-V1 substantially more consistent across tasks than a large human Mathlib corpus, and distinguished its proof-writing behavior from Goedel-Prover-SFT across six robustness checks.",
