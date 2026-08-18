@@ -38,13 +38,13 @@ const brandToneStyles: Record<WorkBrand["tone"], string> = {
 };
 
 const brandStickerTilt: Record<WorkBrand["tone"], string> = {
-    blue: "-rotate-[5deg]",
-    cardinal: "-rotate-[7deg]",
-    crimson: "-rotate-[9deg]",
-    gold: "-rotate-[10deg]",
-    indigo: "-rotate-[6deg]",
-    navy: "-rotate-[12deg]",
-    slate: "-rotate-[8deg]",
+    blue: "-rotate-[1deg]",
+    cardinal: "-rotate-[3deg]",
+    crimson: "-rotate-[5deg]",
+    gold: "-rotate-[6deg]",
+    indigo: "-rotate-[2deg]",
+    navy: "-rotate-[8deg]",
+    slate: "-rotate-[4deg]",
 };
 
 const brandArtworkStyles: Record<string, string> = {
@@ -344,6 +344,11 @@ function FeaturedWithFigure({ item }: { item: WorkItem }) {
 
 /** Featured tile for work with no photo available; typography carries it instead. */
 function FeaturedTypographic({ item }: { item: WorkItem }) {
+    const stickerPosition =
+        item.brand?.shortLabel === "MIT"
+            ? "left-2 top-1 h-12 w-[4.5rem] md:left-2 md:top-1 md:h-14 md:w-20"
+            : "left-5 top-6 h-12 w-[4.5rem] md:left-6 md:top-7 md:h-14 md:w-20";
+
     return (
         <article
             className="relative rounded-3xl bg-white shadow-xl border border-slate-200/80 p-7 md:p-9"
@@ -351,7 +356,7 @@ function FeaturedTypographic({ item }: { item: WorkItem }) {
             {item.brand && (
                 <WorkBrandSticker
                     brand={item.brand}
-                    className="left-5 top-6 h-12 w-[4.5rem] md:left-6 md:top-7 md:h-14 md:w-20"
+                    className={stickerPosition}
                 />
             )}
             <FeaturedHeading item={item} />
