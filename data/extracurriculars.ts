@@ -112,6 +112,28 @@ export const extracurriculars: Extracurricular[] = [
     ],
   },
   {
+    id: "cosmos-ucla",
+    title: "COSMOS Summer Program at UCLA",
+    years: "Summer 2026",
+    category: "Research",
+    leadership: "Student Researcher",
+    detailPage: { href: "/activities/cosmos/", label: "Explore the COSMOS research story" },
+    description: "At UCLA COSMOS, I worked with Professor Hugh Tad Blair to study whether AI theorem provers use stable reasoning strategies across different problems, rather than only whether they reach the right answer. I represented Lean proofs as fingerprints of their tactics, structure, and errors, then used machine learning and similarity analysis to compare human and AI proof behavior. The work analyzed 260,103 proofs, validated the fingerprints at 0.923 macro F1, and tested the findings across six robustness checks.",
+    achievements: [
+      "Analyzed 260,103 Lean proof trees",
+      "Validated proof fingerprints at 0.923 macro F1",
+      "Compared human, DeepSeek-Prover-V1, and Goedel-Prover-SFT behavior",
+      "Completed six robustness checks",
+    ],
+    media: [
+      { type: 'image', path: '/gallery/full/cosmos-fountain-group.jpg', thumbnail: '/gallery/thumb/cosmos-fountain-group.jpg', caption: 'COSMOS cohort at UCLA' },
+      { type: 'image', path: '/gallery/full/cosmos-ucla-bruin.jpg', thumbnail: '/gallery/thumb/cosmos-ucla-bruin.jpg', caption: 'COSMOS at UCLA' },
+      { type: 'image', path: '/gallery/full/cosmos-completion.jpg', thumbnail: '/gallery/thumb/cosmos-completion.jpg', caption: 'COSMOS completion ceremony' },
+      { type: 'image', path: '/gallery/full/cosmos-dorm-life.jpg', thumbnail: '/gallery/thumb/cosmos-dorm-life.jpg', caption: 'Dorm life at COSMOS' },
+      { type: 'image', path: '/gallery/full/cosmos-spider-man-night.jpg', thumbnail: '/gallery/thumb/cosmos-spider-man-night.jpg', caption: 'An evening out with the COSMOS cohort' },
+    ],
+  },
+  {
     id: "tech4silvers",
     title: "Tech4Silvers",
     years: "9th, 10th, 11th Grade",
@@ -144,13 +166,15 @@ export const extracurriculars: Extracurricular[] = [
     category: "Service",
     leadership: "Co-Founder",
     detailPage: { href: "/activities/pranam/", label: "Explore the service story" },
-    description: "My brother Naman and I started PraNam in the summer of 2022. Since then, we have collected and donated more than 1,000 items, including 500+ warm clothing items, 600+ eyeframes, and 100+ educational books. We also develop eco-friendly products and help seniors learn to use modern technology. That work led me to start Tech4Silvers as a separate organization focused on digital access. We collaborate with the E-Rotary Club of Silicon Valley on volunteer projects and fundraisers.",
+    description: "My brother Naman and I started PraNam in the summer of 2022 and built it into a network of collection drives, community partners, and practical service projects. We have collected and donated more than 1,000 items, including 500+ warm clothing items, 600+ eyeframes, and 100+ educational books. Working with the Rotary E-Club of Silicon Valley, I also led a 150-pair shoe drive for families in Africa and a warm-clothes drive for students at Kinney High School in Rancho Cordova. That local drive received mayoral recognition, and I spoke about the project at Rancho Cordova City Hall.",
     achievements: [
       "Donated over 1,000 items to underprivileged populations, and counting",
+      "Led a Rotary-partnered drive that sent 150 pairs of shoes to families in Africa",
+      "Received mayoral recognition and spoke at Rancho Cordova City Hall",
       "500+ warm clothing items donated",
       "600+ eyeframes donated",
       "100+ educational books collected and shipped",
-      "Ongoing collaboration with the E-Rotary Club of Silicon Valley on volunteering and fundraisers",
+      "Ongoing collaboration with the Rotary E-Club of Silicon Valley on volunteering and fundraisers",
     ],
     links: [
       {
@@ -164,26 +188,21 @@ export const extracurriculars: Extracurricular[] = [
         path: '/gallery/full/clothing-donation.jpg',
         caption: 'PraNam clothing donation',
       },
-    ],
-  },
-  {
-    // TODO: confirm with Pranil - grade range and time commitment for this role are not in any source data.
-    id: "rotary-eclub",
-    title: "Rotary E-Club of Silicon Valley",
-    category: "Service",
-    leadership: "Project Lead",
-    detailPage: { href: "/activities/pranam/", label: "Explore the service story" },
-    description: "As Project Lead with the Rotary E-Club of Silicon Valley, I ran collection drives with the club, organized under our PraNam initiative. We hosted a shoe drive that donated 150 pairs of shoes and shipped them to homeless families in Africa, and a warm clothes drive for students at Kinney High School in Rancho Cordova that collected 500+ items of clothing. The clothes drive received recognition from the Mayor of the city of Rancho Cordova, and I ended up holding a certificate at Rancho Cordova's City Hall, speaking in front of a crowd about what the drive meant for local families, exactly the kind of spotlight the fifth-grader in the squash court would have done anything to avoid.",
-    achievements: [
-      "Shoe drive: 150 pairs donated and shipped to homeless families in Africa",
-      "Warm clothes drive: 500+ items of clothing donated to students at Kinney High School, Rancho Cordova",
-      "Received recognition from the Mayor of the city of Rancho Cordova",
-    ],
-    media: [
       {
         type: 'image',
         path: '/gallery/full/recognition-ceremony.jpg',
         caption: 'Recognition at Rancho Cordova City Hall',
+      },
+      {
+        type: 'image',
+        path: '/gallery/full/award-presentation.jpg',
+        caption: 'Community recognition for the Rancho Cordova drive',
+      },
+      {
+        type: 'video',
+        path: '/pranil_city_speech.mp4',
+        thumbnail: '/posters/pranil-city-speech.webp',
+        caption: 'Speaking about the clothing drive at Rancho Cordova City Hall',
       },
     ],
   },

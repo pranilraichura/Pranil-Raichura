@@ -164,8 +164,8 @@ export const workItems: WorkItem[] = [
     ],
     publicationMedia: [
       {
-        src: "/work/publication/ieee-access-accepted-status.png",
-        alt: "Full IEEE Access submission portal showing the leakage-safe physics-machine learning manuscript with an accepted status.",
+        src: "/work/publication/ieee-access-accepted-summary.png",
+        alt: "IEEE Access submission portal showing the leakage-safe physics-machine learning manuscript title, accepted status, manuscript ID, and acceptance date.",
         caption: "IEEE Access recorded the manuscript as accepted in August 2026",
       },
     ],

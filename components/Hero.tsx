@@ -370,7 +370,7 @@ export default function Hero() {
                             </li>
                             <li className="flex items-start gap-2">
                                 <span className="text-slate-500 mt-0.5">•</span>
-                                <span className="leading-relaxed"><strong>Service:</strong> Founder of Tech4Silvers, co-founder of PraNam Innovations (1,000+ items donated), Rotary E-Club project lead, serving meals at Placer County shelters most Sundays</span>
+                                <span className="leading-relaxed"><strong>Service:</strong> Founder of Tech4Silvers, co-founder of PraNam Innovations (1,000+ items donated, including Rotary-partnered drives), serving meals at Placer County shelters most Sundays</span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <span className="text-slate-500 mt-0.5">•</span>

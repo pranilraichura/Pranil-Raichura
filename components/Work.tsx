@@ -213,7 +213,7 @@ function WorkDetails({ item }: { item: WorkItem }) {
                                 src={item.publicationMedia[0].src}
                                 alt={item.publicationMedia[0].alt}
                                 width={1580}
-                                height={746}
+                                height={556}
                                 sizes="(min-width: 1024px) 620px, 100vw"
                                 className="h-auto w-full object-contain"
                             />

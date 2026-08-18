@@ -62,8 +62,10 @@ export const serviceActivities = [
     description: "Participated in many service events",
   },
   {
-    title: "Project Lead at Rotary E-Club of Silicon Valley",
+    title: "PraNam Innovations and Initiatives",
+    description: "Co-founded a community service initiative that organizes donation drives with local partners, including the Rotary E-Club of Silicon Valley.",
     activities: [
+      "Collected and donated more than 1,000 items, including warm clothing, eyeframes, and educational books",
       "Hosted a shoe drive - donated 150 pairs of shoes and shipped them to homeless families in Africa",
       "Hosted a warm clothes drive for the students at Kinney High School in Rancho Cordova; we donated 500+ items of clothing",
       "Received recognition from the Mayor of the city of Rancho Cordova",
