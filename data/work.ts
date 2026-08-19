@@ -406,14 +406,14 @@ export const workItems: WorkItem[] = [
     },
     mentors: [
       {
-        name: "Prof. Hugh Tad Blair",
+        name: "Prof. HTB",
         affiliation: "UCLA",
         image: "/hugh_tad_blair_pfp.webp",
       },
     ],
     detailPage: { href: "/activities/cosmos/", label: "Explore the COSMOS research story" },
     description:
-      "Working with Professor Hugh Tad Blair, I adapted the Behavioral Consistency Metric to Lean theorem-proving agents. I represented proofs as attribution-based fingerprints of tactics, structure, and errors, then used LightGBM and cosine similarity to test whether those fingerprints captured repeatable reasoning strategies. The method recovered known mutation types in 260,103 APRIL proofs (0.923 macro-F1), found DeepSeek-Prover-V1 substantially more consistent across tasks than a large human Mathlib corpus, and distinguished its proof-writing behavior from Goedel-Prover-SFT across six robustness checks.",
+      "Working with Prof. HTB, I adapted the Behavioral Consistency Metric to Lean theorem-proving agents. I represented proofs as attribution-based fingerprints of tactics, structure, and errors, then used LightGBM and cosine similarity to test whether those fingerprints captured repeatable reasoning strategies. The method recovered known mutation types in 260,103 APRIL proofs (0.923 macro-F1), found DeepSeek-Prover-V1 substantially more consistent across tasks than a large human Mathlib corpus, and distinguished its proof-writing behavior from Goedel-Prover-SFT across six robustness checks.",
     tech: ["Python", "Lean", "LightGBM", "Machine Learning"],
   },
 ];

@@ -118,7 +118,7 @@ export const extracurriculars: Extracurricular[] = [
     category: "Research",
     leadership: "Student Researcher",
     detailPage: { href: "/activities/cosmos/", label: "Explore the COSMOS research story" },
-    description: "At UCLA COSMOS, I worked with Professor Hugh Tad Blair to study whether AI theorem provers use stable reasoning strategies across different problems, rather than only whether they reach the right answer. I represented Lean proofs as fingerprints of their tactics, structure, and errors, then used machine learning and similarity analysis to compare human and AI proof behavior. The work analyzed 260,103 proofs, validated the fingerprints at 0.923 macro F1, and tested the findings across six robustness checks.",
+    description: "At UCLA COSMOS, I worked with Prof. HTB to study whether AI theorem provers use stable reasoning strategies across different problems, rather than only whether they reach the right answer. I represented Lean proofs as fingerprints of their tactics, structure, and errors, then used machine learning and similarity analysis to compare human and AI proof behavior. The work analyzed 260,103 proofs, validated the fingerprints at 0.923 macro F1, and tested the findings across six robustness checks.",
     achievements: [
       "Analyzed 260,103 Lean proof trees",
       "Validated proof fingerprints at 0.923 macro F1",

@@ -26,9 +26,9 @@ const timelineEvents: TimelineEvent[] = [
         id: "the-shirt",
         title: "The Shirt I Didn’t Earn",
         content: [
-            "For years, I treated effort like a contract: work hard enough and the result would follow.",
-            "I carried that certainty through six months of squash training, expecting to earn the Gold Division shirt at the end. Then I lost the match that would have earned it.",
-            "After that loss, pressure became physical. My palms began to sweat before courts, podiums, and classrooms where the outcome might reveal something about me.",
+            "For years, I treated effort like a contract: set a goal, work hard enough, and the result would follow.",
+            "After six months and 150 hours of squash practice, I expected to earn a Gold Division shirt. Then I lost the match that would have earned it.",
+            "The loss made pressure physical. My palms began to sweat before courts, podiums, and classrooms where the outcome might reveal something about me.",
         ],
         media: {
             type: 'image',
@@ -42,9 +42,9 @@ const timelineEvents: TimelineEvent[] = [
         id: "nowhere-to-hide",
         title: "Nowhere Left to Hide",
         content: [
-            "At UC Irvine’s GSET program, every team had to present. I memorized my part and waited under the stage lights while a teammate spoke first.",
-            "My rehearsed words flowed until they did not. I forgot a section, stumbled through the rest, and sat down convinced that preparation should have guaranteed control.",
-            "I had done the work. Still, the outcome I expected never arrived.",
+            "After the loss, I found ways to lower the stakes: the shared pressure of volleyball and the back of the room during hackathon presentations.",
+            "At UC Irvine’s GSET program, there was nowhere to hide. I memorized my part, walked onstage, and froze halfway through the presentation.",
+            "I had prepared obsessively. Still, the outcome I expected never arrived.",
         ],
         media: {
             type: 'image',
@@ -58,8 +58,8 @@ const timelineEvents: TimelineEvent[] = [
         id: "control",
         title: "What I Could Control",
         content: [
-            "On the ride to the airport, my mom asked a simple question: what did I expect to happen? It brought back an idea I had heard at spiritual gatherings since childhood: I was responsible for my actions, not entitled to their results.",
-            "At first, that sounded like an argument against ambition. Eventually, I understood the distinction. Aspiration asks me to prepare fully. Attachment says the work is worthless unless it produces the exact result I imagined.",
+            "My mom brought me back to a line from the Bhagavad Gita: I had a right to my actions, not to their fruits. At first, that sounded like an argument against ambition.",
+            "Eventually, I understood the distinction. Aspiration asks me to prepare fully. Attachment says the work is worthless unless it produces the exact result I imagined.",
             "My preparation, choices, and response afterward were mine. The score, applause, and final outcome never fully were.",
         ],
         media: {
@@ -74,9 +74,9 @@ const timelineEvents: TimelineEvent[] = [
         id: "practice-in-public",
         title: "Practice in Public",
         content: [
-            "I tested that idea at a Tech4Silvers session in front of a hall of older adults. My palms dampened around the microphone, but I delivered the workshop and stayed for every question.",
-            "Afterward, I sat beside participants as they worked through unfamiliar settings on their phones and laptops. Their hands were tense too.",
-            "Standing up was no longer a test of whether I could eliminate fear. It was a choice to remain useful while feeling it.",
+            "I tested that idea at a Tech4Silvers session for 30 seniors at a local center. My palms dampened around the microphone, but I delivered the workshop and stayed for every question.",
+            "The goal was not to prove that I felt no fear. It was to help the people in front of me. By the next session, 50 more seniors wanted to join.",
+            "Standing up became a choice to remain useful while feeling uncertain.",
         ],
         media: {
             type: 'image',
@@ -90,8 +90,8 @@ const timelineEvents: TimelineEvent[] = [
         id: "the-next-point",
         title: "The Next Point",
         content: [
-            "During a volleyball timeout, I once noticed a teammate’s hand shaking just before he was subbed in. I recognized the feeling immediately.",
-            "Instead of reading the tremor as weakness, I saw how much the moment mattered to him. I encouraged him, and we returned to the court for the next point.",
+            "During a timeout against Jesuit High School, I noticed my teammate Colin’s hand shaking as he waited to be subbed in. I recognized the feeling immediately.",
+            "I told him, “You got this, bro,” and meant it. We won that game and later won the state championship.",
             "My palms still dampen before games and presentations. They just do not decide whether I step forward anymore.",
         ],
         media: {
@@ -496,7 +496,7 @@ export default function StorySection() {
                     ></div>
                     <div className="relative bg-white/85 backdrop-blur-md rounded-2xl p-8 shadow-xl shadow-slate-900/10 border border-slate-200/60">
                         <p className="text-xl text-slate-800 font-medium leading-relaxed font-libre">
-                            I used to think confidence meant knowing I would win. Now it means being willing to act before I know how the story ends. I can master my preparation, choices, and response without pretending to master the outcome. That difference has made me more ambitious, not less.
+                            I still set ambitious goals and prepare hard. The difference is that I no longer treat an outcome as proof that the work mattered. I can own my choices without pretending to own every result.
                         </p>
                         <div className="mt-6">
                             <Link href="/story" className="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 transition-colors">

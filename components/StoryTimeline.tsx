@@ -17,8 +17,8 @@ const timelineEvents: TimelineEvent[] = [
         title: "What I Thought Mastery Meant",
         phase: "Beginning",
         content: [
-            "For most of my childhood, I believed effort and outcomes followed a simple formula. If I worked hard enough, success would arrive.",
-            "That belief made me disciplined, but it also made every result feel like a verdict. When the formula stopped working, I did not know how to separate a failed outcome from a failed self.",
+            "William Ernest Henley’s line in Invictus, “I am the master of my fate: I am the captain of my soul,” made intuitive sense to me. Set a goal, work diligently toward it, and the outcome would follow.",
+            "Through middle school, that formula seemed to work. It made me disciplined, but it also made every result feel like a verdict on who I was.",
         ],
     },
     {
@@ -27,7 +27,7 @@ const timelineEvents: TimelineEvent[] = [
         phase: "Fifth Grade",
         year: "The first rupture",
         content: [
-            "I trained for six months expecting to earn a Squash Gold Division shirt. To me, it was not simply a shirt. It was the promised return on every practice and every hour I had invested.",
+            "After six months and 150 hours of training, I expected to earn a Squash Gold Division shirt. To me, it was not simply a shirt. It was the promised return on every practice and every hour I had invested.",
             "Then I lost the match that would have earned it. The effort was real, but the result I had treated as inevitable never came.",
             "That was the first time I remember pressure becoming physical. My palms began to sweat before situations where other people could watch me fall short.",
         ],
@@ -37,7 +37,7 @@ const timelineEvents: TimelineEvent[] = [
         title: "A Smaller and Smaller Stage",
         phase: "The pattern",
         content: [
-            "The sweating itself was manageable. What followed mattered more: I began steering away from courts, podiums, and the front of classrooms whenever the outcome felt uncertain.",
+            "The sweating itself was manageable. What followed mattered more: I began choosing situations where the pressure could be shared or hidden. Volleyball let six players hold a result together; in hackathons, I stayed behind my teammates when it was time to present.",
             "Avoidance protected me from visible failure, but it also quietly removed every chance to discover that I could survive it.",
         ],
     },
@@ -47,8 +47,8 @@ const timelineEvents: TimelineEvent[] = [
         phase: "UCI GSET",
         year: "Presentation day",
         content: [
-            "At UC Irvine’s GSET program, every team had to present. I memorized my section and repeated it internally while a teammate spoke first.",
-            "When my turn came, the words flowed until they did not. I forgot part of the script, stumbled through the rest, and sat down believing I had wasted all the preparation that came before it.",
+            "At UC Irvine’s GSET program, every team had to present. I memorized my section and repeated it internally while a teammate spoke first. There was no way to retreat into the background.",
+            "When my turn came, the words flowed until they did not. I froze halfway through, forgot part of the script, and stumbled through the rest. I sat down believing I had wasted all the preparation that came before it.",
             "On the ride to the airport, my mom asked what I had expected to happen. I had no answer, but the question stayed with me.",
         ],
     },
@@ -57,7 +57,7 @@ const timelineEvents: TimelineEvent[] = [
         title: "Two Kinds of Control",
         phase: "Reframing",
         content: [
-            "My mom’s question brought back a principle from the Bhagavad Gita that I had heard at spiritual gatherings since childhood: I was responsible for doing the work, but not entitled to its fruits.",
+            "My mom’s question brought back a principle from the Bhagavad Gita that I had heard at spiritual gatherings since childhood: “You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions.”",
             "I once heard that as indifference. Now I understand it as a boundary. Aspiration asks me to prepare seriously; attachment insists that the work only counts if reality returns the exact outcome I imagined.",
             "I could master my preparation, choices, and response without pretending to master the score, applause, or result.",
         ],
@@ -67,9 +67,9 @@ const timelineEvents: TimelineEvent[] = [
         title: "Practice in Public",
         phase: "Tech4Silvers",
         content: [
-            "At a Tech4Silvers workshop, my palms dampened around the microphone in front of a hall of older adults. I delivered the session anyway, then stayed to answer every question.",
-            "While helping participants use their devices afterward, I noticed how tightly some of them held their phones and laptops. They were uncertain too, but they had shown up to learn.",
-            "The goal was no longer to prove that I felt no fear. It was to remain useful while feeling it.",
+            "At a Tech4Silvers workshop, my palms dampened around the microphone in front of 30 seniors. I delivered the session anyway, then stayed to answer every question.",
+            "The goal was no longer to prove that I felt no fear. It was to remain useful while feeling it. By the next session, 50 more seniors wanted to join.",
+            "Once I focused on helping the people in front of me, I had less attention left for what the room might think of me.",
         ],
     },
     {
@@ -77,9 +77,9 @@ const timelineEvents: TimelineEvent[] = [
         title: "The Next Point",
         phase: "Volleyball",
         content: [
-            "During a volleyball timeout, I noticed a teammate’s hand shaking just before he was subbed in. I recognized the feeling, encouraged him, and watched him step onto the court.",
-            "The tremor did not mean he was unprepared. It showed that the moment mattered to him.",
-            "My palms still dampen before games and presentations. They just do not cool me away anymore. Confidence now means acting fully before I know how the story will end.",
+            "During a timeout against Jesuit High School, I noticed my teammate Colin’s hand shaking just before he was subbed in. I recognized the feeling and told him, “You got this, bro.”",
+            "The tremor did not mean he was unprepared. It showed that the moment mattered to him. We won that game and later won the state championship.",
+            "My palms still dampen before games and presentations. They just do not cool me away anymore. I can still aspire fiercely and compete to win without treating success as something effort entitles me to.",
         ],
     },
 ];
@@ -102,7 +102,7 @@ export default function StoryTimeline() {
                     </h1>
                     <div className="w-24 h-1 bg-primary-600 mx-auto mb-6"></div>
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                        How I learned to own my choices without trying to own every outcome.
+                        How a squash loss, a frozen presentation, and the work that followed taught me to own my choices without trying to own every outcome.
                         <br/><span className="text-sm font-medium text-slate-500 mt-2 block">(This is the extended version of the story featured on the homepage.)</span>
                     </p>
                 </motion.div>
@@ -199,10 +199,10 @@ export default function StoryTimeline() {
                 >
                     <div className="inline-block px-8 py-6 rounded-2xl bg-gradient-to-br from-primary-50 to-accent-orange/10 border-2 border-primary-200 shadow-xl">
                         <p className="text-2xl font-semibold text-gray-800 mb-2">
-                            The outcome is still uncertain.
+                            I still set goals. I still work toward them.
                         </p>
                         <p className="text-gray-600">
-                            I am learning to step forward anyway.
+                            Fate was never my part of the bargain. My soul was.
                         </p>
                     </div>
                 </motion.div>

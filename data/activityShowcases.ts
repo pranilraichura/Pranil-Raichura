@@ -70,7 +70,7 @@ export const activityShowcases: ActivityShowcaseDefinition[] = [
       title: "Two provers can reach the same score in very different ways.",
       body: [
         "Success rate hides the route an agent takes. One system may use a repeatable plan across problems while another arrives through a scattered process. I wanted a way to tell those behaviors apart.",
-        "Working with Professor Hugh Tad Blair at UCLA, I adapted the Behavioral Consistency Metric to Lean theorem-proving agents and turned each proof into a fingerprint of its tactics, structure, and errors.",
+        "Working with Prof. HTB at UCLA, I adapted the Behavioral Consistency Metric to Lean theorem-proving agents and turned each proof into a fingerprint of its tactics, structure, and errors.",
       ],
     },
     chapters: [

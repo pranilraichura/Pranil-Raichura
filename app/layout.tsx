@@ -7,6 +7,7 @@ import { LightboxProvider } from "@/components/LightboxContext";
 
 import { FlashlightProvider } from "@/components/FlashlightContext";
 import PasswordProtection from "@/components/PasswordProtection";
+import ScrollRestoration from "@/components/ScrollRestoration";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 const libreBaskerville = Libre_Baskerville({
@@ -52,6 +53,7 @@ export default function RootLayout({
           <LightboxProvider>
             <PasswordProtection>
               <MouseSpotlight />
+              <ScrollRestoration />
               {children}
             </PasswordProtection>
           </LightboxProvider>

@@ -443,7 +443,7 @@ function CondensedRow({ item }: { item: WorkItem }) {
                 onClick={() => setOpen(!open)}
                 aria-expanded={open}
                 aria-controls={panelId}
-                className={`w-full text-left ${item.brand ? "pl-24 md:pl-28" : "pl-7"} pr-5 flex items-center gap-4 hover:bg-[#f8f3eb] transition-all duration-200 ${open ? "pt-6 pb-4 bg-[#f4ede3]" : "py-4"
+                className={`w-full text-left ${item.brand ? "pl-24 md:pl-28" : "pl-7"} pr-5 flex items-center gap-4 bg-white hover:bg-slate-50 transition-colors duration-200 ${open ? "pt-6 pb-4" : "py-4"
                     }`}
             >
                 <div className="flex-1 min-w-0">
