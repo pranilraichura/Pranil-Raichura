@@ -6,7 +6,6 @@ import { LightboxProvider } from "@/components/LightboxContext";
 
 
 import { FlashlightProvider } from "@/components/FlashlightContext";
-import PasswordProtection from "@/components/PasswordProtection";
 import ScrollRestoration from "@/components/ScrollRestoration";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
@@ -51,11 +50,9 @@ export default function RootLayout({
       <body className={`${inter.className} ${libreBaskerville.variable} text-gray-900`}>
         <FlashlightProvider>
           <LightboxProvider>
-            <PasswordProtection>
-              <MouseSpotlight />
-              <ScrollRestoration />
-              {children}
-            </PasswordProtection>
+            <MouseSpotlight />
+            <ScrollRestoration />
+            {children}
           </LightboxProvider>
         </FlashlightProvider>
       </body>
