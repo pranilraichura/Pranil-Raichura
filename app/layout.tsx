@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Inter, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 import MouseSpotlight from "@/components/MouseSpotlight";
@@ -51,7 +52,9 @@ export default function RootLayout({
         <FlashlightProvider>
           <LightboxProvider>
             <MouseSpotlight />
-            <ScrollRestoration />
+            <Suspense fallback={null}>
+              <ScrollRestoration />
+            </Suspense>
             {children}
           </LightboxProvider>
         </FlashlightProvider>
